@@ -2,7 +2,13 @@ Nick Green CMS
 =======================
 
 Author: Nick Green
+<<<<<<< HEAD
 Website: http://nickgreenweb.co.uk/
+=======
+
+Website: http://nickgreenweb.co.uk/
+
+>>>>>>> CMS-1
 E-mail: nick@nickgreenweb.co.uk
 
 What Is This?
