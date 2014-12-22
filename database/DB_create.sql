@@ -186,7 +186,7 @@ SHOW WARNINGS;
 CREATE TABLE IF NOT EXISTS `Page` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NOT NULL,
-  `title` VARCHAR(45) NOT NULL,
+  `title` VARCHAR(45) NULL,
   `parent` VARCHAR(45) NULL DEFAULT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
@@ -410,9 +410,36 @@ ENGINE = InnoDB;
 
 SHOW WARNINGS;
 
+-- -----------------------------------------------------
+-- Table `Config`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `Config` ;
+
+SHOW WARNINGS;
+CREATE TABLE IF NOT EXISTS `Config` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(45) NOT NULL COMMENT '	',
+  `value` VARCHAR(255) NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+SHOW WARNINGS;
+
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+-- -----------------------------------------------------
+-- Data for table `Page`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `cms`;
+INSERT INTO `Page` (`id`, `name`, `title`, `parent`) VALUES (NULL, 'Home', NULL, NULL);
+INSERT INTO `Page` (`id`, `name`, `title`, `parent`) VALUES (NULL, 'About Us', NULL, NULL);
+INSERT INTO `Page` (`id`, `name`, `title`, `parent`) VALUES (NULL, 'Contact Us', NULL, NULL);
+
+COMMIT;
+
 
 -- -----------------------------------------------------
 -- Data for table `SecurityQuestion`
