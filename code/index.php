@@ -1,12 +1,15 @@
 <?php
 namespace Website;
 
-use Components\HTML\Paragraph;
+use Components\HTML\Paragraph,
+	Utils\Log;
+
+error_reporting(E_ALL);
+date_default_timezone_set('Europe/London');
 
 require_once __DIR__ . '/autoload.php';
 $loader = Autoload::getInstance();
-
-error_reporting(E_ALL);
+Log::init(__DIR__ . '/library/Logs/');
 
 	$p = new Paragraph('test p', 'Hello World!');
 	echo $p->toHtml();
