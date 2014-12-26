@@ -18,6 +18,7 @@ CREATE TABLE IF NOT EXISTS `Element` (
   `name` VARCHAR(45) NOT NULL,
   `identifier` VARCHAR(45) NULL,
   `cms_class` VARCHAR(45) NOT NULL,
+  `usable` TINYINT(1) NOT NULL DEFAULT TRUE,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
