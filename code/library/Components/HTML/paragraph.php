@@ -1,7 +1,8 @@
 <?php
 namespace Components\HTML;
 
-use Components\Component;
+use Components\Component,
+	Utils\Log;
 
 /**
  * This class is has been created for the simple HTMl p (paragraph) tag.
@@ -44,6 +45,8 @@ class Paragraph implements Component
 	 */
 	public function __construct($id = NULL, $content = NULL, $elements = array(), $attributes = array())
 	{
+		Log::info('Paragraph element created');
+
 		$this->id = isset($id) ? $id : NULL;
 		$this->elements = isset($elements) ? $elements : NULL;
 		$this->content = isset($content) ? $content : NULL;
@@ -60,6 +63,8 @@ class Paragraph implements Component
 	 */
 	public function toString()
 	{
+		Log::info('Converting paragraph object to string');
+
 		$str = 'ID: ' . $this->id . '.';
 		$str .= '\nElements: ' . (is_array($this->elements) ? implode(', ', $this->elements) : $this->elements) . '.';
 		$str .= '\nContent: ' . (is_array($this->content) ? implode(', ', $this->content) : $this->content) . '.';
@@ -77,6 +82,8 @@ class Paragraph implements Component
 	 */
 	public function toHtml()
 	{
+		Log::info('Converting paragraph object to HTML');
+
 		$html = '<p';
 
 		//Check for an ID
