@@ -11,6 +11,8 @@ require_once __DIR__ . '/autoload.php';
 $loader = Autoload::getInstance();
 Log::init(__DIR__ . '/library/Logs/');
 
-	$p = new Paragraph('test p', 'Hello World!');
+	$p = new Paragraph(null, 'Hello World!');
+	$p->setId('test p');
+
 	echo $p->toHtml();
 ?>
