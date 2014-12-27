@@ -4,6 +4,14 @@ namespace Components\HTML;
 use Components\Component,
 	Utils\Log;
 
+/**
+ * This is an abstract class that should be extended by all HTML object elements. All methods
+ * that should be required have been specified in the component interface and are implemented
+ * within this class. If there is anything that is missing, or a method does not fit into the
+ * pattern, it can be overloaded within its class.
+ *
+ * @author  Nick Green <nick-green@live.co.uk>
+ */
 abstract class HTMLAbstract implements Component
 {
 	/**
