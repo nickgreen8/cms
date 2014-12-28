@@ -52,7 +52,7 @@ final class Autoload
 	 */
 	private function autoload($class)
 	{
-		$file = __DIR__ . '/library/';
+		$file = __DIR__ . '/';
 		$path = explode('\\', $class);
 		$path[count($path) - 1] = strtolower(end($path));
 		switch ($class) {

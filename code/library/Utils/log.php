@@ -18,6 +18,11 @@ class Log
 	const DEBUG = 5;
 
 	/**
+	 * The spacing needed to format the log file
+	 */
+	const LOG_SPACING = PHP_EOL;
+
+	/**
 	 * Instance of this class
 	 * @var object
 	 */
