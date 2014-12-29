@@ -17,6 +17,7 @@ use Components\HTML\Header,
 	Components\HTML\TableRow,
 	Components\HTML\TableHeading,
 	Components\HTML\TableCell,
+	Components\HTML\Anchor,
 	Utils\Log;
 
 error_reporting(E_ALL);
@@ -55,6 +56,7 @@ Log::init(__DIR__ . '/library/Logs/');
 	$s->addElement($h3);
 	$s->addElement($ol);
 	$a->addElement($table);
+	$a->addElement(new Paragraph(array('Click Here: ', new Anchor('Broken Link', 'brokenLink'), ' or ', new Anchor('BBC', null, array(), array('href' => 'http://www.bbc.co.uk/')))));
 	$table->addElement($thead);
 	$table->addElement($tbody);
 	$thead->addElement($row1);
