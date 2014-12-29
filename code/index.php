@@ -9,6 +9,7 @@ use Components\HTML\Header,
 	Components\HTML\Heading,
 	Components\HTML\Paragraph,
 	Components\HTML\UnorderedList,
+	Components\HTML\OrderedList,
 	Utils\Log;
 
 error_reporting(E_ALL);
@@ -23,14 +24,20 @@ Log::init(__DIR__ . '/library/Logs/');
 	$s = new Section($a);
 	$f = new Footer(new Paragraph('Copyright'));
 	$h1 = new Heading(1, 'Hello World!');
+	$h2 = new Heading(2, 'Unordered List');
+	$h3 = new Heading(3, 'Ordered List');
 	$p = new Paragraph('of adding content in the form of an array.');
 	$ul = new UnorderedList();
+	$ol = new OrderedList();
 
 	$p->setId('test p');
 
 	$h->addElement($h1);
 	$a->addElement($p);
+	$s->addElement($h2);
 	$s->addElement($ul);
+	$s->addElement($h3);
+	$s->addElement($ol);
 
 	echo $h->toHtml();
 	echo $s->toHtml();
