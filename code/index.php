@@ -24,6 +24,7 @@ use Components\HTML\Header,
 	Components\HTML\Input,
 	Components\HTML\Select,
 	Components\HTML\Option,
+	Components\HTML\Button,
 	Utils\Log;
 
 error_reporting(E_ALL);
@@ -56,12 +57,17 @@ Log::init(__DIR__ . '/library/Logs/');
 	$input = new Input('name', array('type' => 'text', 'value' => 'test'));
 	$select = new Select(null, 'test', array(), array('name' => 'test'));
 	$option = new Option('test 1', 'test1', array(), array('value' => '1'));
+	$button = new Button('Button', null, array(), array('type' => 'button'));
 
 	$items = array(new ListItem('Item 1'), new ListItem('Item 2'), new ListItem('Item 3'));
 	$cells = array(new TableCell('cell 1'), $cell, new TableCell('cell 3'));
 	$options = array($option, new Option('test 2', 'test2', array(), array()), new Option('test 3', 'test3', array(), array('value' => '3')));
 
 	$p->setId('test p');
+
+	$ul->setElements($items);
+	$ol->setElements($items);
+	$row2->setElements($cells);
 
 	$h->addElement($h1);
 	$a->addElement($p);
@@ -91,11 +97,9 @@ Log::init(__DIR__ . '/library/Logs/');
 	$fieldset->addElement(new Input('username', array('type' => 'password', 'name' => 'username', 'value' => 'test')));
 	$fieldset->addElement($select);
 	$fieldset->addElement(new Select(null, 'select', array(), array()));
-
-	$ul->setElements($items);
-	$ol->setElements($items);
-	$row2->setElements($cells);
-	$select->setElements($options);
+	$fieldset->addElement($button);
+	$fieldset->addElement(new Button('Reset', null, array(), array('type' => 'reset')));
+	$fieldset->addElement(new Button('Submit', null, array(), array()));
 
 	echo $h->toHtml();
 	echo $s->toHtml();
