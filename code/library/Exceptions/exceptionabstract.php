@@ -13,7 +13,9 @@ abstract class ExceptionAbstract extends \Exception
 	protected function log()
 	{
 		//Write to log
-		$message = sprintf('%s%s        File:  %s%s        Line:  %s%s        Trace: %s',
+		$message = sprintf('Exception Thrown:  %s%s        Message:  %s%s        File:     %s%s        Line:     %s%s        Trace:    %s',
+							str_replace('Exceptions\\', '', get_class($this)),
+							Log::LOG_SPACING,
 							$this->getMessage(),
 							Log::LOG_SPACING,
 							$this->getFile(),

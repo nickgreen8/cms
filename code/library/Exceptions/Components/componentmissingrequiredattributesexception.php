@@ -1,7 +1,8 @@
 <?php
 namespace Exceptions\Components;
 
-use Exceptions\ExceptionAbstract;
+use Exceptions\ExceptionAbstract,
+	Utils\Log;
 
 class ComponentMissingRequiredAttributesException extends ExceptionAbstract
 {

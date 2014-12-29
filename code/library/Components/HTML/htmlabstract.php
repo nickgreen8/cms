@@ -2,6 +2,7 @@
 namespace Components\HTML;
 
 use Components\Component,
+	Exceptions\Components\ComponentMissingRequiredAttributesException,
 	Utils\Log;
 
 /**
@@ -100,6 +101,8 @@ abstract class HTMLAbstract implements Component
 			$html .= ' id="' . str_replace(' ', '_', $this->id) . '"';
 		}
 
+		//Check the element for reqired attributes
+		$this->validateAttributes();
 		//Add any attributes
 		foreach ($this->attributes as $key => $val) {
 			$html .= ' ' . $key . '="' . $val . '"';
@@ -109,8 +112,6 @@ abstract class HTMLAbstract implements Component
 
 		//Check for internal elements
 		if (is_array($this->elements) && count($this->elements) > 0) {
-
-
 			//Build the HTML
 			foreach ($this->elements as $element) {
 				//Check if the content is just a sub class
@@ -130,6 +131,40 @@ abstract class HTMLAbstract implements Component
 		}
 
 		return $html . '</' . $this->data['tag'] . '>';
+	}
+
+	/**
+	 * This function is used to check that any required parameters were set in the
+	 * element.
+	 *
+	 * @return bool Indicates whether there was an error or not
+	 */
+	private function validateAttributes()
+	{
+		//Missing attributes array
+		$missing = array();
+
+		//Check to see if an ID is required
+		if (in_array('id', $this->reqAtts) && (!isset($this->id) || trim($this->id) === '')) {
+			array_push($missing, 'ID');
+		}
+
+		//Check each reqired element
+		foreach ($this->reqAtts as $val) {
+			if ($val !== 'id' && !array_key_exists($val, $this->attributes)) {
+				array_push($missing, ucwords($val));
+			}
+		}
+
+		//Check for error
+		try {
+			if (count($missing) > 0) {
+				throw new ComponentMissingRequiredAttributesException(sprintf('%s element missing the following attributes: %s', ucwords(get_class($this)), implode(', ', $missing)));
+			}
+			return true;
+		} catch (ComponentMissingRequiredAttributesException $e) {
+			return false;
+		}
 	}
 
 	/**

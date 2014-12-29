@@ -12,6 +12,12 @@ use Components\HTML\HTMLAbstract,
 class Paragraph extends HTMLAbstract
 {
 	/**
+	 * A list of the required attributes for this element.
+	 * @var array
+	 */
+	protected $reqAtts = array();
+
+	/**
 	 * Default constructor for the class.
 	 *
 	 * @param string $id        The ID of the element.

@@ -2,10 +2,7 @@
 namespace Website;
 
 use Components\HTML\Paragraph,
-	Utils\Log,
-	Exceptions\Components\ComponentNotFoundException,
-	Exceptions\Components\ClassNotFoundException,
-	Exceptions\Components\UnableToOpenFileException;
+	Utils\Log;
 
 error_reporting(E_ALL);
 date_default_timezone_set('Europe/London');
@@ -18,16 +15,3 @@ Log::init(__DIR__ . '/library/Logs/');
 	$p->setId('test p');
 
 	echo $p->toHtml();
-
-try {
-	throw new ComponentMissingRequiredAttributesException('Error', Log::ERROR);
-} catch (ComponentNotFoundException $e) {
-    echo 'Caught exception: ',  $e->getMessage(), "\n";
-} catch (ClassNotFoundException $e) {
-    echo 'Caught exception: ',  $e->getMessage(), "\n";
-} catch (UnableToOpenFileException $e) {
-    echo 'Caught exception: ',  $e->getMessage(), "\n";
-} catch (ComponentMissingRequiredAttributesException $e) {
-    echo 'Caught exception: ',  $e->getMessage(), "\n";
-}
-?>
