@@ -76,10 +76,51 @@ abstract class HTMLAbstract implements Component
 	{
 		Log::info(sprintf('Converting %s object to string', $this->data['name']));
 
-		$str = 'ID: ' . $this->id . '.';
-		$str .= ' Elements: ' . (is_array($this->elements) ? implode(', ', $this->elements) : $this->elements) . '.';
-		$str .= ' Content: ' . (is_array($this->content) ? implode(', ', $this->content) : $this->content) . '.';
-		$str .= ' Attributes: ' . (is_array($this->attributes) ? implode(', ', $this->attributes) : $this->attributes) . '.';
+		$str = '';
+
+		if ($this->id !== NULL) {
+			$str .= '    ID: ' . $this->id . '.\r\n';
+		}
+
+		if (count($this->elements) > 0) {
+			$str .= '    Elements:\r\n';
+			foreach ($this->elements as $element) {
+				if (is_object($element)) {
+					$str .= $element->toString();
+				} else {
+					$str .= $element;
+				}
+			}
+			$str .= '\r\n';
+		}
+
+		if ($this->content !== NULL || (is_array($this->content) && count($this->content) > 0)) {
+			$str .= '    Content: ';
+			if (is_array($this->content)){
+				foreach ($this->content as $item) {
+					$str .= '\r\n';
+					if (is_object($item)) {
+						$str .= $item->toString();
+					} else {
+						$str .= $item;
+					}
+
+				}
+			} elseif (is_object($this->content)) {
+				$str .= $this->content->toString();
+			} else {
+				$str .= $this->content;
+			}
+			$str .= '\r\n';
+		}
+
+		if (count($this->attributes) > 0) {
+			$str .= '    Attributes: ';
+			foreach ($this->attributes as $key => $val) {
+				$str .= $key . '=' . (is_array($val) ? implode(', ', $val) : $val) . ', ';
+			}
+			$str = trim($str, ', ');
+		}
 
 		return $str;
 	}
