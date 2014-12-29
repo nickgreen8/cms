@@ -296,7 +296,11 @@ abstract class HTMLAbstract implements Component
 
 		//Check for content
 		if ($this->getContent() !== NULL) {
-			array_push($this->elements, $this->getContent());
+			if (is_array($this->getContent())) {
+				$this->elements = array_merge($this->elements, $this->getContent());
+			} else {
+				array_push($this->elements, $this->getContent());
+			}
 			$this->setContent(NULL);
 		}
 
