@@ -3,6 +3,7 @@ namespace Components\HTML;
 
 use Components\Component,
 	Exceptions\Components\ComponentMissingRequiredAttributesException,
+	Exceptions\Components\AttributeInvalidException,
 	Utils\Log;
 
 /**
@@ -303,7 +304,16 @@ abstract class HTMLAbstract implements Component
 	public function addAttribute(array $attribute)
 	{
 		Log::notice(sprintf('Adding attribute: %s = %s', key($attribute), implode(', ', $attribute)));
-		$this->attributes = array_merge($this->attributes, $attribute);
+
+		try {
+			//Check for a key as well as a value
+			if (is_numeric(key($attribute))) {
+				throw new AttributeInvalidException(sprintf('Attribute has no key%s', isset($attribute) ? ' (' . implode(', ', $attribute) . ')' : ''));
+			}
+
+			$this->attributes = array_merge($this->attributes, $attribute);
+		} catch (AttributeInvalidException $e) {}
+
 		return $this->attributes;
 	}
 }

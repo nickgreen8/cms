@@ -13,5 +13,6 @@ Log::init(__DIR__ . '/library/Logs/');
 
 	$p = new Paragraph(null, 'Hello World!');
 	$p->setId('test p');
+	$p->addAttribute(array('test'));
 
 	echo $p->toHtml();
