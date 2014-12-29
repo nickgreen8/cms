@@ -22,6 +22,7 @@ use Components\HTML\Header,
 	Components\HTML\Form,
 	Components\HTML\Fieldset,
 	Components\HTML\Input,
+	Components\HTML\Select,
 	Utils\Log;
 
 error_reporting(E_ALL);
@@ -52,6 +53,7 @@ Log::init(__DIR__ . '/library/Logs/');
 	$form = new Form(null, 'testForm', array(), array('method' => 'post', 'action' => '#', 'enctype' => 'multipart/form-data'));
 	$fieldset = new Fieldset();
 	$input = new Input('name', array('type' => 'text', 'value' => 'test'));
+	$select = new Select(null, 'test', array(), array('name' => 'test'));
 
 	$items = array(new ListItem('Item 1'), new ListItem('Item 2'), new ListItem('Item 3'));
 	$cells = array(new TableCell('cell 1'), $cell, new TableCell('cell 3'));
@@ -84,6 +86,8 @@ Log::init(__DIR__ . '/library/Logs/');
 	$fieldset->addElement($input);
 	$fieldset->addElement(new Input('username', array('name' => 'username', 'value' => 'test')));
 	$fieldset->addElement(new Input('username', array('type' => 'password', 'name' => 'username', 'value' => 'test')));
+	$fieldset->addElement($select);
+	$fieldset->addElement(new Select(null, 'select', array(), array()));
 
 	$ul->setElements($items);
 	$ol->setElements($items);
