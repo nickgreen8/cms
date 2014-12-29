@@ -13,6 +13,7 @@ use Components\HTML\Header,
 	Components\HTML\ListItem,
 	Components\HTML\Table,
 	Components\HTML\TableHeader,
+	Components\HTML\TableBody,
 	Utils\Log;
 
 error_reporting(E_ALL);
@@ -34,6 +35,7 @@ Log::init(__DIR__ . '/library/Logs/');
 	$ol = new OrderedList();
 	$table = new Table();
 	$thead = new TableHeader();
+	$tbody = new TableBody();
 
 	$items = array(new ListItem('Item 1'), new ListItem('Item 2'), new ListItem('Item 3'));
 
@@ -47,6 +49,7 @@ Log::init(__DIR__ . '/library/Logs/');
 	$s->addElement($ol);
 	$a->addElement($table);
 	$table->addElement($thead);
+	$table->addElement($tbody);
 
 	$ul->setElements($items);
 	$ol->setElements($items);
