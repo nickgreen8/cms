@@ -25,6 +25,7 @@ use Components\HTML\Header,
 	Components\HTML\Select,
 	Components\HTML\Option,
 	Components\HTML\Button,
+	Components\HTML\PageBreak,
 	Utils\Log;
 
 error_reporting(E_ALL);
@@ -100,6 +101,7 @@ Log::init(__DIR__ . '/library/Logs/');
 	$fieldset->addElement($button);
 	$fieldset->addElement(new Button('Reset', null, array(), array('type' => 'reset')));
 	$fieldset->addElement(new Button('Submit', null, array(), array()));
+	$s->addElement(new Paragraph(array('Line 1', new PageBreak(), 'Line 2')));
 
 	echo $h->toHtml();
 	echo $s->toHtml();
