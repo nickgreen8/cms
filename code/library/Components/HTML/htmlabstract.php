@@ -126,6 +126,15 @@ abstract class HTMLAbstract implements Component
 			//Check if the content is just a sub class
 			if (is_object($this->content)) {
 				$html .= $this->content->toHtml();
+			} elseif (is_array($this->content)) {
+				foreach ($this->content as $element) {
+					//Check if the content is just a sub class
+					if (is_object($element)) {
+						$html .= $element->toHtml();
+					} else {
+						$html .= $element;
+					}
+				}
 			} else {
 				$html .= $this->content;
 			}
