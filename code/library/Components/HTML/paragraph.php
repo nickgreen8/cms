@@ -25,13 +25,13 @@ class Paragraph extends HTMLAbstract
 	 * @param array $elements   Array of other elements making up the overall element
 	 * @param array $attributes Array of element attributes
 	 */
-	public function __construct($id = NULL, $content = NULL, $elements = array(), $attributes = array())
+	public function __construct($content = NULL, $id = NULL, $elements = array(), $attributes = array())
 	{
 		Log::info('Initilising paragraph element');
 		$this->data = array(
 			'name'	=>	'paragraph',
 			'tag'	=>	'p'
 		);
-		parent::__construct($id, $content, $elements, $attributes);
+		parent::__construct($content, $id, $elements, $attributes);
 	}
 }

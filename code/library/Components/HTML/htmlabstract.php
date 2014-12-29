@@ -54,7 +54,7 @@ abstract class HTMLAbstract implements Component
 	 * @param array $elements   Array of other elements making up the overall element
 	 * @param array $attributes Array of element attributes
 	 */
-	public function __construct($id, $content, $elements, $attributes)
+	public function __construct($content, $id, $elements, $attributes)
 	{
 		Log::info(ucwords($this->data['name']) . ' element created');
 

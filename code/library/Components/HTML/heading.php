@@ -26,13 +26,13 @@ class Heading extends HTMLAbstract
 	 * @param array  $elements   Array of other elements making up the overall element
 	 * @param array  $attributes Array of element attributes
 	 */
-	public function __construct($level, $id = NULL, $content = NULL, $elements = array(), $attributes = array())
+	public function __construct($level, $content = NULL, $id = NULL, $elements = array(), $attributes = array())
 	{
 		Log::info(sprintf('Initilising heading (h%n) element', $level));
 		$this->data = array(
 			'name'	=>	'heading',
 			'tag'	=>	'h' . $level
 		);
-		parent::__construct($id, $content, $elements, $attributes);
+		parent::__construct($content, $id, $elements, $attributes);
 	}
 }
