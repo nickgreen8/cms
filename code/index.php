@@ -10,6 +10,7 @@ use Components\HTML\Header,
 	Components\HTML\Paragraph,
 	Components\HTML\UnorderedList,
 	Components\HTML\OrderedList,
+	Components\HTML\ListItem,
 	Utils\Log;
 
 error_reporting(E_ALL);
@@ -30,6 +31,8 @@ Log::init(__DIR__ . '/library/Logs/');
 	$ul = new UnorderedList();
 	$ol = new OrderedList();
 
+	$items = array(new ListItem('Item 1'), new ListItem('Item 2'), new ListItem('Item 3'));
+
 	$p->setId('test p');
 
 	$h->addElement($h1);
@@ -38,6 +41,8 @@ Log::init(__DIR__ . '/library/Logs/');
 	$s->addElement($ul);
 	$s->addElement($h3);
 	$s->addElement($ol);
+	$ul->setElements($items);
+	$ol->setElements($items);
 
 	echo $h->toHtml();
 	echo $s->toHtml();
