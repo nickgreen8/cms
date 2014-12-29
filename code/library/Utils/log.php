@@ -68,11 +68,13 @@ class Log
 			mkdir($directory, 0777, true);
 		}
 
-		//Check the files exists
-		if (false === self::$file = fopen($directory . $filename, 'a')) {
-			throw new Exception('Could not create log file!');
-		}
-		return self::$file;
+		try {
+			//Check the files exists
+			if (false === self::$file = fopen($directory . $filename, 'a')) {
+				throw new UnableToOpenFileException('Could not create log file!');
+			}
+			return self::$file;
+		} catch (UnableToOpenFileException $e) {}
 	}
 
 	private static function writeToFile($cat, $msg)
