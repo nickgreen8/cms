@@ -1,7 +1,8 @@
 <?php
 namespace Website;
 
-use Components\HTML\Paragraph,
+use Components\HTML\Heading,
+	Components\HTML\Paragraph,
 	Utils\Log;
 
 error_reporting(E_ALL);
@@ -11,8 +12,9 @@ require_once __DIR__ . '/library/autoload.php';
 $loader = Autoload::getInstance();
 Log::init(__DIR__ . '/library/Logs/');
 
-	$p = new Paragraph(null, 'Hello World!');
+	$h = new Heading(1, null, 'Hello World!');
+	$p = new Paragraph(null, 'This is a test');
 	$p->setId('test p');
-	$p->addAttribute(array('test'));
 
+	echo $h->toHtml();
 	echo $p->toHtml();

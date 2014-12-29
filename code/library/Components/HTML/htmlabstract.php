@@ -74,7 +74,7 @@ abstract class HTMLAbstract implements Component
 	 */
 	public function toString()
 	{
-		Log::info('Converting ' . $this->data['name'] . ' object to string');
+		Log::info(sprintf('Converting %s object to string', $this->data['name']));
 
 		$str = 'ID: ' . $this->id . '.';
 		$str .= ' Elements: ' . (is_array($this->elements) ? implode(', ', $this->elements) : $this->elements) . '.';
@@ -93,7 +93,7 @@ abstract class HTMLAbstract implements Component
 	 */
 	public function toHtml()
 	{
-		Log::info('Converting paragraph object to HTML');
+		Log::info(sprintf('Converting %s object to HTML', $this->data['name']));
 
 		$html = '<' . $this->data['tag'];
 
