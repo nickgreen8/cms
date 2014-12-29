@@ -23,6 +23,7 @@ use Components\HTML\Header,
 	Components\HTML\Fieldset,
 	Components\HTML\Input,
 	Components\HTML\Select,
+	Components\HTML\Option,
 	Utils\Log;
 
 error_reporting(E_ALL);
@@ -54,9 +55,11 @@ Log::init(__DIR__ . '/library/Logs/');
 	$fieldset = new Fieldset();
 	$input = new Input('name', array('type' => 'text', 'value' => 'test'));
 	$select = new Select(null, 'test', array(), array('name' => 'test'));
+	$option = new Option('test 1', 'test1', array(), array('value' => '1'));
 
 	$items = array(new ListItem('Item 1'), new ListItem('Item 2'), new ListItem('Item 3'));
 	$cells = array(new TableCell('cell 1'), $cell, new TableCell('cell 3'));
+	$options = array($option, new Option('test 2', 'test2', array(), array()), new Option('test 3', 'test3', array(), array('value' => '3')));
 
 	$p->setId('test p');
 
@@ -92,6 +95,7 @@ Log::init(__DIR__ . '/library/Logs/');
 	$ul->setElements($items);
 	$ol->setElements($items);
 	$row2->setElements($cells);
+	$select->setElements($options);
 
 	echo $h->toHtml();
 	echo $s->toHtml();
