@@ -16,6 +16,7 @@ use Components\HTML\Header,
 	Components\HTML\TableBody,
 	Components\HTML\TableRow,
 	Components\HTML\TableHeading,
+	Components\HTML\TableCell,
 	Utils\Log;
 
 error_reporting(E_ALL);
@@ -40,8 +41,10 @@ Log::init(__DIR__ . '/library/Logs/');
 	$tbody = new TableBody();
 	$row1 = new TableRow(new TableHeading('heading 1', null, array(), array('rowspan' => '2')));
 	$row2 = new TableRow();
+	$cell = new TableCell('cell 2', null, array(), array('colspan' => '2'));
 
 	$items = array(new ListItem('Item 1'), new ListItem('Item 2'), new ListItem('Item 3'));
+	$cells = array(new TableCell('cell 1'), $cell, new TableCell('cell 3'));
 
 	$p->setId('test p');
 
@@ -55,6 +58,7 @@ Log::init(__DIR__ . '/library/Logs/');
 	$table->addElement($thead);
 	$table->addElement($tbody);
 	$thead->addElement($row1);
+	$thead->addElement(new TableRow(new TableCell('Sub heading', null, array(), array('colspan' => '3'))));
 	$tbody->addElement($row2);
 	$row1->addElement(new TableHeading('heading 2'));
 	$row1->addElement(new TableHeading('heading 3'));
@@ -62,6 +66,7 @@ Log::init(__DIR__ . '/library/Logs/');
 
 	$ul->setElements($items);
 	$ol->setElements($items);
+	$row2->setElements($cells);
 
 	echo $h->toHtml();
 	echo $s->toHtml();
