@@ -18,6 +18,7 @@ use Components\HTML\Header,
 	Components\HTML\TableHeading,
 	Components\HTML\TableCell,
 	Components\HTML\Anchor,
+	Components\HTML\Image,
 	Utils\Log;
 
 error_reporting(E_ALL);
@@ -43,6 +44,8 @@ Log::init(__DIR__ . '/library/Logs/');
 	$row1 = new TableRow(new TableHeading('heading 1', null, array(), array('rowspan' => '2')));
 	$row2 = new TableRow();
 	$cell = new TableCell('cell 2', null, array(), array('colspan' => '2'));
+	$image1 = new Image(null, array('src' => 'http://nickgreenweb.co.uk/media/images/logo.png', 'style' => 'width: 100px; height: auto;'));
+	$image2 = new Image(null, array('alt' => 'Test', 'style' => 'width: 100px; height: auto;'));
 
 	$items = array(new ListItem('Item 1'), new ListItem('Item 2'), new ListItem('Item 3'));
 	$cells = array(new TableCell('cell 1'), $cell, new TableCell('cell 3'));
@@ -57,6 +60,10 @@ Log::init(__DIR__ . '/library/Logs/');
 	$s->addElement($ol);
 	$a->addElement($table);
 	$a->addElement(new Paragraph(array('Click Here: ', new Anchor('Broken Link', 'brokenLink'), ' or ', new Anchor('BBC', null, array(), array('href' => 'http://www.bbc.co.uk/')))));
+	$a->addElement($image1);
+	$a->addElement(new Image(null, array('style' => 'width: 100px; height: auto;')));
+	$a->addElement($image2);
+	$a->addElement(new Image('logo', array('src' => 'http://nickgreenweb.co.uk/media/images/logo.png', 'alt' => 'Test', 'style' => 'width: 100px; height: auto;')));
 	$table->addElement($thead);
 	$table->addElement($tbody);
 	$thead->addElement($row1);

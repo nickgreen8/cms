@@ -190,7 +190,7 @@ abstract class HTMLAbstract implements Component
 	 *
 	 * @return bool Indicates whether there was an error or not
 	 */
-	private function validateAttributes()
+	protected function validateAttributes()
 	{
 		//Missing attributes array
 		$missing = array();
