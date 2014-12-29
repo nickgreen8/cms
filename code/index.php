@@ -26,6 +26,7 @@ use Components\HTML\Header,
 	Components\HTML\Option,
 	Components\HTML\Button,
 	Components\HTML\PageBreak,
+	Components\HTML\HorizontalRule,
 	Utils\Log;
 
 error_reporting(E_ALL);
@@ -72,6 +73,7 @@ Log::init(__DIR__ . '/library/Logs/');
 
 	$h->addElement($h1);
 	$a->addElement($p);
+	$s->addElement(new HorizontalRule());
 	$s->addElement($h2);
 	$s->addElement($ul);
 	$s->addElement($h3);
