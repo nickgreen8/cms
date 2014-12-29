@@ -5,6 +5,7 @@ use Components\HTML\Header,
 	Components\HTML\Footer,
 	Components\HTML\Section,
 	Components\HTML\Article,
+	Components\HTML\Div,
 	Components\HTML\Heading,
 	Components\HTML\Paragraph,
 	Utils\Log;
@@ -17,7 +18,7 @@ $loader = Autoload::getInstance();
 Log::init(__DIR__ . '/library/Logs/');
 
 	$h = new Header();
-	$a = new Article(new Paragraph('This is a test'));
+	$a = new Article(new Div(new Paragraph('This is a test'), 'testDiv'));
 	$s = new Section($a);
 	$f = new Footer(new Paragraph('Copyright'));
 	$h1 = new Heading(1, 'Hello World!');
