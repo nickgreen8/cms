@@ -57,7 +57,7 @@ class Button extends HTMLAbstract
 		if (!isset($this->attributes['type']) || !in_array($this->attributes['type'], $this->types)) {
 			//Check for error
 			try {
-				throw new ComponentMissingRequiredAttributesException(sprintf('Button type is not in the following: ', implode(', ', $this->types)));
+				throw new ComponentMissingRequiredAttributesException(sprintf('Button type is not in the following: %s', implode(', ', $this->types)));
 			} catch (ComponentMissingRequiredAttributesException $e) {}
 		}
 		parent::validateAttributes();

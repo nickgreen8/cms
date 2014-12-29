@@ -19,6 +19,16 @@ class Form extends HTMLAbstract
 	protected $reqAtts = array('method', 'action', 'enctype');
 
 	/**
+	 * A list of possible form types
+	 * @var array
+	 */
+	private $types = array(
+		'multipart/form-data',
+		'application/x-www-form-urlencoded',
+		'text/plain'
+	);
+
+	/**
 	 * Default constructor for the class.
 	 *
 	 * @param mixed  $content    The content of the class. Can be string or an array.
@@ -46,10 +56,10 @@ class Form extends HTMLAbstract
 	protected function validateAttributes()
 	{
 		//Check for encryption type
-		if (!isset($this->attributes['enctype']) || !in_array($this->attributes['enctype'], array('multipart/form-data', 'application/x-www-form-urlencoded', 'text/plain'))) {
+		if (!isset($this->attributes['enctype']) || !in_array($this->attributes['enctype'], $this->types)) {
 			//Check for error
 			try {
-				throw new ComponentMissingRequiredAttributesException('Form encryption type is not: multipart/form-data, application/x-www-form-urlencoded or text/plain');
+				throw new ComponentMissingRequiredAttributesException(sprintf('Form encryption type is not in: %s', implode(', ', $this->types)));
 			} catch (ComponentMissingRequiredAttributesException $e) {}
 		}
 		parent::validateAttributes();
