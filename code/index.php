@@ -14,6 +14,7 @@ use Components\HTML\Header,
 	Components\HTML\Table,
 	Components\HTML\TableHeader,
 	Components\HTML\TableBody,
+	Components\HTML\TableRow,
 	Utils\Log;
 
 error_reporting(E_ALL);
@@ -36,6 +37,8 @@ Log::init(__DIR__ . '/library/Logs/');
 	$table = new Table();
 	$thead = new TableHeader();
 	$tbody = new TableBody();
+	$row1 = new TableRow();
+	$row2 = new TableRow();
 
 	$items = array(new ListItem('Item 1'), new ListItem('Item 2'), new ListItem('Item 3'));
 
@@ -50,6 +53,8 @@ Log::init(__DIR__ . '/library/Logs/');
 	$a->addElement($table);
 	$table->addElement($thead);
 	$table->addElement($tbody);
+	$thead->addElement($row1);
+	$tbody->addElement($row2);
 
 	$ul->setElements($items);
 	$ol->setElements($items);
