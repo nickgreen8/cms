@@ -8,6 +8,7 @@ use Components\HTML\Header,
 	Components\HTML\Div,
 	Components\HTML\Heading,
 	Components\HTML\Paragraph,
+	Components\HTML\UnorderedList,
 	Utils\Log;
 
 error_reporting(E_ALL);
@@ -23,10 +24,13 @@ Log::init(__DIR__ . '/library/Logs/');
 	$f = new Footer(new Paragraph('Copyright'));
 	$h1 = new Heading(1, 'Hello World!');
 	$p = new Paragraph('of adding content in the form of an array.');
+	$ul = new UnorderedList();
 
 	$p->setId('test p');
+
 	$h->addElement($h1);
 	$a->addElement($p);
+	$s->addElement($ul);
 
 	echo $h->toHtml();
 	echo $s->toHtml();
