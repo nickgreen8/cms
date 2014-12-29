@@ -11,6 +11,7 @@ use Components\HTML\Header,
 	Components\HTML\UnorderedList,
 	Components\HTML\OrderedList,
 	Components\HTML\ListItem,
+	Components\HTML\Table,
 	Utils\Log;
 
 error_reporting(E_ALL);
@@ -30,6 +31,7 @@ Log::init(__DIR__ . '/library/Logs/');
 	$p = new Paragraph('of adding content in the form of an array.');
 	$ul = new UnorderedList();
 	$ol = new OrderedList();
+	$table = new Table();
 
 	$items = array(new ListItem('Item 1'), new ListItem('Item 2'), new ListItem('Item 3'));
 
@@ -41,6 +43,8 @@ Log::init(__DIR__ . '/library/Logs/');
 	$s->addElement($ul);
 	$s->addElement($h3);
 	$s->addElement($ol);
+	$a->addElement($table);
+
 	$ul->setElements($items);
 	$ol->setElements($items);
 
