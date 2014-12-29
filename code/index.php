@@ -4,6 +4,7 @@ namespace Website;
 use Components\HTML\Header,
 	Components\HTML\Footer,
 	Components\HTML\Section,
+	Components\HTML\Article,
 	Components\HTML\Heading,
 	Components\HTML\Paragraph,
 	Utils\Log;
@@ -16,14 +17,15 @@ $loader = Autoload::getInstance();
 Log::init(__DIR__ . '/library/Logs/');
 
 	$h = new Header();
-	$s = new Section(array('This is a test: ', new Paragraph('of adding content in the form of an array.')));
+	$a = new Article(new Paragraph('This is a test'));
+	$s = new Section($a);
 	$f = new Footer(new Paragraph('Copyright'));
 	$h1 = new Heading(1, 'Hello World!');
-	$p = new Paragraph('This is a test');
+	$p = new Paragraph('of adding content in the form of an array.');
 
 	$p->setId('test p');
 	$h->addElement($h1);
-	$s->addElement($p);
+	$a->addElement($p);
 
 	echo $h->toHtml();
 	echo $s->toHtml();
