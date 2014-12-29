@@ -21,8 +21,8 @@ class Heading extends HTMLAbstract
 	 * Default constructor for the class.
 	 *
 	 * @param int    $level      The level of the heading (eg. 1-7)
-	 * @param string $id         The ID of the element.
 	 * @param mixed  $content    The content of the class. Can be string or an array.
+	 * @param string $id         The ID of the element.
 	 * @param array  $elements   Array of other elements making up the overall element
 	 * @param array  $attributes Array of element attributes
 	 */

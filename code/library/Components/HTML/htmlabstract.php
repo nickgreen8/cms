@@ -49,8 +49,8 @@ abstract class HTMLAbstract implements Component
 	/**
 	 * Default constructor for the class.
 	 *
-	 * @param string $id        The ID of the element.
 	 * @param mixed $content    The content of the class. Can be string or an array.
+	 * @param string $id        The ID of the element.
 	 * @param array $elements   Array of other elements making up the overall element
 	 * @param array $attributes Array of element attributes
 	 */
