@@ -1,5 +1,7 @@
 <?php
-require_once('../../Components/HTML/Paragraph.php');
+namespace Test\Components\HTML;
+
+use Components\HTML\Paragraph;
 
 class ParagraphTest extends \PHPUnit_Framework_TestCase
 {
