@@ -1,5 +1,5 @@
 <?php
-namespace Tests;
+namespace Website;
 
-require_once '../autoload.php';
+require_once '/Library/WebServer/Documents/cms/library/autoload.php';
 $loader = Autoload::getInstance();
