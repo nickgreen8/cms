@@ -76,7 +76,7 @@ abstract class HTMLAbstract implements Component
 	{
 		Log::info(sprintf('Converting %s object to string', $this->data['name']));
 
-		$str = '';
+		$str = ucwords($this->data['name']) . ' element\r\n';
 
 		if ($this->id !== NULL) {
 			$str .= '    ID: ' . $this->id . '.\r\n';
