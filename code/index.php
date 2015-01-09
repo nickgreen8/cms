@@ -1,7 +1,8 @@
 <?php
 namespace Website;
 
-use Components\HTML\Header,
+use Components\HTML\Body,
+	Components\HTML\Header,
 	Components\HTML\Footer,
 	Components\HTML\Section,
 	Components\HTML\Article,
@@ -36,6 +37,7 @@ require_once __DIR__ . '/library/autoload.php';
 $loader = Autoload::getInstance();
 Log::init(__DIR__ . '/library/Logs/');
 
+	$body = new Body();
 	$h = new Header();
 	$a = new Article(new Div(new Paragraph('This is a test'), 'testDiv'));
 	$s = new Section($a);
@@ -105,6 +107,6 @@ Log::init(__DIR__ . '/library/Logs/');
 	$fieldset->addElement(new Button('Submit', null, array(), array()));
 	$s->addElement(new Paragraph(array('Line 1', new PageBreak(), 'Line 2')));
 
-	echo $h->toHtml();
-	echo $s->toHtml();
-	echo $f->toHtml();
+	$body->setElements(array($h, $s, $f));
+
+	echo $body->toHtml();
