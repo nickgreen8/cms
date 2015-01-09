@@ -1,7 +1,8 @@
 <?php
 namespace Website;
 
-use Components\HTML\Body,
+use Components\HTML\Head,
+	Components\HTML\Body,
 	Components\HTML\Header,
 	Components\HTML\Footer,
 	Components\HTML\Section,
@@ -37,7 +38,8 @@ require_once __DIR__ . '/library/autoload.php';
 $loader = Autoload::getInstance();
 Log::init(__DIR__ . '/library/Logs/');
 
-	$body = new Body();
+	$head = new Head('<title>Test</title>');
+	$body = new Body('test');
 	$h = new Header();
 	$a = new Article(new Div(new Paragraph('This is a test'), 'testDiv'));
 	$s = new Section($a);
@@ -109,4 +111,5 @@ Log::init(__DIR__ . '/library/Logs/');
 
 	$body->setElements(array($h, $s, $f));
 
+	echo $head->toHtml();
 	echo $body->toHtml();
