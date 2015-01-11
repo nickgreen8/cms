@@ -3,6 +3,7 @@ namespace Website;
 
 use Components\HTML\Head,
 	Components\HTML\Title,
+	Components\HTML\Meta,
 	Components\HTML\Body,
 	Components\HTML\Header,
 	Components\HTML\Footer,
@@ -111,6 +112,8 @@ Log::init(__DIR__ . '/library/Logs/');
 	$s->addElement(new Paragraph(array('Line 1', new PageBreak(), 'Line 2')));
 
 	$body->setElements(array($h, $s, $f));
+
+	$head->addElement(new Meta(array('name' => 'author', 'content' => 'Nick Green')));
 
 	echo $head->toHtml();
 	echo $body->toHtml();
