@@ -2,6 +2,7 @@
 namespace Website;
 
 use Components\HTML\Head,
+	Components\HTML\Title,
 	Components\HTML\Body,
 	Components\HTML\Header,
 	Components\HTML\Footer,
@@ -38,7 +39,7 @@ require_once __DIR__ . '/library/autoload.php';
 $loader = Autoload::getInstance();
 Log::init(__DIR__ . '/library/Logs/');
 
-	$head = new Head('<title>Test</title>');
+	$head = new Head(new Title('This is a Test'));
 	$body = new Body('test');
 	$h = new Header();
 	$a = new Article(new Div(new Paragraph('This is a test'), 'testDiv'));
