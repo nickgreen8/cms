@@ -4,6 +4,7 @@ namespace Website;
 use Components\HTML\Head,
 	Components\HTML\Title,
 	Components\HTML\Meta,
+	Components\HTML\Link,
 	Components\HTML\Body,
 	Components\HTML\Header,
 	Components\HTML\Footer,
@@ -114,6 +115,7 @@ Log::init(__DIR__ . '/library/Logs/');
 	$body->setElements(array($h, $s, $f));
 
 	$head->addElement(new Meta(array('name' => 'author', 'content' => 'Nick Green')));
+	$head->addElement(new Link(array('rel' => 'stylesheet', 'type' => 'text/css', 'href' => 'theme.css')));
 
 	echo $head->toHtml();
 	echo $body->toHtml();
