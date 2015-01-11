@@ -6,6 +6,7 @@ use Components\HTML\Head,
 	Components\HTML\Meta,
 	Components\HTML\Link,
 	Components\HTML\Script,
+	Components\HTML\Style,
 	Components\HTML\Body,
 	Components\HTML\Header,
 	Components\HTML\Footer,
@@ -118,6 +119,7 @@ Log::init(__DIR__ . '/library/Logs/');
 	$head->addElement(new Meta(array('name' => 'author', 'content' => 'Nick Green')));
 	$head->addElement(new Link(array('rel' => 'stylesheet', 'type' => 'text/css', 'href' => 'theme.css')));
 	$head->addElement(new Script('alert("This is a test");', array('type' => 'text/javascript')));
+	$head->addElement(new Style('body { font-family: Verdana, Geneva, sans-serif; }'));
 
 	echo $head->toHtml();
 	echo $body->toHtml();
