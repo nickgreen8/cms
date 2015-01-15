@@ -31,6 +31,10 @@ class Image extends HTMLAbstract
 			'tag'	=>	'img'
 		);
 		parent::__construct(NULL, $id, array(), $attributes);
+
+		//Populate default accepted elements array
+		$this->acceptedElements['types'] = array();
+		$this->acceptedElements['elements'] = array();
 	}
 
 	/**

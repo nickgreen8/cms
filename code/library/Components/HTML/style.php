@@ -33,5 +33,9 @@ class Style extends HTMLAbstract
 			'tag'	=>	'style'
 		);
 		parent::__construct($content, NULL, array(), $attributes);
+
+		//Populate default accepted elements array
+		$this->acceptedElements['types'] = array('string');
+		$this->acceptedElements['elements'] = array();
 	}
 }

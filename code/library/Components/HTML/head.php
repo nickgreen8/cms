@@ -33,5 +33,15 @@ class Head extends HTMLAbstract
 			'tag'	=>	'head'
 		);
 		parent::__construct($content, $id, $elements, $attributes);
+
+		//Populate default accepted elements array
+		$this->acceptedElements['types'] = array();
+		$this->acceptedElements['elements'] = array(
+			'Link',
+			'Meta',
+			'Script',
+			'Style',
+			'Title'
+		);
 	}
 }

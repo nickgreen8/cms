@@ -10,7 +10,7 @@ use Components\HTML\HTMLAbstract,
  *
  * @author  Nick Green <nick-green@live.co.uk>
  */
-class input extends HTMLAbstract
+class Input extends HTMLAbstract
 {
 	/**
 	 * A list of the required attributes for this element.
@@ -62,6 +62,10 @@ class input extends HTMLAbstract
 			'tag'	=>	'input'
 		);
 		parent::__construct(null, $id, array(), $attributes);
+
+		//Populate default accepted elements array
+		$this->acceptedElements['types'] = array();
+		$this->acceptedElements['elements'] = array();
 	}
 
 	/**

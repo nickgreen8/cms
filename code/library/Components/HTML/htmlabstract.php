@@ -4,6 +4,7 @@ namespace Components\HTML;
 use Components\Component,
 	Exceptions\Components\ComponentMissingRequiredAttributesException,
 	Exceptions\Components\AttributeInvalidException,
+	Exceptions\Components\ElementInvalidException,
 	Utils\Log;
 
 /**
@@ -47,6 +48,13 @@ abstract class HTMLAbstract implements Component
 	protected $attributes;
 
 	/**
+	 * An array of types and elements that are accepted when adding an element to
+	 * this component.
+	 * @var array
+	 */
+	protected $acceptedElements = array('types' => array('string', 'int'), 'elements' => array());
+
+	/**
 	 * Default constructor for the class.
 	 *
 	 * @param mixed $content    The content of the class. Can be string or an array.
@@ -62,6 +70,44 @@ abstract class HTMLAbstract implements Component
 		$this->setElements($elements);
 		$this->setContent($content);
 		$this->setAttributes($attributes);
+
+		//Populate default accepted elements array
+		$this->acceptedElements['elements'] = array(
+			'Anchor',
+			'Article',
+			'Body',
+			'Div',
+			'Fieldset',
+			'Footer',
+			'Form',
+			'Button',
+			'Head',
+			'Header',
+			'Heading',
+			'HorizontalRule',
+			'Image',
+			'Input',
+			'Link',
+			'ListItem',
+			'Meta',
+			'Option',
+			'OrderedList',
+			'PageBreak',
+			'Paragraph',
+			'Script',
+			'Section',
+			'Select',
+			'Span',
+			'Style',
+			'Table',
+			'TableBody',
+			'TableCell',
+			'TableHeader',
+			'TableHeading',
+			'TableRow',
+			'Title',
+			'UnorderedList'
+		);
 
 		$this->checkForElements();
 	}
@@ -281,7 +327,7 @@ abstract class HTMLAbstract implements Component
 	 */
 	public function setId($id)
 	{
-		Log::notice(sprintf('Setting ID to %s', $id));
+		Log::info(sprintf('Setting ID to %s', $id));
 		$this->id = $id;
 		return $this->id;
 	}
@@ -294,8 +340,17 @@ abstract class HTMLAbstract implements Component
 	 */
 	public function setElements(array $elements)
 	{
-		Log::notice(sprintf('Setting the elements list for %s%s', $this->data['name'], $this->id !== '' && $this->id !== null ? ' (' . $this->id . ')' : ''));
+		Log::info(sprintf('Setting the elements list for %s%s', $this->data['name'], $this->id !== '' && $this->id !== null ? ' (' . $this->id . ')' : ''));
+
+		//Check each element
+		foreach ($elements as $key => $e) {
+			if (!$this->checkElement($e)) {
+				//Add new element
+				unset($elements[$key]);
+			}
+		}
 		$this->elements = $elements;
+
 		return $this->elements;
 	}
 
@@ -307,7 +362,7 @@ abstract class HTMLAbstract implements Component
 	 */
 	public function setContent($content)
 	{
-		Log::notice(sprintf('Setting the content of %s%s', $this->data['name'], $this->id !== '' && $this->id !== null ? ' (' . $this->id . ')' : ''));
+		Log::info(sprintf('Setting the content of %s%s', $this->data['name'], $this->id !== '' && $this->id !== null ? ' (' . $this->id . ')' : ''));
 		$this->content = $content;
 		return $this->content;
 	}
@@ -320,7 +375,7 @@ abstract class HTMLAbstract implements Component
 	 */
 	public function setAttributes($attributes)
 	{
-		Log::notice(sprintf('Setting the attributes of %s%s', $this->data['name'], $this->id !== '' && $this->id !== null ? ' (' . $this->id . ')' : ''));
+		Log::info(sprintf('Setting the attributes of %s%s', $this->data['name'], $this->id !== '' && $this->id !== null ? ' (' . $this->id . ')' : ''));
 		$this->attributes = $attributes;
 		return $this->attributes;
 	}
@@ -333,7 +388,12 @@ abstract class HTMLAbstract implements Component
 	 */
 	public function addElement($element)
 	{
-		Log::notice(sprintf('Adding element: %s', is_object($element) ? $element->toString() : $element));
+		Log::info(sprintf('Adding element: %s', is_object($element) ? $element->toString() : $element));
+
+		if (!$this->checkElement($element)) {
+			Log::notice('The element cannot be added');
+			return;
+		}
 
 		//Check for content
 		if ($this->getContent() !== NULL) {
@@ -357,7 +417,7 @@ abstract class HTMLAbstract implements Component
 	 */
 	public function addAttribute(array $attribute)
 	{
-		Log::notice(sprintf('Adding attribute: %s = %s', key($attribute), implode(', ', $attribute)));
+		Log::info(sprintf('Adding attribute: %s = %s', key($attribute), implode(', ', $attribute)));
 
 		try {
 			//Check for a key as well as a value
@@ -369,5 +429,38 @@ abstract class HTMLAbstract implements Component
 		} catch (AttributeInvalidException $e) {}
 
 		return $this->attributes;
+	}
+
+	/**
+	 * This function is used to check that an element is valid when attempting to add it to a HTML
+	 * element. The functions takes a component class and will return a boolean value indicating
+	 * whether the component can be added or not.
+	 *
+	 * @param  object $element The class object for the component
+	 * @return boolean
+	 */
+	protected function checkElement($element)
+	{
+		Log::info('Checking element');
+
+		try {
+			//Check the class type
+			if (get_parent_class($element) === 'Components\HTML\HTMLAbstract') {
+				//Check the type
+				if (is_string($element) && !in_array($this->acceptedElements['types'], 'string')) {
+					throw new ElementInvalidException('Strings may not be added to this element');
+				} elseif (is_int($element) && !in_array($this->acceptedElements['types'], 'int')) {
+					throw new ElementInvalidException('Integer values cannot be added to this element');
+				} elseif (!in_array(str_replace('Components\HTML\\', '', get_class($element)), $this->acceptedElements['elements'])) {
+					throw new ElementInvalidException(sprintf('This element could not be added because there is a restriction. %s cannot contatin a %s.',
+																ucwords($this->data['name']),
+																str_replace('Components\HTML\\', '', get_class($element))));
+				}
+			}
+		} catch (ElementInvalidException $e) {
+			return false;
+		}
+
+		return true;
 	}
 }

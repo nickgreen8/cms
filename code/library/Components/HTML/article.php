@@ -33,5 +33,25 @@ class Article extends HTMLAbstract
 			'tag'	=>	'article'
 		);
 		parent::__construct($content, $id, $elements, $attributes);
+
+		//Populate default accepted elements array
+		$this->acceptedElements['types'] = array();
+		$this->acceptedElements['elements'] = array(
+			'Anchor',
+			'Article',
+			'Div',
+			'Footer',
+			'Form',
+			'Button',
+			'Header',
+			'Heading',
+			'HorizontalRule',
+			'Image',
+			'OrderedList',
+			'Paragraph',
+			'Span',
+			'Table',
+			'UnorderedList'
+		);
 	}
 }

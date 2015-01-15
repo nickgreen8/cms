@@ -44,6 +44,25 @@ class Form extends HTMLAbstract
 			'tag'	=>	'form'
 		);
 		parent::__construct($content, $id, $elements, $attributes);
+
+		//Populate default accepted elements array
+		$this->acceptedElements['types'] = array();
+		$this->acceptedElements['elements'] = array(
+			'Anchor',
+			'Div',
+			'Fieldset',
+			'Button',
+			'Heading',
+			'HorizontalRule',
+			'Image',
+			'Input',
+			'OrderedList',
+			'Paragraph',
+			'Select',
+			'Span',
+			'Table',
+			'UnorderedList'
+		);
 	}
 
 	/**

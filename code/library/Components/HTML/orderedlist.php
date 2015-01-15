@@ -33,5 +33,12 @@ class OrderedList extends HTMLAbstract
 			'tag'	=>	'ol'
 		);
 		parent::__construct($content, $id, $elements, $attributes);
+
+		//Populate default accepted elements array
+		$this->acceptedElements['types'] = array();
+		$this->acceptedElements['elements'] = array(
+			'ListItem',
+			'Span'
+		);
 	}
 }

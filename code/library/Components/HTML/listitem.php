@@ -33,5 +33,18 @@ class ListItem extends HTMLAbstract
 			'tag'	=>	'li'
 		);
 		parent::__construct($content, $id, $elements, $attributes);
+
+		//Populate default accepted elements array
+		$this->acceptedElements['types'] = array('string', 'int');
+		$this->acceptedElements['elements'] = array(
+			'Anchor',
+			'Button',
+			'Image',
+			'OrderedList',
+			'PageBreak',
+			'Span',
+			'Table',
+			'UnorderedList'
+		);
 	}
 }

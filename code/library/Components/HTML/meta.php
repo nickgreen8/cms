@@ -33,5 +33,9 @@ class Meta extends HTMLAbstract
 			'tag'	=>	'meta'
 		);
 		parent::__construct(NUll, NULL, array(), $attributes);
+
+		//Populate default accepted elements array
+		$this->acceptedElements['types'] = array();
+		$this->acceptedElements['elements'] = array();
 	}
 }

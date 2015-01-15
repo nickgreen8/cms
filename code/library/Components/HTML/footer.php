@@ -33,5 +33,25 @@ class Footer extends HTMLAbstract
 			'tag'	=>	'footer'
 		);
 		parent::__construct($content, $id, $elements, $attributes);
+
+		//Populate default accepted elements array
+		$this->acceptedElements['types'] = array();
+		$this->acceptedElements['elements'] = array(
+			'Anchor',
+			'Article',
+			'Div',
+			'Form',
+			'Button',
+			'Header',
+			'Heading',
+			'HorizontalRule',
+			'Image',
+			'OrderedList',
+			'Paragraph',
+			'Section',
+			'Span',
+			'Table',
+			'UnorderedList'
+		);
 	}
 }

@@ -33,5 +33,14 @@ class Anchor extends HTMLAbstract
 			'tag'	=>	'a'
 		);
 		parent::__construct($content, $id, $elements, $attributes);
+
+		//Populate default accepted elements array
+		$this->acceptedElements['elements'] = array(
+			'Div',
+			'Heading',
+			'Image',
+			'PageBreak',
+			'Span'
+		);
 	}
 }
