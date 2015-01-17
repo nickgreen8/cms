@@ -1,5 +1,5 @@
 <?php
-namespace Website;
+namespace N8G\Cms;
 
 use Components\HTML\Head,
 	Components\HTML\Title,
@@ -34,7 +34,8 @@ use Components\HTML\Head,
 	Components\HTML\Button,
 	Components\HTML\PageBreak,
 	Components\HTML\HorizontalRule,
-	Utils\Log;
+	Utils\Log,
+	Utils\Config;
 
 error_reporting(E_ALL);
 date_default_timezone_set('Europe/London');
@@ -43,78 +44,18 @@ require_once __DIR__ . '/library/autoload.php';
 $loader = Autoload::getInstance();
 Log::init(__DIR__ . '/library/Logs/');
 
+	$head = new Head(new Title('Integration Testing'));
+
 	$page = new Body();
-	$page->addElement(new Heading('1', 'Adding Elements'));
+	$page->addElement(new Heading('1', 'Integration Testing'));
+	$page->addElement(new Heading('2', 'Config Class'));
 
-	$element = new Head();
+	echo $head->toHtml();
 
-	$head = new Head();
-	$title = new Title();
-	$meta = new Meta();
-	$link = new Link();
-	$script = new Script();
-	$style = new Style();
-	$body = new Body();
-	$header = new Header();
-	$footer = new Footer();
-	$section = new Section();
-	$article = new Article();
-	$div = new Div();
-	$heading = new Heading();
-	$paragraph = new Paragraph();
-	$unorderedList = new UnorderedList();
-	$orderedList = new OrderedList();
-	$listItem = new ListItem();
-	$table = new Table();
-	$tableHeader = new TableHeader();
-	$tableBody = new TableBody();
-	$tableRow = new TableRow();
-	$tableHeading = new TableHeading();
-	$tableCell = new TableCell();
-	$anchor = new Anchor();
-	$image = new Image();
-	$form = new Form();
-	$fieldset = new Fieldset();
-	$input = new Input();
-	$select = new Select();
-	$option = new Option();
-	$button = new Button();
-	$pageBreak = new PageBreak();
-	$horizontalRule = new HorizontalRule();
+	Config::setItem('test', 'this is a test');
+	Config::setItem('name', 'Nick Green');
 
-	$element->addElement($head);
-	$element->addElement($title);
-	$element->addElement($meta);
-	$element->addElement($link);
-	$element->addElement($script);
-	$element->addElement($style);
-	$element->addElement($body);
-	$element->addElement($header);
-	$element->addElement($footer);
-	$element->addElement($section);
-	$element->addElement($article);
-	$element->addElement($div);
-	$element->addElement($heading);
-	$element->addElement($paragraph);
-	$element->addElement($unorderedList);
-	$element->addElement($orderedList);
-	$element->addElement($listItem);
-	$element->addElement($table);
-	$element->addElement($tableHeader);
-	$element->addElement($tableBody);
-	$element->addElement($tableRow);
-	$element->addElement($tableHeading);
-	$element->addElement($tableCell);
-	$element->addElement($anchor);
-	$element->addElement($image);
-	$element->addElement($form);
-	$element->addElement($fieldset);
-	$element->addElement($input);
-	$element->addElement($select);
-	$element->addElement($option);
-	$element->addElement($button);
-	$element->addElement($pageBreak);
-	$element->addElement($horizontalRule);
+	$page->addElement(new Paragraph(Config::getItem('test')));
+	$page->addElement(new Paragraph(Config::getItem('name')));
 
-	$page->addElement(new Heading('3', 'Elements Added'));
 	echo $page->toHtml();

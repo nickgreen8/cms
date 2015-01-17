@@ -1,5 +1,5 @@
 <?php
-namespace Website;
+namespace N8G\Cms;
 
 /**
  * This class is used to create an autoload function for the complete library. This
@@ -63,6 +63,7 @@ final class Autoload
 
 		if (!file_exists($file)) {
 			echo '<h1>ERROR!</h1>';
+			echo '<p>Could not load file: ' . $file . '</p>';
 		}
 		require_once $file;
 	}
