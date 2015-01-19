@@ -1,7 +1,7 @@
 <?php
-namespace Components\HTML;
+namespace Components\Html;
 
-use Components\HTML\HTMLAbstract,
+use Components\Html\HtmlAbstract,
 	N8G\Utils\Log;
 
 /**
@@ -9,7 +9,7 @@ use Components\HTML\HTMLAbstract,
  *
  * @author  Nick Green <nick-green@live.co.uk>
  */
-class Fieldset extends HTMLAbstract
+class Fieldset extends HtmlAbstract
 {
 	/**
 	 * A list of the required attributes for this element.

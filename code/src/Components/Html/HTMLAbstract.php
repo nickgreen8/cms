@@ -1,5 +1,5 @@
 <?php
-namespace Components\HTML;
+namespace Components\Html;
 
 use Components\Component,
 	Exceptions\Components\ComponentMissingRequiredAttributesException,
@@ -15,7 +15,7 @@ use Components\Component,
  *
  * @author  Nick Green <nick-green@live.co.uk>
  */
-abstract class HTMLAbstract implements Component
+abstract class HtmlAbstract implements Component
 {
 	/**
 	 * The ID of the element.
@@ -445,16 +445,16 @@ abstract class HTMLAbstract implements Component
 
 		try {
 			//Check the class type
-			if (get_parent_class($element) === 'Components\HTML\HTMLAbstract') {
+			if (get_parent_class($element) === 'Components\Html\HtmlAbstract') {
 				//Check the type
 				if (is_string($element) && !in_array($this->acceptedElements['types'], 'string')) {
 					throw new ElementInvalidException('Strings may not be added to this element');
 				} elseif (is_int($element) && !in_array($this->acceptedElements['types'], 'int')) {
 					throw new ElementInvalidException('Integer values cannot be added to this element');
-				} elseif (!in_array(str_replace('Components\HTML\\', '', get_class($element)), $this->acceptedElements['elements'])) {
+				} elseif (!in_array(str_replace('Components\Html\\', '', get_class($element)), $this->acceptedElements['elements'])) {
 					throw new ElementInvalidException(sprintf('This element could not be added because there is a restriction. %s cannot contatin a %s.',
 																ucwords($this->data['name']),
-																str_replace('Components\HTML\\', '', get_class($element))));
+																str_replace('Components\Html\\', '', get_class($element))));
 				}
 			}
 		} catch (ElementInvalidException $e) {

@@ -1,7 +1,7 @@
 <?php
-namespace Components\HTML;
+namespace Components\Html;
 
-use Components\HTML\HTMLAbstract,
+use Components\Html\HtmlAbstract,
 	Exceptions\Components\ComponentMissingRequiredAttributesException,
 	N8G\Utils\Log;
 
@@ -10,7 +10,7 @@ use Components\HTML\HTMLAbstract,
  *
  * @author  Nick Green <nick-green@live.co.uk>
  */
-class Button extends HTMLAbstract
+class Button extends HtmlAbstract
 {
 	/**
 	 * A list of the required attributes for this element.

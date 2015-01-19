@@ -1,7 +1,7 @@
 <?php
-namespace Test\Components\HTML;
+namespace Test\Components\Html;
 
-use Components\HTML\Paragraph,
+use Components\Html\Paragraph,
 	\PHPUnit_Extensions_Story_TestCase;
 
 class ParagraphTest extends \PHPUnit_Framework_TestCase
