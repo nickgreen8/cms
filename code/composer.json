@@ -1,0 +1,32 @@
+{
+	"name": "n8g/cms",
+	"description": "Basic custom CMS",
+	"license": "proprietary",
+	"authors": [
+		{
+			"name": "Nick Green",
+			"email": "nick@nickgreenweb.co.uk"
+		}
+	],
+	"minimum-stability": "dev",
+	"repositories": [
+		{
+			"type": "vcs",
+			"url": "https://github.com/nickgreen8/utils.git"
+		},
+		{
+			"type": "vcs",
+			"url": "https://github.com/nickgreen8/database-connector.git"
+		}
+	],
+	"require": {
+		"php": ">=5.4.0",
+		"n8g/utils": ">=0.0.1",
+		"n8g/database-connector": ">=0.0.1"
+	},
+	"autoload": {
+		"psr-4": {
+			"N8G\\Cms\\": "src/"
+		}
+	}
+}

@@ -1,48 +1,48 @@
 <?php
 namespace N8G\Cms;
 
-use Components\HTML\Head,
-	Components\HTML\Title,
-	Components\HTML\Meta,
-	Components\HTML\Link,
-	Components\HTML\Script,
-	Components\HTML\Style,
-	Components\HTML\Body,
-	Components\HTML\Header,
-	Components\HTML\Footer,
-	Components\HTML\Section,
-	Components\HTML\Article,
-	Components\HTML\Div,
-	Components\HTML\Heading,
-	Components\HTML\Paragraph,
-	Components\HTML\UnorderedList,
-	Components\HTML\OrderedList,
-	Components\HTML\ListItem,
-	Components\HTML\Table,
-	Components\HTML\TableHeader,
-	Components\HTML\TableBody,
-	Components\HTML\TableRow,
-	Components\HTML\TableHeading,
-	Components\HTML\TableCell,
-	Components\HTML\Anchor,
-	Components\HTML\Image,
-	Components\HTML\Form,
-	Components\HTML\Fieldset,
-	Components\HTML\Input,
-	Components\HTML\Select,
-	Components\HTML\Option,
-	Components\HTML\Button,
-	Components\HTML\PageBreak,
-	Components\HTML\HorizontalRule,
-	Utils\Log,
-	Utils\Config;
+use N8G\Cms\Components\HTML\Head,
+	N8G\Cms\Components\HTML\Title,
+	N8G\Cms\Components\HTML\Meta,
+	N8G\Cms\Components\HTML\Link,
+	N8G\Cms\Components\HTML\Script,
+	N8G\Cms\Components\HTML\Style,
+	N8G\Cms\Components\HTML\Body,
+	N8G\Cms\Components\HTML\Header,
+	N8G\Cms\Components\HTML\Footer,
+	N8G\Cms\Components\HTML\Section,
+	N8G\Cms\Components\HTML\Article,
+	N8G\Cms\Components\HTML\Div,
+	N8G\Cms\Components\HTML\Heading,
+	N8G\Cms\Components\HTML\Paragraph,
+	N8G\Cms\Components\HTML\UnorderedList,
+	N8G\Cms\Components\HTML\OrderedList,
+	N8G\Cms\Components\HTML\ListItem,
+	N8G\Cms\Components\HTML\Table,
+	N8G\Cms\Components\HTML\TableHeader,
+	N8G\Cms\Components\HTML\TableBody,
+	N8G\Cms\Components\HTML\TableRow,
+	N8G\Cms\Components\HTML\TableHeading,
+	N8G\Cms\Components\HTML\TableCell,
+	N8G\Cms\Components\HTML\Anchor,
+	N8G\Cms\Components\HTML\Image,
+	N8G\Cms\Components\HTML\Form,
+	N8G\Cms\Components\HTML\Fieldset,
+	N8G\Cms\Components\HTML\Input,
+	N8G\Cms\Components\HTML\Select,
+	N8G\Cms\Components\HTML\Option,
+	N8G\Cms\Components\HTML\Button,
+	N8G\Cms\Components\HTML\PageBreak,
+	N8G\Cms\Components\HTML\HorizontalRule,
+	N8G\Utils\Log,
+	N8G\Utils\Config;
 
 error_reporting(E_ALL);
 date_default_timezone_set('Europe/London');
 
-require_once __DIR__ . '/library/autoload.php';
-$loader = Autoload::getInstance();
-Log::init(__DIR__ . '/library/Logs/');
+// require_once __DIR__ . '/src/autoload.php';
+// $loader = Autoload::getInstance();
+Log::init(__DIR__ . '/Logs/');
 
 	$head = new Head(new Title('Integration Testing'));
 
