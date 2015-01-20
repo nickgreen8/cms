@@ -1,6 +1,4 @@
 <?php
-// namespace N8G\Cms;
-
 use N8G\Cms\Components\Html\Head,
 	N8G\Cms\Components\Html\Title,
 	N8G\Cms\Components\Html\Meta,
@@ -41,16 +39,17 @@ error_reporting(E_ALL);
 date_default_timezone_set('Europe/London');
 
 require_once __DIR__ . '/vendor/autoload.php';
-// $loader = Autoload::getInstance();
+
+//Look at bootstrapping here
 Log::init(__DIR__ . '/logs/');
 
-	$head = new Head(new Title('Integration Testing'));
+	$head = new Head(array(new Title('Integration Testing'), new Style('body { font-family: Verdana, Geneva, sans-serif; }')));
 
 	$page = new Body();
+
+	//Begin integration test
 	$page->addElement(new Heading('1', 'Integration Testing'));
 	$page->addElement(new Heading('2', 'Config Class'));
-
-	echo $head->toHtml();
 
 	Config::setItem('test', 'this is a test');
 	Config::setItem('name', 'Nick Green');
@@ -58,4 +57,6 @@ Log::init(__DIR__ . '/logs/');
 	$page->addElement(new Paragraph(Config::getItem('test')));
 	$page->addElement(new Paragraph(Config::getItem('name')));
 
+	//Output page
+	echo $head->toHtml();
 	echo $page->toHtml();
