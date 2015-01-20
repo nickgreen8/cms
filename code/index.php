@@ -1,5 +1,5 @@
 <?php
-namespace N8G\Cms;
+// namespace N8G\Cms;
 
 use N8G\Cms\Components\Html\Head,
 	N8G\Cms\Components\Html\Title,
@@ -40,9 +40,9 @@ use N8G\Cms\Components\Html\Head,
 error_reporting(E_ALL);
 date_default_timezone_set('Europe/London');
 
-// require_once __DIR__ . '/src/autoload.php';
+require_once __DIR__ . '/vendor/autoload.php';
 // $loader = Autoload::getInstance();
-Log::init(__DIR__ . '/Logs/');
+Log::init(__DIR__ . '/logs/');
 
 	$head = new Head(new Title('Integration Testing'));
 

@@ -1,5 +1,5 @@
 <?php
-namespace Components;
+namespace N8G\Cms\Components;
 
 /**
  * This is the interface that MUST be implemented in each and all of the different components

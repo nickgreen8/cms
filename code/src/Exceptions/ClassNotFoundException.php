@@ -1,7 +1,7 @@
 <?php
-namespace Exceptions\Components;
+namespace N8G\Cms\Exceptions\Components;
 
-use Exceptions\ExceptionAbstract;
+use N8G\Cms\Exceptions\ExceptionAbstract;
 
 /**
  * This exception is thown when a class cannot be found or it does not exist.

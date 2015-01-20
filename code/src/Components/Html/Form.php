@@ -1,8 +1,8 @@
 <?php
-namespace Components\Html;
+namespace N8G\Cms\Components\Html;
 
-use Components\Html\HtmlAbstract,
-	Exceptions\Components\ComponentMissingRequiredAttributesException,
+use N8G\Cms\Components\Html\HtmlAbstract,
+	N8G\Cms\Exceptions\Components\ComponentMissingRequiredAttributesException,
 	N8G\Utils\Log;
 
 /**

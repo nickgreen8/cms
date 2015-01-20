@@ -1,8 +1,7 @@
 <?php
-namespace Components\Html;
+namespace N8G\Cms\Components\Html;
 
-use Components\Html\HtmlAbstract,
-	N8G\Utils\Log;
+use N8G\Utils\Log;
 
 /**
  * This class is has been created for the simple HTMl head tag.
