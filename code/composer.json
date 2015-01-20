@@ -11,6 +11,9 @@
 	"minimum-stability": "dev",
 	"repositories": [
 		{
+			"packagist": false
+		},
+		{
 			"type": "vcs",
 			"url": "https://github.com/nickgreen8/utils.git"
 		},
@@ -26,7 +29,8 @@
 	},
 	"autoload": {
 		"psr-4": {
-			"N8G\\Cms\\": "src/"
+			"N8G\\Cms\\": "src/",
+			"Test\\": "tests/src/"
 		}
 	}
 }
