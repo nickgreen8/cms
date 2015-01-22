@@ -11,9 +11,6 @@
 	"minimum-stability": "dev",
 	"repositories": [
 		{
-			"packagist": false
-		},
-		{
 			"type": "vcs",
 			"url": "https://github.com/nickgreen8/utils.git"
 		},
