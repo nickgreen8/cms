@@ -22,7 +22,7 @@ class Bootstrap
 	 *
 	 * @return void
 	 */
-	public static function run()
+	public function run()
 	{
 		//Set PHP config
 		error_reporting(E_ALL);
@@ -32,7 +32,13 @@ class Bootstrap
 		Log::init(__DIR__ . '/../logs/');
 
 		//Initilise error handler
-		set_error_handler(array('Bootstrap', 'errorHandler'));
+		set_error_handler(function() { $this->errorHandler($errno, $errstr, $errfile, $errline, $errcontext); });
+
+		//Specify new page is opening
+		Log::custom(sprintf(
+					'%s%s===========================%sNew Page Loaded%s===========================%s%s%s%s%s',
+					PHP_EOL, PHP_EOL, PHP_EOL, PHP_EOL, PHP_EOL,
+					date('l jS F Y'), PHP_EOL, date('H:ia'), PHP_EOL));
 
 		//Initilise the DB connection
 		$config = Json::readFile('./config/config.json');
@@ -45,13 +51,7 @@ class Bootstrap
 		);
 
 		//Check for site setup
-		self::checkSiteSetup();
-
-		//Specify new page is opening
-		Log::custom(sprintf(
-					'%s%s==========%sNew Page Loaded%s==========%s%s%s%s%s',
-					PHP_EOL, PHP_EOL, PHP_EOL, PHP_EOL, PHP_EOL,
-					date('l jS F Y'), PHP_EOL, date('H:ia'), PHP_EOL));
+		$this->checkSiteSetup();
 
 		//Initilise the config container
 		Config::init();
@@ -69,7 +69,7 @@ class Bootstrap
 	 *
 	 * @return void
 	 */
-	public static function tearDown()
+	public function tearDown()
 	{
 		//Close the connection to the DB
 		Database::close();
@@ -85,7 +85,7 @@ class Bootstrap
 	 * application will behave differently.
 	 * @return void
 	 */
-	private static function checkSiteSetup()
+	private function checkSiteSetup()
 	{}
 
 	/**
@@ -93,7 +93,7 @@ class Bootstrap
 	 * to react as required.
 	 * @return void
 	 */
-	public static function errorHandler(int $errno, $errstr, $errfile, int $errline, array $errcontext)
+	public function errorHandler(int $errno, $errstr, $errfile, int $errline, array $errcontext)
 	{
 		var_dump($errno, $errstr, $errfile, $errline, $errcontext);
 
