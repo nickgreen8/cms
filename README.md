@@ -21,3 +21,50 @@ Notes
 -----
 
 Before attempting to run this framework, ensure that the log directory (or the directory you would like the logs to be written) has read/write permissions.
+
+Example Config File
+-------------------
+
+This file should be stored within the config folder.
+Filename: config.json
+
+{
+	"version": {
+		"api": "0.0.1",
+		"framework": "0.0.1"
+	},
+	"database": {
+		"type": "mysql",
+		"host": "localhost",
+		"username": "nick",
+		"password": "DevAcc",
+		"name": "cms",
+		"prefix": "",
+		"charset": "utf8"
+	},
+	"keys": {
+		"salting": "",
+		"api": "",
+		"login": ""
+	},
+	"debug": false,
+	"paths": {
+		"absolute": "/Users/NickGreen/Documents/workspace/cms/code/",
+		"logs": "/Users/NickGreen/Documents/workspace/cms/code/logs/",
+		"directories": {
+			"assets": {
+				"root": "assets/",
+				"images": "image/",
+				"videos": "video/",
+				"themes": "theme/",
+				"documents": {
+					"root": "documents/",
+					"docs": "doc/",
+					"pdfs": "pdf/",
+					"spreadsheets": "spreadsheet/",
+					"txt": "txt/"
+				}
+			}
+		}
+	}
+}
