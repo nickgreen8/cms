@@ -1,8 +1,7 @@
 <?php
-namespace N8G\Cms\Display;
+namespace N8G\Grass\Display;
 
-use Twig_\Twig_Loader_Filesystem,
-	N8G\Cms\Exceptions\Display\TwigException,
+use N8G\Grass\Exceptions\Display\TwigException,
 	N8G\Utils\Log;
 
 /**
@@ -34,10 +33,11 @@ class Twig
 		Log::info('New Twig instance created');
 
 		//Build twig system
-		$loader = new Twig_Loader_Filesystem(VIEWS_DIR);
+		$loader = new \Twig_Loader_Filesystem(ASSETS_DIR);
 		Log::debug('Twig file system specified');
+
 		//Initialize Twig environment
-		$this->twig = new Twig_Environment($loader);
+		$this->twig = new \Twig_Environment($loader/*, array('cache' => CACHE_DIR)*/);
 		Log::debug('Twig enviroment loaded');
 	}
 
@@ -68,8 +68,10 @@ class Twig
 	 */
 	public function loadTemplate($file)
 	{
+		Log::info(sprintf('Loading new template: %s', $file));
+
 		//Check the template exists
-		if (!file_exists($file)) {
+		if (!file_exists(ASSETS_DIR . $file)) {
 			throw new TwigException(sprintf('The template (%s) cannot be found', $file));
 		}
 
@@ -87,6 +89,26 @@ class Twig
 	 */
 	public function render($template, $data = array())
 	{
-		echo $template->render($data);
+		Log::notice('Rendering template');
+
+		//Convert data to HTML
+		foreach ($data as $key => $value) {
+			//Check the option
+			if (in_array($key, array('meta', 'style', 'script'))) {
+				//Convert each element to html
+				foreach ($value as $k => $v) {
+					//Check for an object
+					if (is_object($v)) {
+						$data[$key][$k] = $v->toHtml();
+					}
+				}
+			//Check the other values are objects
+			} elseif (is_object($value)) {
+				$data[$key] = $value->toHtml();
+			}
+		}
+
+		//Render the page
+		return $template->render($data);
 	}
 }

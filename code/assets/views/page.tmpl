@@ -7,23 +7,31 @@
 
 		<title>{{ title }}</title>
 
-		{{ meta }}
+		<link rel="shortcut icon" type="image/png" href="{{ favicon }}"/>
 
-		{{ style }}
+		{% for data in meta %}
+			{{ data | raw }}
+		{% endfor %}
 
-		{{ script }}
+		{% for sheet in style %}
+			{{ sheet | raw }}
+		{% endfor %}
+
+		{% for class in script %}
+			{{ class | raw }}
+		{% endfor %}
 	</head>
 	<body>
 		<header>
-			{{ header }}
+			{{ header | raw }}
 		</header>
 
 		<section>
-			{{ content }}
+			{{ page | raw }}
 		</section>
 
 		<footer>
-			{{ footer }}
+			{{ footer | raw }}
 		</footer>
 	</body>
 </html>

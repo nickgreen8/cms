@@ -1,8 +1,7 @@
 <?php
-namespace N8G\Cms\Exceptions\Display;
+namespace N8G\Grass\Exceptions\Display;
 
-use N8G\Cms\Exceptions\ExceptionAbstract,
-	N8G\Utils\Log;
+use N8G\Grass\Exceptions\ExceptionAbstract;
 
 /**
  * This exception is thown when a component has an invalid attribute.
@@ -18,7 +17,7 @@ class TwigException extends ExceptionAbstract
 	 * @param integer        $code     A user defined error
 	 * @param Exception|null $previous A previous exception that has caused this exception
 	 */
-	public function __construct($message, $code = Log::FATAL, Exception $previous = null)
+	public function __construct($message, $code = 1, Exception $previous = null)
 	{
 		parent::__construct($message, $code, $previous);
 		$this->log();

@@ -1,0 +1,100 @@
+/**
+ * Main.css
+ *
+ * This is the main style sheet for the N8G theme.
+ *
+ * @author Nick Green <nick-green@live.co.uk>
+ */
+
+body { font-family: Verdana, Geneva, sans-serif; padding: 0; margin: 0; height: 100%; }
+
+/** Header styling */
+header { background: #5b5b5b; }
+
+#main_nav > ul { width: 100%; }
+
+#main_nav ul {
+	list-style: none;
+	position: relative;
+	float: left;
+	margin: 0;
+	padding: 0;
+	background: #5b5b5b;
+	background: -moz-linear-gradient(top,  #5b5b5b 0%, #363636 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#5b5b5b), color-stop(100%,#363636));
+	background: -webkit-linear-gradient(top,  #5b5b5b 0%,#363636 100%);
+	background: -o-linear-gradient(top,  #5b5b5b 0%,#363636 100%);
+	background: -ms-linear-gradient(top,  #5b5b5b 0%,#363636 100%);
+	background: linear-gradient(to bottom,  #5b5b5b 0%,#363636 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5b5b5b', endColorstr='#363636',GradientType=0 );
+}
+
+#main_nav ul a {
+	display: block;
+	color: #fff;
+	text-decoration: none;
+	line-height: 32px;
+	padding: 0 15px;
+}
+
+#main_nav ul a.current_parent_page { border-bottom: 5px #8c8c8c solid; }
+
+#main_nav ul li {
+	position: relative;
+	float: left;
+	margin: 0;
+	padding: 0;
+	-webkit-transition: all 400ms ease-in-out;
+	-moz-transition: all 400ms ease-in-out;
+	-ms-transition: all 400ms ease-in-out;
+	-o-transition: all 400ms ease-in-out;
+	transition: all 400ms ease-in-out;
+	-webkit-border-radius: 10px 10px 0 0;
+	border-radius: 10px 10px 0 0;
+}
+#main_nav ul li:hover { background: #8c8c8c; }
+
+#main_nav ul ul {
+	display: none;
+	position: absolute;
+	top: 100%;
+	left: 0;
+	background: #363636;
+	padding: 0;
+}
+#main_nav ul ul li { float: none; width: 200px; -webkit-border-radius: 0; border-radius: 0; }
+#main_nav ul ul a { line-height: 120%; padding: 10px 15px; }
+#main_nav ul ul ul { top: 0; left: 100%; }
+#main_nav ul li:hover > ul { display: block; }
+
+/** Content section styleing */
+section > article { padding: 10px; }
+
+div.row > div { vertical-align: top; display: inline-block; }
+
+#big_img > img { width: 100%; height: auto; }
+
+/** Footer styleing */
+footer {
+	background: #5b5b5b;
+	background: -moz-linear-gradient(top,  #5b5b5b 0%, #363636 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#5b5b5b), color-stop(100%,#363636));
+	background: -webkit-linear-gradient(top,  #5b5b5b 0%,#363636 100%);
+	background: -o-linear-gradient(top,  #5b5b5b 0%,#363636 100%);
+	background: -ms-linear-gradient(top,  #5b5b5b 0%,#363636 100%);
+	background: linear-gradient(to bottom,  #5b5b5b 0%,#363636 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5b5b5b', endColorstr='#363636',GradientType=0 );
+	color: #fff;
+	width: 100%;
+	font-size: 12px;
+	padding-top: 1px;
+	min-height: 50px;
+	position:absolute;
+	bottom:0;
+	left:0;
+}
+
+footer #copyright { text-align: center; vertical-align: top; }
+
+footer nav a, footer nav a:visited { color: #fff; text-decoration: none; }
+footer nav a:hover, footer nav a:focus, footer nav a:active { text-decoration: underline; }

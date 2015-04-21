@@ -1,10 +1,10 @@
 <?php
-namespace N8G\Cms\Components\Html;
+namespace N8G\Grass\Components\Html;
 
-use N8G\Cms\Components\Component,
-	N8G\Cms\Exceptions\Components\ComponentMissingRequiredAttributesException,
-	N8G\Cms\Exceptions\Components\AttributeInvalidException,
-	N8G\Cms\Exceptions\Components\ElementInvalidException,
+use N8G\Grass\Components\Component,
+	N8G\Grass\Exceptions\Components\ComponentMissingRequiredAttributesException,
+	N8G\Grass\Exceptions\Components\AttributeInvalidException,
+	N8G\Grass\Exceptions\Components\ElementInvalidException,
 	N8G\Utils\Log;
 
 /**
@@ -18,16 +18,16 @@ use N8G\Cms\Components\Component,
 abstract class HtmlAbstract implements Component
 {
 	/**
-	 * The ID of the element.
-	 * @var string
-	 */
-	protected $id;
-
-	/**
 	 * A small array of data about the element. Including the name and tag
 	 * @var array
 	 */
 	protected $data;
+
+	/**
+	 * OPTIONAL. The ID of the element.
+	 * @var string
+	 */
+	protected $id;
 
 	/**
 	 * OPTIONAL. An array of elements that make up the overall element.
@@ -122,14 +122,14 @@ abstract class HtmlAbstract implements Component
 	{
 		Log::info(sprintf('Converting %s object to string', $this->data['name']));
 
-		$str = ucwords($this->data['name']) . ' element\r\n';
+		$str = ucwords($this->data['name']) . ' element\n\r';
 
 		if ($this->id !== NULL) {
-			$str .= '    ID: ' . $this->id . '.\r\n';
+			$str .= '    ID: ' . $this->id . '.\n\r';
 		}
 
 		if (count($this->elements) > 0) {
-			$str .= '    Elements:\r\n';
+			$str .= '    Elements:\n\r';
 			foreach ($this->elements as $element) {
 				if (is_object($element)) {
 					$str .= $element->toString();
@@ -137,14 +137,14 @@ abstract class HtmlAbstract implements Component
 					$str .= $element;
 				}
 			}
-			$str .= '\r\n';
+			$str .= '\n\r';
 		}
 
 		if ($this->content !== NULL || (is_array($this->content) && count($this->content) > 0)) {
 			$str .= '    Content: ';
 			if (is_array($this->content)){
 				foreach ($this->content as $item) {
-					$str .= '\r\n';
+					$str .= '\n\r';
 					if (is_object($item)) {
 						$str .= $item->toString();
 					} else {
@@ -157,7 +157,7 @@ abstract class HtmlAbstract implements Component
 			} else {
 				$str .= $this->content;
 			}
-			$str .= '\r\n';
+			$str .= '\n\r';
 		}
 
 		if (count($this->attributes) > 0) {
@@ -327,8 +327,10 @@ abstract class HtmlAbstract implements Component
 	 */
 	public function setId($id)
 	{
-		Log::info(sprintf('Setting ID to %s', $id));
-		$this->id = $id;
+		if ($this->id !== $id) {
+			Log::info(sprintf('Setting ID to %s', $id));
+			$this->id = $id;
+		}
 		return $this->id;
 	}
 
@@ -340,16 +342,18 @@ abstract class HtmlAbstract implements Component
 	 */
 	public function setElements(array $elements)
 	{
-		Log::info(sprintf('Setting the elements list for %s%s', $this->data['name'], $this->id !== '' && $this->id !== null ? ' (' . $this->id . ')' : ''));
+		if ($this->elements = $elements) {
+			Log::info(sprintf('Setting the elements list for %s%s', $this->data['name'], $this->id !== '' && $this->id !== null ? ' (' . $this->id . ')' : ''));
 
-		//Check each element
-		foreach ($elements as $key => $e) {
-			if (!$this->checkElement($e)) {
-				//Add new element
-				unset($elements[$key]);
+			//Check each element
+			foreach ($elements as $key => $e) {
+				if (!$this->checkElement($e)) {
+					//Add new element
+					unset($elements[$key]);
+				}
 			}
+			$this->elements = $elements;
 		}
-		$this->elements = $elements;
 
 		return $this->elements;
 	}
@@ -362,8 +366,10 @@ abstract class HtmlAbstract implements Component
 	 */
 	public function setContent($content)
 	{
-		Log::info(sprintf('Setting the content of %s%s', $this->data['name'], $this->id !== '' && $this->id !== null ? ' (' . $this->id . ')' : ''));
-		$this->content = $content;
+		if ($this->content !== $content) {
+			Log::info(sprintf('Setting the content of %s%s', $this->data['name'], $this->id !== '' && $this->id !== null ? ' (' . $this->id . ')' : ''));
+			$this->content = $content;
+		}
 		return $this->content;
 	}
 
@@ -375,8 +381,10 @@ abstract class HtmlAbstract implements Component
 	 */
 	public function setAttributes($attributes)
 	{
-		Log::info(sprintf('Setting the attributes of %s%s', $this->data['name'], $this->id !== '' && $this->id !== null ? ' (' . $this->id . ')' : ''));
-		$this->attributes = $attributes;
+		if ($this->attributes !== $attributes) {
+			Log::info(sprintf('Setting the attributes of %s%s', $this->data['name'], $this->id !== '' && $this->id !== null ? ' (' . $this->id . ')' : ''));
+			$this->attributes = $attributes;
+		}
 		return $this->attributes;
 	}
 
@@ -443,23 +451,23 @@ abstract class HtmlAbstract implements Component
 	{
 		Log::info('Checking element');
 
-		try {
+		// try {
 			//Check the class type
-			if (get_parent_class($element) === 'N8G\Cms\Components\Html\HtmlAbstract') {
+			if (get_parent_class($element) === 'N8G\Grass\Components\Html\HtmlAbstract') {
 				//Check the type
 				if (is_string($element) && !in_array($this->acceptedElements['types'], 'string')) {
 					throw new ElementInvalidException('Strings may not be added to this element');
 				} elseif (is_int($element) && !in_array($this->acceptedElements['types'], 'int')) {
 					throw new ElementInvalidException('Integer values cannot be added to this element');
-				} elseif (!in_array(str_replace('N8G\Cms\Components\Html\\', '', get_class($element)), $this->acceptedElements['elements'])) {
+				} elseif (!in_array(str_replace('N8G\Grass\Components\Html\\', '', get_class($element)), $this->acceptedElements['elements'])) {
 					throw new ElementInvalidException(sprintf('This element could not be added because there is a restriction. %s cannot contatin a %s.',
 																ucwords($this->data['name']),
-																str_replace('N8G\Cms\Components\Html\\', '', get_class($element))));
+																str_replace('N8G\Grass\Components\Html\\', '', get_class($element))));
 				}
 			}
-		} catch (ElementInvalidException $e) {
-			return false;
-		}
+		// } catch (ElementInvalidException $e) {
+		// 	return false;
+		// }
 
 		return true;
 	}

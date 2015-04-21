@@ -1,5 +1,5 @@
 <?php
-namespace N8G\Cms\Components\Html;
+namespace N8G\Grass\Components\Html;
 
 use N8G\Utils\Log;
 

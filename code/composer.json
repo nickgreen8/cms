@@ -1,5 +1,5 @@
 {
-	"name": "n8g/cms",
+	"name": "n8g/grass",
 	"description": "Basic custom CMS",
 	"license": "proprietary",
 	"authors": [
@@ -30,8 +30,9 @@
 	},
 	"autoload": {
 		"psr-4": {
-			"N8G\\Cms\\": "src/",
-			"Tests\\": "tests/src/"
+			"N8G\\Grass\\": "src/",
+			"Tests\\Unit\\": "tests/unit/",
+			"Tests\\Integration\\": "tests/integration/"
 		}
 	}
 }

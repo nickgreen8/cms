@@ -1,5 +1,5 @@
 <?php
-namespace Exceptions;
+namespace N8G\Grass\Exceptions;
 
 use N8G\Utils\Log;
 

@@ -1,7 +1,7 @@
 <?php
-namespace N8G\Cms\Components\Html;
+namespace N8G\Grass\Components\Html;
 
-use N8G\Cms\Components\Html\HtmlAbstract,
+use N8G\Grass\Components\Html\HtmlAbstract,
 	N8G\Utils\Log;
 
 /**

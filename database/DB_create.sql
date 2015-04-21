@@ -3,231 +3,205 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 
 DROP SCHEMA IF EXISTS `cms` ;
-CREATE SCHEMA IF NOT EXISTS `cms` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ;
-SHOW WARNINGS;
+CREATE SCHEMA IF NOT EXISTS `cms` DEFAULT CHARACTER SET utf8 ;
 USE `cms` ;
 
 -- -----------------------------------------------------
--- Table `Element`
+-- Table `cms`.`Element`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `Element` ;
+DROP TABLE IF EXISTS `cms`.`Element` ;
 
-SHOW WARNINGS;
-CREATE TABLE IF NOT EXISTS `Element` (
+CREATE TABLE IF NOT EXISTS `cms`.`Element` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NOT NULL,
-  `identifier` VARCHAR(45) NULL,
+  `identifier` VARCHAR(45) NULL DEFAULT NULL,
   `cms_class` VARCHAR(45) NOT NULL,
   `usable` TINYINT(1) NOT NULL DEFAULT TRUE,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
-SHOW WARNINGS;
 
 -- -----------------------------------------------------
--- Table `Attribute`
+-- Table `cms`.`Attribute`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `Attribute` ;
+DROP TABLE IF EXISTS `cms`.`Attribute` ;
 
-SHOW WARNINGS;
-CREATE TABLE IF NOT EXISTS `Attribute` (
+CREATE TABLE IF NOT EXISTS `cms`.`Attribute` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NOT NULL,
-  `label` VARCHAR(45) NULL,
+  `label` VARCHAR(45) NULL DEFAULT NULL,
   `required` TINYINT(1) NOT NULL DEFAULT FALSE,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
-SHOW WARNINGS;
 
 -- -----------------------------------------------------
--- Table `ElementAttribute`
+-- Table `cms`.`ElementAttribute`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `ElementAttribute` ;
+DROP TABLE IF EXISTS `cms`.`ElementAttribute` ;
 
-SHOW WARNINGS;
-CREATE TABLE IF NOT EXISTS `ElementAttribute` (
+CREATE TABLE IF NOT EXISTS `cms`.`ElementAttribute` (
   `element` INT NOT NULL,
   `attribute` INT NOT NULL,
   PRIMARY KEY (`element`, `attribute`),
   CONSTRAINT `elementElementAttributeKey`
     FOREIGN KEY (`element`)
-    REFERENCES `Element` (`id`)
+    REFERENCES `cms`.`Element` (`id`)
     ON DELETE CASCADE
     ON UPDATE CASCADE,
   CONSTRAINT `attributeElementAttributeKey`
     FOREIGN KEY (`attribute`)
-    REFERENCES `Attribute` (`id`)
+    REFERENCES `cms`.`Attribute` (`id`)
     ON DELETE CASCADE
     ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
-SHOW WARNINGS;
-CREATE INDEX `attributeTagAttributeKey_idx` ON `ElementAttribute` (`attribute` ASC);
+CREATE INDEX `attributeTagAttributeKey_idx` ON `cms`.`ElementAttribute` (`attribute` ASC);
 
-SHOW WARNINGS;
 
 -- -----------------------------------------------------
--- Table `Class`
+-- Table `cms`.`Class`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `Class` ;
+DROP TABLE IF EXISTS `cms`.`Class` ;
 
-SHOW WARNINGS;
-CREATE TABLE IF NOT EXISTS `Class` (
+CREATE TABLE IF NOT EXISTS `cms`.`Class` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NOT NULL,
   `style` LONGTEXT NOT NULL,
-  `desciption` LONGTEXT NULL,
+  `desciption` LONGTEXT NULL DEFAULT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
-SHOW WARNINGS;
 
 -- -----------------------------------------------------
--- Table `Content`
+-- Table `cms`.`Content`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `Content` ;
+DROP TABLE IF EXISTS `cms`.`Content` ;
 
-SHOW WARNINGS;
-CREATE TABLE IF NOT EXISTS `Content` (
+CREATE TABLE IF NOT EXISTS `cms`.`Content` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `value` VARCHAR(45) NULL,
+  `value` VARCHAR(45) NULL DEFAULT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
-SHOW WARNINGS;
 
 -- -----------------------------------------------------
--- Table `ElementContent`
+-- Table `cms`.`ElementContent`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `ElementContent` ;
+DROP TABLE IF EXISTS `cms`.`ElementContent` ;
 
-SHOW WARNINGS;
-CREATE TABLE IF NOT EXISTS `ElementContent` (
+CREATE TABLE IF NOT EXISTS `cms`.`ElementContent` (
   `element` INT NOT NULL,
   `content` INT NOT NULL,
   PRIMARY KEY (`element`, `content`),
   CONSTRAINT `elementElementContentKey`
     FOREIGN KEY (`element`)
-    REFERENCES `Element` (`id`)
+    REFERENCES `cms`.`Element` (`id`)
     ON DELETE CASCADE
     ON UPDATE CASCADE,
   CONSTRAINT `contentElementContentKey`
     FOREIGN KEY (`content`)
-    REFERENCES `Content` (`id`)
+    REFERENCES `cms`.`Content` (`id`)
     ON DELETE CASCADE
     ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
-SHOW WARNINGS;
-CREATE INDEX `contentElementContentKey_idx` ON `ElementContent` (`content` ASC);
+CREATE INDEX `contentElementContentKey_idx` ON `cms`.`ElementContent` (`content` ASC);
 
-SHOW WARNINGS;
 
 -- -----------------------------------------------------
--- Table `ContentAttribute`
+-- Table `cms`.`ContentAttribute`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `ContentAttribute` ;
+DROP TABLE IF EXISTS `cms`.`ContentAttribute` ;
 
-SHOW WARNINGS;
-CREATE TABLE IF NOT EXISTS `ContentAttribute` (
+CREATE TABLE IF NOT EXISTS `cms`.`ContentAttribute` (
   `content` INT NOT NULL,
   `attribute` INT NOT NULL,
   PRIMARY KEY (`content`, `attribute`),
   CONSTRAINT `contentContentAttributeKey`
     FOREIGN KEY (`content`)
-    REFERENCES `Content` (`id`)
+    REFERENCES `cms`.`Content` (`id`)
     ON DELETE CASCADE
     ON UPDATE CASCADE,
   CONSTRAINT `attribute`
     FOREIGN KEY (`attribute`)
-    REFERENCES `Attribute` (`id`)
+    REFERENCES `cms`.`Attribute` (`id`)
     ON DELETE CASCADE
     ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
-SHOW WARNINGS;
-CREATE INDEX `attribute_idx` ON `ContentAttribute` (`attribute` ASC);
+CREATE INDEX `attribute_idx` ON `cms`.`ContentAttribute` (`attribute` ASC);
 
-SHOW WARNINGS;
 
 -- -----------------------------------------------------
--- Table `ContentClass`
+-- Table `cms`.`ContentClass`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `ContentClass` ;
+DROP TABLE IF EXISTS `cms`.`ContentClass` ;
 
-SHOW WARNINGS;
-CREATE TABLE IF NOT EXISTS `ContentClass` (
+CREATE TABLE IF NOT EXISTS `cms`.`ContentClass` (
   `content` INT NOT NULL,
   `class` INT NOT NULL,
   PRIMARY KEY (`content`, `class`),
   CONSTRAINT `contentContentClassKey`
     FOREIGN KEY (`content`)
-    REFERENCES `Content` (`id`)
+    REFERENCES `cms`.`Content` (`id`)
     ON DELETE CASCADE
     ON UPDATE CASCADE,
   CONSTRAINT `classContentClassKey`
     FOREIGN KEY (`class`)
-    REFERENCES `Class` (`id`)
+    REFERENCES `cms`.`Class` (`id`)
     ON DELETE CASCADE
     ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
-SHOW WARNINGS;
-CREATE INDEX `classContentClassKey_idx` ON `ContentClass` (`class` ASC);
+CREATE INDEX `classContentClassKey_idx` ON `cms`.`ContentClass` (`class` ASC);
 
-SHOW WARNINGS;
 
 -- -----------------------------------------------------
--- Table `Page`
+-- Table `cms`.`Page`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `Page` ;
+DROP TABLE IF EXISTS `cms`.`Page` ;
 
-SHOW WARNINGS;
-CREATE TABLE IF NOT EXISTS `Page` (
+CREATE TABLE IF NOT EXISTS `cms`.`Page` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NOT NULL,
-  `title` VARCHAR(45) NULL,
+  `title` VARCHAR(45) NULL DEFAULT NULL,
+  `content` LONGTEXT NULL,
   `parent` VARCHAR(45) NULL DEFAULT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
-SHOW WARNINGS;
 
 -- -----------------------------------------------------
--- Table `PageContent`
+-- Table `cms`.`PageContent`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `PageContent` ;
+DROP TABLE IF EXISTS `cms`.`PageContent` ;
 
-SHOW WARNINGS;
-CREATE TABLE IF NOT EXISTS `PageContent` (
+CREATE TABLE IF NOT EXISTS `cms`.`PageContent` (
   `page` INT NOT NULL,
   `content` INT NOT NULL,
   PRIMARY KEY (`page`, `content`),
   CONSTRAINT `pagePageContentKey`
     FOREIGN KEY (`page`)
-    REFERENCES `Page` (`id`)
+    REFERENCES `cms`.`Page` (`id`)
     ON DELETE CASCADE
     ON UPDATE CASCADE,
   CONSTRAINT `contentPageContentKey`
     FOREIGN KEY (`content`)
-    REFERENCES `Content` (`id`)
+    REFERENCES `cms`.`Content` (`id`)
     ON DELETE CASCADE
     ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
-SHOW WARNINGS;
-CREATE INDEX `contentPageContentKey_idx` ON `PageContent` (`content` ASC);
+CREATE INDEX `contentPageContentKey_idx` ON `cms`.`PageContent` (`content` ASC);
 
-SHOW WARNINGS;
 
 -- -----------------------------------------------------
--- Table `User`
+-- Table `cms`.`User`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `User` ;
+DROP TABLE IF EXISTS `cms`.`User` ;
 
-SHOW WARNINGS;
-CREATE TABLE IF NOT EXISTS `User` (
+CREATE TABLE IF NOT EXISTS `cms`.`User` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `username` VARCHAR(45) NOT NULL,
   `password` VARCHAR(40) NOT NULL,
@@ -238,238 +212,179 @@ CREATE TABLE IF NOT EXISTS `User` (
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
-SHOW WARNINGS;
 
 -- -----------------------------------------------------
--- Table `SecurityQuestion`
+-- Table `cms`.`SecurityQuestion`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `SecurityQuestion` ;
+DROP TABLE IF EXISTS `cms`.`SecurityQuestion` ;
 
-SHOW WARNINGS;
-CREATE TABLE IF NOT EXISTS `SecurityQuestion` (
+CREATE TABLE IF NOT EXISTS `cms`.`SecurityQuestion` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `question` VARCHAR(100) NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
-SHOW WARNINGS;
 
 -- -----------------------------------------------------
--- Table `UserSecurityQuestion`
+-- Table `cms`.`UserSecurityQuestion`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `UserSecurityQuestion` ;
+DROP TABLE IF EXISTS `cms`.`UserSecurityQuestion` ;
 
-SHOW WARNINGS;
-CREATE TABLE IF NOT EXISTS `UserSecurityQuestion` (
+CREATE TABLE IF NOT EXISTS `cms`.`UserSecurityQuestion` (
   `user` INT NOT NULL,
   `securityQuestion` INT NOT NULL,
   PRIMARY KEY (`user`, `securityQuestion`),
   CONSTRAINT `userUserSecurityQuestionKey`
     FOREIGN KEY (`user`)
-    REFERENCES `User` (`id`)
+    REFERENCES `cms`.`User` (`id`)
     ON DELETE CASCADE
     ON UPDATE CASCADE,
   CONSTRAINT `securityQuestionUserSecurityQuestionKey`
     FOREIGN KEY (`securityQuestion`)
-    REFERENCES `SecurityQuestion` (`id`)
+    REFERENCES `cms`.`SecurityQuestion` (`id`)
     ON DELETE CASCADE
     ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
-SHOW WARNINGS;
-CREATE INDEX `securityQuestionUserSecurityQuestionKey_idx` ON `UserSecurityQuestion` (`securityQuestion` ASC);
+CREATE INDEX `securityQuestionUserSecurityQuestionKey_idx` ON `cms`.`UserSecurityQuestion` (`securityQuestion` ASC);
 
-SHOW WARNINGS;
 
 -- -----------------------------------------------------
--- Table `UserGroup`
+-- Table `cms`.`UserGroup`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `UserGroup` ;
+DROP TABLE IF EXISTS `cms`.`UserGroup` ;
 
-SHOW WARNINGS;
-CREATE TABLE IF NOT EXISTS `UserGroup` (
+CREATE TABLE IF NOT EXISTS `cms`.`UserGroup` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NOT NULL,
-  `description` LONGTEXT NULL,
+  `description` LONGTEXT NULL DEFAULT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
-SHOW WARNINGS;
 
 -- -----------------------------------------------------
--- Table `AccessRight`
+-- Table `cms`.`AccessRight`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `AccessRight` ;
+DROP TABLE IF EXISTS `cms`.`AccessRight` ;
 
-SHOW WARNINGS;
-CREATE TABLE IF NOT EXISTS `AccessRight` (
+CREATE TABLE IF NOT EXISTS `cms`.`AccessRight` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NOT NULL,
-  `description` VARCHAR(255) NULL,
+  `description` VARCHAR(255) NULL DEFAULT NULL,
   `mandatory` TINYINT(1) NOT NULL DEFAULT FALSE,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
-SHOW WARNINGS;
 
 -- -----------------------------------------------------
--- Table `UserUserGroup`
+-- Table `cms`.`UserUserGroup`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `UserUserGroup` ;
+DROP TABLE IF EXISTS `cms`.`UserUserGroup` ;
 
-SHOW WARNINGS;
-CREATE TABLE IF NOT EXISTS `UserUserGroup` (
+CREATE TABLE IF NOT EXISTS `cms`.`UserUserGroup` (
   `user` INT NOT NULL,
   `userGroup` INT NOT NULL,
   PRIMARY KEY (`user`, `userGroup`),
   CONSTRAINT `userUserUserGroupKey`
     FOREIGN KEY (`user`)
-    REFERENCES `User` (`id`)
+    REFERENCES `cms`.`User` (`id`)
     ON DELETE CASCADE
     ON UPDATE CASCADE,
   CONSTRAINT `userGroupUserUserGroupKey`
     FOREIGN KEY (`userGroup`)
-    REFERENCES `UserGroup` (`id`)
+    REFERENCES `cms`.`UserGroup` (`id`)
     ON DELETE CASCADE
     ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
-SHOW WARNINGS;
-CREATE INDEX `userGroupUserUserGroupKey_idx` ON `UserUserGroup` (`userGroup` ASC);
+CREATE INDEX `userGroupUserUserGroupKey_idx` ON `cms`.`UserUserGroup` (`userGroup` ASC);
 
-SHOW WARNINGS;
 
 -- -----------------------------------------------------
--- Table `UserGroupAccessRight`
+-- Table `cms`.`UserGroupAccessRight`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `UserGroupAccessRight` ;
+DROP TABLE IF EXISTS `cms`.`UserGroupAccessRight` ;
 
-SHOW WARNINGS;
-CREATE TABLE IF NOT EXISTS `UserGroupAccessRight` (
+CREATE TABLE IF NOT EXISTS `cms`.`UserGroupAccessRight` (
   `userGroup` INT NOT NULL,
   `accessRight` INT NOT NULL,
   PRIMARY KEY (`userGroup`, `accessRight`),
   CONSTRAINT `userGroupUserGroupAccessRightKey`
     FOREIGN KEY (`userGroup`)
-    REFERENCES `UserGroup` (`id`)
+    REFERENCES `cms`.`UserGroup` (`id`)
     ON DELETE CASCADE
     ON UPDATE CASCADE,
   CONSTRAINT `accessRightUserGroupAccessRightKey`
     FOREIGN KEY (`accessRight`)
-    REFERENCES `AccessRight` (`id`)
+    REFERENCES `cms`.`AccessRight` (`id`)
     ON DELETE CASCADE
     ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
-SHOW WARNINGS;
-CREATE INDEX `accessRightUserGroupAccessRightKey_idx` ON `UserGroupAccessRight` (`accessRight` ASC);
+CREATE INDEX `accessRightUserGroupAccessRightKey_idx` ON `cms`.`UserGroupAccessRight` (`accessRight` ASC);
 
-SHOW WARNINGS;
 
 -- -----------------------------------------------------
--- Table `PageAccess`
+-- Table `cms`.`Salt`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `PageAccess` ;
+DROP TABLE IF EXISTS `cms`.`Salt` ;
 
-SHOW WARNINGS;
-CREATE TABLE IF NOT EXISTS `PageAccess` (
-  `page` INT NOT NULL,
-  `userGroup` INT NOT NULL,
-  `view` TINYINT(1) NOT NULL DEFAULT TRUE,
-  `add` TINYINT(1) NOT NULL DEFAULT TRUE COMMENT 'Add elements to the page',
-  `edit` TINYINT(1) NOT NULL DEFAULT TRUE,
-  `delete` TINYINT(1) NOT NULL DEFAULT TRUE,
-  PRIMARY KEY (`page`, `userGroup`),
-  CONSTRAINT `pagePageAccessKey`
-    FOREIGN KEY (`page`)
-    REFERENCES `Page` (`id`)
-    ON DELETE CASCADE
-    ON UPDATE CASCADE,
-  CONSTRAINT `userGroupPageAccessKey`
-    FOREIGN KEY (`userGroup`)
-    REFERENCES `UserGroup` (`id`)
-    ON DELETE CASCADE
-    ON UPDATE CASCADE)
-ENGINE = InnoDB;
-
-SHOW WARNINGS;
-CREATE INDEX `userGroupPageAccessKey_idx` ON `PageAccess` (`userGroup` ASC);
-
-SHOW WARNINGS;
-
--- -----------------------------------------------------
--- Table `Salt`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `Salt` ;
-
-SHOW WARNINGS;
-CREATE TABLE IF NOT EXISTS `Salt` (
+CREATE TABLE IF NOT EXISTS `cms`.`Salt` (
   `saltStr1` VARCHAR(10) NOT NULL,
   `saltStr2` VARCHAR(10) NOT NULL,
   PRIMARY KEY (`saltStr1`, `saltStr2`))
 ENGINE = InnoDB;
 
-SHOW WARNINGS;
 
 -- -----------------------------------------------------
--- Table `Config`
+-- Table `cms`.`Config`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `Config` ;
+DROP TABLE IF EXISTS `cms`.`Config` ;
 
-SHOW WARNINGS;
-CREATE TABLE IF NOT EXISTS `Config` (
+CREATE TABLE IF NOT EXISTS `cms`.`Config` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NOT NULL COMMENT '	',
-  `value` VARCHAR(255) NULL,
+  `value` VARCHAR(255) NULL DEFAULT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
-SHOW WARNINGS;
+
+-- -----------------------------------------------------
+-- Table `cms`.`Type`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `cms`.`Type` ;
+
+CREATE TABLE IF NOT EXISTS `cms`.`Type` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(20) NOT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `cms`.`PageType`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `cms`.`PageType` ;
+
+CREATE TABLE IF NOT EXISTS `cms`.`PageType` (
+  `page` INT NOT NULL,
+  `type` INT NOT NULL,
+  PRIMARY KEY (`page`, `type`),
+  CONSTRAINT `PagePageTypeKey`
+    FOREIGN KEY (`page`)
+    REFERENCES `cms`.`Page` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `TypePageTypeKey`
+    FOREIGN KEY (`type`)
+    REFERENCES `cms`.`Type` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+CREATE INDEX `TypePageTypeKey_idx` ON `cms`.`PageType` (`type` ASC);
+
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
-
--- -----------------------------------------------------
--- Data for table `Page`
--- -----------------------------------------------------
-START TRANSACTION;
-USE `cms`;
-INSERT INTO `Page` (`id`, `name`, `title`, `parent`) VALUES (NULL, 'Home', NULL, NULL);
-INSERT INTO `Page` (`id`, `name`, `title`, `parent`) VALUES (NULL, 'About Us', NULL, NULL);
-INSERT INTO `Page` (`id`, `name`, `title`, `parent`) VALUES (NULL, 'Contact Us', NULL, NULL);
-
-COMMIT;
-
-
--- -----------------------------------------------------
--- Data for table `SecurityQuestion`
--- -----------------------------------------------------
-START TRANSACTION;
-USE `cms`;
-INSERT INTO `SecurityQuestion` (`id`, `question`) VALUES (NULL, 'When is your anniversary');
-INSERT INTO `SecurityQuestion` (`id`, `question`) VALUES (NULL, 'Who was your childhood hero');
-INSERT INTO `SecurityQuestion` (`id`, `question`) VALUES (NULL, 'What is your father\'s middle name');
-INSERT INTO `SecurityQuestion` (`id`, `question`) VALUES (NULL, 'What is your mother\'s maiden name');
-INSERT INTO `SecurityQuestion` (`id`, `question`) VALUES (NULL, 'What is your favourite colour');
-INSERT INTO `SecurityQuestion` (`id`, `question`) VALUES (NULL, 'What is your favourite film');
-INSERT INTO `SecurityQuestion` (`id`, `question`) VALUES (NULL, 'What is your favourite pet\'s name');
-INSERT INTO `SecurityQuestion` (`id`, `question`) VALUES (NULL, 'What is your favourite sports team');
-INSERT INTO `SecurityQuestion` (`id`, `question`) VALUES (NULL, 'What was your favourite teacher\'s name');
-INSERT INTO `SecurityQuestion` (`id`, `question`) VALUES (NULL, 'What is your first child\'s middle name');
-INSERT INTO `SecurityQuestion` (`id`, `question`) VALUES (NULL, 'What was the name of your high school');
-
-COMMIT;
-
-
--- -----------------------------------------------------
--- Data for table `Salt`
--- -----------------------------------------------------
-START TRANSACTION;
-USE `cms`;
-INSERT INTO `Salt` (`saltStr1`, `saltStr2`) VALUES (';pqked2p3i', 'qwel;fnq;o');
-INSERT INTO `Salt` (`saltStr1`, `saltStr2`) VALUES ('qi3m;oqi23', 'mqwd;2mqwl');
-INSERT INTO `Salt` (`saltStr1`, `saltStr2`) VALUES ('im3;2oim3d', 'qw;edmq;wo');
-
-COMMIT;
-

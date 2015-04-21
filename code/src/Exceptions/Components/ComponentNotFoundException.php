@@ -1,7 +1,7 @@
 <?php
-namespace N8G\Cms\Exceptions\Components;
+namespace N8G\Grass\Exceptions\Components;
 
-use N8G\Cms\Exceptions\ExceptionAbstract;
+use N8G\Grass\Exceptions\ExceptionAbstract;
 
 /**
  * This exception is thown when a comonent that is requested is missing.

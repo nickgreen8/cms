@@ -1,5 +1,5 @@
 <?php
-namespace N8G\Cms;
+namespace N8G\Grass;
 
 use N8G\Database\Database,
 	N8G\Utils\Log,
@@ -32,7 +32,7 @@ class Bootstrap
 		Log::init(__DIR__ . '/../logs/');
 
 		//Initilise error handler
-		set_error_handler(function() { $this->errorHandler($errno, $errstr, $errfile, $errline, $errcontext); });
+		set_error_handler(function($errno, $errstr, $errfile, $errline, $errcontext) { $this->errorHandler($errno, $errstr, $errfile, $errline, $errcontext); });
 
 		//Specify new page is opening
 		Log::custom(sprintf(
@@ -49,6 +49,7 @@ class Bootstrap
 			$config->database->type,
 			$config->database->host
 		);
+		Database::setPrefix($config->database->prefix);
 
 		//Check for site setup
 		$this->checkSiteSetup();
@@ -93,30 +94,118 @@ class Bootstrap
 	 * to react as required.
 	 * @return void
 	 */
-	public function errorHandler(int $errno, $errstr, $errfile, int $errline, array $errcontext)
+	public function errorHandler($code, $message, $file, $line, $context)
 	{
-		var_dump($errno, $errstr, $errfile, $errline, $errcontext);
+		//Get the relevant method for the log
+		$method = $this->getMethod($code);
 
-		/*if (!(error_reporting() & $errno)) {
-	        // This error code is not included in error_reporting
-	        return;
-	    }
+		//Build the log entry
+		$log = sprintf(
+			'[code: %d] [type: %s] [file: %s] [line: %d] %s',
+			$code,
+			$this->getType($code),
+			$file,
+			$line,
+			$message
+		);
 
-	    switch ($errno) {
-	    case E_USER_ERROR:
-	        break;
+		//Log the error
+		Log::$method($log);
 
-	    case E_USER_WARNING:
-	        break;
+	    //Don't execute PHP's own error handler
+	    return true;
+	}
 
-	    case E_USER_NOTICE:
-	        break;
+	/**
+	 * This function is used to get the relevent function to log the error with. The
+	 * error code is passed and before the log method to be used is passed back as a
+	 * string.
+	 *
+	 * @param  int    $code The PHP error code for the error that has been thrown
+	 * @return string       The function to log the error with
+	 */
+	private function getMethod($code)
+	{
+		switch ($code) {
+			case E_PARSE :
+            case E_CORE_ERROR :
+            case E_COMPILE_ERROR :
+                return 'fatal';
+                break;
+            case E_WARNING :
+            case E_CORE_WARNING :
+            case E_COMPILE_WARNING :
+            case E_USER_WARNING :
+            case E_NOTICE :
+            case E_USER_NOTICE :
+            case E_STRICT :
+                return 'warn';
+                break;
+            default :
+                return 'error';
+                break;
+        }
+	}
 
-	    default:
-	        break;
-	    }
-
-	    /* Don't execute PHP internal error handler */
-	    //return true;
+	/**
+	 * This function gets the error type as a string so that it can be displayed in the
+	 * logs. The error code is passed and before the type is passed back as a string.
+	 *
+	 * @param  int    $code The PHP error code for the error that has been thrown
+	 * @return string       The error type as a string
+	 */
+	private function getType($code)
+	{
+		//Use the code to determine the error
+		switch ($code) {
+            case E_ERROR :				// 1
+            	return 'ERROR';
+            	break;
+            case E_WARNING :			// 2
+            	return 'WARNING';
+            	break;
+            case E_PARSE :				// 4
+            	return 'PARSE';
+            	break;
+            case E_NOTICE :				// 8
+            	return 'NOTICE';
+            	break;
+            case E_CORE_ERROR :			// 16
+            	return 'CORE ERROR';
+            	break;
+            case E_CORE_WARNING :		// 32
+            	return 'CORE WARNING';
+            	break;
+            case E_CORE_ERROR :			// 64
+            	return 'CORE ERROR';
+            	break;
+            case E_CORE_WARNING :		// 128
+            	return 'CORE WARNING';
+            	break;
+            case E_USER_ERROR :			// 256
+            	return 'USER ERROR';
+            	break;
+            case E_USER_WARNING :		// 512
+            	return 'USER WARNING';
+            	break;
+            case E_USER_NOTICE :		// 1024
+            	return 'USER NOTICE';
+            	break;
+            case E_STRICT :				// 2048
+            	return 'STRICT';
+            	break;
+            case E_RECOVERABLE_ERROR :	// 4096
+            	return 'RECOVERABLE';
+            	break;
+            case E_DEPRECATED :			// 8192
+            	return 'DEPRECATED';
+            	break;
+            case E_USER_DEPRECATED :	// 16384
+            	return 'USER DEPRECATED';
+            	break;
+            default :					// Unknown
+            	return sprintf('UNKNOWN (%d)', $code);
+            	break;
+        }
 	}
 }

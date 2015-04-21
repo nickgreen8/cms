@@ -1,5 +1,5 @@
 <?php
-namespace N8G\Cms\Components;
+namespace N8G\Grass\Components;
 
 /**
  * This is the interface that MUST be implemented in each and all of the different components
