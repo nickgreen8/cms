@@ -1,0 +1,300 @@
+<?php
+namespace N8G\Grass\Display;
+
+use N8G\Grass\Components\Html\Body,
+	N8G\Grass\Components\Html\Heading,
+	N8G\Grass\Components\Html\Link,
+	N8G\Grass\Components\Html\Meta,
+	N8G\Grass\Components\Html\Script,
+	N8G\Grass\Components\Html\Style,
+	N8G\Grass\Components\Html\Title,
+	N8G\Grass\Components\Html\Paragraph,
+	N8G\Database\Database,
+	N8G\Utils\Log,
+	N8G\Utils\Config;
+
+/**
+ * This class is used to build a page. The functionality to output the page is also held
+ * within this class.
+ *
+ * @author Nick Green <nick-green@live.co.uk>
+ */
+class Page
+{
+	/**
+	 * The instance of this class.
+	 * @var object
+	 */
+	private static $page;
+	/**
+	 * The ID of the page
+	 * @var string|integer
+	 */
+	private $id;
+	/**
+	 * The theme class for holding all the theme information.
+	 * @var object
+	 */
+	private $theme;
+	/**
+	 * The navigation object.
+	 * @var object
+	 */
+	private $navigation;
+	/**
+	 * The twig object to handle all template related functionality.
+	 * @var object
+	 */
+	private $twig;
+	/**
+	 * The page data to be output.
+	 * @var array
+	 */
+	private $data;
+	/**
+	 * The page type.
+	 * @var string
+	 */
+	private $type;
+
+	/**
+	 * This is the default constructor. Only the page ID is passed. Within, new template,
+	 * navigation and theme classes are instantiated.
+	 *
+	 * @param string|integer $id The ID of the page. Either the name value or numberic ID.
+	 */
+	private function __construct($id)
+	{
+		//Set page ID
+		$this->id = is_numeric($id) ? intval($id) : strtolower(str_replace(' ', '-', $id));
+
+		//Get twig instance
+		$this->twig = Twig::init();
+		//Get the theme
+		$this->theme = new Theme();
+		//Create navigation object
+		$this->navigation = new Navigation();
+
+		//Get the page data from the DB
+		$this->data = array(
+			'meta'		=>	array()
+		);
+		$this->getData();
+
+		//Build page sections
+		$this->buildHead();
+	}
+
+// Public Functions
+
+	/**
+	 * This function generates the single instance of the page. As this class is treated as a
+	 * singlton class, this is the function that will return the class.
+	 *
+	 * @param  string|integer $id The ID of the page. Either the name value or numberic ID.
+	 * @return object             An instance of this class.
+	 */
+	public static function init($id = 1)
+	{
+		Log::debug('Initilising Page object');
+
+		//Check for instance of class
+		if (!isset(self::$page)) {
+			self::$page = new Page($id);
+		}
+		//Return this class
+		return self::$page;
+	}
+
+	/**
+	 * This function outputs the fully rendered HTML page.
+	 *
+	 * @return void
+	 */
+	public function render()
+	{
+		try {
+			//Render page elements
+			$this->renderHeader();
+			$this->renderContent();
+			$this->renderFooter();
+
+			//Load the page template
+			$template = $this->twig->loadTemplate(VIEWS_DIR . 'page.tmpl');
+
+			echo $this->twig->render($template, $this->data);
+		} catch (\Exception $e) {
+			echo "render - GO TO ERROR PAGE";
+		}
+	}
+
+	public function addStylesheet()
+	{
+	}
+
+	public function addScript()
+	{
+	}
+
+// Private Functions
+
+	/**
+	 * This function gets the data related to the page. This is then used to build up the data
+	 * array for everything that is to be input into the page. On render, all the data that has
+	 * been prepared is output into the page.
+	 *
+	 * @return void
+	 */
+	private function getData()
+	{
+		//Get the data from the database
+		$page = $this->getPageData();
+
+		Log::debug(sprintf('Page name: %s', $page['name']));
+		Log::debug(sprintf('Page title: %s', $page['title']));
+		Log::debug(sprintf('Page type: %s', $page['type']));
+
+		//Assign data to page array
+		$this->data['name'] = $page['name'];
+		$this->data['title'] = $page['title'];
+
+		//Set the page vars from the DB
+		$this->type = $page['type'];
+
+		//Parse page content
+		$this->data['content'] = $this->parseContent($page['content']);
+	}
+
+	/**
+	 * This function is used to build up all the page header data. This includes all the meta data,
+	 * as well as other fundamentals such as language and favicon.
+	 *
+	 * @return void
+	 */
+	private function buildHead()
+	{
+		//Add mandatory data
+		$this->data['favicon'] = Config::getItem('favicon');
+		$this->data['language'] = Config::inConfig('language') ? Config::getItem('language') : 'en';
+
+		//Get the theme head data
+		$this->data = array_merge($this->data, $this->theme->getHeadData());
+
+		//Meta data to look for
+		$meta = array('keywords', 'description', 'subject', 'revised', 'summary', 'copyright', 'url', 'author', 'designer');
+		//Build meta data
+		foreach ($meta as $data) {
+			if (Config::inConfig('meta-' . $data)) {
+				array_push($this->data['meta'], new Meta(array('name' => $data, 'content' => Config::getItem('meta-' . $data))));
+			}
+		}
+	}
+
+	/**
+	 * This function is used to render the page header into HTML. It is then passed into the data
+	 * array where it can be inserted into the page as HTML.
+	 *
+	 * @return void
+	 */
+	private function renderHeader()
+	{
+		$template = $this->twig->loadTemplate($this->theme->getPath() . 'header.tmpl');
+		$this->data['header'] = $this->twig->render($template, array(
+																	'navigation' => $this->navigation->buildHeaderNavigation()
+																)
+		);
+	}
+
+	/**
+	 * This function is used to render the page content into HTML. It is then passed into the data
+	 * array where it can be inserted into the page as HTML.
+	 *
+	 * @return void
+	 */
+	private function renderContent()
+	{
+		$template = $this->twig->loadTemplate($this->theme->getPath() . $this->type . '.tmpl');
+		$this->data['page'] = $this->twig->render($template, array(
+																	'content' => $this->data['content']
+																)
+		);
+	}
+
+	/**
+	 * This function is used to render the page footer into HTML. It is then passed into the data
+	 * array where it can be inserted into the page as HTML.
+	 *
+	 * @return void
+	 */
+	private function renderFooter()
+	{
+		$template = $this->twig->loadTemplate($this->theme->getPath() . 'footer.tmpl');
+		$this->data['footer'] = $this->twig->render($template, array(
+																	'copyright' => Config::getItem('copyright'),
+																	'navigation' => $this->navigation->buildFooterNavigation()
+																)
+		);
+	}
+
+	/**
+	 * This function is used to parce the content of the page. The content is parsed as a string
+	 * before being converted into HTML and returned as a HTML string.
+	 *
+	 * ** NOTE: This should be moved into a 'PageAbstract' class where is can be inherited by
+	 * specific different classes for each page type (To be completed) **
+	 *
+	 * @param  string $content The content that is pulled from the database.
+	 * @return string          The page content as a HTML string.
+	 */
+	private function parseContent($content)
+	{
+		$html = '';
+		$content = explode('\n', $content);
+
+		foreach ($content as $line) {
+			//Extract data
+			preg_match("/([a-z]{0,6})(\d{1,2})?#?(.*)/u", trim($line), $data);
+
+			switch ($data[1]) {
+				case 'h' :
+					//Create new heading
+					$i = new Heading($data[2], $data[3]);
+					break;
+
+				case 'p' :
+				default :
+					//Create new paragraph
+					$i = new Paragraph($data[3]);
+					break;
+			}
+
+			//Convert to HTML
+			$html .= $i->toHtml();
+		}
+
+		return $html;
+	}
+
+	/**
+	 * This function gets all the data for a page. The ID which is set within the class is used to get
+	 * the relevant data from the database. The query object is returned.
+	 *
+	 * @return object the query object containing the page data.
+	 */
+	private function getPageData()
+	{
+		$query = 'SELECT
+						p.name,
+						p.title,
+						p.content,
+						t.name as type
+					FROM
+						page p LEFT JOIN PageType pt
+							ON p.id = pt.page
+						LEFT JOIN Type t
+							ON pt.type = t.id
+					WHERE
+						%s';
+		return Database::getArray(Database::query(sprintf($query, is_numeric($this->id) ? sprintf('p.id = %d', $this->id) : sprintf('LCASE(REPLACE(p.name, \' \', \'-\')) = \'%s\'', $this->id))));
+	}
+}
