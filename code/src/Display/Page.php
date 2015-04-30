@@ -13,6 +13,8 @@ use N8G\Grass\Components\Html\Body,
 	N8G\Utils\Log,
 	N8G\Utils\Config;
 
+use N8G\Grass\Display\Pages\Standard;
+
 /**
  * This class is used to build a page. The functionality to output the page is also held
  * within this class.
@@ -128,12 +130,26 @@ class Page
 		}
 	}
 
-	public function addStylesheet()
+	/**
+	 * This function is used to add an additional style sheet to the page.
+	 *
+	 * @param string $file The path to the new style sheet
+	 */
+	public function addStylesheet($file)
 	{
+		//Add file to styles array
+		array_push($this->data['style'], new Link(array('rel' => 'stylesheet', 'type' => 'text/css', 'href' => $file)));
 	}
 
-	public function addScript()
+	/**
+	 * This function is used to add an additional script file to the page.
+	 *
+	 * @param string $file The path to the new script file
+	 */
+	public function addScript($file)
 	{
+		//Add file to script array
+		array_push($this->data['script'], new Script(array('async' => '', 'type' => 'text/javascript', 'href' => $file)));
 	}
 
 // Private Functions
@@ -148,21 +164,22 @@ class Page
 	private function getData()
 	{
 		//Get the data from the database
-		$page = $this->getPageData();
+		$data = $this->getPageData($this->id);
 
-		Log::debug(sprintf('Page name: %s', $page['name']));
-		Log::debug(sprintf('Page title: %s', $page['title']));
-		Log::debug(sprintf('Page type: %s', $page['type']));
+		Log::debug(sprintf('Page name: %s', $data['name']));
+		Log::debug(sprintf('Page title: %s', $data['title']));
+		Log::debug(sprintf('Page type: %s', $data['type']));
 
 		//Assign data to page array
-		$this->data['name'] = $page['name'];
-		$this->data['title'] = $page['title'];
+		$this->data['name'] = $data['name'];
+		// $this->data['title'] = $data['title'];
+		$this->data['title'] = $this->buildTitle($data);
 
-		//Set the page vars from the DB
-		$this->type = $page['type'];
-
+		//Create the page object
+		$class = sprintf('N8G\Grass\Display\Pages\%s', str_replace(' ', '', ucwords($data['type'])));
+		$this->type = new $class();
 		//Parse page content
-		$this->data['content'] = $this->parseContent($page['content']);
+		$this->type->parseContent($data['content']);
 	}
 
 	/**
@@ -213,11 +230,8 @@ class Page
 	 */
 	private function renderContent()
 	{
-		$template = $this->twig->loadTemplate($this->theme->getPath() . $this->type . '.tmpl');
-		$this->data['page'] = $this->twig->render($template, array(
-																	'content' => $this->data['content']
-																)
-		);
+		$template = $this->twig->loadTemplate($this->theme->getPath() . $this->type->getTemplateName() . '.tmpl');
+		$this->data['page'] = $this->twig->render($template, $this->type->getData());
 	}
 
 	/**
@@ -237,56 +251,55 @@ class Page
 	}
 
 	/**
-	 * This function is used to parce the content of the page. The content is parsed as a string
-	 * before being converted into HTML and returned as a HTML string.
+	 * This function builds the page title. This includes all parent pages as well as the site tag
+	 * line if it is the home page. The page data array is passed and the title as a string is
+	 * returned.
 	 *
-	 * ** NOTE: This should be moved into a 'PageAbstract' class where is can be inherited by
-	 * specific different classes for each page type (To be completed) **
-	 *
-	 * @param  string $content The content that is pulled from the database.
-	 * @return string          The page content as a HTML string.
+	 * @param  array  $data The page data pulled from the database
+	 * @return string       The fully formed page title
 	 */
-	private function parseContent($content)
+	private function buildTitle($data)
 	{
-		$html = '';
-		$content = explode('\n', $content);
+		//Create title array
+		$title = array();
 
-		foreach ($content as $line) {
-			//Extract data
-			preg_match("/([a-z]{0,6})(\d{1,2})?#?(.*)/u", trim($line), $data);
-
-			switch ($data[1]) {
-				case 'h' :
-					//Create new heading
-					$i = new Heading($data[2], $data[3]);
-					break;
-
-				case 'p' :
-				default :
-					//Create new paragraph
-					$i = new Paragraph($data[3]);
-					break;
+		//Check if it is the home page
+		if ($data['type'] === 'index') {
+			//Add the site tag line
+			array_unshift($title, trim(Config::getItem('site-tag-line')));
+		} else {
+			//Get parent
+			while ($data['parent'] !== null && (is_numeric($data['parent']) && $data['parent'] > 0)) {
+				//Add page name
+				array_unshift($title, trim(ucwords($data['name'])));
+				//Get parent data
+				$data = $this->getPageData($data['parent']);
 			}
-
-			//Convert to HTML
-			$html .= $i->toHtml();
+			//Add final parent
+			array_unshift($title, trim(ucwords($data['name'])));
 		}
 
-		return $html;
+		//Prepend the site title
+		array_unshift($title, trim(Config::getItem('site-title')));
+
+		//Return built title
+		return implode(' | ', $title);
 	}
 
 	/**
 	 * This function gets all the data for a page. The ID which is set within the class is used to get
 	 * the relevant data from the database. The query object is returned.
 	 *
-	 * @return object the query object containing the page data.
+	 * @param  integer|string $id The ID of the page to request
+	 * @return object             The query object containing the page data.
 	 */
-	private function getPageData()
+	private function getPageData($id)
 	{
 		$query = 'SELECT
 						p.name,
 						p.title,
 						p.content,
+						p.parent,
 						t.name as type
 					FROM
 						page p LEFT JOIN PageType pt
@@ -295,6 +308,6 @@ class Page
 							ON pt.type = t.id
 					WHERE
 						%s';
-		return Database::getArray(Database::query(sprintf($query, is_numeric($this->id) ? sprintf('p.id = %d', $this->id) : sprintf('LCASE(REPLACE(p.name, \' \', \'-\')) = \'%s\'', $this->id))));
+		return Database::getArray(Database::query(sprintf($query, is_numeric($id) ? sprintf('p.id = %d', $id) : sprintf('LCASE(REPLACE(p.name, \' \', \'-\')) = \'%s\'', $id))));
 	}
 }

@@ -6,7 +6,18 @@
  * @author Nick Green <nick-green@live.co.uk>
  */
 
-body { font-family: Verdana, Geneva, sans-serif; padding: 0; margin: 0; height: 100%; }
+/** Generic styling */
+html { height: 100%; }
+body {
+	font-family: Verdana, Geneva, sans-serif;
+	padding: 0;
+	margin: 0;
+	height: 100%;
+	display: table;
+	width: 100%;
+}
+
+header, section#body, footer { display: table-row; height: 1px; }
 
 /** Header styling */
 header { background: #5b5b5b; }
@@ -68,6 +79,8 @@ header { background: #5b5b5b; }
 #main_nav ul li:hover > ul { display: block; }
 
 /** Content section styleing */
+section#body { height: 100%; }
+
 section > article { padding: 10px; }
 
 div.row > div { vertical-align: top; display: inline-block; }
@@ -89,9 +102,6 @@ footer {
 	font-size: 12px;
 	padding-top: 1px;
 	min-height: 50px;
-	position:absolute;
-	bottom:0;
-	left:0;
 }
 
 footer #copyright { text-align: center; vertical-align: top; }

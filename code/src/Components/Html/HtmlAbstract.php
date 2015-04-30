@@ -5,6 +5,7 @@ use N8G\Grass\Components\Component,
 	N8G\Grass\Exceptions\Components\ComponentMissingRequiredAttributesException,
 	N8G\Grass\Exceptions\Components\AttributeInvalidException,
 	N8G\Grass\Exceptions\Components\ElementInvalidException,
+	N8G\Utils\Config,
 	N8G\Utils\Log;
 
 /**
@@ -185,7 +186,7 @@ abstract class HtmlAbstract implements Component
 		$html = '<' . $this->data['tag'];
 
 		//Check for an ID
-		if ($this->id !== null) {
+		if ($this->id !== null && trim($this->id) !== '') {
 			$html .= ' id="' . str_replace(' ', '_', $this->id) . '"';
 		}
 
@@ -272,7 +273,27 @@ abstract class HtmlAbstract implements Component
 	 */
 	public function checkForElements()
 	{
+		Log::info('Checking content for embeded elements');
 
+		if (!is_string($this->content) || trim($this->content) === '') {
+			Log::notice('Content is not a string');
+			return;
+		}
+
+		Log::debug(sprintf('Content: %s', $this->content));
+
+		preg_match_all(sprintf("/<([a-z]{0,8})#(?:([\w-_#]*)#)?(?:{([%s]+)})?([%s]+)?>/u", Config::getItem('accepted-chars'), Config::getItem('accepted-chars')), $this->content, $data);
+
+		if(count($data[0]) > 0) {
+			for ($i = 0; $i < count($data[0]); $i++) {
+				//Create the HTML object
+				$obj = HtmlBuilder::getObject($data[1][$i], $data[4][$i], $data[2][$i], HtmlBuilder::convertStrToAttributes($data[3][$i]));
+
+				// FOR TEST ONLY!!!!!!!!
+				Log::notice('FOR TEST ONLY! Replacing string with HTML string');
+				$this->content = str_replace($data[0][$i], $obj->toHtml(), $this->content);
+			}
+		}	
 	}
 
 	/**
@@ -327,7 +348,7 @@ abstract class HtmlAbstract implements Component
 	 */
 	public function setId($id)
 	{
-		if ($this->id !== $id) {
+		if ($this->id !== $id && !in_array(trim($id), array('', null))) {
 			Log::info(sprintf('Setting ID to %s', $id));
 			$this->id = $id;
 		}
@@ -451,23 +472,19 @@ abstract class HtmlAbstract implements Component
 	{
 		Log::info('Checking element');
 
-		// try {
-			//Check the class type
-			if (get_parent_class($element) === 'N8G\Grass\Components\Html\HtmlAbstract') {
-				//Check the type
-				if (is_string($element) && !in_array($this->acceptedElements['types'], 'string')) {
-					throw new ElementInvalidException('Strings may not be added to this element');
-				} elseif (is_int($element) && !in_array($this->acceptedElements['types'], 'int')) {
-					throw new ElementInvalidException('Integer values cannot be added to this element');
-				} elseif (!in_array(str_replace('N8G\Grass\Components\Html\\', '', get_class($element)), $this->acceptedElements['elements'])) {
-					throw new ElementInvalidException(sprintf('This element could not be added because there is a restriction. %s cannot contatin a %s.',
+		//Check the class type
+		if (get_parent_class($element) === 'N8G\Grass\Components\Html\HtmlAbstract') {
+			//Check the type
+			if (is_string($element) && !in_array($this->acceptedElements['types'], 'string')) {
+				throw new ElementInvalidException('Strings may not be added to this element');
+			} elseif (is_int($element) && !in_array($this->acceptedElements['types'], 'int')) {
+				throw new ElementInvalidException('Integer values cannot be added to this element');
+			} elseif (!in_array(str_replace('N8G\Grass\Components\Html\\', '', get_class($element)), $this->acceptedElements['elements'])) {
+				throw new ElementInvalidException(sprintf('This element could not be added because there is a restriction. %s cannot contatin a %s.',
 																ucwords($this->data['name']),
 																str_replace('N8G\Grass\Components\Html\\', '', get_class($element))));
-				}
 			}
-		// } catch (ElementInvalidException $e) {
-		// 	return false;
-		// }
+		}
 
 		return true;
 	}

@@ -4,6 +4,16 @@
 
 			<article id="main">
 				<div class="row">
-					
+					<div class="col">
+					{% for post in posts %}
+						{{ post | raw }}
+					{% endfor %}
+					</div>
+
+					<div id="blog_sidebar" class="col">
+						<div class="filter">
+							{{ date-filter | raw }}
+						</div>
+					</div>
 				</div>
 			</article>

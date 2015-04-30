@@ -91,6 +91,19 @@ class Theme
 	}
 
 	/**
+	 * This function is used to return the data collected on instantiation.
+	 *
+	 * @return The theme data
+	 */
+	public function getHeadData()
+	{
+		return array(
+			'style'		=> $this->getStyles(),
+			'script'	=> $this->getScript()
+		);
+	}
+
+	/**
 	 * This function is used to get all the stylesheets out of the relevant themes
 	 * directory. These files are then input into HTML and returns each of them in
 	 * an array.
@@ -142,18 +155,5 @@ class Theme
 
 		//Return the list of stylesheets
 		return $script;
-	}
-
-	/**
-	 * This function is used to return the data collected on instantiation.
-	 *
-	 * @return The theme data
-	 */
-	public function getHeadData()
-	{
-		return array(
-			'style'		=> $this->getStyles(),
-			'script'	=> $this->getScript()
-		);
 	}
 }
