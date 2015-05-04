@@ -100,11 +100,10 @@ footer {
 	color: #fff;
 	width: 100%;
 	font-size: 12px;
-	padding-top: 1px;
 	min-height: 50px;
 }
 
-footer #copyright { text-align: center; vertical-align: top; }
+footer #copyright { margin-top: 1em; text-align: center; vertical-align: top; }
 
 footer nav a, footer nav a:visited { color: #fff; text-decoration: none; }
 footer nav a:hover, footer nav a:focus, footer nav a:active { text-decoration: underline; }

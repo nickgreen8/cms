@@ -293,7 +293,7 @@ abstract class HtmlAbstract implements Component
 				Log::notice('FOR TEST ONLY! Replacing string with HTML string');
 				$this->content = str_replace($data[0][$i], $obj->toHtml(), $this->content);
 			}
-		}	
+		}
 	}
 
 	/**

@@ -62,7 +62,12 @@ class HtmlBuilder
 
 			case 'input' :
 				//Create new input
-				return new Input($content, $id, array(), $attributes);
+				return new Input($id, $attributes);
+				break;
+
+			case 'label' :
+				//Create new label
+				return new Label($content, $id, array(), $attributes);
 				break;
 
 			case 'p' :
