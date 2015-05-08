@@ -7,7 +7,8 @@ use N8G\Grass\Components\Html\Script,
 	N8G\Grass\Exceptions\Display\ThemeException,
 	N8G\Database\Database,
 	N8G\Utils\Log,
-	N8G\Utils\Config;
+	N8G\Utils\Config,
+	N8G\Utils\Json;
 
 /**
  * This class is used to contain theme data. This will include the retreval
@@ -38,6 +39,11 @@ class Theme
 	 * @var array
 	 */
 	private $script = array();
+	/**
+	 * Array of theme specific savings
+	 * @var array
+	 */
+	private $settings = array();
 
 	/**
 	 * This is the default constructor. One optional parameter is passed. This
@@ -103,6 +109,29 @@ class Theme
 		);
 	}
 
+	public function getSettings($type = null)
+	{
+		if (count($this->settings) > 0) {
+			return array_merge($this->getGlobalSettings(), ($type === null) ? array() : ($this->settings[$type] !== null) ? $this->settings[$type] : array());
+		}
+
+		$path = ASSETS_DIR . $this->path . 'config.json';
+
+		//Check that the theme config exists
+		if (Json::fileExists($path)) {
+			//Get the data
+			$config = Json::readFile($path, true);
+			$this->settings = $config['settings'];
+
+			return array_merge($this->getGlobalSettings(), ($type === null) ? array() : ($this->settings[$type] !== null) ? $this->settings[$type] : array());
+		}
+
+		//Return an empty settings array by default
+		return array();
+	}
+
+// Private functions
+
 	/**
 	 * This function is used to get all the stylesheets out of the relevant themes
 	 * directory. These files are then input into HTML and returns each of them in
@@ -155,5 +184,23 @@ class Theme
 
 		//Return the list of stylesheets
 		return $script;
+	}
+
+	private function getGlobalSettings()
+	{
+		//Create return array
+		$settings = array();
+
+		//Loop though settings
+		foreach ($this->settings as $key => $value) {
+			//Check for page type
+			if (!is_array($value)) {
+				//Add to array
+				$settings[$key] = $value;
+			}
+		}
+
+		//Return global settings
+		return $settings;
 	}
 }

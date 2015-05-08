@@ -215,9 +215,13 @@ class Page
 	 */
 	private function renderHeader()
 	{
+		$settings = $this->theme->getSettings($this->type->getTemplateName());
 		$template = $this->twig->loadTemplate($this->theme->getPath() . 'header.tmpl');
-		$this->data['header'] = $this->twig->render($template, array(
-																	'navigation' => $this->navigation->buildHeaderNavigation()
+		$this->data['header'] = $this->twig->render($template, array_merge(
+																	array(
+																		'navigation' => $this->navigation->buildHeaderNavigation()
+																	),
+																	$settings
 																)
 		);
 	}
@@ -230,8 +234,9 @@ class Page
 	 */
 	private function renderContent()
 	{
+		$settings = $this->theme->getSettings($this->type->getTemplateName());
 		$template = $this->twig->loadTemplate($this->theme->getPath() . $this->type->getTemplateName() . '.tmpl');
-		$this->data['page'] = $this->twig->render($template, $this->type->getData());
+		$this->data['page'] = $this->twig->render($template, array_merge($this->type->getData(), $settings));
 	}
 
 	/**
@@ -242,10 +247,14 @@ class Page
 	 */
 	private function renderFooter()
 	{
+		$settings = $this->theme->getSettings($this->type->getTemplateName());
 		$template = $this->twig->loadTemplate($this->theme->getPath() . 'footer.tmpl');
-		$this->data['footer'] = $this->twig->render($template, array(
-																	'copyright' => Config::getItem('copyright'),
-																	'navigation' => $this->navigation->buildFooterNavigation()
+		$this->data['footer'] = $this->twig->render($template, array_merge(
+																	array(
+																		'copyright' => Config::getItem('copyright'),
+																		'navigation' => $this->navigation->buildFooterNavigation()
+																	),
+																	$settings
 																)
 		);
 	}

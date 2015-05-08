@@ -8,7 +8,23 @@
 						{{ content | raw }}
 					</div>
 
-					<div class="column">
+					{% if contactForm == true %}
+					<div id="contact-form" class="column">
+						<h2>Contact Me...</h2>
+						<form method="post" action="#" enctype="multipart/form-data">
+							<fieldset>
+								<div><label for="name">Your Name:</label><input type="text" id="name" name="name" title="Your Name" placeholder="Your Name" /></div>
+								<div><label for="email">Your E-mail Address:</label><input type="text" id="email" name="email" title="Your E-mail Address" placeholder="Your E-mail Address" /></div>
+								<div><label for="subject">Subject:</label><input type="text" id="subject" name="subject" title="Subject" placeholder="Subject" /></div>
+								<div>
+									<label for="message">Your Message:</label>
+									<textarea id="message" name="message" title="Your Message"></textarea>
+								</div>
+								<button type="submit" id="send" name="send" title="Send">Send</button>
+								<button type="reset" id="reset" name="reset" title="Reset Form">Reset</button>
+							</fieldset>
+						</form>
 					</div>
+					{% endif %}
 				</div>
 			</article>

@@ -1,0 +1,14 @@
+{
+	"name": "N8G Grass CMS",
+	"description": "",
+	"settings": {
+		"search": true,
+		"index": {
+			"contactForm": true
+		},
+		"blog": {
+			"month-filter": true,
+			"comments": true
+		}
+	}
+}
