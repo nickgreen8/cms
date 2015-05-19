@@ -55,15 +55,20 @@ class Navigation
 		$this->resetNavigation();
 
 		//Create index link
-		$home = $this->linkToObject('home', Config::getItem('url'));
+		//$home = $this->linkToObject('home', Config::getItem('url'));
 
 		//Get all pages and child pages
-		$navigation = $this->buildNavHierachy(new UnorderedList($home));
+		$navigation = $this->buildNavHierachy(new UnorderedList());
 
 		//Convert and return
 		return $navigation->toHtml();
 	}
 
+	/**
+	 * This function builds the main footer navigation.
+	 *
+	 * @return string The HTML string to be input into the page template
+	 */
 	public function buildFooterNavigation()
 	{
 		//Reset the current object
@@ -92,8 +97,14 @@ class Navigation
 
 		//Itterate through pages
 		while ($page = Database::getArray($pages)) {
+			//Check if current page
+			$class = array();
+			if (in_array(Config::getItem('page-id'), array($page['id'], $page['identifier']))) {
+				$class['class'] = 'current-page';
+			}
+
 			//Create page link
-			$li = $this->linkToObject($page['name'], sprintf('%s%s', Config::getItem('url'), $page['name']));
+			$li = $this->linkToObject($page['name'], sprintf('%s%s', Config::getItem('url'), $page['identifier']), $class);
 
 			//Check for child pages
 			if ($page['children'] > 0) {
@@ -118,11 +129,11 @@ class Navigation
 	 * @param  string $link The link to the page
 	 * @return Object       ListItem object to be added to the navigation list.
 	 */
-	private function linkToObject($name = 'Click Here', $link = '#')
+	private function linkToObject($name = 'Click Here', $link = '#', array $atts = array())
 	{
 		Log::debug(sprintf('Creating navigation link to %s (%s)', $name, $link));
 
-		return new ListItem(new Anchor(trim(ucwords($name)), null, array(), array('href' => strtolower(str_replace(' ', '-', $link)), 'title' => trim(ucwords($name)))));
+		return new ListItem(new Anchor(trim(ucwords($name)), null, array(), array_merge(array('href' => $link, 'title' => trim(ucwords($name))), $atts)));
 	}
 
 	/**
@@ -151,12 +162,11 @@ class Navigation
 		$query = 'SELECT
 						p.id,
 						p.name,
-						IFNULL((SELECT COUNT(*) FROM %sPage p2 WHERE p2.parent = p.id GROUP BY p2.parent), 0) as children
+						IFNULL((SELECT COUNT(*) FROM %sPage p2 WHERE p2.parent = p.id GROUP BY p2.parent), 0) as children,
+						LCASE(REPLACE(p.name, \' \', \'-\')) as identifier
 					FROM
 						%sPage p
 					WHERE
-						p.id <> 1
-						AND
 						p.parent %s
 					ORDER BY
 						p.order ASC,

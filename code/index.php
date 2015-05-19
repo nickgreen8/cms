@@ -10,8 +10,6 @@ use Twig_\Twig\Loader\Filesystem,
 $bootstrap = new Bootstrap();
 $bootstrap->run();
 
-//var_dump($_REQUEST);
-
 //Define constants
 //Root of the application
 define('ROOT_DIR', __DIR__ . '/');

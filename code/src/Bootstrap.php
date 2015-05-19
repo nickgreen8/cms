@@ -62,6 +62,9 @@ class Bootstrap
 		while ($row = Database::getArray($query)) {
 			Config::setItem($row['name'], $row['value']);
 		}
+
+		//Add current page to config
+		Config::setItem('page-id', isset($_REQUEST['id']) ? $_REQUEST['id'] : 1);
 	}
 
 	/**

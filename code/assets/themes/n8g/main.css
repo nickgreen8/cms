@@ -84,6 +84,9 @@ header { background: #5b5b5b; }
 #main_nav ul ul ul { top: 0; left: 100%; }
 #main_nav ul li:hover > ul { display: block; }
 
+#main_nav > ul > li > a { margin-bottom: 5px; }
+#main_nav > ul > li > a.current-page { border-bottom: #8c8c8c solid 5px; margin-bottom: -5px; }
+
 /** Content section styleing */
 section#body { height: 100%; }
 
@@ -126,11 +129,12 @@ input, textarea { -webkit-border-radius: 5px; border-radius: 5px; padding: 2px 5
 
 /** Custom components for the theme */
 /** Search */
-#search-box { float: right; margin-top: 3px; }
+#search-box { float: right; }
+#search-box form { margin: 0; }
 #search-box fieldset { border: none; padding: 0; background: none; border: none; }
 #search-box fieldset > div { display: inline-block; vertical-align: top; }
 #search-box input { border: #5b5b5b 2px solid; width: auto; }
-#search-box button { font-size: 13px; }
+#search-box button { font-size: 13.5px; margin-top: 4px; }
 
 /** Index Contact Form */
 #contact-form { width: 30%; margin-left: 20px; margin-bottom: 20px; }
