@@ -306,7 +306,6 @@ class Page
 	{
 		$query = 'SELECT
 						p.name,
-						p.title,
 						p.content,
 						p.parent,
 						t.name as type
