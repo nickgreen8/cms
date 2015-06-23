@@ -191,7 +191,7 @@ class Page
 	private function buildHead()
 	{
 		//Add mandatory data
-		$this->data['favicon'] = Config::getItem('favicon');
+		$this->data['favicon'] = Config::inConfig('favicon') ? Config::getItem('favicon') : null;
 		$this->data['language'] = Config::inConfig('language') ? Config::getItem('language') : 'en';
 
 		//Get the theme head data
