@@ -15,51 +15,22 @@ use N8G\Database\Database,
 class Index extends PageAbstract
 {
 	/**
-	 * The array of data ready to be output into the page. This MUST be an associative
-	 * array and the keys must match the keys in the template.
-	 * @var array
-	 */
-	protected $data = array();
-	/**
-	 * The name of the template to import
-	 * @var string
-	 */
-	private $template = 'index';
-
-	/**
 	 * Default constructor
+	 *
+	 * @param string $content Page content
 	 */
-	public function __construct()
+	public function __construct($content)
 	{
-		Log::notice('Normal page created');
+		Log::notice('Index page created');
+
+		//Set the template name
+		$this->template = 'index';
+
+		//Call the parent constructor
+		parent::__construct($content);
 	}
 
 // Public functions
-
-	/**
-	 * This function gets the name of the template that should be used.
-	 *
-	 * @return string The filename of the template
-	 */
-	public function getTemplateName()
-	{
-		Log::info('Getting the page template name');
-		//Return the name of the template file
-		return $this->template;
-	}
-
-	/**
-	 * This function returns the data array of the page. This will be an associative array
-	 * that will have the keys that match the template.
-	 *
-	 * @return array The data array
-	 */
-	public function getData()
-	{
-		Log::info('Getting page content');
-		//Return the page data
-		return $this->data;
-	}
 
 // Private functions
 }
