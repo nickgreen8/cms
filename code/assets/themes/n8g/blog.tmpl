@@ -3,17 +3,40 @@
 			</div>
 
 			<article id="main">
+				{{ content | raw }}
 				<div class="row">
 					<div class="col">
 					{% for post in posts %}
-						{{ post | raw }}
+						<div class="post" data-id="{{ post.id }}">
+							<div class="meta">
+								<p>{{ post.title }}</p>
+								<p>{{ post.rating }}</p>
+								<p>{{ post.date }}</p>
+								<p>{{ post.author }}</p>
+							</div>
+							{{ post.post | raw }}
+							<p><a href="">Click here to read more...</a></p>
+							<p class="rating">
+								<a href="javascript:rating.good({{ post.id }})">Like</a>
+								|
+								<a href="javascript:rating.notGood({{ post.id }})">Don't like</a>
+							</p>
+						</div>
 					{% endfor %}
 					</div>
 
+					{% if settings.monthFilter == true and monthFilter|length > 0 %}
 					<div id="blog_sidebar" class="col">
+						<h3>Filters</h3>
 						<div class="filter">
-							{{ date-filter | raw }}
+							<h4>Month</h4>
+							<ul>
+								{% for month in monthFilter %}
+								<li><a href="">{{ month | e }}</a></li>
+								{% endfor %}
+							</ul>
 						</div>
 					</div>
+					{% endif %}
 				</div>
 			</article>

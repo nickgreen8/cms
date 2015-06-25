@@ -1,7 +1,8 @@
 <?php
 namespace N8G\Grass\Display\Pages;
 
-use N8G\Grass\Components\Html\HtmlBuilder,
+use N8G\Grass\Display\Theme,
+	N8G\Grass\Exceptions\Display\PageException,
 	N8G\Database\Database,
 	N8G\Utils\Log,
 	N8G\Utils\Config,
@@ -38,6 +39,10 @@ abstract class PageAbstract implements PageInterface
 	{
 		//Set the content of the page
 		$this->data['content'] = $this->parseContent($content);
+		//Get theme settings and data
+		$theme = Theme::init();
+		$this->addPageComponent('settings', $theme->getSettings($this->template));
+		$this->addPageComponent('theme-directory', $theme->getDirectory());
 	}
 
 //Public functions
@@ -87,6 +92,30 @@ abstract class PageAbstract implements PageInterface
 		Log::info('Getting page content');
 		//Return the page data
 		return $this->data;
+	}
+
+	public function addPageComponent($key, $data)
+	{
+		//Validate key
+		if ($key === null || trim($key) === '') {
+			//Throw error
+			throw new PageException('No key specified!', Log::WARN);
+		}
+
+		//Check for empty data
+		if ($data === null || trim($data) === '') {
+			//Throw error
+			throw new PageException(sprintf('No data has been specified for the key (%s)', $key), Log::WARN);
+		}
+
+		//Check the key is not protected
+		if (in_array($key, array('content'))) {
+			//Throw error
+			throw new PageException('The key that you have tried to use is protected. This cannot be used!', Log::WARN);
+		}
+
+		//Add to the page data
+		$this->data[$key] = $data;
 	}
 
 //Private functions

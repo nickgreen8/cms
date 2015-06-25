@@ -20,6 +20,11 @@ use N8G\Grass\Components\Html\Script,
 class Theme
 {
 	/**
+	 * The instance of this class.
+	 * @var object
+	 */
+	private static $instance;
+	/**
 	 * The data retrieved from the theme.
 	 * @var array
 	 */
@@ -52,7 +57,7 @@ class Theme
 	 *
 	 * @param string $name The name of the theme
 	 */
-	public function __construct($name = null)
+	private function __construct($name)
 	{
 		$this->path = ($name === null) ? Config::getItem('theme') : $name;
 
@@ -66,6 +71,21 @@ class Theme
 		$this->data['style'] = $this->getStyles();
 		$this->data['script'] = $this->getScript();
 	}
+
+//Public functions
+
+	public static function init($name = null)
+	{
+		//Check current state of the instance
+		if (self::$instance === null) {
+			//Create new instance
+			self::$instance = new self($name);
+		}
+		//Return single instance
+		return self::$instance;
+	}
+
+//Private functions
 
 	/**
 	 * This function is used to check that the theme set is valid. If not, the
@@ -85,6 +105,16 @@ class Theme
 	}
 
 // Getters
+
+	/**
+	 * This function is used to return the directory to the relevant theme.
+	 *
+	 * @return string The path to the theme
+	 */
+	public function getDirectory()
+	{
+		return str_replace(ROOT_DIR, './', ASSETS_DIR . $this->path);
+	}
 
 	/**
 	 * This function is used to return the path to the relevant theme.

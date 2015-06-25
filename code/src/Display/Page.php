@@ -73,7 +73,7 @@ class Page
 		//Get twig instance
 		$this->twig = Twig::init();
 		//Get the theme
-		$this->theme = new Theme();
+		$this->theme = Theme::init();
 		//Create navigation object
 		$this->navigation = new Navigation();
 
@@ -214,11 +214,10 @@ class Page
 	{
 		$settings = $this->theme->getSettings($this->type->getTemplateName());
 		$template = $this->twig->loadTemplate($this->theme->getPath() . 'header.tmpl');
-		$this->data['header'] = $this->twig->render($template, array_merge(
-																	array(
-																		'navigation' => $this->navigation->buildHeaderNavigation()
-																	),
-																	$settings
+		$this->data['header'] = $this->twig->render($template, array(
+																		'navigation' => $this->navigation->buildHeaderNavigation(),
+																		'settings' => $settings
+																	
 																)
 		);
 	}
@@ -231,9 +230,8 @@ class Page
 	 */
 	private function renderContent()
 	{
-		$settings = $this->theme->getSettings($this->type->getTemplateName());
 		$template = $this->twig->loadTemplate($this->theme->getPath() . $this->type->getTemplateName() . '.tmpl');
-		$this->data['page'] = $this->twig->render($template, array_merge($this->type->getData(), $settings));
+		$this->data['page'] = $this->twig->render($template, $this->type->getData());
 	}
 
 	/**
@@ -246,12 +244,10 @@ class Page
 	{
 		$settings = $this->theme->getSettings($this->type->getTemplateName());
 		$template = $this->twig->loadTemplate($this->theme->getPath() . 'footer.tmpl');
-		$this->data['footer'] = $this->twig->render($template, array_merge(
-																	array(
-																		'copyright' => Config::getItem('copyright'),
-																		'navigation' => $this->navigation->buildFooterNavigation()
-																	),
-																	$settings
+		$this->data['footer'] = $this->twig->render($template, array(
+																	'copyright' => Config::getItem('copyright'),
+																	'navigation' => $this->navigation->buildFooterNavigation(),
+																	'settings' => $settings
 																)
 		);
 	}

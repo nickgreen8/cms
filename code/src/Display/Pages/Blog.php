@@ -28,9 +28,35 @@ class Blog extends PageAbstract
 
 		//Call the parent constructor
 		parent::__construct($content);
+
+		//Build page content
+		$this->build();
 	}
 
 // Public functions
 
 // Private functions
+
+	/**
+	 * This function builds up the content for the page. Data is built into the page
+	 * data array for display when the page is rendered.
+	 *
+	 * @return void
+	 */
+	private function build()
+	{
+		$posts = array(
+			array(
+				'id'		=>	1,
+				'title'		=>	'Test',
+				'rating'	=>	'90%',
+				'date'		=>	'Thursday 25th June 2015, 07:17am',
+				'author'	=>	'Nick Green',
+				'post'		=>	$this->parseContent('This is a test')
+			)
+		);
+
+		$this->addPageComponent('posts', $posts);
+		$this->addPageComponent('monthFilter', array('Jun 2015', 'Jul 2015'));
+	}
 }

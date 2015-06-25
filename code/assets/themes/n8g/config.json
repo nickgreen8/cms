@@ -7,7 +7,9 @@
 			"contactForm": true
 		},
 		"blog": {
-			"month-filter": true,
+			"monthFilter": true
+		},
+		"post": {
 			"comments": true
 		}
 	}
