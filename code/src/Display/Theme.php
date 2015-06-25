@@ -112,7 +112,7 @@ class Theme
 	public function getSettings($type = null)
 	{
 		if (count($this->settings) > 0) {
-			return array_merge($this->getGlobalSettings(), ($type === null) ? array() : ($this->settings[$type] !== null) ? $this->settings[$type] : array());
+			return array_merge($this->getGlobalSettings(), ($type === null) ? array() : (isset($this->settings[$type]) && $this->settings[$type] !== null) ? $this->settings[$type] : array());
 		}
 
 		$path = ASSETS_DIR . $this->path . 'config.json';
@@ -123,7 +123,7 @@ class Theme
 			$config = Json::readFile($path, true);
 			$this->settings = $config['settings'];
 
-			return array_merge($this->getGlobalSettings(), ($type === null) ? array() : ($this->settings[$type] !== null) ? $this->settings[$type] : array());
+			return array_merge($this->getGlobalSettings(), ($type === null) ? array() : (isset($this->settings[$type]) && $this->settings[$type] !== null) ? $this->settings[$type] : array());
 		}
 
 		//Return an empty settings array by default

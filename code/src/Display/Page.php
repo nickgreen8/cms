@@ -167,7 +167,6 @@ class Page
 		$data = $this->getPageData($this->id);
 
 		Log::debug(sprintf('Page name: %s', $data['name']));
-		Log::debug(sprintf('Page title: %s', $data['title']));
 		Log::debug(sprintf('Page type: %s', $data['type']));
 
 		//Assign data to page array
@@ -177,9 +176,7 @@ class Page
 
 		//Create the page object
 		$class = sprintf('N8G\Grass\Display\Pages\%s', str_replace(' ', '', ucwords($data['type'])));
-		$this->type = new $class();
-		//Parse page content
-		$this->type->parseContent($data['content']);
+		$this->type = new $class($data['content']);
 	}
 
 	/**

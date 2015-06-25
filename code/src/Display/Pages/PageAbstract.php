@@ -4,7 +4,8 @@ namespace N8G\Grass\Display\Pages;
 use N8G\Grass\Components\Html\HtmlBuilder,
 	N8G\Database\Database,
 	N8G\Utils\Log,
-	N8G\Utils\Config;
+	N8G\Utils\Config,
+	Parsedown;
 
 /**
  * This class is used to build an index page. This is a singleton class that is used
@@ -16,6 +17,29 @@ use N8G\Grass\Components\Html\HtmlBuilder,
  */
 abstract class PageAbstract implements PageInterface
 {
+	/**
+	 * The array of data ready to be output into the page. This MUST be an associative
+	 * array and the keys must match the keys in the template.
+	 * @var array
+	 */
+	protected $data = array();
+	/**
+	 * The name of the template to import
+	 * @var string
+	 */
+	protected $template;
+
+	/**
+	 * Default constructor
+	 *
+	 * @param string $content Page content
+	 */
+	public function __construct($content)
+	{
+		//Set the content of the page
+		$this->data['content'] = $this->parseContent($content);
+	}
+
 //Public functions
 
 	/**
@@ -30,21 +54,39 @@ abstract class PageAbstract implements PageInterface
 		Log::debug('Converting content to HTML.');
 		Log::info(sprintf('Converting string: %s', $content));
 
-		$html = '';
-		$content = explode('\n', $content);
+		//Create converter
+		$markdown = new Parsedown();
 
-		//Go through each line
-		foreach ($content as $line) {
-			//Extract data
-			preg_match("/([a-z]{0,6})(\d{1,2})?#(?:(\w+)#)?(?:{(.*)})?(.*)/u", trim($line), $data);
-
-			//Convert to HTML
-			$html .= HtmlBuilder::getObject($data[1], $data[5], $data[3], HtmlBuilder::convertStrToAttributes($data[4]), $data[2])->toHtml();
-		}
+		//Convert to HTML
+		$html = $markdown->text($content);
 
 		//Set the content and return
-		$this->data['content'] = $html;
 		return $html;
+	}
+
+	/**
+	 * This function gets the name of the template that should be used.
+	 *
+	 * @return string The filename of the template
+	 */
+	public function getTemplateName()
+	{
+		Log::info('Getting the page template name');
+		//Return the name of the template file
+		return $this->template;
+	}
+
+	/**
+	 * This function returns the data array of the page. This will be an associative array
+	 * that will have the keys that match the template.
+	 *
+	 * @return array The data array
+	 */
+	public function getData()
+	{
+		Log::info('Getting page content');
+		//Return the page data
+		return $this->data;
 	}
 
 //Private functions
