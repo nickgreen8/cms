@@ -274,26 +274,6 @@ abstract class HtmlAbstract implements Component
 	public function checkForElements()
 	{
 		Log::info('Checking content for embeded elements');
-
-		if (!is_string($this->content) || trim($this->content) === '') {
-			Log::notice('Content is not a string');
-			return;
-		}
-
-		Log::debug(sprintf('Content: %s', $this->content));
-
-		preg_match_all(sprintf("/<([a-z]{0,8})#(?:([\w-_#]*)#)?(?:{([%s]+)})?([%s]+)?>/u", Config::getItem('accepted-chars'), Config::getItem('accepted-chars')), $this->content, $data);
-
-		if(count($data[0]) > 0) {
-			for ($i = 0; $i < count($data[0]); $i++) {
-				//Create the HTML object
-				$obj = HtmlBuilder::getObject($data[1][$i], $data[4][$i], $data[2][$i], HtmlBuilder::convertStrToAttributes($data[3][$i]));
-
-				// FOR TEST ONLY!!!!!!!!
-				Log::notice('FOR TEST ONLY! Replacing string with HTML string');
-				$this->content = str_replace($data[0][$i], $obj->toHtml(), $this->content);
-			}
-		}
 	}
 
 	/**
@@ -480,9 +460,7 @@ abstract class HtmlAbstract implements Component
 			} elseif (is_int($element) && !in_array($this->acceptedElements['types'], 'int')) {
 				throw new ElementInvalidException('Integer values cannot be added to this element');
 			} elseif (!in_array(str_replace('N8G\Grass\Components\Html\\', '', get_class($element)), $this->acceptedElements['elements'])) {
-				throw new ElementInvalidException(sprintf('This element could not be added because there is a restriction. %s cannot contatin a %s.',
-																ucwords($this->data['name']),
-																str_replace('N8G\Grass\Components\Html\\', '', get_class($element))));
+				throw new ElementInvalidException(sprintf('This element could not be added because there is a restriction. %s cannot contatin a %s.', ucwords($this->data['name']), str_replace('N8G\Grass\Components\Html\\', '', get_class($element))));
 			}
 		}
 

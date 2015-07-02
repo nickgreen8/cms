@@ -127,6 +127,10 @@ class Page
 			echo $this->twig->render($template, $this->data);
 		} catch (\Exception $e) {
 			echo "render - GO TO ERROR PAGE";
+			echo sprintf('<p>%s</p>', $e->getMessage());
+			echo sprintf('<p>%s</p>', $e->getFile());
+			echo sprintf('<p>%s</p>', $e->getLine());
+			echo sprintf('<p>%s</p>', $e->getTraceAsString());
 		}
 	}
 
@@ -169,9 +173,13 @@ class Page
 		Log::debug(sprintf('Page name: %s', $data['name']));
 		Log::debug(sprintf('Page type: %s', $data['type']));
 
+		//Set page identifiers in Config
+		Config::setPageId($data['id']);
+		Config::setPageName($data['name']);
+
 		//Assign data to page array
 		$this->data['name'] = $data['name'];
-		// $this->data['title'] = $data['title'];
+		$this->data['type'] = $data['type'];
 		$this->data['title'] = $this->buildTitle($data);
 
 		//Create the page object
@@ -268,7 +276,7 @@ class Page
 		//Check if it is the home page
 		if ($data['type'] === 'index') {
 			//Add the site tag line
-			array_unshift($title, trim(Config::getItem('site-tag-line')));
+			array_unshift($title, Config::inConfig('site-tag-line') ? trim(Config::getItem('site-tag-line')) : trim(ucwords($data['name'])));
 		} else {
 			//Get parent
 			while ($data['parent'] !== null && (is_numeric($data['parent']) && $data['parent'] > 0)) {
@@ -298,6 +306,7 @@ class Page
 	private function getPageData($id)
 	{
 		$query = 'SELECT
+						p.id,
 						p.name,
 						p.content,
 						p.parent,

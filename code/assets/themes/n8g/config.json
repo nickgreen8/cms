@@ -7,10 +7,16 @@
 			"contactForm": true
 		},
 		"blog": {
-			"monthFilter": true
+			"monthFilter": true,
+			"rating": false,
+			"poll": false,
+			"commentCount": true,
+			"preview": true
 		},
 		"post": {
-			"comments": true
+			"comments": true,
+			"rating": true,
+			"poll": true
 		}
 	}
 }

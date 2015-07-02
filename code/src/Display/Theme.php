@@ -139,6 +139,12 @@ class Theme
 		);
 	}
 
+	/**
+	 * This function gets the settings for the page or the overall theme.
+	 *
+	 * @param  string|null $type null to just get the global theme settings of the page type for the page type settings
+	 * @return array             The array of settings from the config file
+	 */
 	public function getSettings($type = null)
 	{
 		if (count($this->settings) > 0) {
@@ -216,6 +222,11 @@ class Theme
 		return $script;
 	}
 
+	/**
+	 * This function just gets the global settings for the theme.
+	 *
+	 * @return array The global settings for the theme
+	 */
 	private function getGlobalSettings()
 	{
 		//Create return array

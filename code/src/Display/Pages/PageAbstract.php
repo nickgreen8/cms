@@ -43,6 +43,9 @@ abstract class PageAbstract implements PageInterface
 		$theme = Theme::init();
 		$this->addPageComponent('settings', $theme->getSettings($this->template));
 		$this->addPageComponent('theme-directory', $theme->getDirectory());
+
+		//Build the page data
+		$this->build();
 	}
 
 //Public functions
@@ -94,16 +97,23 @@ abstract class PageAbstract implements PageInterface
 		return $this->data;
 	}
 
+	/**
+	 * This function adds an additional element and the associated data to the page data array.
+	 *
+	 * @param  string $key  The element name in the template
+	 * @param  mixed  $data The data that will be output on the page
+	 * @return void
+	 */
 	public function addPageComponent($key, $data)
 	{
 		//Validate key
-		if ($key === null || trim($key) === '') {
+		if ($key === null || (is_string($data) && trim($key) === '')) {
 			//Throw error
 			throw new PageException('No key specified!', Log::WARN);
 		}
 
 		//Check for empty data
-		if ($data === null || trim($data) === '') {
+		if ($data === null || (is_string($data) && trim($data) === '')) {
 			//Throw error
 			throw new PageException(sprintf('No data has been specified for the key (%s)', $key), Log::WARN);
 		}

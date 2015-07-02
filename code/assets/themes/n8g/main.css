@@ -96,6 +96,8 @@ div.row > div.column { vertical-align: top; display: inline-block; }
 
 #big_img > img { width: 100%; height: auto; }
 
+article#main { display: block; margin-right: 10%; margin-left: 10%; }
+
 /** Footer styleing */
 footer {
 	background: #5b5b5b;
@@ -122,6 +124,14 @@ fieldset {  -webkit-border-radius: 25px; border-radius: 25px; background: #E3E4D
 legend { font-weight: bold; }
 label { width: 30%; text-align: right; float: left; font-weight: bold; margin-right: 3px; }
 input, textarea { -webkit-border-radius: 5px; border-radius: 5px; padding: 2px 5px; width: 40%; font-size: 14px; resize: none; }
+
+/** Page type specific styling */
+/** Blog page */
+.blog-page .col { display: inline-block; vertical-align: top; }
+.blog-page #posts { width: 58%; }
+.blog-page #blog_sidebar { width: 20%; }
+.blog-page .edited { font-size: 12px; color: #888888; }
+.blog-page #blog_sidebar ul > li { white-space: nowrap; }
 
 /** Page specific styling */
 /** Home page */

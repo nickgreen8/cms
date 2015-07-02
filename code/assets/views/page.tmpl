@@ -25,7 +25,7 @@
 			{{ class | raw }}
 		{% endfor %}
 	</head>
-	<body id="{{ name|lower|replace({' ': '-'}) }}">
+	<body id="{{ name|lower|replace({' ': '-'}) }}" class="{{ type|lower|replace({' ': '-'}) }}-page">
 		<header>
 			{{ header | raw }}
 		</header>

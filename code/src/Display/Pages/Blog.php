@@ -28,14 +28,11 @@ class Blog extends PageAbstract
 
 		//Call the parent constructor
 		parent::__construct($content);
-
-		//Build page content
-		$this->build();
 	}
 
 // Public functions
 
-// Private functions
+// Protected fucntions
 
 	/**
 	 * This function builds up the content for the page. Data is built into the page
@@ -43,20 +40,53 @@ class Blog extends PageAbstract
 	 *
 	 * @return void
 	 */
-	private function build()
+	protected function build()
 	{
-		$posts = array(
-			array(
-				'id'		=>	1,
-				'title'		=>	'Test',
-				'rating'	=>	'90%',
-				'date'		=>	'Thursday 25th June 2015, 07:17am',
-				'author'	=>	'Nick Green',
-				'post'		=>	$this->parseContent('This is a test')
-			)
-		);
+		$this->addPageComponent('posts', $this->getPosts());
+		$this->addPageComponent('monthFilter', $this->getMonthFilter());
+	}
 
-		$this->addPageComponent('posts', $posts);
-		$this->addPageComponent('monthFilter', array('Jun 2015', 'Jul 2015'));
+// Private functions
+
+	private function getPosts()
+	{
+		//Get the data
+		$data = Database::execProcedure('GetPosts', array('page' => Config::getPageId()));
+
+		//Format the data
+		foreach ($data as $key => $value) {
+			$data[$key]['post'] = $this->parseContent($value['content']);
+			$data[$key]['preview'] = $this->parseContent($this->createPreview($value['content']));
+			$data[$key]['rating'] = round($value['rating'], 1);
+			$data[$key]['date'] = date('d\/m\/Y \@ g:ia', strtotime($value['timestamp']));
+			$data[$key]['editTime'] = date('d\/m\/Y \@ g:ia', strtotime($value['editTime']));
+		}
+
+		return $data;
+	}
+
+	private function getMonthFilter()
+	{
+		return Database::execProcedure('GetMonthFilter', array('page' => Config::getPageId()));
+	}
+
+	private function createPreview($string)
+	{
+		//Split string
+		$words = explode(" ", $string);
+		$content = array();
+
+		if (count($words) > 50) {
+			for ($i = 0; $i < 50; $i++) {
+				array_push($content, $words[$i]);
+			}
+			array_push($content, '...');
+		} else {
+			for ($i = 0; $i < count($words); $i++) {
+				array_push($content, $words[$i]);
+			}
+		}
+
+		return implode(" ", $content);
 	}
 }
