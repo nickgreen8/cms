@@ -11,11 +11,11 @@
 						<div class="post" data-id="{{ post.id }}">
 							<div class="meta">
 								<h3>{{ post.title }}</h3>
+								<p class="author">{{ post.author }}</p>
+								<p class="date">{{ post.date }}</p>
 								{% if settings.rating != null and settings.rating == true %}
 								<p class="rating">{{ post.rating }}</p>
 								{% endif %}
-								<p class="date">{{ post.date }}</p>
-								<p class="author">{{ post.author }}</p>
 								{% if post.edited != null and post.edited == true %}
 								<p class="edited">Edited by {{ post.editor }} at {{ post.editTime }}</p>
 								{% endif %}
