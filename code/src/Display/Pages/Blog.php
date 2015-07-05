@@ -48,6 +48,12 @@ class Blog extends PageAbstract
 
 // Private functions
 
+	/**
+	 * This function gets the posts to display. The database is queried with the data
+	 * formatted and then returned in array format.
+	 *
+	 * @return array The blog posts to be displayed
+	 */
 	private function getPosts()
 	{
 		//Get the data
@@ -65,11 +71,23 @@ class Blog extends PageAbstract
 		return $data;
 	}
 
+	/**
+	 * This function gets the content for the month filter. Returned is an array of dates.
+	 *
+	 * @return array The array of dates for the filter
+	 */
 	private function getMonthFilter()
 	{
 		return Database::execProcedure('GetMonthFilter', array('page' => Config::getPageId()));
 	}
 
+	/**
+	 * This function creates the preview for the blog posts. The string is passed and
+	 * the parsed content is returned.
+	 *
+	 * @param  string $string The string to be converted for preview
+	 * @return string         The preview content
+	 */
 	private function createPreview($string)
 	{
 		//Split string
