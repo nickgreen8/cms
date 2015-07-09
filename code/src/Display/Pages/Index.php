@@ -32,5 +32,7 @@ class Index extends PageAbstract
 
 // Public functions
 
+// Protected functions
+
 // Private functions
 }

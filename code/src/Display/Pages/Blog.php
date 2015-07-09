@@ -32,7 +32,7 @@ class Blog extends PageAbstract
 
 // Public functions
 
-// Protected fucntions
+// Protected functions
 
 	/**
 	 * This function builds up the content for the page. Data is built into the page
@@ -42,6 +42,8 @@ class Blog extends PageAbstract
 	 */
 	protected function build()
 	{
+		parent::build();
+
 		$this->addPageComponent('posts', $this->getPosts());
 		$this->addPageComponent('monthFilter', $this->getMonthFilter());
 	}

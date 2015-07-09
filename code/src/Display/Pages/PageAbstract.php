@@ -39,10 +39,6 @@ abstract class PageAbstract implements PageInterface
 	{
 		//Set the content of the page
 		$this->data['content'] = $this->parseContent($content);
-		//Get theme settings and data
-		$theme = Theme::init();
-		$this->addPageComponent('settings', $theme->getSettings($this->template));
-		$this->addPageComponent('theme-directory', $theme->getDirectory());
 
 		//Build the page data
 		$this->build();
@@ -126,6 +122,24 @@ abstract class PageAbstract implements PageInterface
 
 		//Add to the page data
 		$this->data[$key] = $data;
+	}
+
+// Protected functions
+
+	/**
+	 * This function builds up the content for the page. Data is built into the page data array for
+	 * display when the page is rendered. This is the parent function and can be overriden within
+	 * the child page classes. THIS MUST BE CALLED FROM THE CHILD OVERRIDEN FUNCTION.
+	 *
+	 * @return void
+	 */
+	protected function build()
+	{
+		//Get theme settings and data
+		$theme = Theme::init();
+
+		$this->addPageComponent('settings', $theme->getSettings($this->template));
+		$this->addPageComponent('theme-directory', $theme->getDirectory());
 	}
 
 //Private functions
