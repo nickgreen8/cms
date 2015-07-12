@@ -90,6 +90,7 @@ class Twig
 	public function render($template, $data = array())
 	{
 		Log::notice('Rendering template');
+		Log::info(sprintf('Render Data: %s', json_encode($data)));
 
 		//Convert data to HTML
 		foreach ($data as $key => $value) {

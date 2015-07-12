@@ -68,6 +68,7 @@ class Blog extends PageAbstract
 			$data[$key]['rating'] = round($value['rating'], 1);
 			$data[$key]['date'] = date('d\/m\/Y \@ g:ia', strtotime($value['timestamp']));
 			$data[$key]['editTime'] = date('d\/m\/Y \@ g:ia', strtotime($value['editTime']));
+			$data[$key]['key'] = strtolower(str_replace(' ', '-', preg_replace("/\'/", '', $value['title'])));
 		}
 
 		return $data;

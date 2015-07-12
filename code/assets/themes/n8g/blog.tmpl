@@ -5,9 +5,9 @@
 			<article id="main">
 				{{ content | raw }}
 				<div class="row">
-					<div id="posts" class="col">
 					{% if posts != null and posts|length > 0 %}
-					{% for post in posts %}
+					<div id="posts" class="col">
+						{% for post in posts %}
 						<div class="post" data-id="{{ post.id }}">
 							<div class="meta">
 								<h3>{{ post.title }}</h3>
@@ -25,7 +25,7 @@
 							{% else %}
 							{{ post.post | raw }}
 							{% endif %}
-							<p><a href="/post/{{ post.id }}">Click here to read more...</a></p>
+							<p><a href="/{{ pageLink }}/{{ post.key }}">Click here to read more...</a></p>
 							{% if settings.commentCount != null and settings.commentCount == true %}<p>{{ post.commentCount }} Comment(s)</p>{% endif %}
 							{% if settings.poll != null and settings.poll == true %}
 							<p class="rating">
@@ -35,11 +35,7 @@
 							</p>
 							{% endif %}
 						</div>
-					{% endfor %}
-					{% else %}
-						<h4>Erm...</h4>
-						<p>There were no posts found!</p>
-					{% endif %}
+						{% endfor %}
 					</div>
 
 					{% if settings.monthFilter == true and monthFilter|length > 0 %}
@@ -55,5 +51,9 @@
 						</div>
 					</div>
 					{% endif %}
+				{% else %}
+					<h4>Erm...</h4>
+					<p>There were no posts found!</p>
+				{% endif %}
 				</div>
 			</article>

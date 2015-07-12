@@ -17,6 +17,10 @@
 			"comments": true,
 			"rating": true,
 			"poll": true
+		},
+		"headerImg": {
+			"width": 3260,
+			"height": 768
 		}
 	}
 }
