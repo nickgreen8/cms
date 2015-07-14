@@ -12,7 +12,7 @@ use N8G\Database\Database,
  *
  * @author Nick Green <nick-green@live.co.uk>
  */
-class Standard extends PageAbstract
+class Page extends PageAbstract
 {
 	/**
 	 * Default constructor

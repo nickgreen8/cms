@@ -524,44 +524,6 @@ DELIMITER ;
 SHOW WARNINGS;
 
 -- -----------------------------------------------------
--- procedure GetPageData
--- -----------------------------------------------------
-
-USE `cms`;
-DROP procedure IF EXISTS `cms`.`GetPageData`;
-SHOW WARNINGS;
-
-DELIMITER $$
-USE `cms`$$
-CREATE PROCEDURE GetPageData
-	(IN page CHAR(45))
-BEGIN
-	#Create ID variable
-	DECLARE id INT(11);
-
-	#Get the ID of the page
-	SET id = IF(page REGEXP '^-?[0-9]+$', page, calcPageId(page));
-
-	#Get the page data
-	SELECT
-		p.id,
-		p.name,
-		p.content,
-		p.parent,
-		t.name as type
-	FROM
-		page p LEFT JOIN PageType pt
-		ON p.id = pt.page
-	LEFT JOIN Type t
-		ON pt.type = t.id
-	WHERE
-		p.id = id;
-END$$
-
-DELIMITER ;
-SHOW WARNINGS;
-
--- -----------------------------------------------------
 -- procedure GetConfigurationData
 -- -----------------------------------------------------
 
@@ -634,6 +596,78 @@ BEGIN
 		LCASE(REPLACE(p.name, ' ', '-')) = name;
 
 	RETURN id;
+END$$
+
+DELIMITER ;
+SHOW WARNINGS;
+
+-- -----------------------------------------------------
+-- procedure GetPageData
+-- -----------------------------------------------------
+
+USE `cms`;
+DROP procedure IF EXISTS `cms`.`GetPageData`;
+SHOW WARNINGS;
+
+DELIMITER $$
+USE `cms`$$
+CREATE PROCEDURE GetPageData
+	(IN page CHAR(45))
+BEGIN
+	#Create ID variable
+	DECLARE id INT(11);
+
+	#Get the ID of the page
+	SET id = IF(page REGEXP '^-?[0-9]+$', page, calcPageId(page));
+
+	#Get the page data
+	SELECT
+		p.id,
+		p.name,
+		p.content,
+		p.parent,
+		t.name as type
+	FROM
+		page p LEFT JOIN PageType pt
+		ON p.id = pt.page
+	LEFT JOIN Type t
+		ON pt.type = t.id
+	WHERE
+		p.id = id;
+END$$
+
+DELIMITER ;
+SHOW WARNINGS;
+
+-- -----------------------------------------------------
+-- procedure GetPageType
+-- -----------------------------------------------------
+
+USE `cms`;
+DROP procedure IF EXISTS `cms`.`GetPageType`;
+SHOW WARNINGS;
+
+DELIMITER $$
+USE `cms`$$
+CREATE PROCEDURE GetPageType
+	(IN page CHAR(45))
+BEGIN
+	#Create ID variable
+	DECLARE id INT(11);
+
+	#Get the ID of the page
+	SET id = IF(page REGEXP '^-?[0-9]+$', page, calcPageId(page));
+
+	#Get the page data
+	SELECT
+		t.name as type
+	FROM
+		page p LEFT JOIN PageType pt
+		ON p.id = pt.page
+	LEFT JOIN Type t
+		ON pt.type = t.id
+	WHERE
+		p.id = id;
 END$$
 
 DELIMITER ;
@@ -745,7 +779,7 @@ COMMIT;
 START TRANSACTION;
 USE `cms`;
 INSERT INTO `cms`.`Type` (`id`, `name`) VALUES (1, 'index');
-INSERT INTO `cms`.`Type` (`id`, `name`) VALUES (NULL, 'standard');
+INSERT INTO `cms`.`Type` (`id`, `name`) VALUES (NULL, 'page');
 INSERT INTO `cms`.`Type` (`id`, `name`) VALUES (NULL, 'blog');
 
 COMMIT;

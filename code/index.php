@@ -3,7 +3,7 @@ require_once __DIR__ . '/vendor/autoload.php';
 
 use Twig_\Twig\Loader\Filesystem,
 	Twig_\Twig\Environment,
-	N8G\Grass\Display\Page,
+	N8G\Grass\Display\Output,
 	N8G\Grass\Bootstrap;
 
 //Initilise processes
@@ -24,9 +24,13 @@ define('THEMES_DIR', 'themes/');
 //Define any application options
 define('DEBUG', true);
 
-//Inilise Page
-$page = Page::init(isset($_REQUEST['id']) ? $_REQUEST['id'] : 1);
-echo $page->render();
+try {
+	//Inilise Page
+	$page = Output::init(isset($_REQUEST['id']) ? $_REQUEST['id'] : 1);
+	echo $page->render();
+} catch (\Exception $e) {
+	echo sprintf('<p><strong>Message:</strong> %s</p><p><strong>File:</strong> %s</p><p><strong>Line No:</strong> #%s</p><p><strong>Trace String:</strong> %s</p>', htmlspecialchars($e->getMessage()), htmlspecialchars($e->getFile()), htmlspecialchars($e->getLine()), htmlspecialchars($e->getTraceAsString()));
+}
 
 //Close down processes
 $bootstrap->tearDown();

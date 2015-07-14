@@ -2,6 +2,7 @@
 namespace N8G\Grass\Display\Pages;
 
 use N8G\Grass\Display\Theme,
+	N8G\Grass\Display\Navigation,
 	N8G\Grass\Exceptions\Display\PageException,
 	N8G\Database\Database,
 	N8G\Utils\Log,
@@ -19,6 +20,11 @@ use N8G\Grass\Display\Theme,
 abstract class PageAbstract implements PageInterface
 {
 	/**
+	 * The ID of the page
+	 * @var string|integer
+	 */
+	private $id;
+	/**
 	 * The array of data ready to be output into the page. This MUST be an associative
 	 * array and the keys must match the keys in the template.
 	 * @var array
@@ -35,10 +41,10 @@ abstract class PageAbstract implements PageInterface
 	 *
 	 * @param string $content Page content
 	 */
-	public function __construct($content)
+	public function __construct($id)
 	{
 		//Set the content of the page
-		$this->data['content'] = $this->parseContent($content);
+		$this->id = $id;
 
 		//Build the page data
 		$this->build();
@@ -115,7 +121,7 @@ abstract class PageAbstract implements PageInterface
 		}
 
 		//Check the key is not protected
-		if (in_array($key, array('content'))) {
+		if (in_array($key, array())) {
 			//Throw error
 			throw new PageException('The key that you have tried to use is protected. This cannot be used!', Log::WARN);
 		}
@@ -137,10 +143,108 @@ abstract class PageAbstract implements PageInterface
 	{
 		//Get theme settings and data
 		$theme = Theme::init();
+		//Create navigation object
+		$navigation = new Navigation();
 
 		$this->addPageComponent('settings', $theme->getSettings($this->template));
-		$this->addPageComponent('theme-directory', $theme->getDirectory());
+		$this->addPageComponent('themeDirectory', $theme->getDirectory());
+		$this->addPageComponent('headerNavigation', $navigation->buildHeaderNavigation());
+		$this->addPageComponent('footerNavigation', $navigation->buildFooterNavigation());
+		$this->addPageComponent('copyright', Config::getItem('copyright'));
+
+		//Get all page content
+		$this->getPageComponents();
 	}
 
 //Private functions
+
+	/**
+	 * This function gets the data related to the page. This is then used to build up the data
+	 * array for everything that is to be input into the page. On render, all the data that has
+	 * been prepared is output into the page.
+	 *
+	 * @return void
+	 */
+	private function getPageComponents()
+	{
+		//Get the data from the database
+		$data = $this->getPageData($this->id);
+
+		Log::debug(sprintf('Page name: %s', $data['name']));
+		Log::debug(sprintf('Page type: %s', $data['type']));
+
+		//Set page identifiers in Config
+		Config::setPageId($data['id']);
+		Config::setPageName($data['name']);
+
+		//Assign data to page array
+		$this->addPageComponent('name', $data['name']);
+		$this->addPageComponent('type', $data['type']);
+		$this->addPageComponent('title', $this->buildTitle($data));
+		$this->addPageComponent('content', $this->parseContent($data['content']));
+
+		//Add page utility vars
+		$this->addPageComponent('pageLink', $this->calcPageLink($data['name']));
+	}
+
+	/**
+	 * This function builds the page title. This includes all parent pages as well as the site tag
+	 * line if it is the home page. The page data array is passed and the title as a string is
+	 * returned.
+	 *
+	 * @param  array  $data The page data pulled from the database
+	 * @return string       The fully formed page title
+	 */
+	private function buildTitle($data)
+	{
+		//Create title array
+		$title = array();
+
+		//Check if it is the home page
+		if ($data['type'] === 'index') {
+			//Add the site tag line
+			array_unshift($title, Config::inConfig('site-tag-line') ? trim(Config::getItem('site-tag-line')) : trim(ucwords($data['name'])));
+		} else {
+			//Get parent
+			while ($data['parent'] !== null && (is_numeric($data['parent']) && $data['parent'] > 0)) {
+				//Add page name
+				array_unshift($title, trim(ucwords($data['name'])));
+				//Get parent data
+				$data = $this->getPageData($data['parent']);
+			}
+			//Add final parent
+			array_unshift($title, trim(ucwords($data['name'])));
+		}
+
+		//Prepend the site title
+		array_unshift($title, trim(Config::getItem('site-title')));
+
+		//Return built title
+		return implode(sprintf(' %s ', Config::getNavSeparator()), $title);
+	}
+
+	/**
+	 * This function works out the page link for the page.
+	 *
+	 * @param  string $name The page name
+	 * @return string       The converted page name to link
+	 */
+	private function calcPageLink($name)
+	{
+		return strtolower(str_replace(' ', '-', preg_replace("/\'/", '', $name)));
+	}
+
+	/**
+	 * This function gets all the data for a page. The ID which is set within the class is used to get
+	 * the relevant data from the database. The query object is returned.
+	 *
+	 * @param  integer|string $id The ID of the page to request
+	 * @return object             The query object containing the page data.
+	 */
+	private function getPageData($id)
+	{
+		//Get the data from the DB
+		$data = Database::execProcedure('GetPageData', array('page' => $id));
+		return $data[0];
+	}
 }
