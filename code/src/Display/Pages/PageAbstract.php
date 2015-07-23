@@ -146,6 +146,7 @@ abstract class PageAbstract implements PageInterface
 		//Create navigation object
 		$navigation = new Navigation();
 
+		//Add page data
 		$this->addPageComponent('settings', $theme->getSettings($this->template));
 		$this->addPageComponent('themeDirectory', $theme->getDirectory());
 		$this->addPageComponent('headerNavigation', $navigation->buildHeaderNavigation());

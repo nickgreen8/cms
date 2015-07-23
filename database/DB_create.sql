@@ -769,6 +769,7 @@ INSERT INTO `cms`.`Config` (`id`, `name`, `value`) VALUES (NULL, 'url', 'http://
 INSERT INTO `cms`.`Config` (`id`, `name`, `value`) VALUES (NULL, 'site-tag-line', NULL);
 INSERT INTO `cms`.`Config` (`id`, `name`, `value`) VALUES (NULL, 'site-title', 'N8G Grass Framework');
 INSERT INTO `cms`.`Config` (`id`, `name`, `value`) VALUES (NULL, 'favicon', NULL);
+INSERT INTO `cms`.`Config` (`id`, `name`, `value`) VALUES (NULL, 'nav-separator', NULL);
 
 COMMIT;
 

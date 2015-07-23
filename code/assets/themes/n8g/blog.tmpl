@@ -45,7 +45,7 @@
 							<h4>Month</h4>
 							<ul>
 								{% for month in monthFilter %}
-								<li><a href="">{{ month.date | e }}</a></li>
+								<li><a href="/{{ pageLink }}/month/{{ month.month }}/{{ month.year }}">{{ month.date | e }}</a></li>
 								{% endfor %}
 							</ul>
 						</div>

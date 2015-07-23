@@ -37,7 +37,7 @@ class Twig
 		Log::debug('Twig file system specified');
 
 		//Initialize Twig environment
-		$this->twig = new \Twig_Environment($loader/*, array('cache' => CACHE_DIR)*/);
+		$this->twig = DEBUG === true ? new \Twig_Environment($loader) : new \Twig_Environment($loader, array('cache' => CACHE_DIR));
 		Log::debug('Twig enviroment loaded');
 	}
 

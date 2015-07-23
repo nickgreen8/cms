@@ -15,8 +15,8 @@ BEGIN
 
 	#Get the data
 	SELECT
-		DATE_FORMAT(p.timestamp, '%b %Y') as month,
-		DATE_FORMAT(p.timestamp, '%b %Y') as year,
+		DATE_FORMAT(p.timestamp, '%m') as month,
+		DATE_FORMAT(p.timestamp, '%Y') as year,
 		DATE_FORMAT(p.timestamp, '%b %Y') as date
 	FROM
 		Post p JOIN PagePost pp

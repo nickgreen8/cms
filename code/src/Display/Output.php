@@ -112,7 +112,7 @@ class Output
 		//Load the page template
 		$template = $this->twig->loadTemplate(VIEWS_DIR . 'page.tmpl');
 
-		return $this->twig->render($template, array_merge($this->data, $this->page->getData()));
+		return $this->twig->render($template, array_merge(array('base_url' => Config::getUrl()), $this->data, $this->page->getData()));
 	}
 
 	/**

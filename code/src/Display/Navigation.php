@@ -54,11 +54,10 @@ class Navigation
 		//Reset the current object
 		$this->resetNavigation();
 
-		//Create index link
-		//$home = $this->linkToObject('home', Config::getItem('url'));
-
 		//Get all pages and child pages
 		$navigation = $this->buildNavHierachy(new UnorderedList());
+		//Add login link
+		$navigation->addElement($this->getLoginOption());
 
 		//Convert and return
 		return $navigation->toHtml();
@@ -76,6 +75,8 @@ class Navigation
 
 		//Get all pages and child pages
 		$navigation = $this->buildNavHierachy(new UnorderedList(), -1);
+		//Add login link
+		$navigation->addElement($this->getLoginOption());
 
 		//Convert and return
 		return $navigation->toHtml();
@@ -148,6 +149,28 @@ class Navigation
 		$this->navigation->setElements(array());
 		//Empty the attributes
 		$this->navigation->setAttributes(array());
+	}
+
+	/**
+	 * This function is used to get the login or logout link. The login cookie is
+	 * searched for and then used to determine whether the user is logged in or not.
+	 *
+	 * @return obj A list item object to be added
+	 */
+	private function getLoginOption()
+	{
+		log::info('Checking if the user is logged in');
+
+		if (isset($_COOKIE['ng_login'])) {
+			//Create the logout link
+			$link = new ListItem(new Anchor('Logout', null, array(), array('href' => sprintf('%slogout', Config::getItem('url')), 'title' => 'Logout')));
+		} else {
+			//Create the login link
+			$link = new ListItem(new Anchor('Login', null, array(), array('href' => sprintf('%slogin', Config::getItem('url')), 'title' => 'Login')));
+		}
+
+		//Return the link
+		return $link;
 	}
 
 	/**
