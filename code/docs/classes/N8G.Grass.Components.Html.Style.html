@@ -1,0 +1,1269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta charset="utf-8"/>
+    <title>N8G Grass Framework</title>
+    <meta name="author" content=""/>
+    <meta name="description" content=""/>
+
+    <link href="../css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/prism.css" rel="stylesheet" media="all"/>
+    <link href="../css/template.css" rel="stylesheet" media="all"/>
+    
+    <!--[if lt IE 9]>
+    <script src="../js/html5.js"></script>
+    <![endif]-->
+    <script src="../js/jquery-1.11.0.min.js"></script>
+    <script src="../js/ui/1.10.4/jquery-ui.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/jquery.smooth-scroll.js"></script>
+    <script src="../js/prism.min.js"></script>
+    <!-- TODO: Add http://jscrollpane.kelvinluck.com/ to style the scrollbars for browsers not using webkit-->
+    <script type="text/javascript">
+    function loadExternalCodeSnippets() {
+        Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach(function (pre) {
+            var src = pre.getAttribute('data-src');
+            var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
+            var language = 'php';
+
+            var code = document.createElement('code');
+            code.className = 'language-' + language;
+
+            pre.textContent = '';
+
+            code.textContent = 'Loading…';
+
+            pre.appendChild(code);
+
+            var xhr = new XMLHttpRequest();
+
+            xhr.open('GET', src, true);
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4) {
+
+                    if (xhr.status < 400 && xhr.responseText) {
+                        code.textContent = xhr.responseText;
+
+                        Prism.highlightElement(code);
+                    }
+                    else if (xhr.status >= 400) {
+                        code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
+                    }
+                    else {
+                        code.textContent = '✖ Error: File does not exist or is empty';
+                    }
+                }
+            };
+
+            xhr.send(null);
+        });
+    }
+
+    $(document).ready(function(){
+        loadExternalCodeSnippets();
+    });
+    $('#source-view').on('shown', function () {
+        loadExternalCodeSnippets();
+    })
+</script>
+
+    <link rel="shortcut icon" href="../images/favicon.ico"/>
+    <link rel="apple-touch-icon" href="../images/apple-touch-icon.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="../images/apple-touch-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="../images/apple-touch-icon-114x114.png"/>
+</head>
+<body>
+
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <i class="icon-ellipsis-vertical"></i>
+            </a>
+            <a class="brand" href="../index.html">N8G Grass Framework</a>
+
+            <div class="nav-collapse">
+                <ul class="nav pull-right">
+                                        <li class="dropdown">
+                        <a href="../index.html" class="dropdown-toggle" data-toggle="dropdown">
+                            API Documentation <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                                                        <li><a href="../namespaces/N8G.html">\N8G</a></li>
+                                                    </ul>
+                    </li>
+                                        <li class="dropdown" id="charts-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Charts <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../graphs/class.html">
+                                    <i class="icon-list-alt"></i>&#160;Class hierarchy diagram
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown" id="reports-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Reports <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../reports/errors.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">62</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/markers.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <i class="icon-list-alt"></i>&#160;Markers <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/deprecated.html">
+                                                                                                            <i class="icon-list-alt"></i>&#160;Deprecated <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--<div class="go_to_top">-->
+    <!--<a href="#___" style="color: inherit">Back to top&#160;&#160;<i class="icon-upload icon-white"></i></a>-->
+    <!--</div>-->
+</div>
+
+<div id="___" class="container-fluid">
+        <section class="row-fluid">
+        <div class="span2 sidebar">
+                                <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-1884740197"></a>
+                                <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
+            </div>
+            <div id="namespace-1884740197" class="accordion-body collapse in">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-2005122829"></a>
+                                <a href="../namespaces/N8G.html" style="margin-left: 30px; padding-left: 0">N8G</a>
+            </div>
+            <div id="namespace-2005122829" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1888098785"></a>
+                                <a href="../namespaces/N8G.Grass.html" style="margin-left: 30px; padding-left: 0">Grass</a>
+            </div>
+            <div id="namespace-1888098785" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-493757593"></a>
+                                <a href="../namespaces/N8G.Grass.Components.html" style="margin-left: 30px; padding-left: 0">Components</a>
+            </div>
+            <div id="namespace-493757593" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1025392738"></a>
+                                <a href="../namespaces/N8G.Grass.Components.Html.html" style="margin-left: 30px; padding-left: 0">Html</a>
+            </div>
+            <div id="namespace-1025392738" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/N8G.Grass.Components.Html.Anchor.html">Anchor</a></li>
+                                                    <li class="class"><a href="../classes/N8G.Grass.Components.Html.Article.html">Article</a></li>
+                                                    <li class="class"><a href="../classes/N8G.Grass.Components.Html.Body.html">Body</a></li>
+                                                    <li class="class"><a href="../classes/N8G.Grass.Components.Html.Button.html">Button</a></li>
+                                                    <li class="class"><a href="../classes/N8G.Grass.Components.Html.Div.html">Div</a></li>
+                                                    <li class="class"><a href="../classes/N8G.Grass.Components.Html.Fieldset.html">Fieldset</a></li>
+                                                    <li class="class"><a href="../classes/N8G.Grass.Components.Html.Footer.html">Footer</a></li>
+                                                    <li class="class"><a href="../classes/N8G.Grass.Components.Html.Form.html">Form</a></li>
+                                                    <li class="class"><a href="../classes/N8G.Grass.Components.Html.Head.html">Head</a></li>
+                                                    <li class="class"><a href="../classes/N8G.Grass.Components.Html.Header.html">Header</a></li>
+                                                    <li class="class"><a href="../classes/N8G.Grass.Components.Html.Heading.html">Heading</a></li>
+                                                    <li class="class"><a href="../classes/N8G.Grass.Components.Html.HorizontalRule.html">HorizontalRule</a></li>
+                                                    <li class="class"><a href="../classes/N8G.Grass.Components.Html.HtmlAbstract.html">HtmlAbstract</a></li>
+                                                    <li class="class"><a href="../classes/N8G.Grass.Components.Html.Image.html">Image</a></li>
+                                                    <li class="class"><a href="../classes/N8G.Grass.Components.Html.Input.html">Input</a></li>
+                                                    <li class="class"><a href="../classes/N8G.Grass.Components.Html.Link.html">Link</a></li>
+                                                    <li class="class"><a href="../classes/N8G.Grass.Components.Html.ListItem.html">ListItem</a></li>
+                                                    <li class="class"><a href="../classes/N8G.Grass.Components.Html.Meta.html">Meta</a></li>
+                                                    <li class="class"><a href="../classes/N8G.Grass.Components.Html.Option.html">Option</a></li>
+                                                    <li class="class"><a href="../classes/N8G.Grass.Components.Html.OrderedList.html">OrderedList</a></li>
+                                                    <li class="class"><a href="../classes/N8G.Grass.Components.Html.PageBreak.html">PageBreak</a></li>
+                                                    <li class="class"><a href="../classes/N8G.Grass.Components.Html.Paragraph.html">Paragraph</a></li>
+                                                    <li class="class"><a href="../classes/N8G.Grass.Components.Html.Script.html">Script</a></li>
+                                                    <li class="class"><a href="../classes/N8G.Grass.Components.Html.Section.html">Section</a></li>
+                                                    <li class="class"><a href="../classes/N8G.Grass.Components.Html.Select.html">Select</a></li>
+                                                    <li class="class"><a href="../classes/N8G.Grass.Components.Html.Span.html">Span</a></li>
+                                                    <li class="class"><a href="../classes/N8G.Grass.Components.Html.Style.html">Style</a></li>
+                                                    <li class="class"><a href="../classes/N8G.Grass.Components.Html.Table.html">Table</a></li>
+                                                    <li class="class"><a href="../classes/N8G.Grass.Components.Html.TableBody.html">TableBody</a></li>
+                                                    <li class="class"><a href="../classes/N8G.Grass.Components.Html.TableCell.html">TableCell</a></li>
+                                                    <li class="class"><a href="../classes/N8G.Grass.Components.Html.TableHeader.html">TableHeader</a></li>
+                                                    <li class="class"><a href="../classes/N8G.Grass.Components.Html.TableHeading.html">TableHeading</a></li>
+                                                    <li class="class"><a href="../classes/N8G.Grass.Components.Html.TableRow.html">TableRow</a></li>
+                                                    <li class="class"><a href="../classes/N8G.Grass.Components.Html.Title.html">Title</a></li>
+                                                    <li class="class"><a href="../classes/N8G.Grass.Components.Html.UnorderedList.html">UnorderedList</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/N8G.Grass.Components.Component.html">Component</a></li>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-2090033923"></a>
+                                <a href="../namespaces/N8G.Grass.Display.html" style="margin-left: 30px; padding-left: 0">Display</a>
+            </div>
+            <div id="namespace-2090033923" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/N8G.Grass.Display.Navigation.html">Navigation</a></li>
+                                                    <li class="class"><a href="../classes/N8G.Grass.Display.Page.html">Page</a></li>
+                                                    <li class="class"><a href="../classes/N8G.Grass.Display.Theme.html">Theme</a></li>
+                                                    <li class="class"><a href="../classes/N8G.Grass.Display.Twig.html">Twig</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-608445224"></a>
+                                <a href="../namespaces/N8G.Grass.Exceptions.html" style="margin-left: 30px; padding-left: 0">Exceptions</a>
+            </div>
+            <div id="namespace-608445224" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-351825164"></a>
+                                <a href="../namespaces/N8G.Grass.Exceptions.Components.html" style="margin-left: 30px; padding-left: 0">Components</a>
+            </div>
+            <div id="namespace-351825164" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/N8G.Grass.Exceptions.Components.AttributeInvalidException.html">AttributeInvalidException</a></li>
+                                                    <li class="class"><a href="../classes/N8G.Grass.Exceptions.Components.ClassNotFoundException.html">ClassNotFoundException</a></li>
+                                                    <li class="class"><a href="../classes/N8G.Grass.Exceptions.Components.ComponentMissingRequiredAttributesException.html">ComponentMissingRequiredAttributesException</a></li>
+                                                    <li class="class"><a href="../classes/N8G.Grass.Exceptions.Components.ComponentNotFoundException.html">ComponentNotFoundException</a></li>
+                                                    <li class="class"><a href="../classes/N8G.Grass.Exceptions.Components.ElementInvalidException.html">ElementInvalidException</a></li>
+                                                    <li class="class"><a href="../classes/N8G.Grass.Exceptions.Components.UnableToOpenFileException.html">UnableToOpenFileException</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1087990274"></a>
+                                <a href="../namespaces/N8G.Grass.Exceptions.Display.html" style="margin-left: 30px; padding-left: 0">Display</a>
+            </div>
+            <div id="namespace-1087990274" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/N8G.Grass.Exceptions.Display.ThemeException.html">ThemeException</a></li>
+                                                    <li class="class"><a href="../classes/N8G.Grass.Exceptions.Display.TwigException.html">TwigException</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/N8G.Grass.Exceptions.ExceptionAbstract.html">ExceptionAbstract</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/N8G.Grass.Bootstrap.html">Bootstrap</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        </div>
+    </section>
+    <section class="row-fluid">
+        <div class="span10 offset2">
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <nav>
+                                                <a href="../namespaces/N8G.Grass.Components.Html.html">\N8G\Grass\Components\Html</a> <i class="icon-level-up"></i>
+                                            </nav>
+                    <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal"><i class="icon-code"></i></a>
+
+                    <h1><small>\N8G\Grass\Components\Html</small>Style</h1>
+                    <p><em>This class is has been created for the simple HTMl style tag.</em></p>
+                    
+                    
+                                        
+                    <section id="summary">
+                        <h2>Summary</h2>
+                        <section class="row-fluid heading">
+                            <section class="span4">
+                                <a href="#methods">Methods</a>
+                            </section>
+                            <section class="span4">
+                                <a href="#properties">Properties</a>
+                            </section>
+                            <section class="span4">
+                                <a href="#constants">Constants</a>
+                            </section>
+                        </section>
+                        <section class="row-fluid public">
+                            <section class="span4">
+                                                                    <a href="../classes/N8G.Grass.Components.Html.Style.html#method___construct" class="">__construct()</a><br />
+                                                                    <a href="../classes/N8G.Grass.Components.Html.HtmlAbstract.html#method_toString" class="">toString()</a><br />
+                                                                    <a href="../classes/N8G.Grass.Components.Html.HtmlAbstract.html#method_toHtml" class="">toHtml()</a><br />
+                                                                    <a href="../classes/N8G.Grass.Components.Html.HtmlAbstract.html#method_checkForElements" class="">checkForElements()</a><br />
+                                                                    <a href="../classes/N8G.Grass.Components.Html.HtmlAbstract.html#method_getId" class="">getId()</a><br />
+                                                                    <a href="../classes/N8G.Grass.Components.Html.HtmlAbstract.html#method_getElements" class="">getElements()</a><br />
+                                                                    <a href="../classes/N8G.Grass.Components.Html.HtmlAbstract.html#method_getContent" class="">getContent()</a><br />
+                                                                    <a href="../classes/N8G.Grass.Components.Html.HtmlAbstract.html#method_getAttributes" class="">getAttributes()</a><br />
+                                                                    <a href="../classes/N8G.Grass.Components.Html.HtmlAbstract.html#method_setId" class="">setId()</a><br />
+                                                                    <a href="../classes/N8G.Grass.Components.Html.HtmlAbstract.html#method_setElements" class="">setElements()</a><br />
+                                                                    <a href="../classes/N8G.Grass.Components.Html.HtmlAbstract.html#method_setContent" class="">setContent()</a><br />
+                                                                    <a href="../classes/N8G.Grass.Components.Html.HtmlAbstract.html#method_setAttributes" class="">setAttributes()</a><br />
+                                                                    <a href="../classes/N8G.Grass.Components.Html.HtmlAbstract.html#method_addElement" class="">addElement()</a><br />
+                                                                    <a href="../classes/N8G.Grass.Components.Html.HtmlAbstract.html#method_addAttribute" class="">addAttribute()</a><br />
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No public properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No constants found</em>
+                                                            </section>
+                        </section>
+                        <section class="row-fluid protected">
+                            <section class="span4">
+                                                                    <a href="../classes/N8G.Grass.Components.Html.HtmlAbstract.html#method_validateAttributes" class="">validateAttributes()</a><br />
+                                                                    <a href="../classes/N8G.Grass.Components.Html.HtmlAbstract.html#method_checkElement" class="">checkElement()</a><br />
+                                                            </section>
+                            <section class="span4">
+                                                                    <a href="../classes/N8G.Grass.Components.Html.HtmlAbstract.html#property_data" class="">$data</a><br />
+                                                                    <a href="../classes/N8G.Grass.Components.Html.HtmlAbstract.html#property_id" class="">$id</a><br />
+                                                                    <a href="../classes/N8G.Grass.Components.Html.HtmlAbstract.html#property_elements" class="">$elements</a><br />
+                                                                    <a href="../classes/N8G.Grass.Components.Html.HtmlAbstract.html#property_content" class="">$content</a><br />
+                                                                    <a href="../classes/N8G.Grass.Components.Html.HtmlAbstract.html#property_attributes" class="">$attributes</a><br />
+                                                                    <a href="../classes/N8G.Grass.Components.Html.HtmlAbstract.html#property_acceptedElements" class="">$acceptedElements</a><br />
+                                                                    <a href="../classes/N8G.Grass.Components.Html.Style.html#property_reqAtts" class="">$reqAtts</a><br />
+                                                            </section>
+                            <section class="span4">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                        <section class="row-fluid private">
+                            <section class="span4">
+                                                                    <em>No private methods found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No private properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                    </section>
+                </div>
+                <aside class="span4 detailsbar">
+                                        
+                    
+                    <dl>
+                        <dt>File</dt>
+                            <dd><a href="../files/Components.Html.Style.html"><div class="path-wrapper">Components/Html/Style.php</div></a></dd>
+                                                <dt>Package</dt>
+                            <dd><div class="namespace-wrapper">Default</div></dd>
+                                                <dt>Class hierarchy</dt>
+                            <dd class="hierarchy">
+                                                                                                                                                                                                                                                                                                
+                                        <div class="namespace-wrapper"><a href="../classes/N8G.Grass.Components.Html.HtmlAbstract.html">\N8G\Grass\Components\Html\HtmlAbstract</a></div>
+                                                                                                    <div class="namespace-wrapper">\N8G\Grass\Components\Html\Style</div>
+                            </dd>
+
+                        
+                        
+                        
+                        
+                                                                        </dl>
+                    <h2>Tags</h2>
+                    <table class="table table-condensed">
+                                            <tr>
+                            <th>
+                                author
+                            </th>
+                            <td>
+                                                                    <p>Nick Green <a href="mailto:nick-green@live.co.uk">nick-green@live.co.uk</a></p>
+                                                            </td>
+                        </tr>
+                                        </table>
+                </aside>
+            </div>
+
+                        
+                                    <a id="properties" name="properties"></a>
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <h2>Properties</h2>
+                </div>
+                <aside class="span4 detailsbar"></aside>
+            </div>
+
+                                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_data" name="property_data" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$data</h3>
+                <pre class="signature">$data : array</pre>
+                <p><em>A small array of data about the element. Including the name and tag</em></p>
+                
+
+                                <h4>Type</h4>
+                array
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/N8G.Grass.Components.Html.HtmlAbstract.html"><div class="path-wrapper">\N8G\Grass\Components\Html\HtmlAbstract</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_id" name="property_id" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$id</h3>
+                <pre class="signature">$id : string</pre>
+                <p><em>OPTIONAL. The ID of the element.</em></p>
+                
+
+                                <h4>Type</h4>
+                string
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/N8G.Grass.Components.Html.HtmlAbstract.html"><div class="path-wrapper">\N8G\Grass\Components\Html\HtmlAbstract</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_elements" name="property_elements" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$elements</h3>
+                <pre class="signature">$elements : array</pre>
+                <p><em>OPTIONAL. An array of elements that make up the overall element.</em></p>
+                
+
+                                <h4>Type</h4>
+                array
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/N8G.Grass.Components.Html.HtmlAbstract.html"><div class="path-wrapper">\N8G\Grass\Components\Html\HtmlAbstract</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_content" name="property_content" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$content</h3>
+                <pre class="signature">$content : mixed</pre>
+                <p><em>OPTIONAL. Usually a string with the content for the element.</em></p>
+                
+
+                                <h4>Type</h4>
+                mixed
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/N8G.Grass.Components.Html.HtmlAbstract.html"><div class="path-wrapper">\N8G\Grass\Components\Html\HtmlAbstract</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_attributes" name="property_attributes" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$attributes</h3>
+                <pre class="signature">$attributes : array</pre>
+                <p><em>OPTIONAL. An array of attrbutes for the elements. This will include classes.</em></p>
+                
+
+                                <h4>Type</h4>
+                array
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/N8G.Grass.Components.Html.HtmlAbstract.html"><div class="path-wrapper">\N8G\Grass\Components\Html\HtmlAbstract</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_acceptedElements" name="property_acceptedElements" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$acceptedElements</h3>
+                <pre class="signature">$acceptedElements : array</pre>
+                <p><em>An array of types and elements that are accepted when adding an element to
+this component.</em></p>
+                
+
+                                <h4>Type</h4>
+                array
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/N8G.Grass.Components.Html.HtmlAbstract.html"><div class="path-wrapper">\N8G\Grass\Components\Html\HtmlAbstract</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_reqAtts" name="property_reqAtts" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$reqAtts</h3>
+                <pre class="signature">$reqAtts : array</pre>
+                <p><em>A list of the required attributes for this element.</em></p>
+                
+
+                                <h4>Type</h4>
+                array
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                            
+                                    <a id="methods" name="methods"></a>
+            <div class="row-fluid">
+                <div class="span8 content class"><h2>Methods</h2></div>
+                <aside class="span4 detailsbar"></aside>
+            </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method___construct" name="method___construct" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">__construct()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">__construct(mixed  <span class="argument">$content = &#039;&#039;</span>, array  <span class="argument">$attributes = array()</span>) </pre>
+                <p><em>Default constructor for the class.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>mixed</td>
+                                <td>$content </td>
+                                <td><p>The content of the class. Can be string or an array.</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>array</td>
+                                <td>$attributes </td>
+                                <td><p>Array of element attributes</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_toString" name="method_toString" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">toString()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">toString() : string</pre>
+                <p><em>This function is called to get a textual representation of the compnent. Nothing
+is passed to the function and a string representing the element is returned.</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/N8G.Grass.Components.Html.HtmlAbstract.html"><div class="path-wrapper">\N8G\Grass\Components\Html\HtmlAbstract</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_toHtml" name="method_toHtml" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">toHtml()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">toHtml() : string</pre>
+                <p><em>This function is called to convert the element to HTML so that it can be outout
+on a web page. Nothing is passed to this function as it uses the elements array
+to render the HTML. This HTML is then returned.</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/N8G.Grass.Components.Html.HtmlAbstract.html"><div class="path-wrapper">\N8G\Grass\Components\Html\HtmlAbstract</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_checkForElements" name="method_checkForElements" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">checkForElements()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">checkForElements() : void</pre>
+                <p><em>This function uses the content set in the class to check for embedded elements.</em></p>
+                <p>Nothing is returned and nothing is passed to the function.</p>
+
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/N8G.Grass.Components.Html.HtmlAbstract.html"><div class="path-wrapper">\N8G\Grass\Components\Html\HtmlAbstract</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getId" name="method_getId" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getId()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getId() : string</pre>
+                <p><em>This function is used to return the ID of the element in case it is required.</em></p>
+                <p>Nothing is passed and the ID of the component is returned.</p>
+
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/N8G.Grass.Components.Html.HtmlAbstract.html"><div class="path-wrapper">\N8G\Grass\Components\Html\HtmlAbstract</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getElements" name="method_getElements" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getElements()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getElements() : array</pre>
+                <p><em>This function is used to get the elements in the compnent. Nothing is passed and
+the array of elements is returned.</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    array
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/N8G.Grass.Components.Html.HtmlAbstract.html"><div class="path-wrapper">\N8G\Grass\Components\Html\HtmlAbstract</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getContent" name="method_getContent" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getContent()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getContent() : mixed</pre>
+                <p><em>This function is used to get the content held within the component class. Nothing
+is passed and the content variable is returned.</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    mixed
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/N8G.Grass.Components.Html.HtmlAbstract.html"><div class="path-wrapper">\N8G\Grass\Components\Html\HtmlAbstract</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getAttributes" name="method_getAttributes" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getAttributes()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getAttributes() : mixed</pre>
+                <p><em>This function is used to get the attributes held within the component class. Nothing
+is passed and the array of attributes are returned.</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    mixed
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/N8G.Grass.Components.Html.HtmlAbstract.html"><div class="path-wrapper">\N8G\Grass\Components\Html\HtmlAbstract</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setId" name="method_setId" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setId()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setId(  <span class="argument">$id</span>) </pre>
+                <p><em>This function is used to reset the ID of the component. The new ID is passed to the
+function and that is then returned.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$id </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/N8G.Grass.Components.Html.HtmlAbstract.html"><div class="path-wrapper">\N8G\Grass\Components\Html\HtmlAbstract</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setElements" name="method_setElements" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setElements()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setElements(array  <span class="argument">$elements</span>) </pre>
+                <p><em>This function is used to reset the elements of the component. The new elements are
+passed to the function and these are then returned.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>array</td>
+                                <td>$elements </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/N8G.Grass.Components.Html.HtmlAbstract.html"><div class="path-wrapper">\N8G\Grass\Components\Html\HtmlAbstract</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setContent" name="method_setContent" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setContent()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setContent(  <span class="argument">$content</span>) </pre>
+                <p><em>This function is used to reset the content of the component. The new content is passed
+to the function and that is then returned.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$content </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/N8G.Grass.Components.Html.HtmlAbstract.html"><div class="path-wrapper">\N8G\Grass\Components\Html\HtmlAbstract</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setAttributes" name="method_setAttributes" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setAttributes()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setAttributes(  <span class="argument">$attributes</span>) </pre>
+                <p><em>This function is used to reset the elements of the component. The new elements are
+passed to the function and these are then returned.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$attributes </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/N8G.Grass.Components.Html.HtmlAbstract.html"><div class="path-wrapper">\N8G\Grass\Components\Html\HtmlAbstract</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_addElement" name="method_addElement" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">addElement()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">addElement(  <span class="argument">$element</span>) </pre>
+                <p><em>This function is used to add a new element to the elements array. The new element is
+passed and the full array is returned.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$element </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/N8G.Grass.Components.Html.HtmlAbstract.html"><div class="path-wrapper">\N8G\Grass\Components\Html\HtmlAbstract</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_addAttribute" name="method_addAttribute" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">addAttribute()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">addAttribute(array  <span class="argument">$attribute</span>) </pre>
+                <p><em>This function is used to add a new attribute to the attributes array. The new attribute is
+passed and the full array is returned.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>array</td>
+                                <td>$attribute </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/N8G.Grass.Components.Html.HtmlAbstract.html"><div class="path-wrapper">\N8G\Grass\Components\Html\HtmlAbstract</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_validateAttributes" name="method_validateAttributes" class="anchor"></a>
+            <article class="method">
+                <h3 class="protected ">validateAttributes()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">validateAttributes() : boolean</pre>
+                <p><em>This function is used to check that any required parameters were set in the
+element.</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    boolean
+                                            &mdash; <p>Indicates whether there was an error or not</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/N8G.Grass.Components.Html.HtmlAbstract.html"><div class="path-wrapper">\N8G\Grass\Components\Html\HtmlAbstract</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_checkElement" name="method_checkElement" class="anchor"></a>
+            <article class="method">
+                <h3 class="protected ">checkElement()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">checkElement(object  <span class="argument">$element</span>) : boolean</pre>
+                <p><em>This function is used to check that an element is valid when attempting to add it to a HTML
+element. The functions takes a component class and will return a boolean value indicating
+whether the component can be added or not.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>object</td>
+                                <td>$element </td>
+                                <td><p>The class object for the component</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    boolean
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/N8G.Grass.Components.Html.HtmlAbstract.html"><div class="path-wrapper">\N8G\Grass\Components\Html\HtmlAbstract</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                                    </div>
+    </section>
+
+    <div id="source-view" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="source-view-label" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="source-view-label">Style.php</h3>
+        </div>
+        <div class="modal-body">
+            <pre data-src="../files/Components/Html/Style.php.txt" class="language-php line-numbers"></pre>
+        </div>
+    </div>
+
+    <footer class="row-fluid">
+        <section class="span10 offset2">
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <section class="row-fluid footer-sections">
+                        <section class="span4">
+                                                        <h1><i class="icon-code"></i></h1>
+                            <div>
+                                <ul>
+                                                                            <li><a href="../namespaces/N8G.html">\N8G</a></li>
+                                                                    </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-bar-chart"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../graphs/class.html">Class Hierarchy Diagram</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-pushpin"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../reports/errors.html">Errors</a></li>
+                                    <li><a href="../reports/markers.html">Markers</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                    </section>
+                </section>
+            </section>
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <hr />
+                    Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
+                    on 
+Warning: date_default_timezone_get(): It is not safe to rely on the system's timezone settings. You are *required* to use the date.timezone setting or the date_default_timezone_set() function. In case you used any of those methods and you are still getting this warning, you most likely misspelled the timezone identifier. We selected the timezone 'UTC' for now, but please set date.timezone to select your timezone. in /Users/NickGreen/Documents/workspace/cms/code/vendor/twig/twig/lib/Twig/Extension/Core.php on line 89
+April 21st, 2015 at 21:09.
+                </section>
+            </section>
+        </section>
+    </footer>
+</div>
+
+</body>
+</html>

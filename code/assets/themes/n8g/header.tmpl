@@ -1,0 +1,18 @@
+			<img src="" alt="" class="header_img" />
+
+			<div id="navigation">
+				<nav id="main_nav">
+					{{ headerNavigation | raw }}
+				</nav>
+
+				{% if settings.search == true %}
+				<div id="search-box">
+					<form method="post" action="#" enctype="multipart/form-data">
+						<fieldset>
+							<div><label for="search" class="hidden">Search</label><input type="text" id="search" name="search" title="Search" placeholder="Search..." /></div>
+							<button type="sumbit" id="search-btn" name="search-btn" title="Search">Search</button>
+						</fieldset>
+					</form>
+				</div>
+				{% endif %}
+			</div>

@@ -1,0 +1,11 @@
+Options +FollowSymLinks
+RewriteEngine On
+
+RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteCond %{SCRIPT_FILENAME} !-f
+
+# Different actions for each page type
+
+
+# Catch all rule for anything that is not caught
+RewriteRule ^(.*)$			./index.php?id=$1

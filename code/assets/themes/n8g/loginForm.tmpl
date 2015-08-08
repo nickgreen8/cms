@@ -1,0 +1,18 @@
+	<div id="login-form">
+		<form method="post" action="#" enctype="multipart/form-data">
+			<fieldset>
+				{% if subtitle != null and subtitle != '' %}
+				<legend>{{ subtitle }}</legend>
+				{% else %}
+				<legend>Login</legend>
+				{% endif %}
+
+				{% if message != null and message != '' %}<p>{{ message }}</p>{% endif %}
+
+				<div><label for="username">Username</label><input type="text" name="username" id="username" title="Your Username" placeholder="Username" /></div>
+				<div><label for="password">Password</label><input type="text" name="password" id="password" title="Your Password" placeholder="Password" /></div>
+			</fieldset>
+			<button type="submit" id="login" name="login" title="Login">Login</button>
+		</form>
+		<p><a href="/forgotten-username">Fotgotten Username?</a> | <a href="/forgotten-password">Forgotten Password?</a></p>
+	</div>

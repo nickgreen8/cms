@@ -1,0 +1,83 @@
+			<div id="big_img">
+				<img src="./assets/themes/n8g/images/banner.jpg">
+			</div>
+
+			<article id="main">
+				<div class="row">
+					<div id="post">
+						<div id="details">
+							<h2>{{ heading }}</h2>
+							<p class="author">Posted by {{ author }}</p>
+							<p class="date">{{ date }}</p>
+							{% if settings.rating != null and settings.rating == true %}
+							<p class="rating">{{ rating | raw }}</p>
+							{% endif %}
+							{% if edited != null and edited == true %}
+							<p class="edited">Edited by {{ editor }} at {{ editTime }}</p>
+							{% endif %}
+						</div>
+
+						{{ content | raw }}
+
+						{% if settings.poll != null and settings.poll == true %}
+						<p class="poll">
+							<a href="javascript:rating.good({{ id }})" class="like">Like (<span class="count">{{ useful }}</span>)</a>
+							|
+							<a href="javascript:rating.notGood({{ id }})" class="dislike">Don't like (<span class="count">{{ notUseful }}</span>)</a>
+						</p>
+						{% endif %}
+					</div>
+
+					{% if settings.monthFilter == true %}
+					<div id="blog_sidebar" class="col">
+						<h3>Filters</h3>
+						<div class="filter">
+							<h4>Month</h4>
+							<ul>
+								{% for month in monthFilter %}
+								<li><a href="/{{ pageLink }}/month/{{ month.month }}/{{ month.year }}">{{ month.date | e }}</a></li>
+								{% endfor %}
+							</ul>
+						</div>
+					</div>
+					{% endif %}
+				</div>
+
+				{% if settings.comments != null and settings.comments == true %}
+				<div class="row">
+					<hr />
+
+					<div id="comments">
+						<h3>Comments</h3>
+						{% if comments|length > 0 %}
+						{% for comment in comments %}
+						<div class="comment" data-id="{{ comment.id }}">
+							<p class="author">{{ comment.author }}</p>
+							<p>{{ comment.content }}</p>
+							<p class="timestamp">{{ comment.timestamp }}</p>
+						</div>
+						{% endfor %}
+						{% else %}
+						<p>There are no comments on this post...</p>
+						{% endif %}
+
+						{% if loggedIn == true %}
+						<div id="comment-form">
+							<form method="post" action="#" enctype="multipart/form-data">
+								<fieldset>
+									<legend>Post a Comment...</legend>
+									<div>
+										<label for="comment">Comment</label>
+										<textarea id="comment" name="comment" title="Your Comment..."></textarea>
+									</div>
+								</fieldset>
+								<button type="submit" id="post" name="post" title="Comment">Comment</button>
+							</form>
+						</div>
+						{% else %}
+						{% include 'themes/n8g/loginForm.tmpl' with {'subtitle': 'Please log in...', 'message': 'Sorry, you cannot post a comment without logging in. Please login to continue...'} %}
+						{% endif %}
+					</div>
+				</div>
+				{% endif %}
+			</article>

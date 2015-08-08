@@ -1,0 +1,59 @@
+			<div id="big_img">
+				<img src="./assets/themes/n8g/images/banner.jpg">
+			</div>
+
+			<article id="main">
+				{{ content | raw }}
+				<div class="row">
+					{% if posts != null and posts|length > 0 %}
+					<div id="posts" class="col">
+						{% for post in posts %}
+						<div class="post" data-id="{{ post.id }}">
+							<div class="meta">
+								<h3>{{ post.title }}</h3>
+								<p class="author">{{ post.author }}</p>
+								<p class="date">{{ post.date }}</p>
+								{% if settings.rating != null and settings.rating == true %}
+								<p class="rating">{{ post.rating | raw }}</p>
+								{% endif %}
+								{% if post.edited != null and post.edited == true %}
+								<p class="edited">Edited by {{ post.editor }} at {{ post.editTime }}</p>
+								{% endif %}
+							</div>
+							{% if settings.preview != null and settings.preview == true %}
+							{{ post.preview | raw }}
+							{% else %}
+							{{ post.post | raw }}
+							{% endif %}
+							<p><a href="/{{ pageLink }}/{{ post.key }}">Click here to read more...</a></p>
+							{% if settings.commentCount != null and settings.commentCount == true %}<p>{{ post.commentCount }} Comment(s)</p>{% endif %}
+							{% if settings.poll != null and settings.poll == true %}
+							<p class="rating">
+								<a href="javascript:rating.good({{ post.id }})" class="like">Like (<span class="count">{{ post.useful }}</span>)</a>
+								|
+								<a href="javascript:rating.notGood({{ post.id }})" class="dislike">Don't like (<span class="count">{{ post.notUseful }}</span>)</a>
+							</p>
+							{% endif %}
+						</div>
+						{% endfor %}
+					</div>
+
+					{% if settings.monthFilter == true and monthFilter|length > 0 %}
+					<div id="blog_sidebar" class="col">
+						<h3>Filters</h3>
+						<div class="filter">
+							<h4>Month</h4>
+							<ul>
+								{% for month in monthFilter %}
+								<li><a href="/{{ pageLink }}/month/{{ month.month }}/{{ month.year }}">{{ month.date | e }}</a></li>
+								{% endfor %}
+							</ul>
+						</div>
+					</div>
+					{% endif %}
+				{% else %}
+					<h4>Erm...</h4>
+					<p>There were no posts found!</p>
+				{% endif %}
+				</div>
+			</article>
