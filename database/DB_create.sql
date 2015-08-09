@@ -2,12 +2,189 @@ SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 
+<<<<<<< HEAD
 DROP SCHEMA IF EXISTS `cms` ;
+=======
+>>>>>>> 758e343b9cf11387076c663590e68710e4e39f6a
 CREATE SCHEMA IF NOT EXISTS `cms` DEFAULT CHARACTER SET utf8 ;
 SHOW WARNINGS;
 USE `cms` ;
 
 -- -----------------------------------------------------
+<<<<<<< HEAD
+=======
+-- Table `cms`.`Element`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `cms`.`Element` ;
+
+SHOW WARNINGS;
+CREATE TABLE IF NOT EXISTS `cms`.`Element` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(45) NOT NULL,
+  `identifier` VARCHAR(45) NULL DEFAULT NULL,
+  `cms_class` VARCHAR(45) NOT NULL,
+  `usable` TINYINT(1) NOT NULL DEFAULT TRUE,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+SHOW WARNINGS;
+
+-- -----------------------------------------------------
+-- Table `cms`.`Attribute`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `cms`.`Attribute` ;
+
+SHOW WARNINGS;
+CREATE TABLE IF NOT EXISTS `cms`.`Attribute` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(45) NOT NULL,
+  `label` VARCHAR(45) NULL DEFAULT NULL,
+  `required` TINYINT(1) NOT NULL DEFAULT FALSE,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+SHOW WARNINGS;
+
+-- -----------------------------------------------------
+-- Table `cms`.`ElementAttribute`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `cms`.`ElementAttribute` ;
+
+SHOW WARNINGS;
+CREATE TABLE IF NOT EXISTS `cms`.`ElementAttribute` (
+  `element` INT NOT NULL,
+  `attribute` INT NOT NULL,
+  PRIMARY KEY (`element`, `attribute`),
+  CONSTRAINT `elementElementAttributeKey`
+    FOREIGN KEY (`element`)
+    REFERENCES `cms`.`Element` (`id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `attributeElementAttributeKey`
+    FOREIGN KEY (`attribute`)
+    REFERENCES `cms`.`Attribute` (`id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
+ENGINE = InnoDB;
+
+SHOW WARNINGS;
+CREATE INDEX `attributeTagAttributeKey_idx` ON `cms`.`ElementAttribute` (`attribute` ASC);
+
+SHOW WARNINGS;
+
+-- -----------------------------------------------------
+-- Table `cms`.`Class`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `cms`.`Class` ;
+
+SHOW WARNINGS;
+CREATE TABLE IF NOT EXISTS `cms`.`Class` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(45) NOT NULL,
+  `style` LONGTEXT NOT NULL,
+  `desciption` LONGTEXT NULL DEFAULT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+SHOW WARNINGS;
+
+-- -----------------------------------------------------
+-- Table `cms`.`Content`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `cms`.`Content` ;
+
+SHOW WARNINGS;
+CREATE TABLE IF NOT EXISTS `cms`.`Content` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `value` VARCHAR(45) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+SHOW WARNINGS;
+
+-- -----------------------------------------------------
+-- Table `cms`.`ElementContent`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `cms`.`ElementContent` ;
+
+SHOW WARNINGS;
+CREATE TABLE IF NOT EXISTS `cms`.`ElementContent` (
+  `element` INT NOT NULL,
+  `content` INT NOT NULL,
+  PRIMARY KEY (`element`, `content`),
+  CONSTRAINT `elementElementContentKey`
+    FOREIGN KEY (`element`)
+    REFERENCES `cms`.`Element` (`id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `contentElementContentKey`
+    FOREIGN KEY (`content`)
+    REFERENCES `cms`.`Content` (`id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
+ENGINE = InnoDB;
+
+SHOW WARNINGS;
+CREATE INDEX `contentElementContentKey_idx` ON `cms`.`ElementContent` (`content` ASC);
+
+SHOW WARNINGS;
+
+-- -----------------------------------------------------
+-- Table `cms`.`ContentAttribute`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `cms`.`ContentAttribute` ;
+
+SHOW WARNINGS;
+CREATE TABLE IF NOT EXISTS `cms`.`ContentAttribute` (
+  `content` INT NOT NULL,
+  `attribute` INT NOT NULL,
+  PRIMARY KEY (`content`, `attribute`),
+  CONSTRAINT `contentContentAttributeKey`
+    FOREIGN KEY (`content`)
+    REFERENCES `cms`.`Content` (`id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `attribute`
+    FOREIGN KEY (`attribute`)
+    REFERENCES `cms`.`Attribute` (`id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
+ENGINE = InnoDB;
+
+SHOW WARNINGS;
+CREATE INDEX `attribute_idx` ON `cms`.`ContentAttribute` (`attribute` ASC);
+
+SHOW WARNINGS;
+
+-- -----------------------------------------------------
+-- Table `cms`.`ContentClass`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `cms`.`ContentClass` ;
+
+SHOW WARNINGS;
+CREATE TABLE IF NOT EXISTS `cms`.`ContentClass` (
+  `content` INT NOT NULL,
+  `class` INT NOT NULL,
+  PRIMARY KEY (`content`, `class`),
+  CONSTRAINT `contentContentClassKey`
+    FOREIGN KEY (`content`)
+    REFERENCES `cms`.`Content` (`id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `classContentClassKey`
+    FOREIGN KEY (`class`)
+    REFERENCES `cms`.`Class` (`id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
+ENGINE = InnoDB;
+
+SHOW WARNINGS;
+CREATE INDEX `classContentClassKey_idx` ON `cms`.`ContentClass` (`class` ASC);
+
+SHOW WARNINGS;
+
+-- -----------------------------------------------------
+>>>>>>> 758e343b9cf11387076c663590e68710e4e39f6a
 -- Table `cms`.`Page`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `cms`.`Page` ;
@@ -200,12 +377,21 @@ ENGINE = InnoDB;
 SHOW WARNINGS;
 
 -- -----------------------------------------------------
+<<<<<<< HEAD
 -- Table `cms`.`Type`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `cms`.`Type` ;
 
 SHOW WARNINGS;
 CREATE TABLE IF NOT EXISTS `cms`.`Type` (
+=======
+-- Table `cms`.`type`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `cms`.`type` ;
+
+SHOW WARNINGS;
+CREATE TABLE IF NOT EXISTS `cms`.`type` (
+>>>>>>> 758e343b9cf11387076c663590e68710e4e39f6a
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(20) NOT NULL,
   PRIMARY KEY (`id`))
@@ -226,6 +412,7 @@ CREATE TABLE IF NOT EXISTS `cms`.`PageType` (
   CONSTRAINT `PagePageTypeKey`
     FOREIGN KEY (`page`)
     REFERENCES `cms`.`Page` (`id`)
+<<<<<<< HEAD
     ON DELETE CASCADE
     ON UPDATE CASCADE,
   CONSTRAINT `TypePageTypeKey`
@@ -233,6 +420,15 @@ CREATE TABLE IF NOT EXISTS `cms`.`PageType` (
     REFERENCES `cms`.`Type` (`id`)
     ON DELETE CASCADE
     ON UPDATE CASCADE)
+=======
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `TypePageTypeKey`
+    FOREIGN KEY (`type`)
+    REFERENCES `cms`.`type` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+>>>>>>> 758e343b9cf11387076c663590e68710e4e39f6a
 ENGINE = InnoDB;
 
 SHOW WARNINGS;
@@ -240,6 +436,7 @@ CREATE INDEX `TypePageTypeKey_idx` ON `cms`.`PageType` (`type` ASC);
 
 SHOW WARNINGS;
 
+<<<<<<< HEAD
 -- -----------------------------------------------------
 -- Table `cms`.`Post`
 -- -----------------------------------------------------
@@ -939,3 +1136,8 @@ INSERT INTO `cms`.`Option` (`id`, `name`, `description`, `count`) VALUES (NULL, 
 
 COMMIT;
 
+=======
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+>>>>>>> 758e343b9cf11387076c663590e68710e4e39f6a
