@@ -15,11 +15,7 @@ BEGIN
 	FROM
 		Post p
 	WHERE
-<<<<<<< HEAD
 		LCASE(REPLACE(p.title, ' ', '-')) = name;
-=======
-		LCASE(REPLACE(p.name, ' ', '-')) = title;
->>>>>>> 758e343b9cf11387076c663590e68710e4e39f6a
 
 	RETURN id;
 END

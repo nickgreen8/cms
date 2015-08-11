@@ -65,6 +65,9 @@ class Bootstrap
 
 		//Add current page to config
 		Config::setItem('page-id', isset($_REQUEST['id']) ? $_REQUEST['id'] : 1);
+
+		//Define blog filter types
+		Config::setBlogFilters(array('month'));
 	}
 
 	/**

@@ -46,9 +46,12 @@ class Post extends PageAbstract
 		parent::build();
 
 		//Get post data
-		$post = $this->getPostData('new-site-coming-soon');
+		$post = $this->getPostData($this->id);
 
 		//Add page data
+		$this->addPageComponent('name', $post['title']);
+		$this->addPageComponent('type', 'post');
+
 		$this->addPageComponent('heading', $post['title']);
 		$this->addPageComponent('author', $post['author']);
 		$this->addPageComponent('date', $post['date']);

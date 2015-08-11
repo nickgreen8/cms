@@ -153,11 +153,49 @@ class Output
 		//Get the page type
 		$type = $this->getPageTypeData($id);
 
-		Log::notice(sprintf('The page type is: %s', $type));
+		//Check for child pages
+		$type = $this->checkChildPage($type, $id, $args);
+
+		Log::notice(sprintf('The page type is: %s', $type['type']));
 
 		//Create the page object
-		$class = sprintf('N8G\Grass\Display\Pages\%s', str_replace(' ', '', ucwords($type)));
-		return new $class($id, $args);
+		$class = sprintf('N8G\Grass\Display\Pages\%s', str_replace(' ', '', ucwords($type['type'])));
+		return new $class($type['id'], $type['args']);
+	}
+
+	/**
+	 * This function is used to check to see if the page that is requested is a child page. This
+	 * is a consiquence of implementing pretty URLs. The function takes the parent page type, the
+	 * ID of the parent and the arguments that have been passed to the page. The page variables
+	 * are passed back in the form of an array.
+	 *
+	 * @param  string $type The parent page type
+	 * @param  string $id   The ID of the parent
+	 * @param  array  $args The array of arguments passed to the page
+	 * @return array        An array with the page type, new page ID and the new page args
+	 */
+	private function checkChildPage($type, $id, $args)
+	{
+		//Create return array
+		$page = array(
+			'type'	=>	$type,
+			'id'	=>	$id,
+			'args'	=>	$args
+		);
+
+		//Check for blog post
+		if ($type === 'blog' && isset($args[1]) && !in_array($args[1], Config::getBlogFilters())) {
+			//Check if a post has been specified
+			if ($this->checkForPost($id, $args[1])) {
+				//Change page return array
+				$page['type'] = 'post';
+				$page['id']   = $args[1];
+				$page['args'] = array();
+			}
+		}
+
+		//Return page data
+		return $page;
 	}
 
 	/**
@@ -232,5 +270,12 @@ class Output
 		//Get the data from the DB
 		$data = Database::execProcedure('GetPageType', array('page' => $id));
 		return $data[0]['type'];
+	}
+
+	private function checkForPost($blog, $post)
+	{
+		//Check for post in the DB
+		$data = Database::execProcedure('CheckPagePost', array('blog' => $blog, 'post' => $post));
+		return count($data) === 1;
 	}
 }

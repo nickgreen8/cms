@@ -23,7 +23,7 @@ abstract class PageAbstract implements PageInterface
 	 * The ID of the page
 	 * @var string|integer
 	 */
-	private $id;
+	protected $id;
 	/**
 	 * The array of data ready to be output into the page. This MUST be an associative
 	 * array and the keys must match the keys in the template.

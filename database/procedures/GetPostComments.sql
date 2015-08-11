@@ -5,11 +5,7 @@
 DELIMITER $$
 
 CREATE PROCEDURE `GetPostComments`
-<<<<<<< HEAD
 	(IN post CHAR(45))
-=======
-	(IN post INT(11))
->>>>>>> 758e343b9cf11387076c663590e68710e4e39f6a
 BEGIN
 	#Create ID variable
 	DECLARE id INT(11);
