@@ -8,12 +8,12 @@
 						<div id="details">
 							<h2>{{ heading }}</h2>
 							<p class="author">Posted by {{ author }}</p>
-							<p class="date">{{ date }}</p>
-							{% if settings.rating != null and settings.rating == true %}
-							<p class="rating">{{ rating | raw }}</p>
-							{% endif %}
 							{% if edited != null and edited == true %}
 							<p class="edited">Edited by {{ editor }} at {{ editTime }}</p>
+							{% endif %}
+							<p class="date">{{ date }}</p>
+							{% if settings.rating != null and settings.rating == true %}
+							{{ rating | raw }}
 							{% endif %}
 						</div>
 
@@ -35,7 +35,7 @@
 							<h4>Month</h4>
 							<ul>
 								{% for month in monthFilter %}
-								<li><a href="/{{ pageLink }}/month/{{ month.month }}/{{ month.year }}">{{ month.date | e }}</a></li>
+								<li><a href="/{{ parent }}/month/{{ month.month }}/{{ month.year }}">{{ month.date | e }}</a></li>
 								{% endfor %}
 							</ul>
 						</div>

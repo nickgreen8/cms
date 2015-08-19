@@ -1,6 +1,6 @@
 {
 	"name": "N8G Grass CMS",
-	"description": "",
+	"description": "This is the default and first theme created for the framework.",
 	"settings": {
 		"search": true,
 		"index": {
@@ -16,7 +16,19 @@
 		"post": {
 			"monthFilter": true,
 			"comments": true,
-			"rating": true,
+			"rating": {
+				"on": true,
+				"options": [
+					{
+						"option": "decimal",
+						"selected": false
+					},
+					{
+						"option": "stars",
+						"selected": true
+					}
+				]
+			},
 			"poll": true
 		},
 		"headerImg": {

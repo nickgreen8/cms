@@ -40,6 +40,11 @@ abstract class PageAbstract implements PageInterface
 	 * @var array|null
 	 */
 	protected $args;
+	/**
+	 * An instance of the current theme object
+	 * @var object
+	 */
+	protected $theme;
 
 	/**
 	 * Default constructor
@@ -54,6 +59,9 @@ abstract class PageAbstract implements PageInterface
 		//Set the variables of the page
 		$this->id = $id;
 		$this->args = $args;
+
+		//Get theme settings and data
+		$this->theme = Theme::init();
 
 		//Build the page data
 		$this->build();
@@ -157,15 +165,13 @@ abstract class PageAbstract implements PageInterface
 	{
 		Log::info('Building page data');
 
-		//Get theme settings and data
-		$theme = Theme::init();
 		//Create navigation object
 		$navigation = new Navigation();
 
 		//Add page data
-		$this->addPageComponent('settings', $theme->getSettings($this->template));
+		$this->addPageComponent('settings', $this->theme->getPageSettings($this->template));
 		$this->addPageComponent('loggedIn', isset($_SESSION['ng_login']));
-		$this->addPageComponent('themeDirectory', $theme->getDirectory());
+		$this->addPageComponent('themeDirectory', $this->theme->getDirectory());
 		$this->addPageComponent('headerNavigation', $navigation->buildHeaderNavigation());
 		$this->addPageComponent('footerNavigation', $navigation->buildFooterNavigation());
 		$this->addPageComponent('copyright', Config::getItem('copyright'));

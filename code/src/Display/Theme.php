@@ -140,12 +140,56 @@ class Theme
 	}
 
 	/**
+	 * This function gets the settings for the pagetype related to the theme.
+	 *
+	 * @param  string|null $type null to just get the global theme settings of the page type for the page type settings
+	 * @return array             The array of settings from the config file
+	 */
+	public function getPageSettings($type)
+	{
+		//Get the settings for the page type
+		$settings = $this->getSettings($type);
+
+		//Format settings
+		foreach ($settings as $key => $value) {
+			//Check for embeded options/settings
+			if (is_array($value)) {
+				//Look for the option to be turned on
+				if (isset($value['on'])) {
+					$settings[$key] = $value['on'];
+				}
+			}
+		}
+
+		return $settings;
+	}
+
+	/**
+	 * This function gets a single setting for a specific page type. The type of page
+	 * is passed and the setting required. The setting will then be passed as either a
+	 * boolean value or an array.
+	 *
+	 * @param  string $type    The page type
+	 * @param  string $setting The single setting required
+	 * @return boolean|array   The single value for the setting or the array
+	 */
+	public function getPageSetting($type, $setting)
+	{
+		//Get the settings for the page type
+		$settings = $this->getSettings($type);
+		//Return the specific setting
+		return $settings[$setting];
+	}
+
+// Private functions
+
+	/**
 	 * This function gets the settings for the page or the overall theme.
 	 *
 	 * @param  string|null $type null to just get the global theme settings of the page type for the page type settings
 	 * @return array             The array of settings from the config file
 	 */
-	public function getSettings($type = null)
+	private function getSettings($type = null)
 	{
 		if (count($this->settings) > 0) {
 			return array_merge($this->getGlobalSettings(), ($type === null) ? array() : (isset($this->settings[$type]) && $this->settings[$type] !== null) ? $this->settings[$type] : array());
@@ -165,8 +209,6 @@ class Theme
 		//Return an empty settings array by default
 		return array();
 	}
-
-// Private functions
 
 	/**
 	 * This function is used to get all the stylesheets out of the relevant themes

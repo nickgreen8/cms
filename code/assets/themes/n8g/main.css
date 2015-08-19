@@ -171,10 +171,20 @@ input, textarea, button { border: 1px solid #8c8c8c; }
 .post-page .row #post, .post-page .row #blog_sidebar { vertical-align: top; display: inline-block; }
 .post-page .row #post { width: 73%; }
 .post-page .row #blog_sidebar { width: 25%; }
+.post-page #details h2 { margin-bottom: 0; padding-bottom: 0; }
+.post-page #details p, .post-page #details div { margin: 0; padding: 0; color: #5b5b5b; }
+.post-page #details .author { font-size: 0.8em; }
+.post-page #details .date, .post-page #details .edited { font-size: 0.6em; }
+.post-page #details .rating { float: right; margin-top: -4.25em; }
+.post-page #details .rating img { margin: 3px 0; height: 2em; width: auto; display: inline-block; vertical-align: top; }
 .post-page #comments .comment { margin-bottom: 15px; display: block; margin-left: auto; margin-right: auto; width: 80%; }
 .post-page #comments .comment p { margin: 0; padding: 0; }
 .post-page #comments .author { font-weight: bold; }
 .post-page #comments .timestamp { color: grey; font-size: 0.8em; }
+.post-page #comments #comment-form { text-align: center; }
+.post-page #comments #comment-form fieldset { text-align: left; }
+.post-page #comments #comment-form #comment { height: 5em; }
+.post-page #comments #comment-form #post { margin-left: 20px; width: 40%; }
 
 /** Page specific styling */
 /** Home page */
@@ -205,3 +215,4 @@ input, textarea, button { border: 1px solid #8c8c8c; }
 .hidden { display: none; }
 .row { display: table-row; }
 .column { display: table-cell; vertical-align: top; }
+.bold { font-weight: bold; }

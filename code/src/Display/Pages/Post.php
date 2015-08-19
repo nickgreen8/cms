@@ -3,7 +3,11 @@ namespace N8G\Grass\Display\Pages;
 
 use N8G\Database\Database,
 	N8G\Utils\Log,
-	N8G\Utils\Config;
+	N8G\Utils\Config,
+	N8G\Grass\Components\Html\Div,
+	N8G\Grass\Components\Html\Span,
+	N8G\Grass\Components\Html\Image,
+	N8G\Grass\Components\Html\Paragraph;
 
 /**
  * This class is used to build a post page. All relevant data will be parsed ready to
@@ -55,12 +59,14 @@ class Post extends PageAbstract
 		$this->addPageComponent('heading', $post['title']);
 		$this->addPageComponent('author', $post['author']);
 		$this->addPageComponent('date', $post['date']);
-		$this->addPageComponent('rating', $post['rating']);
+		$this->addPageComponent('rating', $this->formatRating($post['rating']));
+		$this->addPageComponent('edited', $post['edited']);
 		$this->addPageComponent('editor', $post['editor']);
 		$this->addPageComponent('editTime', $post['editTime']);
 		$this->addPageComponent('useful', $post['useful']);
 		$this->addPageComponent('notUseful', $post['notUseful']);
 		$this->addPageComponent('content', $this->parseContent($post['content']));
+		$this->addPageComponent('parent', $post['page']);
 
 		//Get page elements
 		$this->addPageComponent('monthFilter', $this->getMonthFilter($post['page']));
@@ -117,5 +123,71 @@ class Post extends PageAbstract
 		$data[0]['rating'] = $data[0]['rating'] === null ? '' : $data[0]['rating'];
 
 		return $data[0];
+	}
+
+	private function formatRating($rating)
+	{
+		//Get the rating details
+		$setting = $this->theme->getPageSetting('post', 'rating');
+		//Look for the selected format
+		$format = $this->getSelectedOption($setting['options']);
+
+		//Check on format
+		if ($format === 'stars') {
+			//Get stars variables
+			$full = (int) floor($rating);
+			$half = round($rating - $full, 1) >= 0.5 ? true : false;
+
+			//Create HTML element
+			$div = new Div();
+			$div->addAttribute(array('class' => 'rating'));
+
+			//Build rating
+			for ($i = 0; $i < 5; $i++) {
+				//Checking for full
+				if ($i < $full) {
+					//Add full star
+					$div->addElement(new Image(null, array('src' => sprintf('%simages/fullStar.png', $this->theme->getDirectory()), 'alt' => 'fullStar')));
+				//Checking for half
+				} elseif ($half && $i === $full) {
+					//Add full half star
+					$div->addElement(new Image(null, array('src' => sprintf('%simages/halfStar.png', $this->theme->getDirectory()), 'alt' => 'halfStar')));
+					//Add empty half star
+					$div->addElement(new Image(null, array('src' => sprintf('%simages/emptyHalfStar.png', $this->theme->getDirectory()), 'alt' => 'halfEmptyStar')));
+				//Checking for empty
+				} elseif ($i >= $full) {
+					//Add empty star
+					$div->addElement(new Image(null, array('src' => sprintf('%simages/emptyFullStar.png', $this->theme->getDirectory()), 'alt' => 'emptyStar')));
+				}
+			}
+
+			//Return HTML
+			return $div->toHtml();
+		} else {
+			$p = new Paragraph(array(new Span('Rating: ', null, array(), array('class' => 'bold')), round($rating, 2)), null, array(), array('class' => 'rating'));
+			return $p->toHtml();
+		}
+	}
+
+	/**
+	 * This function takes a list of options and returns the selected one. If there are no
+	 * selected options, null is returned.
+	 *
+	 * @param  array       $options The array of options to be checked
+	 * @return string|null          The selected option or null
+	 */
+	private function getSelectedOption($options)
+	{
+		//Look for the selected format
+		foreach ($options as $option) {
+			//Check if selected
+			if ($option['selected'] === true) {
+				//return selected
+				return $option['option'];
+			}
+		}
+
+		//Return default
+		return null;
 	}
 }

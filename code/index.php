@@ -10,6 +10,8 @@ use Twig_\Twig\Loader\Filesystem,
 $bootstrap = new Bootstrap();
 $bootstrap->run();
 
+$_SESSION['ng_login'] = true;
+
 //Define constants
 //Root of the application
 define('ROOT_DIR', __DIR__ . '/');
