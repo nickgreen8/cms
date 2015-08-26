@@ -59,7 +59,7 @@ class Post extends PageAbstract
 		$this->addPageComponent('heading', $post['title']);
 		$this->addPageComponent('author', $post['author']);
 		$this->addPageComponent('date', $post['date']);
-		$this->addPageComponent('rating', $this->formatRating($post['rating']));
+		$this->addPageComponent('rating', $this->formatRating($post['rating'], $post['ratingCount']));
 		$this->addPageComponent('edited', $post['edited']);
 		$this->addPageComponent('editor', $post['editor']);
 		$this->addPageComponent('editTime', $post['editTime']);
@@ -125,7 +125,15 @@ class Post extends PageAbstract
 		return $data[0];
 	}
 
-	private function formatRating($rating)
+	/**
+	 * This function is used to convert the rating of the post to HTML. This is checked against
+	 * the theme configuration and displayed as selected.
+	 *
+	 * @param  float   $rating The rating of the post
+	 * @param  integer $count  The count of ratings that have been made against the post
+	 * @return string          The HTML for the rating to be output as
+	 */
+	private function formatRating($rating, $count)
 	{
 		//Get the rating details
 		$setting = $this->theme->getPageSetting('post', 'rating');
@@ -134,39 +142,54 @@ class Post extends PageAbstract
 
 		//Check on format
 		if ($format === 'stars') {
-			//Get stars variables
-			$full = (int) floor($rating);
-			$half = round($rating - $full, 1) >= 0.5 ? true : false;
-
-			//Create HTML element
-			$div = new Div();
-			$div->addAttribute(array('class' => 'rating'));
-
-			//Build rating
-			for ($i = 0; $i < 5; $i++) {
-				//Checking for full
-				if ($i < $full) {
-					//Add full star
-					$div->addElement(new Image(null, array('src' => sprintf('%simages/fullStar.png', $this->theme->getDirectory()), 'alt' => 'fullStar')));
-				//Checking for half
-				} elseif ($half && $i === $full) {
-					//Add full half star
-					$div->addElement(new Image(null, array('src' => sprintf('%simages/halfStar.png', $this->theme->getDirectory()), 'alt' => 'halfStar')));
-					//Add empty half star
-					$div->addElement(new Image(null, array('src' => sprintf('%simages/emptyHalfStar.png', $this->theme->getDirectory()), 'alt' => 'halfEmptyStar')));
-				//Checking for empty
-				} elseif ($i >= $full) {
-					//Add empty star
-					$div->addElement(new Image(null, array('src' => sprintf('%simages/emptyFullStar.png', $this->theme->getDirectory()), 'alt' => 'emptyStar')));
-				}
-			}
-
-			//Return HTML
-			return $div->toHtml();
+			//Format to stars
+			return $this->formatStars($rating, $count);
 		} else {
-			$p = new Paragraph(array(new Span('Rating: ', null, array(), array('class' => 'bold')), round($rating, 2)), null, array(), array('class' => 'rating'));
+			$p = new Paragraph(array(new Span('Rating: ', null, array(), array('class' => 'bold')), round($rating, 2), new Span(sprintf('(%d)', $count), 'ratingCount', array(), array('class' => 'half'))), null, array(), array('class' => 'rating'));
 			return $p->toHtml();
 		}
+	}
+
+	/**
+	 * This function converts the rating into stars. The rating is passed and the star rating is
+	 * returned as a div populated with images ready to be output.
+	 *
+	 * @param  float  $rating The post rating
+	 * @return string         The rating converted into HTML.
+	 */
+	private function formatStars($rating, $count)
+	{
+		//Get stars variables
+		$full = (int) floor($rating);
+		$half = round($rating - $full, 1) >= 0.5 ? true : false;
+
+		//Create HTML element
+		$div = new Div();
+		$div->addAttribute(array('class' => 'rating'));
+
+		//Build rating
+		for ($i = 0; $i < 5; $i++) {
+			//Checking for full
+			if ($i < $full) {
+				//Add full star
+				$div->addElement(new Image(null, array('src' => sprintf('%simages/fullStar.png', $this->theme->getDirectory()), 'alt' => 'fullStar')));
+			//Checking for half
+			} elseif ($half && $i === $full) {
+				//Add full half star
+				$div->addElement(new Image(null, array('src' => sprintf('%simages/halfStar.png', $this->theme->getDirectory()), 'alt' => 'halfStar')));
+				//Add empty half star
+				$div->addElement(new Image(null, array('src' => sprintf('%simages/emptyHalfStar.png', $this->theme->getDirectory()), 'alt' => 'halfEmptyStar')));
+			//Checking for empty
+			} elseif ($i >= $full) {
+				//Add empty star
+				$div->addElement(new Image(null, array('src' => sprintf('%simages/emptyFullStar.png', $this->theme->getDirectory()), 'alt' => 'emptyStar')));
+			}
+		}
+
+		//Add the count
+		$div->addElement(new Paragraph(sprintf('(%d)', $count), 'ratingCount', array(), array('class' => 'half')));
+		//Return HTML
+		return $div->toHtml();
 	}
 
 	/**

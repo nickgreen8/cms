@@ -21,6 +21,7 @@ BEGIN
 		bp.timestamp,
 		bp.author,
 		bp.rating,
+		bp.ratingCount,
 		bp.edited,
 		bp.editor,
 		bp.editTime,

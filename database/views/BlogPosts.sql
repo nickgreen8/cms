@@ -5,11 +5,8 @@ SELECT
 	p.content,
 	p.timestamp,
 	CONCAT(u.firstName, ' ', u.lastName) as author,
-<<<<<<< HEAD
-    (SELECT AVG(r.rating) FROM Rating r WHERE r.post = p.id GROUP BY r.post) as rating,
-=======
     IFNULL((SELECT AVG(r.rating) FROM Rating r WHERE r.post = p.id GROUP BY r.post), 0) as rating,
->>>>>>> 758e343b9cf11387076c663590e68710e4e39f6a
+    IFNULL((SELECT COUNT(r.rating) FROM Rating r WHERE r.post = p.id GROUP BY r.post), 0) as ratingCount,
     IF((SELECT a.id FROM Audit a WHERE a.table = 'Post' AND a.record = p.id AND a.action = 'EDIT' ORDER BY a.timestamp DESC LIMIT 1), TRUE, FALSE) as edited,
     (SELECT CONCAT(u2.firstName, ' ', u2.lastName) FROM Audit a JOIN User u2 ON a.author = u2.id WHERE a.table = 'Post' AND a.record = p.id AND a.action = 'EDIT' ORDER BY a.timestamp DESC LIMIT 1) as editor,
     (SELECT a.timestamp FROM Audit a WHERE a.table = 'Post' AND a.record = p.id AND a.action = 'EDIT' ORDER BY a.timestamp DESC LIMIT 1) as editTime,

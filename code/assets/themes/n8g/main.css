@@ -175,8 +175,15 @@ input, textarea, button { border: 1px solid #8c8c8c; }
 .post-page #details p, .post-page #details div { margin: 0; padding: 0; color: #5b5b5b; }
 .post-page #details .author { font-size: 0.8em; }
 .post-page #details .date, .post-page #details .edited { font-size: 0.6em; }
-.post-page #details .rating { float: right; margin-top: -4.25em; }
-.post-page #details .rating img { margin: 3px 0; height: 2em; width: auto; display: inline-block; vertical-align: top; }
+.post-page #details .rating { float: right; margin-top: -4.25em; white-space: nowrap; }
+.post-page #details .rating img, .post-page #details .rating p {
+	margin: 3px 0;
+	height: 2em;
+	width: auto;
+	display: inline-block;
+	vertical-align: top;
+}
+.post-page #details .rating p { font-size: 0.85em; margin-top: 1.15em; }
 .post-page #comments .comment { margin-bottom: 15px; display: block; margin-left: auto; margin-right: auto; width: 80%; }
 .post-page #comments .comment p { margin: 0; padding: 0; }
 .post-page #comments .author { font-weight: bold; }
