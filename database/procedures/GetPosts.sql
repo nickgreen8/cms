@@ -5,7 +5,7 @@
 DELIMITER $$
 
 CREATE PROCEDURE `GetPosts`
-	(IN page INT(11))
+	(IN page INT(11), IN filter CHAR(7))
 BEGIN
 	#Get the data
 	SELECT
@@ -25,5 +25,11 @@ BEGIN
 	FROM
 		BlogPosts bp
 	WHERE
-		bp.page = page;
+		bp.page = page
+		AND
+        (
+        	filter = 'NULL'
+        	OR
+            DATE_FORMAT(bp.timestamp, '%m-%Y') = filter
+		);
 END

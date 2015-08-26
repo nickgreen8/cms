@@ -73,12 +73,12 @@ class Blog extends PageAbstract
 		//Set procedure params
 		$params = array(
 			'page'		=> Config::getPageId(),
-			//'filter'	=> 'NULL'
+			'filter'	=> 'NULL'
 		);
 
 		if (count($args) > 0 && in_array($args[1], $this->filters)) {
 			unset($args[1]);
-			//$params['filter'] = sprintf('"%s"', implode('-', $args));
+			$params['filter'] = sprintf('%s', implode('-', $args));
 		}
 
 		Log::debug(sprintf('Arguments being passed to get posts: %s', json_encode($params)));

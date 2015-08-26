@@ -2,189 +2,12 @@ SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 
-<<<<<<< HEAD
 DROP SCHEMA IF EXISTS `cms` ;
-=======
->>>>>>> 758e343b9cf11387076c663590e68710e4e39f6a
 CREATE SCHEMA IF NOT EXISTS `cms` DEFAULT CHARACTER SET utf8 ;
 SHOW WARNINGS;
 USE `cms` ;
 
 -- -----------------------------------------------------
-<<<<<<< HEAD
-=======
--- Table `cms`.`Element`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `cms`.`Element` ;
-
-SHOW WARNINGS;
-CREATE TABLE IF NOT EXISTS `cms`.`Element` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `name` VARCHAR(45) NOT NULL,
-  `identifier` VARCHAR(45) NULL DEFAULT NULL,
-  `cms_class` VARCHAR(45) NOT NULL,
-  `usable` TINYINT(1) NOT NULL DEFAULT TRUE,
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB;
-
-SHOW WARNINGS;
-
--- -----------------------------------------------------
--- Table `cms`.`Attribute`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `cms`.`Attribute` ;
-
-SHOW WARNINGS;
-CREATE TABLE IF NOT EXISTS `cms`.`Attribute` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `name` VARCHAR(45) NOT NULL,
-  `label` VARCHAR(45) NULL DEFAULT NULL,
-  `required` TINYINT(1) NOT NULL DEFAULT FALSE,
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB;
-
-SHOW WARNINGS;
-
--- -----------------------------------------------------
--- Table `cms`.`ElementAttribute`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `cms`.`ElementAttribute` ;
-
-SHOW WARNINGS;
-CREATE TABLE IF NOT EXISTS `cms`.`ElementAttribute` (
-  `element` INT NOT NULL,
-  `attribute` INT NOT NULL,
-  PRIMARY KEY (`element`, `attribute`),
-  CONSTRAINT `elementElementAttributeKey`
-    FOREIGN KEY (`element`)
-    REFERENCES `cms`.`Element` (`id`)
-    ON DELETE CASCADE
-    ON UPDATE CASCADE,
-  CONSTRAINT `attributeElementAttributeKey`
-    FOREIGN KEY (`attribute`)
-    REFERENCES `cms`.`Attribute` (`id`)
-    ON DELETE CASCADE
-    ON UPDATE CASCADE)
-ENGINE = InnoDB;
-
-SHOW WARNINGS;
-CREATE INDEX `attributeTagAttributeKey_idx` ON `cms`.`ElementAttribute` (`attribute` ASC);
-
-SHOW WARNINGS;
-
--- -----------------------------------------------------
--- Table `cms`.`Class`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `cms`.`Class` ;
-
-SHOW WARNINGS;
-CREATE TABLE IF NOT EXISTS `cms`.`Class` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `name` VARCHAR(45) NOT NULL,
-  `style` LONGTEXT NOT NULL,
-  `desciption` LONGTEXT NULL DEFAULT NULL,
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB;
-
-SHOW WARNINGS;
-
--- -----------------------------------------------------
--- Table `cms`.`Content`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `cms`.`Content` ;
-
-SHOW WARNINGS;
-CREATE TABLE IF NOT EXISTS `cms`.`Content` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `value` VARCHAR(45) NULL DEFAULT NULL,
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB;
-
-SHOW WARNINGS;
-
--- -----------------------------------------------------
--- Table `cms`.`ElementContent`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `cms`.`ElementContent` ;
-
-SHOW WARNINGS;
-CREATE TABLE IF NOT EXISTS `cms`.`ElementContent` (
-  `element` INT NOT NULL,
-  `content` INT NOT NULL,
-  PRIMARY KEY (`element`, `content`),
-  CONSTRAINT `elementElementContentKey`
-    FOREIGN KEY (`element`)
-    REFERENCES `cms`.`Element` (`id`)
-    ON DELETE CASCADE
-    ON UPDATE CASCADE,
-  CONSTRAINT `contentElementContentKey`
-    FOREIGN KEY (`content`)
-    REFERENCES `cms`.`Content` (`id`)
-    ON DELETE CASCADE
-    ON UPDATE CASCADE)
-ENGINE = InnoDB;
-
-SHOW WARNINGS;
-CREATE INDEX `contentElementContentKey_idx` ON `cms`.`ElementContent` (`content` ASC);
-
-SHOW WARNINGS;
-
--- -----------------------------------------------------
--- Table `cms`.`ContentAttribute`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `cms`.`ContentAttribute` ;
-
-SHOW WARNINGS;
-CREATE TABLE IF NOT EXISTS `cms`.`ContentAttribute` (
-  `content` INT NOT NULL,
-  `attribute` INT NOT NULL,
-  PRIMARY KEY (`content`, `attribute`),
-  CONSTRAINT `contentContentAttributeKey`
-    FOREIGN KEY (`content`)
-    REFERENCES `cms`.`Content` (`id`)
-    ON DELETE CASCADE
-    ON UPDATE CASCADE,
-  CONSTRAINT `attribute`
-    FOREIGN KEY (`attribute`)
-    REFERENCES `cms`.`Attribute` (`id`)
-    ON DELETE CASCADE
-    ON UPDATE CASCADE)
-ENGINE = InnoDB;
-
-SHOW WARNINGS;
-CREATE INDEX `attribute_idx` ON `cms`.`ContentAttribute` (`attribute` ASC);
-
-SHOW WARNINGS;
-
--- -----------------------------------------------------
--- Table `cms`.`ContentClass`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `cms`.`ContentClass` ;
-
-SHOW WARNINGS;
-CREATE TABLE IF NOT EXISTS `cms`.`ContentClass` (
-  `content` INT NOT NULL,
-  `class` INT NOT NULL,
-  PRIMARY KEY (`content`, `class`),
-  CONSTRAINT `contentContentClassKey`
-    FOREIGN KEY (`content`)
-    REFERENCES `cms`.`Content` (`id`)
-    ON DELETE CASCADE
-    ON UPDATE CASCADE,
-  CONSTRAINT `classContentClassKey`
-    FOREIGN KEY (`class`)
-    REFERENCES `cms`.`Class` (`id`)
-    ON DELETE CASCADE
-    ON UPDATE CASCADE)
-ENGINE = InnoDB;
-
-SHOW WARNINGS;
-CREATE INDEX `classContentClassKey_idx` ON `cms`.`ContentClass` (`class` ASC);
-
-SHOW WARNINGS;
-
--- -----------------------------------------------------
->>>>>>> 758e343b9cf11387076c663590e68710e4e39f6a
 -- Table `cms`.`Page`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `cms`.`Page` ;
@@ -377,21 +200,12 @@ ENGINE = InnoDB;
 SHOW WARNINGS;
 
 -- -----------------------------------------------------
-<<<<<<< HEAD
 -- Table `cms`.`Type`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `cms`.`Type` ;
 
 SHOW WARNINGS;
 CREATE TABLE IF NOT EXISTS `cms`.`Type` (
-=======
--- Table `cms`.`type`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `cms`.`type` ;
-
-SHOW WARNINGS;
-CREATE TABLE IF NOT EXISTS `cms`.`type` (
->>>>>>> 758e343b9cf11387076c663590e68710e4e39f6a
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(20) NOT NULL,
   PRIMARY KEY (`id`))
@@ -412,7 +226,6 @@ CREATE TABLE IF NOT EXISTS `cms`.`PageType` (
   CONSTRAINT `PagePageTypeKey`
     FOREIGN KEY (`page`)
     REFERENCES `cms`.`Page` (`id`)
-<<<<<<< HEAD
     ON DELETE CASCADE
     ON UPDATE CASCADE,
   CONSTRAINT `TypePageTypeKey`
@@ -420,15 +233,6 @@ CREATE TABLE IF NOT EXISTS `cms`.`PageType` (
     REFERENCES `cms`.`Type` (`id`)
     ON DELETE CASCADE
     ON UPDATE CASCADE)
-=======
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `TypePageTypeKey`
-    FOREIGN KEY (`type`)
-    REFERENCES `cms`.`type` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
->>>>>>> 758e343b9cf11387076c663590e68710e4e39f6a
 ENGINE = InnoDB;
 
 SHOW WARNINGS;
@@ -436,7 +240,6 @@ CREATE INDEX `TypePageTypeKey_idx` ON `cms`.`PageType` (`type` ASC);
 
 SHOW WARNINGS;
 
-<<<<<<< HEAD
 -- -----------------------------------------------------
 -- Table `cms`.`Post`
 -- -----------------------------------------------------
@@ -654,7 +457,7 @@ SHOW WARNINGS;
 DELIMITER $$
 USE `cms`$$
 CREATE PROCEDURE `GetPosts`
-	(IN page INT(11))
+	(IN page INT(11), IN filter CHAR(7))
 BEGIN
 	#Get the data
 	SELECT
@@ -674,47 +477,132 @@ BEGIN
 	FROM
 		BlogPosts bp
 	WHERE
-		bp.page = page;
+		bp.page = page
+		AND
+        (
+        	filter = 'NULL'
+        	OR
+            DATE_FORMAT(bp.timestamp, '%m-%Y') = filter
+		);
 END$$
 
 DELIMITER ;
 SHOW WARNINGS;
 
 -- -----------------------------------------------------
--- procedure GetMonthFilter
+-- procedure CheckPagePost
 -- -----------------------------------------------------
 
 USE `cms`;
-DROP procedure IF EXISTS `cms`.`GetMonthFilter`;
+DROP procedure IF EXISTS `cms`.`CheckPagePost`;
 SHOW WARNINGS;
 
 DELIMITER $$
 USE `cms`$$
-CREATE PROCEDURE `GetMonthFilter`
-	(IN page CHAR(45))
+CREATE PROCEDURE CheckPagePost
+	(IN blog CHAR(45), IN post CHAR(45))
+BEGIN
+	#Create blog ID variable
+	DECLARE blogId INT(11);
+	#Create post ID variable
+	DECLARE postId INT(11);
+
+	#Get the ID of the blog
+	SET blogId = IF(blog REGEXP '^-?[0-9]+$', blog, calcPageId(blog));
+	#Get the ID of the post
+	SET postId = IF(post REGEXP '^-?[0-9]+$', post, calcPostId(post));
+
+	#Get the data
+	SELECT
+		po.id
+	FROM
+		Post po JOIN PagePost pp
+			ON po.id = pp.post
+		JOIN Page pa
+			ON pp.page = pa.id
+	WHERE
+		po.id = postId
+		AND
+		pa.id = blogId;
+END$$
+
+DELIMITER ;
+SHOW WARNINGS;
+
+-- -----------------------------------------------------
+-- procedure GetPostComments
+-- -----------------------------------------------------
+
+USE `cms`;
+DROP procedure IF EXISTS `cms`.`GetPostComments`;
+SHOW WARNINGS;
+
+DELIMITER $$
+USE `cms`$$
+CREATE PROCEDURE `GetPostComments`
+	(IN post CHAR(45))
 BEGIN
 	#Create ID variable
 	DECLARE id INT(11);
 
-	#Get the ID of the page
-	SET id = IF(page REGEXP '^-?[0-9]+$', page, calcPageId(page));
+	#Get the ID of the post
+	SET id = IF(post REGEXP '^-?[0-9]+$', post, calcPostId(post));	
 
 	#Get the data
 	SELECT
-		DATE_FORMAT(p.timestamp, '%b %Y') as month,
-		DATE_FORMAT(p.timestamp, '%b %Y') as year,
-		DATE_FORMAT(p.timestamp, '%b %Y') as date
+		pc.id,
+		pc.content,
+		pc.timestamp,
+		pc.author,
+    	pc.post
 	FROM
-		Post p JOIN PagePost pp
-			ON p.id = pp.post
-		JOIN Page P2
-			on pp.page = p2.id
+		PostComments pc
 	WHERE
-		p2.id = id
-	GROUP BY
-		DATE_FORMAT(p.timestamp, '%b %Y')
-	ORDER BY
-		p.timestamp ASC;
+		pc.post = id;
+END$$
+
+DELIMITER ;
+SHOW WARNINGS;
+
+-- -----------------------------------------------------
+-- procedure GetPostData
+-- -----------------------------------------------------
+
+USE `cms`;
+DROP procedure IF EXISTS `cms`.`GetPostData`;
+SHOW WARNINGS;
+
+DELIMITER $$
+USE `cms`$$
+CREATE PROCEDURE GetPostData
+	(IN post CHAR(45))
+BEGIN
+	#Create ID variable
+	DECLARE id INT(11);
+
+	#Get the ID of the post
+	SET id = IF(post REGEXP '^-?[0-9]+$', post, calcPostId(post));
+
+	#Get the data
+	SELECT
+		bp.id,
+		bp.title,
+		bp.content,
+		bp.timestamp,
+		bp.author,
+		bp.rating,
+		bp.ratingCount,
+		bp.edited,
+		bp.editor,
+		bp.editTime,
+		bp.page,
+		bp.useful,
+		bp.notUseful,
+		bp.commentCount
+	FROM
+		BlogPosts bp
+	WHERE
+		bp.id = id;
 END$$
 
 DELIMITER ;
@@ -745,54 +633,40 @@ DELIMITER ;
 SHOW WARNINGS;
 
 -- -----------------------------------------------------
--- function validateUser
+-- procedure GetMonthFilter
 -- -----------------------------------------------------
 
 USE `cms`;
-DROP function IF EXISTS `cms`.`validateUser`;
+DROP procedure IF EXISTS `cms`.`GetMonthFilter`;
 SHOW WARNINGS;
 
 DELIMITER $$
 USE `cms`$$
-CREATE FUNCTION validateUser(cookie CHAR(40)) RETURNS BOOLEAN
-BEGIN
-	#Create valid flag
-	DECLARE valid BOOLEAN DEFAULT false;
-
-	#Check the cookie
-	SET valid = true;
-
-	#Return the valid flag
-	RETURN valid;
-END$$
-
-DELIMITER ;
-SHOW WARNINGS;
-
--- -----------------------------------------------------
--- function calcPageId
--- -----------------------------------------------------
-
-USE `cms`;
-DROP function IF EXISTS `cms`.`calcPageId`;
-SHOW WARNINGS;
-
-DELIMITER $$
-USE `cms`$$
-CREATE FUNCTION calcPageId(name CHAR(45)) RETURNS INT
+CREATE PROCEDURE `GetMonthFilter`
+	(IN page CHAR(45))
 BEGIN
 	#Create ID variable
 	DECLARE id INT(11);
 
-	#Get the page ID
-	SELECT
-		p.id INTO id
-	FROM
-		page p
-	WHERE
-		LCASE(REPLACE(p.name, ' ', '-')) = name;
+	#Get the ID of the page
+	SET id = IF(page REGEXP '^-?[0-9]+$', page, calcPageId(page));
 
-	RETURN id;
+	#Get the data
+	SELECT
+		DATE_FORMAT(p.timestamp, '%m') as month,
+		DATE_FORMAT(p.timestamp, '%Y') as year,
+		DATE_FORMAT(p.timestamp, '%b %Y') as date
+	FROM
+		Post p JOIN PagePost pp
+			ON p.id = pp.post
+		JOIN Page P2
+			on pp.page = p2.id
+	WHERE
+		p2.id = id
+	GROUP BY
+		DATE_FORMAT(p.timestamp, '%b %Y')
+	ORDER BY
+		p.timestamp ASC;
 END$$
 
 DELIMITER ;
@@ -891,7 +765,7 @@ BEGIN
 	FROM
 		Post p
 	WHERE
-		LCASE(REPLACE(p.name, ' ', '-')) = title;
+		LCASE(REPLACE(p.title, ' ', '-')) = name;
 
 	RETURN id;
 END$$
@@ -900,78 +774,54 @@ DELIMITER ;
 SHOW WARNINGS;
 
 -- -----------------------------------------------------
--- procedure GetPostComments
+-- function calcPageId
 -- -----------------------------------------------------
 
 USE `cms`;
-DROP procedure IF EXISTS `cms`.`GetPostComments`;
+DROP function IF EXISTS `cms`.`calcPageId`;
 SHOW WARNINGS;
 
 DELIMITER $$
 USE `cms`$$
-CREATE PROCEDURE `GetPostComments`
-	(IN post INT(11))
+CREATE FUNCTION calcPageId(name CHAR(45)) RETURNS INT
 BEGIN
 	#Create ID variable
 	DECLARE id INT(11);
 
-	#Get the ID of the post
-	SET id = IF(post REGEXP '^-?[0-9]+$', post, calcPostId(post));	
-
-	#Get the data
+	#Get the page ID
 	SELECT
-		pc.id,
-		pc.content,
-		pc.timestamp,
-		pc.author,
-    	pc.post
+		p.id INTO id
 	FROM
-		PostComments pc
+		page p
 	WHERE
-		pc.post = id;
+		LCASE(REPLACE(p.name, ' ', '-')) = name;
+
+	RETURN id;
 END$$
 
 DELIMITER ;
 SHOW WARNINGS;
 
 -- -----------------------------------------------------
--- procedure GetPostData
+-- function validateUser
 -- -----------------------------------------------------
 
 USE `cms`;
-DROP procedure IF EXISTS `cms`.`GetPostData`;
+DROP function IF EXISTS `cms`.`validateUser`;
 SHOW WARNINGS;
 
 DELIMITER $$
 USE `cms`$$
-CREATE PROCEDURE GetPostData
-	(IN post CHAR(45))
+CREATE FUNCTION validateUser(cookie CHAR(40)) RETURNS BOOLEAN
 BEGIN
-	#Create ID variable
-	DECLARE id INT(11);
+	#Create valid flag
+	DECLARE valid BOOLEAN DEFAULT false;
 
-	#Get the ID of the post
-	SET id = IF(post REGEXP '^-?[0-9]+$', post, calcPostId(post));
+	#Check the cookie
+	SET valid = true;
 
-	#Get the data
-	SELECT
-		bp.id,
-		bp.title,
-		bp.content,
-		bp.timestamp,
-		bp.author,
-		bp.rating,
-		bp.edited,
-		bp.editor,
-		bp.editTime,
-		bp.page,
-		bp.useful,
-		bp.notUseful,
-		bp.commentCount
-	FROM
-		BlogPosts bp
-	WHERE
-		bp.id = id;
+	#Return the valid flag
+	RETURN valid;
 END$$
 
 DELIMITER ;
@@ -993,6 +843,7 @@ SELECT
 	p.timestamp,
 	CONCAT(u.firstName, ' ', u.lastName) as author,
     IFNULL((SELECT AVG(r.rating) FROM Rating r WHERE r.post = p.id GROUP BY r.post), 0) as rating,
+    IFNULL((SELECT COUNT(r.rating) FROM Rating r WHERE r.post = p.id GROUP BY r.post), 0) as ratingCount,
     IF((SELECT a.id FROM Audit a WHERE a.table = 'Post' AND a.record = p.id AND a.action = 'EDIT' ORDER BY a.timestamp DESC LIMIT 1), TRUE, FALSE) as edited,
     (SELECT CONCAT(u2.firstName, ' ', u2.lastName) FROM Audit a JOIN User u2 ON a.author = u2.id WHERE a.table = 'Post' AND a.record = p.id AND a.action = 'EDIT' ORDER BY a.timestamp DESC LIMIT 1) as editor,
     (SELECT a.timestamp FROM Audit a WHERE a.table = 'Post' AND a.record = p.id AND a.action = 'EDIT' ORDER BY a.timestamp DESC LIMIT 1) as editTime,
@@ -1136,8 +987,3 @@ INSERT INTO `cms`.`Option` (`id`, `name`, `description`, `count`) VALUES (NULL, 
 
 COMMIT;
 
-=======
-SET SQL_MODE=@OLD_SQL_MODE;
-SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
-SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
->>>>>>> 758e343b9cf11387076c663590e68710e4e39f6a
