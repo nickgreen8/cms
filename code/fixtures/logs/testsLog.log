@@ -1,0 +1,188 @@
+
+
+===========================
+New Page Loaded
+===========================
+Tuesday 17th November 2015
+22:07pm
+
+17/11/2015 22:07:03 [IP:                ] [0;34m[1mINFO   [0m - Getting the data from ./config/config.json
+17/11/2015 22:07:03 [IP:                ] [0;36m[1mNOTICE [0m - Looking for file: ./config/config.json
+17/11/2015 22:07:03 [IP:                ] [0;32m[1mSUCCESS[0m - File found
+17/11/2015 22:07:03 [IP:                ] [0;32m[1mSUCCESS[0m - JSON retreived: {
+	"version": {
+		"api": "0.0.1",
+		"framework": "0.0.1"
+	},
+	"database": {
+		"type": "mysql",
+		"host": "localhost",
+		"username": "nick",
+		"password": "DevAcc",
+		"name": "cms",
+		"prefix": "",
+		"charset": "utf8"
+	},
+	"keys": {
+		"salting": "",
+		"api": "",
+		"login": ""
+	},
+	"debug": false,
+	"paths": {
+		"absolute": "/Users/NickGreen/Documents/workspace/cms/code/",
+		"logs": "/Users/NickGreen/Documents/workspace/cms/code/logs/",
+		"directories": {
+			"assets": {
+				"root": "assets/",
+				"images": "image/",
+				"videos": "video/",
+				"themes": "theme/",
+				"documents": {
+					"root": "documents/",
+					"docs": "doc/",
+					"pdfs": "pdf/",
+					"spreadsheets": "spreadsheet/",
+					"txt": "txt/"
+				}
+			}
+		}
+	}
+}
+17/11/2015 22:07:03 [IP:                ] [0;34m[1mINFO   [0m - Initilising database connection
+17/11/2015 22:07:03 [IP:                ] [0;36m[1mNOTICE [0m - Attempting connection to MySQL database
+17/11/2015 22:07:03 [IP:                ] [0;32m[1mSUCCESS[0m - Database connection established
+17/11/2015 22:07:03 [IP:                ] [0;36m[1mNOTICE [0m - Setting DB table prefix to: 
+17/11/2015 22:07:03 [IP:                ] [0;34m[1mINFO   [0m - Initilising config class
+17/11/2015 22:07:03 [IP:                ] [0;36m[1mNOTICE [0m - Building query
+17/11/2015 22:07:03 [IP:                ] [0;32m[1mSUCCESS[0m - Query built: SELECT * FROM Config
+17/11/2015 22:07:03 [IP:                ] [0;36m[1mNOTICE [0m - Executing query: SELECT * FROM Config
+17/11/2015 22:07:03 [IP:                ] [0;36m[1mNOTICE [0m - Getting the result of the query as an array
+17/11/2015 22:07:03 [IP:                ] [0;34m[1mINFO   [0m - Setting Config['meta-autor'] to "Nick Green"
+17/11/2015 22:07:03 [IP:                ] [0;36m[1mNOTICE [0m - Getting the result of the query as an array
+17/11/2015 22:07:03 [IP:                ] [0;34m[1mINFO   [0m - Setting Config['theme'] to "n8g"
+17/11/2015 22:07:03 [IP:                ] [0;36m[1mNOTICE [0m - Getting the result of the query as an array
+17/11/2015 22:07:03 [IP:                ] [0;34m[1mINFO   [0m - Setting Config['copyright'] to "Nick Green 2015"
+17/11/2015 22:07:03 [IP:                ] [0;36m[1mNOTICE [0m - Getting the result of the query as an array
+17/11/2015 22:07:03 [IP:                ] [0;34m[1mINFO   [0m - Setting Config['url'] to "http://grass.localhost/"
+17/11/2015 22:07:03 [IP:                ] [0;36m[1mNOTICE [0m - Getting the result of the query as an array
+17/11/2015 22:07:03 [IP:                ] [0;34m[1mINFO   [0m - Setting Config['site-tag-line'] to "Like Wordpress, only shitter!"
+17/11/2015 22:07:03 [IP:                ] [0;36m[1mNOTICE [0m - Getting the result of the query as an array
+17/11/2015 22:07:03 [IP:                ] [0;34m[1mINFO   [0m - Setting Config['site-title'] to "N8G Grass Framework"
+17/11/2015 22:07:03 [IP:                ] [0;36m[1mNOTICE [0m - Getting the result of the query as an array
+17/11/2015 22:07:03 [IP:                ] [0;34m[1mINFO   [0m - Setting Config['favicon'] to ""
+17/11/2015 22:07:03 [IP:                ] [0;36m[1mNOTICE [0m - Getting the result of the query as an array
+17/11/2015 22:07:03 [IP:                ] [0;34m[1mINFO   [0m - Setting Config['nav-separator'] to "|"
+17/11/2015 22:07:03 [IP:                ] [0;36m[1mNOTICE [0m - Getting the result of the query as an array
+17/11/2015 22:07:03 [IP:                ] [0;34m[1mINFO   [0m - Setting Config['page-id'] to "1"
+17/11/2015 22:07:03 [IP:                ] [0;36m[1mNOTICE [0m - Config function called: setBlogFilters
+17/11/2015 22:07:03 [IP:                ] [1;31m[1mERROR  [0m - [code: 1] [type: ERROR] [file: tests/src/BootstrapTests.php] [line: 1] Error handler test!
+17/11/2015 22:07:03 [IP:                ] [0;33m[1mWARNING[0m - [code: 2] [type: WARNING] [file: tests/src/BootstrapTests.php] [line: 1] Error handler test!
+17/11/2015 22:07:03 [IP:                ] [1;37m[41m FATAL [0m - [code: 4] [type: PARSE] [file: tests/src/BootstrapTests.php] [line: 1] Error handler test!
+17/11/2015 22:07:03 [IP:                ] [0;33m[1mWARNING[0m - [code: 8] [type: NOTICE] [file: tests/src/BootstrapTests.php] [line: 1] Error handler test!
+17/11/2015 22:07:03 [IP:                ] [1;37m[41m FATAL [0m - [code: 16] [type: CORE ERROR] [file: tests/src/BootstrapTests.php] [line: 1] Error handler test!
+17/11/2015 22:07:03 [IP:                ] [0;33m[1mWARNING[0m - [code: 32] [type: CORE WARNING] [file: tests/src/BootstrapTests.php] [line: 1] Error handler test!
+17/11/2015 22:07:03 [IP:                ] [1;37m[41m FATAL [0m - [code: 64] [type: COMPILE ERROR] [file: tests/src/BootstrapTests.php] [line: 1] Error handler test!
+17/11/2015 22:07:03 [IP:                ] [0;33m[1mWARNING[0m - [code: 128] [type: COMPILE WARNING] [file: tests/src/BootstrapTests.php] [line: 1] Error handler test!
+17/11/2015 22:07:03 [IP:                ] [1;31m[1mERROR  [0m - [code: 256] [type: USER ERROR] [file: tests/src/BootstrapTests.php] [line: 1] Error handler test!
+17/11/2015 22:07:03 [IP:                ] [0;33m[1mWARNING[0m - [code: 512] [type: USER WARNING] [file: tests/src/BootstrapTests.php] [line: 1] Error handler test!
+17/11/2015 22:07:03 [IP:                ] [0;33m[1mWARNING[0m - [code: 1024] [type: USER NOTICE] [file: tests/src/BootstrapTests.php] [line: 1] Error handler test!
+17/11/2015 22:07:03 [IP:                ] [0;33m[1mWARNING[0m - [code: 2048] [type: STRICT] [file: tests/src/BootstrapTests.php] [line: 1] Error handler test!
+17/11/2015 22:07:03 [IP:                ] [1;31m[1mERROR  [0m - [code: 4096] [type: RECOVERABLE] [file: tests/src/BootstrapTests.php] [line: 1] Error handler test!
+17/11/2015 22:07:03 [IP:                ] [1;31m[1mERROR  [0m - [code: 8192] [type: DEPRECATED] [file: tests/src/BootstrapTests.php] [line: 1] Error handler test!
+17/11/2015 22:07:03 [IP:                ] [1;31m[1mERROR  [0m - [code: 16384] [type: USER DEPRECATED] [file: tests/src/BootstrapTests.php] [line: 1] Error handler test!
+17/11/2015 22:07:03 [IP:                ] [1;31m[1mERROR  [0m - [code: 0] [type: UNKNOWN (0)] [file: tests/src/BootstrapTests.php] [line: 1] Error handler test!
+
+
+===========================
+New Page Loaded
+===========================
+Tuesday 17th November 2015
+22:08pm
+
+17/11/2015 22:08:10 [IP:                ] [0;34m[1mINFO   [0m - Getting the data from ./config/config.json
+17/11/2015 22:08:10 [IP:                ] [0;36m[1mNOTICE [0m - Looking for file: ./config/config.json
+17/11/2015 22:08:10 [IP:                ] [0;32m[1mSUCCESS[0m - File found
+17/11/2015 22:08:10 [IP:                ] [0;32m[1mSUCCESS[0m - JSON retreived: {
+	"version": {
+		"api": "0.0.1",
+		"framework": "0.0.1"
+	},
+	"database": {
+		"type": "mysql",
+		"host": "localhost",
+		"username": "nick",
+		"password": "DevAcc",
+		"name": "cms",
+		"prefix": "",
+		"charset": "utf8"
+	},
+	"keys": {
+		"salting": "",
+		"api": "",
+		"login": ""
+	},
+	"debug": false,
+	"paths": {
+		"absolute": "/Users/NickGreen/Documents/workspace/cms/code/",
+		"logs": "/Users/NickGreen/Documents/workspace/cms/code/logs/",
+		"directories": {
+			"assets": {
+				"root": "assets/",
+				"images": "image/",
+				"videos": "video/",
+				"themes": "theme/",
+				"documents": {
+					"root": "documents/",
+					"docs": "doc/",
+					"pdfs": "pdf/",
+					"spreadsheets": "spreadsheet/",
+					"txt": "txt/"
+				}
+			}
+		}
+	}
+}
+17/11/2015 22:08:10 [IP:                ] [0;34m[1mINFO   [0m - Initilising database connection
+17/11/2015 22:08:10 [IP:                ] [0;36m[1mNOTICE [0m - Attempting connection to MySQL database
+17/11/2015 22:08:10 [IP:                ] [0;32m[1mSUCCESS[0m - Database connection established
+17/11/2015 22:08:10 [IP:                ] [0;36m[1mNOTICE [0m - Setting DB table prefix to: 
+17/11/2015 22:08:10 [IP:                ] [0;34m[1mINFO   [0m - Initilising config class
+17/11/2015 22:08:10 [IP:                ] [0;36m[1mNOTICE [0m - Building query
+17/11/2015 22:08:10 [IP:                ] [0;32m[1mSUCCESS[0m - Query built: SELECT * FROM Config
+17/11/2015 22:08:10 [IP:                ] [0;36m[1mNOTICE [0m - Executing query: SELECT * FROM Config
+17/11/2015 22:08:10 [IP:                ] [0;36m[1mNOTICE [0m - Getting the result of the query as an array
+17/11/2015 22:08:10 [IP:                ] [0;34m[1mINFO   [0m - Setting Config['meta-autor'] to "Nick Green"
+17/11/2015 22:08:10 [IP:                ] [0;36m[1mNOTICE [0m - Getting the result of the query as an array
+17/11/2015 22:08:10 [IP:                ] [0;34m[1mINFO   [0m - Setting Config['theme'] to "n8g"
+17/11/2015 22:08:10 [IP:                ] [0;36m[1mNOTICE [0m - Getting the result of the query as an array
+17/11/2015 22:08:10 [IP:                ] [0;34m[1mINFO   [0m - Setting Config['copyright'] to "Nick Green 2015"
+17/11/2015 22:08:10 [IP:                ] [0;36m[1mNOTICE [0m - Getting the result of the query as an array
+17/11/2015 22:08:10 [IP:                ] [0;34m[1mINFO   [0m - Setting Config['url'] to "http://grass.localhost/"
+17/11/2015 22:08:10 [IP:                ] [0;36m[1mNOTICE [0m - Getting the result of the query as an array
+17/11/2015 22:08:10 [IP:                ] [0;34m[1mINFO   [0m - Setting Config['site-tag-line'] to "Like Wordpress, only shitter!"
+17/11/2015 22:08:10 [IP:                ] [0;36m[1mNOTICE [0m - Getting the result of the query as an array
+17/11/2015 22:08:10 [IP:                ] [0;34m[1mINFO   [0m - Setting Config['site-title'] to "N8G Grass Framework"
+17/11/2015 22:08:10 [IP:                ] [0;36m[1mNOTICE [0m - Getting the result of the query as an array
+17/11/2015 22:08:10 [IP:                ] [0;34m[1mINFO   [0m - Setting Config['favicon'] to ""
+17/11/2015 22:08:10 [IP:                ] [0;36m[1mNOTICE [0m - Getting the result of the query as an array
+17/11/2015 22:08:10 [IP:                ] [0;34m[1mINFO   [0m - Setting Config['nav-separator'] to "|"
+17/11/2015 22:08:10 [IP:                ] [0;36m[1mNOTICE [0m - Getting the result of the query as an array
+17/11/2015 22:08:10 [IP:                ] [0;34m[1mINFO   [0m - Setting Config['page-id'] to "1"
+17/11/2015 22:08:10 [IP:                ] [0;36m[1mNOTICE [0m - Config function called: setBlogFilters
+17/11/2015 22:08:10 [IP:                ] [1;31m[1mERROR  [0m - [code: 1] [type: ERROR] [file: tests/src/BootstrapTests.php] [line: 1] Error handler test!
+17/11/2015 22:08:10 [IP:                ] [0;33m[1mWARNING[0m - [code: 2] [type: WARNING] [file: tests/src/BootstrapTests.php] [line: 1] Error handler test!
+17/11/2015 22:08:10 [IP:                ] [1;37m[41m FATAL [0m - [code: 4] [type: PARSE] [file: tests/src/BootstrapTests.php] [line: 1] Error handler test!
+17/11/2015 22:08:10 [IP:                ] [0;33m[1mWARNING[0m - [code: 8] [type: NOTICE] [file: tests/src/BootstrapTests.php] [line: 1] Error handler test!
+17/11/2015 22:08:10 [IP:                ] [1;37m[41m FATAL [0m - [code: 16] [type: CORE ERROR] [file: tests/src/BootstrapTests.php] [line: 1] Error handler test!
+17/11/2015 22:08:10 [IP:                ] [0;33m[1mWARNING[0m - [code: 32] [type: CORE WARNING] [file: tests/src/BootstrapTests.php] [line: 1] Error handler test!
+17/11/2015 22:08:10 [IP:                ] [1;37m[41m FATAL [0m - [code: 64] [type: COMPILE ERROR] [file: tests/src/BootstrapTests.php] [line: 1] Error handler test!
+17/11/2015 22:08:10 [IP:                ] [0;33m[1mWARNING[0m - [code: 128] [type: COMPILE WARNING] [file: tests/src/BootstrapTests.php] [line: 1] Error handler test!
+17/11/2015 22:08:10 [IP:                ] [1;31m[1mERROR  [0m - [code: 256] [type: USER ERROR] [file: tests/src/BootstrapTests.php] [line: 1] Error handler test!
+17/11/2015 22:08:10 [IP:                ] [0;33m[1mWARNING[0m - [code: 512] [type: USER WARNING] [file: tests/src/BootstrapTests.php] [line: 1] Error handler test!
+17/11/2015 22:08:10 [IP:                ] [0;33m[1mWARNING[0m - [code: 1024] [type: USER NOTICE] [file: tests/src/BootstrapTests.php] [line: 1] Error handler test!
+17/11/2015 22:08:10 [IP:                ] [0;33m[1mWARNING[0m - [code: 2048] [type: STRICT] [file: tests/src/BootstrapTests.php] [line: 1] Error handler test!
+17/11/2015 22:08:10 [IP:                ] [1;31m[1mERROR  [0m - [code: 4096] [type: RECOVERABLE] [file: tests/src/BootstrapTests.php] [line: 1] Error handler test!
+17/11/2015 22:08:10 [IP:                ] [1;31m[1mERROR  [0m - [code: 8192] [type: DEPRECATED] [file: tests/src/BootstrapTests.php] [line: 1] Error handler test!
+17/11/2015 22:08:10 [IP:                ] [1;31m[1mERROR  [0m - [code: 16384] [type: USER DEPRECATED] [file: tests/src/BootstrapTests.php] [line: 1] Error handler test!
+17/11/2015 22:08:10 [IP:                ] [1;31m[1mERROR  [0m - [code: 0] [type: UNKNOWN (0)] [file: tests/src/BootstrapTests.php] [line: 1] Error handler test!

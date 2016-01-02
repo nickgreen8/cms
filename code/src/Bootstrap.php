@@ -22,17 +22,22 @@ class Bootstrap
 	 *
 	 * @return void
 	 */
-	public function run()
+	public function run($logDir = null, $logFile = null)
 	{
 		//Set PHP config
 		error_reporting(E_ALL);
 		date_default_timezone_set('Europe/London');
 
 		//Initilise Logging
-		Log::init(__DIR__ . '/../logs/');
+		Log::init($logDir === null ? __DIR__ . '/../logs/' : $logDir, $logFile);
 
 		//Initilise error handler
-		set_error_handler(function($errno, $errstr, $errfile, $errline, $errcontext) { $this->errorHandler($errno, $errstr, $errfile, $errline, $errcontext); });
+		set_error_handler(
+			function($errno, $errstr, $errfile, $errline, $errcontext)
+			{
+				$this->errorHandler($errno, $errstr, $errfile, $errline, $errcontext);
+			}
+		);
 
 		//Specify new page is opening
 		Log::custom(sprintf(
@@ -188,11 +193,11 @@ class Bootstrap
             case E_CORE_WARNING :		// 32
             	return 'CORE WARNING';
             	break;
-            case E_CORE_ERROR :			// 64
-            	return 'CORE ERROR';
+            case E_COMPILE_ERROR :		// 64
+            	return 'COMPILE ERROR';
             	break;
-            case E_CORE_WARNING :		// 128
-            	return 'CORE WARNING';
+            case E_COMPILE_WARNING :	// 128
+            	return 'COMPILE WARNING';
             	break;
             case E_USER_ERROR :			// 256
             	return 'USER ERROR';
@@ -216,7 +221,7 @@ class Bootstrap
             	return 'USER DEPRECATED';
             	break;
             default :					// Unknown
-            	return sprintf('UNKNOWN (%d)', $code);
+            	return sprintf('UNKNOWN (%d)', (int) $code);
             	break;
         }
 	}

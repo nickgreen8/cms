@@ -1,12 +1,12 @@
 <?php
 namespace N8G\Grass\Components\Html;
 
-use N8G\Grass\Components\Component,
-	N8G\Grass\Exceptions\Components\ComponentMissingRequiredAttributesException,
-	N8G\Grass\Exceptions\Components\AttributeInvalidException,
-	N8G\Grass\Exceptions\Components\ElementInvalidException,
-	N8G\Utils\Config,
-	N8G\Utils\Log;
+use N8G\Grass\Components\Component;
+use N8G\Grass\Exceptions\Components\ComponentMissingRequiredAttributesException;
+use N8G\Grass\Exceptions\Components\AttributeInvalidException;
+use N8G\Grass\Exceptions\Components\ElementInvalidException;
+use N8G\Utils\Config;
+use N8G\Utils\Log;
 
 /**
  * This is an abstract class that should be extended by all HTML object elements. All methods
@@ -126,7 +126,7 @@ abstract class HtmlAbstract implements Component
 		$str = ucwords($this->data['name']) . ' element\n\r';
 
 		if ($this->id !== NULL) {
-			$str .= '    ID: ' . $this->id . '.\n\r';
+			$str .= '    ID: ' . $this->id . '\n\r';
 		}
 
 		if (count($this->elements) > 0) {
@@ -166,10 +166,10 @@ abstract class HtmlAbstract implements Component
 			foreach ($this->attributes as $key => $val) {
 				$str .= $key . '=' . (is_array($val) ? implode(', ', $val) : $val) . ', ';
 			}
-			$str = trim($str, ', ');
+			$str = trim($str, ', ') . '\n\r';
 		}
 
-		return $str;
+		return substr($str, 0, -4);
 	}
 
 	/**
@@ -348,7 +348,9 @@ abstract class HtmlAbstract implements Component
 
 			//Check each element
 			foreach ($elements as $key => $e) {
-				if (!$this->checkElement($e)) {
+				try {
+					$this->checkElement($e);
+				} catch (\Exception $e) {
 					//Add new element
 					unset($elements[$key]);
 				}
@@ -380,7 +382,7 @@ abstract class HtmlAbstract implements Component
 	 *
 	 * @param array
 	 */
-	public function setAttributes($attributes)
+	public function setAttributes(array $attributes)
 	{
 		if ($this->attributes !== $attributes) {
 			Log::info(sprintf('Setting the attributes of %s%s', $this->data['name'], $this->id !== '' && $this->id !== null ? ' (' . $this->id . ')' : ''));
@@ -399,23 +401,24 @@ abstract class HtmlAbstract implements Component
 	{
 		Log::info(sprintf('Adding element: %s', is_object($element) ? $element->toString() : $element));
 
-		if (!$this->checkElement($element)) {
-			Log::notice('The element cannot be added');
-			return;
-		}
+		try {
+			$this->checkElement($element);
 
-		//Check for content
-		if ($this->getContent() !== NULL) {
-			if (is_array($this->getContent())) {
-				$this->elements = array_merge($this->elements, $this->getContent());
-			} else {
-				array_push($this->elements, $this->getContent());
+			//Check for content
+			if ($this->getContent() !== NULL) {
+				if (is_array($this->getContent())) {
+					$this->elements = array_merge($this->elements, $this->getContent());
+				} else {
+					array_push($this->elements, $this->getContent());
+				}
+				$this->setContent(NULL);
 			}
-			$this->setContent(NULL);
-		}
 
-		array_push($this->elements, $element);
-		return $this->elements;
+			array_push($this->elements, $element);
+			return $this->elements;
+		} catch (\Exception $e) {
+			Log::notice('The element cannot be added');
+		}
 	}
 
 	/**

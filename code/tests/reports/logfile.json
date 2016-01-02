@@ -1,0 +1,928 @@
+{
+    "event": "suiteStart",
+    "suite": "",
+    "tests": 63
+}{
+    "event": "suiteStart",
+    "suite": "components",
+    "tests": 63
+}{
+    "event": "suiteStart",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest",
+    "tests": 63
+}{
+    "event": "suiteStart",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testInstantiation",
+    "tests": 1
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testInstantiation",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testInstantiation with data set #0 ('This is a test', 'test', array(), array())"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testInstantiation",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testInstantiation with data set #0 ('This is a test', 'test', array(), array())",
+    "status": "pass",
+    "time": 0.0026760101318359,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "suiteStart",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testInvalidInstantiation",
+    "tests": 6
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testInvalidInstantiation",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testInvalidInstantiation with data set #0 (null, null, 'test', array())"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testInvalidInstantiation",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testInvalidInstantiation with data set #0 (null, null, 'test', array())",
+    "status": "pass",
+    "time": 0.0006108283996582,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testInvalidInstantiation",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testInvalidInstantiation with data set #1 (null, null, 1, array())"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testInvalidInstantiation",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testInvalidInstantiation with data set #1 (null, null, 1, array())",
+    "status": "pass",
+    "time": 0.00075817108154297,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testInvalidInstantiation",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testInvalidInstantiation with data set #2 (null, null, true, array())"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testInvalidInstantiation",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testInvalidInstantiation with data set #2 (null, null, true, array())",
+    "status": "pass",
+    "time": 0.00081300735473633,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testInvalidInstantiation",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testInvalidInstantiation with data set #3 (null, null, array(), 'test')"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testInvalidInstantiation",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testInvalidInstantiation with data set #3 (null, null, array(), 'test')",
+    "status": "pass",
+    "time": 0.0008399486541748,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testInvalidInstantiation",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testInvalidInstantiation with data set #4 (null, null, array(), 1)"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testInvalidInstantiation",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testInvalidInstantiation with data set #4 (null, null, array(), 1)",
+    "status": "pass",
+    "time": 0.00054001808166504,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testInvalidInstantiation",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testInvalidInstantiation with data set #5 (null, null, array(), false)"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testInvalidInstantiation",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testInvalidInstantiation with data set #5 (null, null, array(), false)",
+    "status": "pass",
+    "time": 0.00051784515380859,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testSetContent"
+}{
+    "event": "test",
+    "suite": "",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testSetContent",
+    "status": "pass",
+    "time": 0.0040750503540039,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testSetId"
+}{
+    "event": "test",
+    "suite": "",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testSetId",
+    "status": "pass",
+    "time": 0.00074887275695801,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testSetElements"
+}{
+    "event": "test",
+    "suite": "",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testSetElements",
+    "status": "error",
+    "time": 0.00086116790771484,
+    "trace": [
+        {
+            "file": "\/Users\/NickGreen\/workspace\/code\/cms\/code\/tests\/src\/Components\/Html\/ParagraphTest.php",
+            "line": 121
+        },
+        {
+            "file": "phar:\/\/\/usr\/local\/bin\/phpunit\/phpunit\/TextUI\/Command.php",
+            "line": 186,
+            "function": "doRun",
+            "class": "PHPUnit_TextUI_TestRunner",
+            "type": "->"
+        },
+        {
+            "file": "phar:\/\/\/usr\/local\/bin\/phpunit\/phpunit\/TextUI\/Command.php",
+            "line": 138,
+            "function": "run",
+            "class": "PHPUnit_TextUI_Command",
+            "type": "->"
+        }
+    ],
+    "message": "No tests implemented.",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testGetElements"
+}{
+    "event": "test",
+    "suite": "",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testGetElements",
+    "status": "error",
+    "time": 0.00039196014404297,
+    "trace": [
+        {
+            "file": "\/Users\/NickGreen\/workspace\/code\/cms\/code\/tests\/src\/Components\/Html\/ParagraphTest.php",
+            "line": 133
+        },
+        {
+            "file": "phar:\/\/\/usr\/local\/bin\/phpunit\/phpunit\/TextUI\/Command.php",
+            "line": 186,
+            "function": "doRun",
+            "class": "PHPUnit_TextUI_TestRunner",
+            "type": "->"
+        },
+        {
+            "file": "phar:\/\/\/usr\/local\/bin\/phpunit\/phpunit\/TextUI\/Command.php",
+            "line": 138,
+            "function": "run",
+            "class": "PHPUnit_TextUI_Command",
+            "type": "->"
+        }
+    ],
+    "message": "No tests implemented.",
+    "output": ""
+}{
+    "event": "suiteStart",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements",
+    "tests": 36
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements with data set #0 (1, true)"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements with data set #0 (1, true)",
+    "status": "pass",
+    "time": 0.0010900497436523,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements with data set #1 ('Test', true)"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements with data set #1 ('Test', true)",
+    "status": "pass",
+    "time": 0.0005648136138916,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements with data set #2 ('Anchor', true)"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements with data set #2 ('Anchor', true)",
+    "status": "pass",
+    "time": 0.00073719024658203,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements with data set #3 ('Article', false)"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements with data set #3 ('Article', false)",
+    "status": "pass",
+    "time": 0.0012209415435791,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements with data set #4 ('Body', false)"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements with data set #4 ('Body', false)",
+    "status": "pass",
+    "time": 0.00083494186401367,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements with data set #5 ('Div', false)"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements with data set #5 ('Div', false)",
+    "status": "pass",
+    "time": 0.00078797340393066,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements with data set #6 ('Fieldset', false)"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements with data set #6 ('Fieldset', false)",
+    "status": "pass",
+    "time": 0.00078701972961426,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements with data set #7 ('Footer', false)"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements with data set #7 ('Footer', false)",
+    "status": "pass",
+    "time": 0.0008699893951416,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements with data set #8 ('Form', false)"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements with data set #8 ('Form', false)",
+    "status": "pass",
+    "time": 0.0009000301361084,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements with data set #9 ('Button', false)"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements with data set #9 ('Button', false)",
+    "status": "pass",
+    "time": 0.00082492828369141,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements with data set #10 ('Head', false)"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements with data set #10 ('Head', false)",
+    "status": "pass",
+    "time": 0.00083708763122559,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements with data set #11 ('Header', false)"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements with data set #11 ('Header', false)",
+    "status": "pass",
+    "time": 0.0008080005645752,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements with data set #12 ('Heading', false, array(1))"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements with data set #12 ('Heading', false, array(1))",
+    "status": "pass",
+    "time": 0.00086307525634766,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements with data set #13 ('HorizontalRule', false)"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements with data set #13 ('HorizontalRule', false)",
+    "status": "pass",
+    "time": 0.00090599060058594,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements with data set #14 ('Image', true)"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements with data set #14 ('Image', true)",
+    "status": "pass",
+    "time": 0.00078797340393066,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements with data set #15 ('Input', false)"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements with data set #15 ('Input', false)",
+    "status": "pass",
+    "time": 0.00088095664978027,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements with data set #16 ('Link', false)"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements with data set #16 ('Link', false)",
+    "status": "pass",
+    "time": 0.00077319145202637,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements with data set #17 ('ListItem', false)"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements with data set #17 ('ListItem', false)",
+    "status": "pass",
+    "time": 0.00077509880065918,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements with data set #18 ('Meta', false)"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements with data set #18 ('Meta', false)",
+    "status": "pass",
+    "time": 0.00078177452087402,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements with data set #19 ('Option', false)"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements with data set #19 ('Option', false)",
+    "status": "pass",
+    "time": 0.0011529922485352,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements with data set #20 ('OrderedList', false)"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements with data set #20 ('OrderedList', false)",
+    "status": "pass",
+    "time": 0.0016648769378662,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements with data set #21 ('PageBreak', true)"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements with data set #21 ('PageBreak', true)",
+    "status": "pass",
+    "time": 0.00074219703674316,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements with data set #22 ('Paragraph', false)"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements with data set #22 ('Paragraph', false)",
+    "status": "pass",
+    "time": 0.00062417984008789,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements with data set #23 ('Script', false)"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements with data set #23 ('Script', false)",
+    "status": "pass",
+    "time": 0.00075697898864746,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements with data set #24 ('Section', false)"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements with data set #24 ('Section', false)",
+    "status": "pass",
+    "time": 0.0009150505065918,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements with data set #25 ('Select', false)"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements with data set #25 ('Select', false)",
+    "status": "pass",
+    "time": 0.0010120868682861,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements with data set #26 ('Span', true)"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements with data set #26 ('Span', true)",
+    "status": "pass",
+    "time": 0.00078392028808594,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements with data set #27 ('Style', false)"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements with data set #27 ('Style', false)",
+    "status": "pass",
+    "time": 0.0011639595031738,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements with data set #28 ('Table', false)"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements with data set #28 ('Table', false)",
+    "status": "pass",
+    "time": 0.0014779567718506,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements with data set #29 ('TableBody', false)"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements with data set #29 ('TableBody', false)",
+    "status": "pass",
+    "time": 0.0016918182373047,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements with data set #30 ('TableCell', false)"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements with data set #30 ('TableCell', false)",
+    "status": "pass",
+    "time": 0.00087594985961914,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements with data set #31 ('TableHeader', false)"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements with data set #31 ('TableHeader', false)",
+    "status": "pass",
+    "time": 0.00077414512634277,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements with data set #32 ('TableHeading', false)"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements with data set #32 ('TableHeading', false)",
+    "status": "pass",
+    "time": 0.00076413154602051,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements with data set #33 ('TableRow', false)"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements with data set #33 ('TableRow', false)",
+    "status": "pass",
+    "time": 0.00070714950561523,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements with data set #34 ('Title', false)"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements with data set #34 ('Title', false)",
+    "status": "pass",
+    "time": 0.00074219703674316,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements with data set #35 ('UnorderedList', false)"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements with data set #35 ('UnorderedList', false)",
+    "status": "pass",
+    "time": 0.00072598457336426,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testSetAttributes"
+}{
+    "event": "test",
+    "suite": "",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testSetAttributes",
+    "status": "error",
+    "time": 0.00030684471130371,
+    "trace": [
+        {
+            "file": "\/Users\/NickGreen\/workspace\/code\/cms\/code\/tests\/src\/Components\/Html\/ParagraphTest.php",
+            "line": 181
+        },
+        {
+            "file": "phar:\/\/\/usr\/local\/bin\/phpunit\/phpunit\/TextUI\/Command.php",
+            "line": 186,
+            "function": "doRun",
+            "class": "PHPUnit_TextUI_TestRunner",
+            "type": "->"
+        },
+        {
+            "file": "phar:\/\/\/usr\/local\/bin\/phpunit\/phpunit\/TextUI\/Command.php",
+            "line": 138,
+            "function": "run",
+            "class": "PHPUnit_TextUI_Command",
+            "type": "->"
+        }
+    ],
+    "message": "No tests implemented.",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testGetAttributes"
+}{
+    "event": "test",
+    "suite": "",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testGetAttributes",
+    "status": "error",
+    "time": 0.0003211498260498,
+    "trace": [
+        {
+            "file": "\/Users\/NickGreen\/workspace\/code\/cms\/code\/tests\/src\/Components\/Html\/ParagraphTest.php",
+            "line": 193
+        },
+        {
+            "file": "phar:\/\/\/usr\/local\/bin\/phpunit\/phpunit\/TextUI\/Command.php",
+            "line": 186,
+            "function": "doRun",
+            "class": "PHPUnit_TextUI_TestRunner",
+            "type": "->"
+        },
+        {
+            "file": "phar:\/\/\/usr\/local\/bin\/phpunit\/phpunit\/TextUI\/Command.php",
+            "line": 138,
+            "function": "run",
+            "class": "PHPUnit_TextUI_Command",
+            "type": "->"
+        }
+    ],
+    "message": "No tests implemented.",
+    "output": ""
+}{
+    "event": "suiteStart",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testToString",
+    "tests": 7
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testToString",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testToString with data set #0 (null, null, array(), array(), 'Paragraph element')"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testToString",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testToString with data set #0 (null, null, array(), array(), 'Paragraph element')",
+    "status": "pass",
+    "time": 0.00045418739318848,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testToString",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testToString with data set #1 ('Test', null, array(), array(), 'Paragraph element\\n\\r    Content: Test')"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testToString",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testToString with data set #1 ('Test', null, array(), array(), 'Paragraph element\\n\\r    Content: Test')",
+    "status": "pass",
+    "time": 0.00042414665222168,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testToString",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testToString with data set #2 (null, 'test', array(), array(), 'Paragraph element\\n\\r    ID: test')"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testToString",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testToString with data set #2 (null, 'test', array(), array(), 'Paragraph element\\n\\r    ID: test')",
+    "status": "pass",
+    "time": 0.00041508674621582,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testToString",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testToString with data set #3 (null, null, array('PHPUnit is...', 'fun!'), array(), 'Paragraph element\\n\\r    Elem.....fun!')"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testToString",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testToString with data set #3 (null, null, array('PHPUnit is...', 'fun!'), array(), 'Paragraph element\\n\\r    Elem.....fun!')",
+    "status": "pass",
+    "time": 0.00046896934509277,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testToString",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testToString with data set #4 (null, null, array(), array('test'), 'Paragraph element\\n\\r    Attr...s=test')"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testToString",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testToString with data set #4 (null, null, array(), array('test'), 'Paragraph element\\n\\r    Attr...s=test')",
+    "status": "pass",
+    "time": 0.00044107437133789,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testToString",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testToString with data set #5 (1, null, array(), array(), 'Paragraph element\\n\\r    Content: 1')"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testToString",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testToString with data set #5 (1, null, array(), array(), 'Paragraph element\\n\\r    Content: 1')",
+    "status": "pass",
+    "time": 0.00040602684020996,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testToString",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testToString with data set #6 (null, 1, array(), array(), 'Paragraph element\\n\\r    ID: 1')"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testToString",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testToString with data set #6 (null, 1, array(), array(), 'Paragraph element\\n\\r    ID: 1')",
+    "status": "pass",
+    "time": 0.00041699409484863,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "suiteStart",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testToHtml",
+    "tests": 7
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testToHtml",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testToHtml with data set #0 (null, null, array(), array(), '<p><\/p>')"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testToHtml",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testToHtml with data set #0 (null, null, array(), array(), '<p><\/p>')",
+    "status": "pass",
+    "time": 0.00041484832763672,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testToHtml",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testToHtml with data set #1 ('Test', null, array(), array(), '<p>Test<\/p>')"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testToHtml",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testToHtml with data set #1 ('Test', null, array(), array(), '<p>Test<\/p>')",
+    "status": "pass",
+    "time": 0.00045418739318848,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testToHtml",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testToHtml with data set #2 (null, 'test', array(), array(), '<p id=\"test\"><\/p>')"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testToHtml",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testToHtml with data set #2 (null, 'test', array(), array(), '<p id=\"test\"><\/p>')",
+    "status": "pass",
+    "time": 0.0004270076751709,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testToHtml",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testToHtml with data set #3 (null, null, array('PHPUnit is...', 'fun!'), array(), '<p>PHPUnit is...fun!<\/p>')"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testToHtml",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testToHtml with data set #3 (null, null, array('PHPUnit is...', 'fun!'), array(), '<p>PHPUnit is...fun!<\/p>')",
+    "status": "pass",
+    "time": 0.00049400329589844,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testToHtml",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testToHtml with data set #4 (null, null, array(), array('test'), '<p class=\"test\"><\/p>')"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testToHtml",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testToHtml with data set #4 (null, null, array(), array('test'), '<p class=\"test\"><\/p>')",
+    "status": "pass",
+    "time": 0.0006558895111084,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testToHtml",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testToHtml with data set #5 (1, null, array(), array(), '<p>1<\/p>')"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testToHtml",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testToHtml with data set #5 (1, null, array(), array(), '<p>1<\/p>')",
+    "status": "pass",
+    "time": 0.00048398971557617,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testToHtml",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testToHtml with data set #6 (null, 1, array(), array(), '<p id=\"1\"><\/p>')"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testToHtml",
+    "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testToHtml with data set #6 (null, 1, array(), array(), '<p id=\"1\"><\/p>')",
+    "status": "pass",
+    "time": 0.00061416625976562,
+    "trace": [],
+    "message": "",
+    "output": ""
+}

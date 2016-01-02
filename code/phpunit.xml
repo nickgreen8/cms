@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <phpunit bootstrap="vendor/autoload.php" colors="true" stopOnError="false" stopOnFailure="false" stopOnIncomplete="false" stopOnSkipped="false">
 	<testsuites>
-        <testsuite name="unit">
-            <directory>./tests/src/</directory>
-        </testsuite>
-    </testsuites>
+		<testsuite name="components">
+			<directory>./tests/src/Components/</directory>
+		</testsuite>
+		<testsuite name="bootstrap">
+			<file>./tests/src/BootstrapTest.php</file>
+		</testsuite>
+	</testsuites>
 
 	<filter>
 		<blacklist>
 			<directory>./vendor/</directory>
 			<directory>./tests/</directory>
 		</blacklist>
-
 		<whitelist processUncoveredFilesFromWhitelist="true">
 			<directory suffix=".php">./src/</directory>
 		</whitelist>

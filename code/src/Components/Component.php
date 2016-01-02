@@ -96,7 +96,7 @@ interface Component
 	 *
 	 * @param array
 	 */
-	public function setAttributes($attributes);
+	public function setAttributes(array $attributes);
 
 	/**
 	 * This function is used to add a new element to the elements array. The new element is
