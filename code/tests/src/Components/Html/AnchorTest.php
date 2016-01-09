@@ -1,10 +1,10 @@
 <?php
 namespace Tests\Unit\Components\Html;
 
-use N8G\Grass\Components\Html\Paragraph;
+use N8G\Grass\Components\Html\Anchor;
 use N8G\Utils\Log;
 
-class ParagraphTest extends \PHPUnit_Framework_TestCase
+class AnchorTest extends \PHPUnit_Framework_TestCase
 {
 	/**
 	 * Sets up the test class.
@@ -41,24 +41,24 @@ class ParagraphTest extends \PHPUnit_Framework_TestCase
 	public function testInstantiation($content, $id, $elements, $attributes)
 	{
 		//No arguments
-		$element = new Paragraph();
-		$this->assertInstanceOf('N8G\Grass\Components\Html\Paragraph', $element);
+		$element = new Anchor();
+		$this->assertInstanceOf('N8G\Grass\Components\Html\Anchor', $element);
 
 		//Just content
-		$element = new Paragraph($content);
-		$this->assertInstanceOf('N8G\Grass\Components\Html\Paragraph', $element);
+		$element = new Anchor($content);
+		$this->assertInstanceOf('N8G\Grass\Components\Html\Anchor', $element);
 
 		//Content and ID
-		$element = new Paragraph($content, $id);
-		$this->assertInstanceOf('N8G\Grass\Components\Html\Paragraph', $element);
+		$element = new Anchor($content, $id);
+		$this->assertInstanceOf('N8G\Grass\Components\Html\Anchor', $element);
 
 		//Content, ID and elements
-		$element = new Paragraph($content, $id, $elements);
-		$this->assertInstanceOf('N8G\Grass\Components\Html\Paragraph', $element);
+		$element = new Anchor($content, $id, $elements);
+		$this->assertInstanceOf('N8G\Grass\Components\Html\Anchor', $element);
 
 		//Content, ID, Elements and attributes
-		$element = new Paragraph($content, $id, $elements, $attributes);
-		$this->assertInstanceOf('N8G\Grass\Components\Html\Paragraph', $element);
+		$element = new Anchor($content, $id, $elements, $attributes);
+		$this->assertInstanceOf('N8G\Grass\Components\Html\Anchor', $element);
 	}
 
 	/**
@@ -76,7 +76,7 @@ class ParagraphTest extends \PHPUnit_Framework_TestCase
 	 */
 	public function testInvalidInstantiation($content, $id, $elements, $attributes)
 	{
-		$element = new Paragraph($content, $id, $elements, $attributes);
+		$element = new Anchor($content, $id, $elements, $attributes);
 	}
 
 	/**
@@ -88,7 +88,7 @@ class ParagraphTest extends \PHPUnit_Framework_TestCase
 	 */
 	public function testSetContent()
 	{
-		$element = new Paragraph();
+		$element = new Anchor();
 
 		$element->setContent('This is a test');
 		$this->assertEquals('This is a test', $element->getContent());
@@ -103,7 +103,7 @@ class ParagraphTest extends \PHPUnit_Framework_TestCase
 	 */
 	public function testSetId()
 	{
-		$element = new Paragraph();
+		$element = new Anchor();
 		$element->setId('test');
 
 		$this->assertEquals('test', $element->getId());
@@ -139,7 +139,7 @@ class ParagraphTest extends \PHPUnit_Framework_TestCase
 			}
 		}
 
-		$element = new Paragraph();
+		$element = new Anchor();
 		$element->setElements($elements);
 
 		$this->assertEquals($expected, $this->getPrivateProperty($element, 'elements'));
@@ -175,7 +175,7 @@ class ParagraphTest extends \PHPUnit_Framework_TestCase
 			}
 		}
 
-		$element = new Paragraph();
+		$element = new Anchor();
 		$element->setElements($elements);
 
 		$this->assertEquals($expected, $element->getElements());
@@ -195,7 +195,7 @@ class ParagraphTest extends \PHPUnit_Framework_TestCase
 	 */
 	public function testAddElements($element, $valid, $params = null)
 	{
-		$parent = new Paragraph();
+		$parent = new Anchor();
 		$obj    = sprintf('N8G\Grass\Components\Html\%s', $element);
 		if (class_exists($obj)) {
 			if (isset($params)) {
@@ -229,7 +229,7 @@ class ParagraphTest extends \PHPUnit_Framework_TestCase
 	 */
 	public function testSetAttributes()
 	{
-		$element = new Paragraph();
+		$element = new Anchor();
 		$element->setAttributes(array('style', 'text-align: center;'));
 		$this->assertEquals(array('style', 'text-align: center;'), $this->getPrivateProperty($element, 'attributes'));
 	}
@@ -243,7 +243,7 @@ class ParagraphTest extends \PHPUnit_Framework_TestCase
 	 */
 	public function testGetAttributes()
 	{
-		$element = new Paragraph('This is a test.', 'test', array(), array('class', 'test'));
+		$element = new Anchor('This is a test.', 'test', array(), array('class', 'test'));
 		$this->assertEquals(array('class', 'test'), $element->getAttributes());
 
 		$element->setAttributes(array('style', 'text-align: center;'));
@@ -266,7 +266,7 @@ class ParagraphTest extends \PHPUnit_Framework_TestCase
 	public function testToString($content, $id, $elements, $attributes, $fixture)
 	{
 		//Default element
-		$element = new Paragraph($content, $id, $elements, $attributes);
+		$element = new Anchor($content, $id, $elements, $attributes);
 		$this->assertEquals($fixture, $element->toString());
 	}
 
@@ -285,7 +285,7 @@ class ParagraphTest extends \PHPUnit_Framework_TestCase
 	 */
 	public function testToHtml($content, $id, $elements, $attributes, $fixture)
 	{
-		$element = new Paragraph($content, $id, $elements, $attributes);
+		$element = new Anchor($content, $id, $elements, $attributes);
 		$this->assertEquals($fixture, $element->toHtml());
 	}
 
@@ -298,7 +298,7 @@ class ParagraphTest extends \PHPUnit_Framework_TestCase
 	 */
 	public function testAddAttribute()
 	{
-		$element = new Paragraph();
+		$element = new Anchor();
 
 		//Add valid attribute
 		$element->addAttribute(array('class' => 'test'));
@@ -342,13 +342,13 @@ class ParagraphTest extends \PHPUnit_Framework_TestCase
 		$data = $this->genericDataProvider();
 
 		//Add fixtures
-		$data[0]['fixture'] = 'Paragraph element';
-		$data[1]['fixture'] = 'Paragraph element\n\r    Content: Test';
-		$data[2]['fixture'] = 'Paragraph element\n\r    ID: test';
-		$data[3]['fixture'] = 'Paragraph element\n\r    Elements:\n\rPHPUnit is...fun!';
-		$data[4]['fixture'] = 'Paragraph element\n\r    Attributes: class=test';
-		$data[5]['fixture'] = 'Paragraph element\n\r    Content: 1';
-		$data[6]['fixture'] = 'Paragraph element\n\r    ID: 1';
+		$data[0]['fixture'] = 'Anchor element\n\r    Attributes: href=#';
+		$data[1]['fixture'] = 'Anchor element\n\r    Content: Test\n\r    Attributes: href=#';
+		$data[2]['fixture'] = 'Anchor element\n\r    ID: test\n\r    Attributes: href=#';
+		$data[3]['fixture'] = 'Anchor element\n\r    Elements:\n\rPHPUnit is...fun!\n\r    Attributes: href=#';
+		$data[4]['fixture'] = 'Anchor element\n\r    Attributes: class=test, href=#';
+		$data[5]['fixture'] = 'Anchor element\n\r    Content: 1\n\r    Attributes: href=#';
+		$data[6]['fixture'] = 'Anchor element\n\r    ID: 1\n\r    Attributes: href=#';
 
 		return $data;
 	}
@@ -363,13 +363,13 @@ class ParagraphTest extends \PHPUnit_Framework_TestCase
 		$data = $this->genericDataProvider();
 
 		//Add fixtures
-		$data[0]['fixture'] = '<p></p>';
-		$data[1]['fixture'] = '<p>Test</p>';
-		$data[2]['fixture'] = '<p id="test"></p>';
-		$data[3]['fixture'] = '<p>PHPUnit is...fun!</p>';
-		$data[4]['fixture'] = '<p class="test"></p>';
-		$data[5]['fixture'] = '<p>1</p>';
-		$data[6]['fixture'] = '<p id="1"></p>';
+		$data[0]['fixture'] = '<a href="#"></a>';
+		$data[1]['fixture'] = '<a href="#">Test</a>';
+		$data[2]['fixture'] = '<a id="test" href="#"></a>';
+		$data[3]['fixture'] = '<a href="#">PHPUnit is...fun!</a>';
+		$data[4]['fixture'] = '<a class="test" href="#"></a>';
+		$data[5]['fixture'] = '<a href="#">1</a>';
+		$data[6]['fixture'] = '<a id="1" href="#"></a>';
 
 		return $data;
 	}
@@ -386,43 +386,43 @@ class ParagraphTest extends \PHPUnit_Framework_TestCase
 				'content'		=>	null,
 				'id'			=>	null,
 				'elements'		=>	array(),
-				'attributes'	=>	array()
+				'attributes'	=>	array('href' => '#')
 			),
 			array(
 				'content'		=>	'Test',
 				'id'			=>	null,
 				'elements'		=>	array(),
-				'attributes'	=>	array()
+				'attributes'	=>	array('href' => '#')
 			),
 			array(
 				'content'		=>	null,
 				'id'			=>	'test',
 				'elements'		=>	array(),
-				'attributes'	=>	array()
+				'attributes'	=>	array('href' => '#')
 			),
 			array(
 				'content'		=>	null,
 				'id'			=>	null,
 				'elements'		=>	array('PHPUnit is...', 'fun!'),
-				'attributes'	=>	array()
+				'attributes'	=>	array('href' => '#')
 			),
 			array(
 				'content'		=>	null,
 				'id'			=>	null,
 				'elements'		=>	array(),
-				'attributes'	=>	array('class' => 'test')
+				'attributes'	=>	array('class' => 'test', 'href' => '#')
 			),
 			array(
 				'content'		=>	1,
 				'id'			=>	null,
 				'elements'		=>	array(),
-				'attributes'	=>	array()
+				'attributes'	=>	array('href' => '#')
 			),
 			array(
 				'content'		=>	null,
 				'id'			=>	1,
 				'elements'		=>	array(),
-				'attributes'	=>	array()
+				'attributes'	=>	array('href' => '#')
 			)
 		);
 	}
@@ -492,7 +492,7 @@ class ParagraphTest extends \PHPUnit_Framework_TestCase
 			),
 			array(
 				'element' => 'Anchor',
-				'valid'   => true
+				'valid'   => false
 			),
 			array(
 				'element' => 'Article',
@@ -504,7 +504,7 @@ class ParagraphTest extends \PHPUnit_Framework_TestCase
 			),
 			array(
 				'element' => 'Div',
-				'valid'   => false
+				'valid'   => true
 			),
 			array(
 				'element' => 'Fieldset',
@@ -532,7 +532,7 @@ class ParagraphTest extends \PHPUnit_Framework_TestCase
 			),
 			array(
 				'element' => 'Heading',
-				'valid'   => false,
+				'valid'   => true,
 				'params'  => [1]
 			),
 			array(

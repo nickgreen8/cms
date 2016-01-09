@@ -253,14 +253,10 @@ abstract class HtmlAbstract implements Component
 		}
 
 		//Check for error
-		try {
-			if (count($missing) > 0) {
-				throw new ComponentMissingRequiredAttributesException(sprintf('%s element missing the following attributes: %s', ucwords(get_class($this)), implode(', ', $missing)));
-			}
-			return true;
-		} catch (ComponentMissingRequiredAttributesException $e) {
-			return false;
+		if (count($missing) > 0) {
+			throw new ComponentMissingRequiredAttributesException(sprintf('%s element missing the following attributes: %s', ucwords(get_class($this)), implode(', ', $missing)));
 		}
+		return true;
 	}
 
 	/**

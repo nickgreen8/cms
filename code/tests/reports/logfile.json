@@ -1,5 +1,929 @@
 {
     "event": "suiteStart",
+    "suite": "",
+    "tests": 187
+}{
+    "event": "suiteStart",
+    "suite": "components",
+    "tests": 136
+}{
+    "event": "suiteStart",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest",
+    "tests": 68
+}{
+    "event": "suiteStart",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testInstantiation",
+    "tests": 1
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testInstantiation",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testInstantiation with data set #0 ('This is a test', 'test', array(), array())"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testInstantiation",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testInstantiation with data set #0 ('This is a test', 'test', array(), array())",
+    "status": "pass",
+    "time": 0.036859035491943,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "suiteStart",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testInvalidInstantiation",
+    "tests": 6
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testInvalidInstantiation",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testInvalidInstantiation with data set #0 (null, null, 'test', array())"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testInvalidInstantiation",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testInvalidInstantiation with data set #0 (null, null, 'test', array())",
+    "status": "pass",
+    "time": 0.01075005531311,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testInvalidInstantiation",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testInvalidInstantiation with data set #1 (null, null, 1, array())"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testInvalidInstantiation",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testInvalidInstantiation with data set #1 (null, null, 1, array())",
+    "status": "pass",
+    "time": 0.012862205505371,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testInvalidInstantiation",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testInvalidInstantiation with data set #2 (null, null, true, array())"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testInvalidInstantiation",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testInvalidInstantiation with data set #2 (null, null, true, array())",
+    "status": "pass",
+    "time": 0.010141134262085,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testInvalidInstantiation",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testInvalidInstantiation with data set #3 (null, null, array(), 'test')"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testInvalidInstantiation",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testInvalidInstantiation with data set #3 (null, null, array(), 'test')",
+    "status": "pass",
+    "time": 0.0098769664764404,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testInvalidInstantiation",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testInvalidInstantiation with data set #4 (null, null, array(), 1)"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testInvalidInstantiation",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testInvalidInstantiation with data set #4 (null, null, array(), 1)",
+    "status": "pass",
+    "time": 0.011224985122681,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testInvalidInstantiation",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testInvalidInstantiation with data set #5 (null, null, array(), false)"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testInvalidInstantiation",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testInvalidInstantiation with data set #5 (null, null, array(), false)",
+    "status": "pass",
+    "time": 0.013691186904907,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testSetContent"
+}{
+    "event": "test",
+    "suite": "",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testSetContent",
+    "status": "pass",
+    "time": 0.024728059768677,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testSetId"
+}{
+    "event": "test",
+    "suite": "",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testSetId",
+    "status": "pass",
+    "time": 0.013910055160522,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "suiteStart",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testSetElements",
+    "tests": 3
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testSetElements",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testSetElements with data set #0 (array('Test'), array('Test'))"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testSetElements",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testSetElements with data set #0 (array('Test'), array('Test'))",
+    "status": "pass",
+    "time": 0.017887115478516,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testSetElements",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testSetElements with data set #1 (array(array('object', 'Head')), array())"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testSetElements",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testSetElements with data set #1 (array(array('object', 'Head')), array())",
+    "status": "pass",
+    "time": 0.019601106643677,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testSetElements",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testSetElements with data set #2 (array('Test', array('object', 'Head')), array('Test'))"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testSetElements",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testSetElements with data set #2 (array('Test', array('object', 'Head')), array('Test'))",
+    "status": "pass",
+    "time": 0.021281003952026,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "suiteStart",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testGetElements",
+    "tests": 3
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testGetElements",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testGetElements with data set #0 (array('Test'), array('Test'))"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testGetElements",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testGetElements with data set #0 (array('Test'), array('Test'))",
+    "status": "pass",
+    "time": 0.017889022827148,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testGetElements",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testGetElements with data set #1 (array(array('object', 'Head')), array())"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testGetElements",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testGetElements with data set #1 (array(array('object', 'Head')), array())",
+    "status": "pass",
+    "time": 0.021253824234009,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testGetElements",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testGetElements with data set #2 (array('Test', array('object', 'Head')), array('Test'))"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testGetElements",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testGetElements with data set #2 (array('Test', array('object', 'Head')), array('Test'))",
+    "status": "pass",
+    "time": 0.021857976913452,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "suiteStart",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements",
+    "tests": 36
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements with data set #0 (1, true)"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements with data set #0 (1, true)",
+    "status": "pass",
+    "time": 0.013253927230835,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements with data set #1 ('Test', true)"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements with data set #1 ('Test', true)",
+    "status": "pass",
+    "time": 0.013978958129883,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements with data set #2 ('Anchor', false)"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements with data set #2 ('Anchor', false)",
+    "status": "pass",
+    "time": 0.016414880752563,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements with data set #3 ('Article', false)"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements with data set #3 ('Article', false)",
+    "status": "pass",
+    "time": 0.017726898193359,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements with data set #4 ('Body', false)"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements with data set #4 ('Body', false)",
+    "status": "pass",
+    "time": 0.018337965011597,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements with data set #5 ('Div', true)"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements with data set #5 ('Div', true)",
+    "status": "pass",
+    "time": 0.016029119491577,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements with data set #6 ('Fieldset', false)"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements with data set #6 ('Fieldset', false)",
+    "status": "pass",
+    "time": 0.017482995986938,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements with data set #7 ('Footer', false)"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements with data set #7 ('Footer', false)",
+    "status": "pass",
+    "time": 0.018617868423462,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements with data set #8 ('Form', false)"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements with data set #8 ('Form', false)",
+    "status": "pass",
+    "time": 0.018802881240845,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements with data set #9 ('Button', false)"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements with data set #9 ('Button', false)",
+    "status": "pass",
+    "time": 0.017553091049194,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements with data set #10 ('Head', false)"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements with data set #10 ('Head', false)",
+    "status": "pass",
+    "time": 0.016992092132568,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements with data set #11 ('Header', false)"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements with data set #11 ('Header', false)",
+    "status": "pass",
+    "time": 0.018919229507446,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements with data set #12 ('Heading', true, array(1))"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements with data set #12 ('Heading', true, array(1))",
+    "status": "pass",
+    "time": 0.019614934921265,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements with data set #13 ('HorizontalRule', false)"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements with data set #13 ('HorizontalRule', false)",
+    "status": "pass",
+    "time": 0.027985811233521,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements with data set #14 ('Image', true)"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements with data set #14 ('Image', true)",
+    "status": "pass",
+    "time": 0.026381015777588,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements with data set #15 ('Input', false)"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements with data set #15 ('Input', false)",
+    "status": "pass",
+    "time": 0.020254850387573,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements with data set #16 ('Link', false)"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements with data set #16 ('Link', false)",
+    "status": "pass",
+    "time": 0.01983380317688,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements with data set #17 ('ListItem', false)"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements with data set #17 ('ListItem', false)",
+    "status": "pass",
+    "time": 0.018480062484741,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements with data set #18 ('Meta', false)"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements with data set #18 ('Meta', false)",
+    "status": "pass",
+    "time": 0.017268896102905,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements with data set #19 ('Option', false)"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements with data set #19 ('Option', false)",
+    "status": "pass",
+    "time": 0.017773866653442,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements with data set #20 ('OrderedList', false)"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements with data set #20 ('OrderedList', false)",
+    "status": "pass",
+    "time": 0.019959926605225,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements with data set #21 ('PageBreak', true)"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements with data set #21 ('PageBreak', true)",
+    "status": "pass",
+    "time": 0.017148017883301,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements with data set #22 ('Paragraph', false)"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements with data set #22 ('Paragraph', false)",
+    "status": "pass",
+    "time": 0.017924070358276,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements with data set #23 ('Script', false)"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements with data set #23 ('Script', false)",
+    "status": "pass",
+    "time": 0.021246910095215,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements with data set #24 ('Section', false)"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements with data set #24 ('Section', false)",
+    "status": "pass",
+    "time": 0.019917011260986,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements with data set #25 ('Select', false)"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements with data set #25 ('Select', false)",
+    "status": "pass",
+    "time": 0.02052116394043,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements with data set #26 ('Span', true)"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements with data set #26 ('Span', true)",
+    "status": "pass",
+    "time": 0.016291856765747,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements with data set #27 ('Style', false)"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements with data set #27 ('Style', false)",
+    "status": "pass",
+    "time": 0.01777195930481,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements with data set #28 ('Table', false)"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements with data set #28 ('Table', false)",
+    "status": "pass",
+    "time": 0.017903089523315,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements with data set #29 ('TableBody', false)"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements with data set #29 ('TableBody', false)",
+    "status": "pass",
+    "time": 0.017135143280029,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements with data set #30 ('TableCell', false)"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements with data set #30 ('TableCell', false)",
+    "status": "pass",
+    "time": 0.019217014312744,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements with data set #31 ('TableHeader', false)"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements with data set #31 ('TableHeader', false)",
+    "status": "pass",
+    "time": 0.017499923706055,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements with data set #32 ('TableHeading', false)"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements with data set #32 ('TableHeading', false)",
+    "status": "pass",
+    "time": 0.01839804649353,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements with data set #33 ('TableRow', false)"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements with data set #33 ('TableRow', false)",
+    "status": "pass",
+    "time": 0.017823934555054,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements with data set #34 ('Title', false)"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements with data set #34 ('Title', false)",
+    "status": "pass",
+    "time": 0.016865968704224,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements with data set #35 ('UnorderedList', false)"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddElements with data set #35 ('UnorderedList', false)",
+    "status": "pass",
+    "time": 0.018739938735962,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testSetAttributes"
+}{
+    "event": "test",
+    "suite": "",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testSetAttributes",
+    "status": "pass",
+    "time": 0.019346952438354,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testGetAttributes"
+}{
+    "event": "test",
+    "suite": "",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testGetAttributes",
+    "status": "pass",
+    "time": 0.027752876281738,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "suiteStart",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testToString",
+    "tests": 7
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testToString",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testToString with data set #0 (null, null, array(), array('#'), 'Anchor element\\n\\r    Attribu...href=#')"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testToString",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testToString with data set #0 (null, null, array(), array('#'), 'Anchor element\\n\\r    Attribu...href=#')",
+    "status": "pass",
+    "time": 0.014322996139526,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testToString",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testToString with data set #1 ('Test', null, array(), array('#'), 'Anchor element\\n\\r    Content...href=#')"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testToString",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testToString with data set #1 ('Test', null, array(), array('#'), 'Anchor element\\n\\r    Content...href=#')",
+    "status": "pass",
+    "time": 0.014771938323975,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testToString",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testToString with data set #2 (null, 'test', array(), array('#'), 'Anchor element\\n\\r    ID: tes...href=#')"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testToString",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testToString with data set #2 (null, 'test', array(), array('#'), 'Anchor element\\n\\r    ID: tes...href=#')",
+    "status": "pass",
+    "time": 0.014585018157959,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testToString",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testToString with data set #3 (null, null, array('PHPUnit is...', 'fun!'), array('#'), 'Anchor element\\n\\r    Element...href=#')"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testToString",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testToString with data set #3 (null, null, array('PHPUnit is...', 'fun!'), array('#'), 'Anchor element\\n\\r    Element...href=#')",
+    "status": "pass",
+    "time": 0.016319036483765,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testToString",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testToString with data set #4 (null, null, array(), array('test', '#'), 'Anchor element\\n\\r    Attribu...href=#')"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testToString",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testToString with data set #4 (null, null, array(), array('test', '#'), 'Anchor element\\n\\r    Attribu...href=#')",
+    "status": "pass",
+    "time": 0.014753103256226,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testToString",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testToString with data set #5 (1, null, array(), array('#'), 'Anchor element\\n\\r    Content...href=#')"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testToString",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testToString with data set #5 (1, null, array(), array('#'), 'Anchor element\\n\\r    Content...href=#')",
+    "status": "pass",
+    "time": 0.016005992889404,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testToString",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testToString with data set #6 (null, 1, array(), array('#'), 'Anchor element\\n\\r    ID: 1\\n...href=#')"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testToString",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testToString with data set #6 (null, 1, array(), array('#'), 'Anchor element\\n\\r    ID: 1\\n...href=#')",
+    "status": "pass",
+    "time": 0.014317035675049,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "suiteStart",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testToHtml",
+    "tests": 7
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testToHtml",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testToHtml with data set #0 (null, null, array(), array('#'), '<a href=\"#\"><\/a>')"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testToHtml",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testToHtml with data set #0 (null, null, array(), array('#'), '<a href=\"#\"><\/a>')",
+    "status": "pass",
+    "time": 0.014482975006104,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testToHtml",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testToHtml with data set #1 ('Test', null, array(), array('#'), '<a href=\"#\">Test<\/a>')"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testToHtml",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testToHtml with data set #1 ('Test', null, array(), array('#'), '<a href=\"#\">Test<\/a>')",
+    "status": "pass",
+    "time": 0.015060901641846,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testToHtml",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testToHtml with data set #2 (null, 'test', array(), array('#'), '<a id=\"test\" href=\"#\"><\/a>')"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testToHtml",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testToHtml with data set #2 (null, 'test', array(), array('#'), '<a id=\"test\" href=\"#\"><\/a>')",
+    "status": "pass",
+    "time": 0.015416145324707,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testToHtml",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testToHtml with data set #3 (null, null, array('PHPUnit is...', 'fun!'), array('#'), '<a href=\"#\">PHPUnit is...fun!<\/a>')"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testToHtml",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testToHtml with data set #3 (null, null, array('PHPUnit is...', 'fun!'), array('#'), '<a href=\"#\">PHPUnit is...fun!<\/a>')",
+    "status": "pass",
+    "time": 0.017157077789307,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testToHtml",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testToHtml with data set #4 (null, null, array(), array('test', '#'), '<a class=\"test\" href=\"#\"><\/a>')"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testToHtml",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testToHtml with data set #4 (null, null, array(), array('test', '#'), '<a class=\"test\" href=\"#\"><\/a>')",
+    "status": "pass",
+    "time": 0.017796993255615,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testToHtml",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testToHtml with data set #5 (1, null, array(), array('#'), '<a href=\"#\">1<\/a>')"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testToHtml",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testToHtml with data set #5 (1, null, array(), array('#'), '<a href=\"#\">1<\/a>')",
+    "status": "pass",
+    "time": 0.019316911697388,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testToHtml",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testToHtml with data set #6 (null, 1, array(), array('#'), '<a id=\"1\" href=\"#\"><\/a>')"
+}{
+    "event": "test",
+    "suite": "Tests\\Unit\\Components\\Html\\AnchorTest::testToHtml",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testToHtml with data set #6 (null, 1, array(), array('#'), '<a id=\"1\" href=\"#\"><\/a>')",
+    "status": "pass",
+    "time": 0.016973972320557,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddAttribute"
+}{
+    "event": "test",
+    "suite": "",
+    "test": "Tests\\Unit\\Components\\Html\\AnchorTest::testAddAttribute",
+    "status": "pass",
+    "time": 0.028542041778564,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "suiteStart",
     "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest",
     "tests": 68
 }{
@@ -15,7 +939,7 @@
     "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testInstantiation",
     "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testInstantiation with data set #0 ('This is a test', 'test', array(), array())",
     "status": "pass",
-    "time": 0.0330970287323,
+    "time": 0.02718186378479,
     "trace": [],
     "message": "",
     "output": ""
@@ -32,7 +956,7 @@
     "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testInvalidInstantiation",
     "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testInvalidInstantiation with data set #0 (null, null, 'test', array())",
     "status": "pass",
-    "time": 0.010869026184082,
+    "time": 0.01086688041687,
     "trace": [],
     "message": "",
     "output": ""
@@ -45,7 +969,7 @@
     "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testInvalidInstantiation",
     "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testInvalidInstantiation with data set #1 (null, null, 1, array())",
     "status": "pass",
-    "time": 0.012568950653076,
+    "time": 0.012610197067261,
     "trace": [],
     "message": "",
     "output": ""
@@ -58,7 +982,7 @@
     "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testInvalidInstantiation",
     "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testInvalidInstantiation with data set #2 (null, null, true, array())",
     "status": "pass",
-    "time": 0.010020017623901,
+    "time": 0.0098729133605957,
     "trace": [],
     "message": "",
     "output": ""
@@ -71,7 +995,7 @@
     "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testInvalidInstantiation",
     "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testInvalidInstantiation with data set #3 (null, null, array(), 'test')",
     "status": "pass",
-    "time": 0.012746810913086,
+    "time": 0.011526107788086,
     "trace": [],
     "message": "",
     "output": ""
@@ -84,7 +1008,7 @@
     "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testInvalidInstantiation",
     "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testInvalidInstantiation with data set #4 (null, null, array(), 1)",
     "status": "pass",
-    "time": 0.010138034820557,
+    "time": 0.01180100440979,
     "trace": [],
     "message": "",
     "output": ""
@@ -97,7 +1021,7 @@
     "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testInvalidInstantiation",
     "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testInvalidInstantiation with data set #5 (null, null, array(), false)",
     "status": "pass",
-    "time": 0.012103080749512,
+    "time": 0.01131010055542,
     "trace": [],
     "message": "",
     "output": ""
@@ -110,7 +1034,7 @@
     "suite": "",
     "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testSetContent",
     "status": "pass",
-    "time": 0.02233099937439,
+    "time": 0.014973163604736,
     "trace": [],
     "message": "",
     "output": ""
@@ -123,7 +1047,7 @@
     "suite": "",
     "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testSetId",
     "status": "pass",
-    "time": 0.015906810760498,
+    "time": 0.015717029571533,
     "trace": [],
     "message": "",
     "output": ""
@@ -140,7 +1064,7 @@
     "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testSetElements",
     "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testSetElements with data set #0 (array('Test'), array('Test'))",
     "status": "pass",
-    "time": 0.018469095230103,
+    "time": 0.01767897605896,
     "trace": [],
     "message": "",
     "output": ""
@@ -153,7 +1077,7 @@
     "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testSetElements",
     "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testSetElements with data set #1 (array(array('object', 'Head')), array())",
     "status": "pass",
-    "time": 0.020822048187256,
+    "time": 0.019279956817627,
     "trace": [],
     "message": "",
     "output": ""
@@ -166,7 +1090,7 @@
     "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testSetElements",
     "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testSetElements with data set #2 (array('Test', array('object', 'Head')), array('Test'))",
     "status": "pass",
-    "time": 0.02134108543396,
+    "time": 0.022458076477051,
     "trace": [],
     "message": "",
     "output": ""
@@ -183,7 +1107,7 @@
     "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testGetElements",
     "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testGetElements with data set #0 (array('Test'), array('Test'))",
     "status": "pass",
-    "time": 0.018599987030029,
+    "time": 0.017170906066895,
     "trace": [],
     "message": "",
     "output": ""
@@ -196,7 +1120,7 @@
     "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testGetElements",
     "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testGetElements with data set #1 (array(array('object', 'Head')), array())",
     "status": "pass",
-    "time": 0.018735885620117,
+    "time": 0.018809080123901,
     "trace": [],
     "message": "",
     "output": ""
@@ -209,7 +1133,7 @@
     "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testGetElements",
     "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testGetElements with data set #2 (array('Test', array('object', 'Head')), array('Test'))",
     "status": "pass",
-    "time": 0.021663188934326,
+    "time": 0.024159908294678,
     "trace": [],
     "message": "",
     "output": ""
@@ -226,7 +1150,7 @@
     "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements",
     "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements with data set #0 (1, true)",
     "status": "pass",
-    "time": 0.014137983322144,
+    "time": 0.012198925018311,
     "trace": [],
     "message": "",
     "output": ""
@@ -239,7 +1163,7 @@
     "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements",
     "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements with data set #1 ('Test', true)",
     "status": "pass",
-    "time": 0.013679027557373,
+    "time": 0.013774871826172,
     "trace": [],
     "message": "",
     "output": ""
@@ -252,7 +1176,7 @@
     "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements",
     "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements with data set #2 ('Anchor', true)",
     "status": "pass",
-    "time": 0.016281843185425,
+    "time": 0.015630006790161,
     "trace": [],
     "message": "",
     "output": ""
@@ -265,7 +1189,7 @@
     "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements",
     "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements with data set #3 ('Article', false)",
     "status": "pass",
-    "time": 0.017400026321411,
+    "time": 0.018323183059692,
     "trace": [],
     "message": "",
     "output": ""
@@ -278,7 +1202,7 @@
     "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements",
     "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements with data set #4 ('Body', false)",
     "status": "pass",
-    "time": 0.018298864364624,
+    "time": 0.016676187515259,
     "trace": [],
     "message": "",
     "output": ""
@@ -291,7 +1215,7 @@
     "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements",
     "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements with data set #5 ('Div', false)",
     "status": "pass",
-    "time": 0.018639087677002,
+    "time": 0.020450830459595,
     "trace": [],
     "message": "",
     "output": ""
@@ -304,7 +1228,7 @@
     "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements",
     "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements with data set #6 ('Fieldset', false)",
     "status": "pass",
-    "time": 0.016921997070312,
+    "time": 0.017822980880737,
     "trace": [],
     "message": "",
     "output": ""
@@ -317,7 +1241,7 @@
     "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements",
     "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements with data set #7 ('Footer', false)",
     "status": "pass",
-    "time": 0.017498016357422,
+    "time": 0.017967939376831,
     "trace": [],
     "message": "",
     "output": ""
@@ -330,7 +1254,7 @@
     "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements",
     "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements with data set #8 ('Form', false)",
     "status": "pass",
-    "time": 0.017382860183716,
+    "time": 0.016983985900879,
     "trace": [],
     "message": "",
     "output": ""
@@ -343,7 +1267,7 @@
     "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements",
     "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements with data set #9 ('Button', false)",
     "status": "pass",
-    "time": 0.017746925354004,
+    "time": 0.016504049301147,
     "trace": [],
     "message": "",
     "output": ""
@@ -356,7 +1280,7 @@
     "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements",
     "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements with data set #10 ('Head', false)",
     "status": "pass",
-    "time": 0.017526865005493,
+    "time": 0.017799854278564,
     "trace": [],
     "message": "",
     "output": ""
@@ -369,7 +1293,7 @@
     "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements",
     "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements with data set #11 ('Header', false)",
     "status": "pass",
-    "time": 0.019422054290771,
+    "time": 0.017297029495239,
     "trace": [],
     "message": "",
     "output": ""
@@ -382,7 +1306,7 @@
     "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements",
     "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements with data set #12 ('Heading', false, array(1))",
     "status": "pass",
-    "time": 0.023692846298218,
+    "time": 0.016776084899902,
     "trace": [],
     "message": "",
     "output": ""
@@ -395,7 +1319,7 @@
     "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements",
     "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements with data set #13 ('HorizontalRule', false)",
     "status": "pass",
-    "time": 0.040711879730225,
+    "time": 0.018471002578735,
     "trace": [],
     "message": "",
     "output": ""
@@ -408,7 +1332,7 @@
     "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements",
     "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements with data set #14 ('Image', true)",
     "status": "pass",
-    "time": 0.019385814666748,
+    "time": 0.015078067779541,
     "trace": [],
     "message": "",
     "output": ""
@@ -421,7 +1345,7 @@
     "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements",
     "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements with data set #15 ('Input', false)",
     "status": "pass",
-    "time": 0.020665168762207,
+    "time": 0.020025968551636,
     "trace": [],
     "message": "",
     "output": ""
@@ -434,7 +1358,7 @@
     "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements",
     "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements with data set #16 ('Link', false)",
     "status": "pass",
-    "time": 0.016499042510986,
+    "time": 0.017161130905151,
     "trace": [],
     "message": "",
     "output": ""
@@ -447,7 +1371,7 @@
     "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements",
     "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements with data set #17 ('ListItem', false)",
     "status": "pass",
-    "time": 0.018655061721802,
+    "time": 0.019986867904663,
     "trace": [],
     "message": "",
     "output": ""
@@ -460,7 +1384,7 @@
     "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements",
     "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements with data set #18 ('Meta', false)",
     "status": "pass",
-    "time": 0.017328977584839,
+    "time": 0.017596006393433,
     "trace": [],
     "message": "",
     "output": ""
@@ -473,7 +1397,7 @@
     "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements",
     "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements with data set #19 ('Option', false)",
     "status": "pass",
-    "time": 0.017853021621704,
+    "time": 0.018317937850952,
     "trace": [],
     "message": "",
     "output": ""
@@ -486,7 +1410,7 @@
     "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements",
     "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements with data set #20 ('OrderedList', false)",
     "status": "pass",
-    "time": 0.024196147918701,
+    "time": 0.01728892326355,
     "trace": [],
     "message": "",
     "output": ""
@@ -499,7 +1423,7 @@
     "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements",
     "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements with data set #21 ('PageBreak', true)",
     "status": "pass",
-    "time": 0.019225835800171,
+    "time": 0.015043020248413,
     "trace": [],
     "message": "",
     "output": ""
@@ -512,7 +1436,7 @@
     "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements",
     "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements with data set #22 ('Paragraph', false)",
     "status": "pass",
-    "time": 0.018295049667358,
+    "time": 0.016422033309937,
     "trace": [],
     "message": "",
     "output": ""
@@ -525,7 +1449,7 @@
     "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements",
     "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements with data set #23 ('Script', false)",
     "status": "pass",
-    "time": 0.02000904083252,
+    "time": 0.019121885299683,
     "trace": [],
     "message": "",
     "output": ""
@@ -538,7 +1462,7 @@
     "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements",
     "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements with data set #24 ('Section', false)",
     "status": "pass",
-    "time": 0.01938796043396,
+    "time": 0.024885892868042,
     "trace": [],
     "message": "",
     "output": ""
@@ -551,7 +1475,7 @@
     "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements",
     "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements with data set #25 ('Select', false)",
     "status": "pass",
-    "time": 0.021009922027588,
+    "time": 0.027354955673218,
     "trace": [],
     "message": "",
     "output": ""
@@ -564,7 +1488,7 @@
     "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements",
     "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements with data set #26 ('Span', true)",
     "status": "pass",
-    "time": 0.016355991363525,
+    "time": 0.023045063018799,
     "trace": [],
     "message": "",
     "output": ""
@@ -577,7 +1501,7 @@
     "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements",
     "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements with data set #27 ('Style', false)",
     "status": "pass",
-    "time": 0.017011165618896,
+    "time": 0.020141124725342,
     "trace": [],
     "message": "",
     "output": ""
@@ -590,7 +1514,7 @@
     "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements",
     "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements with data set #28 ('Table', false)",
     "status": "pass",
-    "time": 0.017508029937744,
+    "time": 0.019119024276733,
     "trace": [],
     "message": "",
     "output": ""
@@ -603,7 +1527,7 @@
     "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements",
     "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements with data set #29 ('TableBody', false)",
     "status": "pass",
-    "time": 0.018276929855347,
+    "time": 0.020209074020386,
     "trace": [],
     "message": "",
     "output": ""
@@ -616,7 +1540,7 @@
     "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements",
     "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements with data set #30 ('TableCell', false)",
     "status": "pass",
-    "time": 0.018474102020264,
+    "time": 0.017246961593628,
     "trace": [],
     "message": "",
     "output": ""
@@ -629,7 +1553,7 @@
     "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements",
     "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements with data set #31 ('TableHeader', false)",
     "status": "pass",
-    "time": 0.017729997634888,
+    "time": 0.019706964492798,
     "trace": [],
     "message": "",
     "output": ""
@@ -642,7 +1566,7 @@
     "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements",
     "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements with data set #32 ('TableHeading', false)",
     "status": "pass",
-    "time": 0.018525838851929,
+    "time": 0.018945217132568,
     "trace": [],
     "message": "",
     "output": ""
@@ -655,7 +1579,7 @@
     "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements",
     "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements with data set #33 ('TableRow', false)",
     "status": "pass",
-    "time": 0.016289949417114,
+    "time": 0.016674995422363,
     "trace": [],
     "message": "",
     "output": ""
@@ -668,7 +1592,7 @@
     "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements",
     "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements with data set #34 ('Title', false)",
     "status": "pass",
-    "time": 0.019021987915039,
+    "time": 0.016470909118652,
     "trace": [],
     "message": "",
     "output": ""
@@ -681,7 +1605,7 @@
     "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements",
     "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddElements with data set #35 ('UnorderedList', false)",
     "status": "pass",
-    "time": 0.016849040985107,
+    "time": 0.016551971435547,
     "trace": [],
     "message": "",
     "output": ""
@@ -694,7 +1618,7 @@
     "suite": "",
     "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testSetAttributes",
     "status": "pass",
-    "time": 0.019001007080078,
+    "time": 0.01811408996582,
     "trace": [],
     "message": "",
     "output": ""
@@ -707,7 +1631,7 @@
     "suite": "",
     "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testGetAttributes",
     "status": "pass",
-    "time": 0.025919914245605,
+    "time": 0.027075052261353,
     "trace": [],
     "message": "",
     "output": ""
@@ -724,7 +1648,7 @@
     "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testToString",
     "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testToString with data set #0 (null, null, array(), array(), 'Paragraph element')",
     "status": "pass",
-    "time": 0.014256954193115,
+    "time": 0.016420125961304,
     "trace": [],
     "message": "",
     "output": ""
@@ -737,7 +1661,7 @@
     "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testToString",
     "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testToString with data set #1 ('Test', null, array(), array(), 'Paragraph element\\n\\r    Content: Test')",
     "status": "pass",
-    "time": 0.016845941543579,
+    "time": 0.017764091491699,
     "trace": [],
     "message": "",
     "output": ""
@@ -750,7 +1674,7 @@
     "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testToString",
     "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testToString with data set #2 (null, 'test', array(), array(), 'Paragraph element\\n\\r    ID: test')",
     "status": "pass",
-    "time": 0.014756917953491,
+    "time": 0.017140865325928,
     "trace": [],
     "message": "",
     "output": ""
@@ -763,7 +1687,7 @@
     "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testToString",
     "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testToString with data set #3 (null, null, array('PHPUnit is...', 'fun!'), array(), 'Paragraph element\\n\\r    Elem.....fun!')",
     "status": "pass",
-    "time": 0.015870809555054,
+    "time": 0.016464948654175,
     "trace": [],
     "message": "",
     "output": ""
@@ -776,7 +1700,7 @@
     "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testToString",
     "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testToString with data set #4 (null, null, array(), array('test'), 'Paragraph element\\n\\r    Attr...s=test')",
     "status": "pass",
-    "time": 0.013056993484497,
+    "time": 0.015664100646973,
     "trace": [],
     "message": "",
     "output": ""
@@ -789,7 +1713,7 @@
     "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testToString",
     "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testToString with data set #5 (1, null, array(), array(), 'Paragraph element\\n\\r    Content: 1')",
     "status": "pass",
-    "time": 0.016019105911255,
+    "time": 0.0212562084198,
     "trace": [],
     "message": "",
     "output": ""
@@ -802,7 +1726,7 @@
     "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testToString",
     "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testToString with data set #6 (null, 1, array(), array(), 'Paragraph element\\n\\r    ID: 1')",
     "status": "pass",
-    "time": 0.015224933624268,
+    "time": 0.018068790435791,
     "trace": [],
     "message": "",
     "output": ""
@@ -819,7 +1743,7 @@
     "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testToHtml",
     "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testToHtml with data set #0 (null, null, array(), array(), '<p><\/p>')",
     "status": "pass",
-    "time": 0.014746189117432,
+    "time": 0.013653993606567,
     "trace": [],
     "message": "",
     "output": ""
@@ -832,7 +1756,7 @@
     "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testToHtml",
     "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testToHtml with data set #1 ('Test', null, array(), array(), '<p>Test<\/p>')",
     "status": "pass",
-    "time": 0.013962030410767,
+    "time": 0.015022039413452,
     "trace": [],
     "message": "",
     "output": ""
@@ -845,7 +1769,7 @@
     "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testToHtml",
     "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testToHtml with data set #2 (null, 'test', array(), array(), '<p id=\"test\"><\/p>')",
     "status": "pass",
-    "time": 0.015024185180664,
+    "time": 0.015175104141235,
     "trace": [],
     "message": "",
     "output": ""
@@ -858,7 +1782,7 @@
     "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testToHtml",
     "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testToHtml with data set #3 (null, null, array('PHPUnit is...', 'fun!'), array(), '<p>PHPUnit is...fun!<\/p>')",
     "status": "pass",
-    "time": 0.016600131988525,
+    "time": 0.016196012496948,
     "trace": [],
     "message": "",
     "output": ""
@@ -871,7 +1795,7 @@
     "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testToHtml",
     "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testToHtml with data set #4 (null, null, array(), array('test'), '<p class=\"test\"><\/p>')",
     "status": "pass",
-    "time": 0.014268159866333,
+    "time": 0.015003204345703,
     "trace": [],
     "message": "",
     "output": ""
@@ -884,7 +1808,7 @@
     "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testToHtml",
     "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testToHtml with data set #5 (1, null, array(), array(), '<p>1<\/p>')",
     "status": "pass",
-    "time": 0.014446020126343,
+    "time": 0.01463508605957,
     "trace": [],
     "message": "",
     "output": ""
@@ -897,7 +1821,7 @@
     "suite": "Tests\\Unit\\Components\\Html\\ParagraphTest::testToHtml",
     "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testToHtml with data set #6 (null, 1, array(), array(), '<p id=\"1\"><\/p>')",
     "status": "pass",
-    "time": 0.019609928131104,
+    "time": 0.014770984649658,
     "trace": [],
     "message": "",
     "output": ""
@@ -910,7 +1834,690 @@
     "suite": "",
     "test": "Tests\\Unit\\Components\\Html\\ParagraphTest::testAddAttribute",
     "status": "pass",
-    "time": 0.027827978134155,
+    "time": 0.023849010467529,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "suiteStart",
+    "suite": "bootstrap",
+    "tests": 51
+}{
+    "event": "suiteStart",
+    "suite": "N8G\\Grass\\BootstrapTest",
+    "tests": 51
+}{
+    "event": "testStart",
+    "suite": "N8G\\Grass\\BootstrapTest",
+    "test": "N8G\\Grass\\BootstrapTest::testRun"
+}{
+    "event": "test",
+    "suite": "N8G\\Grass\\BootstrapTest",
+    "test": "N8G\\Grass\\BootstrapTest::testRun",
+    "status": "pass",
+    "time": 0.037693023681641,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "N8G\\Grass\\BootstrapTest",
+    "test": "N8G\\Grass\\BootstrapTest::testTearDown"
+}{
+    "event": "test",
+    "suite": "N8G\\Grass\\BootstrapTest",
+    "test": "N8G\\Grass\\BootstrapTest::testTearDown",
+    "status": "pass",
+    "time": 0.0074949264526367,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "N8G\\Grass\\BootstrapTest",
+    "test": "N8G\\Grass\\BootstrapTest::testCheckSiteSetup"
+}{
+    "event": "test",
+    "suite": "N8G\\Grass\\BootstrapTest",
+    "test": "N8G\\Grass\\BootstrapTest::testCheckSiteSetup",
+    "status": "pass",
+    "time": 0.007612943649292,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "suiteStart",
+    "suite": "N8G\\Grass\\BootstrapTest::testErrorHandler",
+    "tests": 16
+}{
+    "event": "testStart",
+    "suite": "N8G\\Grass\\BootstrapTest::testErrorHandler",
+    "test": "N8G\\Grass\\BootstrapTest::testErrorHandler with data set #0 (1, 1, 'ERROR', 'error', 'Error handler test!', 'tests\/src\/BootstrapTests.php', 1, null)"
+}{
+    "event": "test",
+    "suite": "N8G\\Grass\\BootstrapTest::testErrorHandler",
+    "test": "N8G\\Grass\\BootstrapTest::testErrorHandler with data set #0 (1, 1, 'ERROR', 'error', 'Error handler test!', 'tests\/src\/BootstrapTests.php', 1, null)",
+    "status": "pass",
+    "time": 0.0097100734710693,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "N8G\\Grass\\BootstrapTest::testErrorHandler",
+    "test": "N8G\\Grass\\BootstrapTest::testErrorHandler with data set #1 (2, 2, 'WARNING', 'warn', 'Error handler test!', 'tests\/src\/BootstrapTests.php', 1, null)"
+}{
+    "event": "test",
+    "suite": "N8G\\Grass\\BootstrapTest::testErrorHandler",
+    "test": "N8G\\Grass\\BootstrapTest::testErrorHandler with data set #1 (2, 2, 'WARNING', 'warn', 'Error handler test!', 'tests\/src\/BootstrapTests.php', 1, null)",
+    "status": "pass",
+    "time": 0.0085711479187012,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "N8G\\Grass\\BootstrapTest::testErrorHandler",
+    "test": "N8G\\Grass\\BootstrapTest::testErrorHandler with data set #2 (4, 4, 'PARSE', 'fatal', 'Error handler test!', 'tests\/src\/BootstrapTests.php', 1, null)"
+}{
+    "event": "test",
+    "suite": "N8G\\Grass\\BootstrapTest::testErrorHandler",
+    "test": "N8G\\Grass\\BootstrapTest::testErrorHandler with data set #2 (4, 4, 'PARSE', 'fatal', 'Error handler test!', 'tests\/src\/BootstrapTests.php', 1, null)",
+    "status": "pass",
+    "time": 0.0077259540557861,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "N8G\\Grass\\BootstrapTest::testErrorHandler",
+    "test": "N8G\\Grass\\BootstrapTest::testErrorHandler with data set #3 (8, 8, 'NOTICE', 'warn', 'Error handler test!', 'tests\/src\/BootstrapTests.php', 1, null)"
+}{
+    "event": "test",
+    "suite": "N8G\\Grass\\BootstrapTest::testErrorHandler",
+    "test": "N8G\\Grass\\BootstrapTest::testErrorHandler with data set #3 (8, 8, 'NOTICE', 'warn', 'Error handler test!', 'tests\/src\/BootstrapTests.php', 1, null)",
+    "status": "pass",
+    "time": 0.0088911056518555,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "N8G\\Grass\\BootstrapTest::testErrorHandler",
+    "test": "N8G\\Grass\\BootstrapTest::testErrorHandler with data set #4 (16, 16, 'CORE ERROR', 'fatal', 'Error handler test!', 'tests\/src\/BootstrapTests.php', 1, null)"
+}{
+    "event": "test",
+    "suite": "N8G\\Grass\\BootstrapTest::testErrorHandler",
+    "test": "N8G\\Grass\\BootstrapTest::testErrorHandler with data set #4 (16, 16, 'CORE ERROR', 'fatal', 'Error handler test!', 'tests\/src\/BootstrapTests.php', 1, null)",
+    "status": "pass",
+    "time": 0.0099949836730957,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "N8G\\Grass\\BootstrapTest::testErrorHandler",
+    "test": "N8G\\Grass\\BootstrapTest::testErrorHandler with data set #5 (32, 32, 'CORE WARNING', 'warn', 'Error handler test!', 'tests\/src\/BootstrapTests.php', 1, null)"
+}{
+    "event": "test",
+    "suite": "N8G\\Grass\\BootstrapTest::testErrorHandler",
+    "test": "N8G\\Grass\\BootstrapTest::testErrorHandler with data set #5 (32, 32, 'CORE WARNING', 'warn', 'Error handler test!', 'tests\/src\/BootstrapTests.php', 1, null)",
+    "status": "pass",
+    "time": 0.009052038192749,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "N8G\\Grass\\BootstrapTest::testErrorHandler",
+    "test": "N8G\\Grass\\BootstrapTest::testErrorHandler with data set #6 (64, 64, 'COMPILE ERROR', 'fatal', 'Error handler test!', 'tests\/src\/BootstrapTests.php', 1, null)"
+}{
+    "event": "test",
+    "suite": "N8G\\Grass\\BootstrapTest::testErrorHandler",
+    "test": "N8G\\Grass\\BootstrapTest::testErrorHandler with data set #6 (64, 64, 'COMPILE ERROR', 'fatal', 'Error handler test!', 'tests\/src\/BootstrapTests.php', 1, null)",
+    "status": "pass",
+    "time": 0.0077278614044189,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "N8G\\Grass\\BootstrapTest::testErrorHandler",
+    "test": "N8G\\Grass\\BootstrapTest::testErrorHandler with data set #7 (128, 128, 'COMPILE WARNING', 'warn', 'Error handler test!', 'tests\/src\/BootstrapTests.php', 1, null)"
+}{
+    "event": "test",
+    "suite": "N8G\\Grass\\BootstrapTest::testErrorHandler",
+    "test": "N8G\\Grass\\BootstrapTest::testErrorHandler with data set #7 (128, 128, 'COMPILE WARNING', 'warn', 'Error handler test!', 'tests\/src\/BootstrapTests.php', 1, null)",
+    "status": "pass",
+    "time": 0.0082671642303467,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "N8G\\Grass\\BootstrapTest::testErrorHandler",
+    "test": "N8G\\Grass\\BootstrapTest::testErrorHandler with data set #8 (256, 256, 'USER ERROR', 'error', 'Error handler test!', 'tests\/src\/BootstrapTests.php', 1, null)"
+}{
+    "event": "test",
+    "suite": "N8G\\Grass\\BootstrapTest::testErrorHandler",
+    "test": "N8G\\Grass\\BootstrapTest::testErrorHandler with data set #8 (256, 256, 'USER ERROR', 'error', 'Error handler test!', 'tests\/src\/BootstrapTests.php', 1, null)",
+    "status": "pass",
+    "time": 0.0091679096221924,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "N8G\\Grass\\BootstrapTest::testErrorHandler",
+    "test": "N8G\\Grass\\BootstrapTest::testErrorHandler with data set #9 (512, 512, 'USER WARNING', 'warn', 'Error handler test!', 'tests\/src\/BootstrapTests.php', 1, null)"
+}{
+    "event": "test",
+    "suite": "N8G\\Grass\\BootstrapTest::testErrorHandler",
+    "test": "N8G\\Grass\\BootstrapTest::testErrorHandler with data set #9 (512, 512, 'USER WARNING', 'warn', 'Error handler test!', 'tests\/src\/BootstrapTests.php', 1, null)",
+    "status": "pass",
+    "time": 0.0099389553070068,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "N8G\\Grass\\BootstrapTest::testErrorHandler",
+    "test": "N8G\\Grass\\BootstrapTest::testErrorHandler with data set #10 (1024, 1024, 'USER NOTICE', 'warn', 'Error handler test!', 'tests\/src\/BootstrapTests.php', 1, null)"
+}{
+    "event": "test",
+    "suite": "N8G\\Grass\\BootstrapTest::testErrorHandler",
+    "test": "N8G\\Grass\\BootstrapTest::testErrorHandler with data set #10 (1024, 1024, 'USER NOTICE', 'warn', 'Error handler test!', 'tests\/src\/BootstrapTests.php', 1, null)",
+    "status": "pass",
+    "time": 0.0077800750732422,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "N8G\\Grass\\BootstrapTest::testErrorHandler",
+    "test": "N8G\\Grass\\BootstrapTest::testErrorHandler with data set #11 (2048, 2048, 'STRICT', 'warn', 'Error handler test!', 'tests\/src\/BootstrapTests.php', 1, null)"
+}{
+    "event": "test",
+    "suite": "N8G\\Grass\\BootstrapTest::testErrorHandler",
+    "test": "N8G\\Grass\\BootstrapTest::testErrorHandler with data set #11 (2048, 2048, 'STRICT', 'warn', 'Error handler test!', 'tests\/src\/BootstrapTests.php', 1, null)",
+    "status": "pass",
+    "time": 0.0076439380645752,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "N8G\\Grass\\BootstrapTest::testErrorHandler",
+    "test": "N8G\\Grass\\BootstrapTest::testErrorHandler with data set #12 (4096, 4096, 'RECOVERABLE', 'error', 'Error handler test!', 'tests\/src\/BootstrapTests.php', 1, null)"
+}{
+    "event": "test",
+    "suite": "N8G\\Grass\\BootstrapTest::testErrorHandler",
+    "test": "N8G\\Grass\\BootstrapTest::testErrorHandler with data set #12 (4096, 4096, 'RECOVERABLE', 'error', 'Error handler test!', 'tests\/src\/BootstrapTests.php', 1, null)",
+    "status": "pass",
+    "time": 0.0093028545379639,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "N8G\\Grass\\BootstrapTest::testErrorHandler",
+    "test": "N8G\\Grass\\BootstrapTest::testErrorHandler with data set #13 (8192, 8192, 'DEPRECATED', 'error', 'Error handler test!', 'tests\/src\/BootstrapTests.php', 1, null)"
+}{
+    "event": "test",
+    "suite": "N8G\\Grass\\BootstrapTest::testErrorHandler",
+    "test": "N8G\\Grass\\BootstrapTest::testErrorHandler with data set #13 (8192, 8192, 'DEPRECATED', 'error', 'Error handler test!', 'tests\/src\/BootstrapTests.php', 1, null)",
+    "status": "pass",
+    "time": 0.0087330341339111,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "N8G\\Grass\\BootstrapTest::testErrorHandler",
+    "test": "N8G\\Grass\\BootstrapTest::testErrorHandler with data set #14 (16384, 16384, 'USER DEPRECATED', 'error', 'Error handler test!', 'tests\/src\/BootstrapTests.php', 1, null)"
+}{
+    "event": "test",
+    "suite": "N8G\\Grass\\BootstrapTest::testErrorHandler",
+    "test": "N8G\\Grass\\BootstrapTest::testErrorHandler with data set #14 (16384, 16384, 'USER DEPRECATED', 'error', 'Error handler test!', 'tests\/src\/BootstrapTests.php', 1, null)",
+    "status": "pass",
+    "time": 0.008051872253418,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "N8G\\Grass\\BootstrapTest::testErrorHandler",
+    "test": "N8G\\Grass\\BootstrapTest::testErrorHandler with data set #15 (0, 'default', 'UNKNOWN (0)', 'error', 'Error handler test!', 'tests\/src\/BootstrapTests.php', 1, null)"
+}{
+    "event": "test",
+    "suite": "N8G\\Grass\\BootstrapTest::testErrorHandler",
+    "test": "N8G\\Grass\\BootstrapTest::testErrorHandler with data set #15 (0, 'default', 'UNKNOWN (0)', 'error', 'Error handler test!', 'tests\/src\/BootstrapTests.php', 1, null)",
+    "status": "pass",
+    "time": 0.007904052734375,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "suiteStart",
+    "suite": "N8G\\Grass\\BootstrapTest::testGetMethod",
+    "tests": 16
+}{
+    "event": "testStart",
+    "suite": "N8G\\Grass\\BootstrapTest::testGetMethod",
+    "test": "N8G\\Grass\\BootstrapTest::testGetMethod with data set #0 (1, 1, 'ERROR', 'error', 'Error handler test!', 'tests\/src\/BootstrapTests.php', 1, null)"
+}{
+    "event": "test",
+    "suite": "N8G\\Grass\\BootstrapTest::testGetMethod",
+    "test": "N8G\\Grass\\BootstrapTest::testGetMethod with data set #0 (1, 1, 'ERROR', 'error', 'Error handler test!', 'tests\/src\/BootstrapTests.php', 1, null)",
+    "status": "pass",
+    "time": 0.012608051300049,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "N8G\\Grass\\BootstrapTest::testGetMethod",
+    "test": "N8G\\Grass\\BootstrapTest::testGetMethod with data set #1 (2, 2, 'WARNING', 'warn', 'Error handler test!', 'tests\/src\/BootstrapTests.php', 1, null)"
+}{
+    "event": "test",
+    "suite": "N8G\\Grass\\BootstrapTest::testGetMethod",
+    "test": "N8G\\Grass\\BootstrapTest::testGetMethod with data set #1 (2, 2, 'WARNING', 'warn', 'Error handler test!', 'tests\/src\/BootstrapTests.php', 1, null)",
+    "status": "pass",
+    "time": 0.012151956558228,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "N8G\\Grass\\BootstrapTest::testGetMethod",
+    "test": "N8G\\Grass\\BootstrapTest::testGetMethod with data set #2 (4, 4, 'PARSE', 'fatal', 'Error handler test!', 'tests\/src\/BootstrapTests.php', 1, null)"
+}{
+    "event": "test",
+    "suite": "N8G\\Grass\\BootstrapTest::testGetMethod",
+    "test": "N8G\\Grass\\BootstrapTest::testGetMethod with data set #2 (4, 4, 'PARSE', 'fatal', 'Error handler test!', 'tests\/src\/BootstrapTests.php', 1, null)",
+    "status": "pass",
+    "time": 0.011313915252686,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "N8G\\Grass\\BootstrapTest::testGetMethod",
+    "test": "N8G\\Grass\\BootstrapTest::testGetMethod with data set #3 (8, 8, 'NOTICE', 'warn', 'Error handler test!', 'tests\/src\/BootstrapTests.php', 1, null)"
+}{
+    "event": "test",
+    "suite": "N8G\\Grass\\BootstrapTest::testGetMethod",
+    "test": "N8G\\Grass\\BootstrapTest::testGetMethod with data set #3 (8, 8, 'NOTICE', 'warn', 'Error handler test!', 'tests\/src\/BootstrapTests.php', 1, null)",
+    "status": "pass",
+    "time": 0.012603044509888,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "N8G\\Grass\\BootstrapTest::testGetMethod",
+    "test": "N8G\\Grass\\BootstrapTest::testGetMethod with data set #4 (16, 16, 'CORE ERROR', 'fatal', 'Error handler test!', 'tests\/src\/BootstrapTests.php', 1, null)"
+}{
+    "event": "test",
+    "suite": "N8G\\Grass\\BootstrapTest::testGetMethod",
+    "test": "N8G\\Grass\\BootstrapTest::testGetMethod with data set #4 (16, 16, 'CORE ERROR', 'fatal', 'Error handler test!', 'tests\/src\/BootstrapTests.php', 1, null)",
+    "status": "pass",
+    "time": 0.010893821716309,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "N8G\\Grass\\BootstrapTest::testGetMethod",
+    "test": "N8G\\Grass\\BootstrapTest::testGetMethod with data set #5 (32, 32, 'CORE WARNING', 'warn', 'Error handler test!', 'tests\/src\/BootstrapTests.php', 1, null)"
+}{
+    "event": "test",
+    "suite": "N8G\\Grass\\BootstrapTest::testGetMethod",
+    "test": "N8G\\Grass\\BootstrapTest::testGetMethod with data set #5 (32, 32, 'CORE WARNING', 'warn', 'Error handler test!', 'tests\/src\/BootstrapTests.php', 1, null)",
+    "status": "pass",
+    "time": 0.01195216178894,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "N8G\\Grass\\BootstrapTest::testGetMethod",
+    "test": "N8G\\Grass\\BootstrapTest::testGetMethod with data set #6 (64, 64, 'COMPILE ERROR', 'fatal', 'Error handler test!', 'tests\/src\/BootstrapTests.php', 1, null)"
+}{
+    "event": "test",
+    "suite": "N8G\\Grass\\BootstrapTest::testGetMethod",
+    "test": "N8G\\Grass\\BootstrapTest::testGetMethod with data set #6 (64, 64, 'COMPILE ERROR', 'fatal', 'Error handler test!', 'tests\/src\/BootstrapTests.php', 1, null)",
+    "status": "pass",
+    "time": 0.010487794876099,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "N8G\\Grass\\BootstrapTest::testGetMethod",
+    "test": "N8G\\Grass\\BootstrapTest::testGetMethod with data set #7 (128, 128, 'COMPILE WARNING', 'warn', 'Error handler test!', 'tests\/src\/BootstrapTests.php', 1, null)"
+}{
+    "event": "test",
+    "suite": "N8G\\Grass\\BootstrapTest::testGetMethod",
+    "test": "N8G\\Grass\\BootstrapTest::testGetMethod with data set #7 (128, 128, 'COMPILE WARNING', 'warn', 'Error handler test!', 'tests\/src\/BootstrapTests.php', 1, null)",
+    "status": "pass",
+    "time": 0.014642953872681,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "N8G\\Grass\\BootstrapTest::testGetMethod",
+    "test": "N8G\\Grass\\BootstrapTest::testGetMethod with data set #8 (256, 256, 'USER ERROR', 'error', 'Error handler test!', 'tests\/src\/BootstrapTests.php', 1, null)"
+}{
+    "event": "test",
+    "suite": "N8G\\Grass\\BootstrapTest::testGetMethod",
+    "test": "N8G\\Grass\\BootstrapTest::testGetMethod with data set #8 (256, 256, 'USER ERROR', 'error', 'Error handler test!', 'tests\/src\/BootstrapTests.php', 1, null)",
+    "status": "pass",
+    "time": 0.017125844955444,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "N8G\\Grass\\BootstrapTest::testGetMethod",
+    "test": "N8G\\Grass\\BootstrapTest::testGetMethod with data set #9 (512, 512, 'USER WARNING', 'warn', 'Error handler test!', 'tests\/src\/BootstrapTests.php', 1, null)"
+}{
+    "event": "test",
+    "suite": "N8G\\Grass\\BootstrapTest::testGetMethod",
+    "test": "N8G\\Grass\\BootstrapTest::testGetMethod with data set #9 (512, 512, 'USER WARNING', 'warn', 'Error handler test!', 'tests\/src\/BootstrapTests.php', 1, null)",
+    "status": "pass",
+    "time": 0.0138258934021,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "N8G\\Grass\\BootstrapTest::testGetMethod",
+    "test": "N8G\\Grass\\BootstrapTest::testGetMethod with data set #10 (1024, 1024, 'USER NOTICE', 'warn', 'Error handler test!', 'tests\/src\/BootstrapTests.php', 1, null)"
+}{
+    "event": "test",
+    "suite": "N8G\\Grass\\BootstrapTest::testGetMethod",
+    "test": "N8G\\Grass\\BootstrapTest::testGetMethod with data set #10 (1024, 1024, 'USER NOTICE', 'warn', 'Error handler test!', 'tests\/src\/BootstrapTests.php', 1, null)",
+    "status": "pass",
+    "time": 0.012588024139404,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "N8G\\Grass\\BootstrapTest::testGetMethod",
+    "test": "N8G\\Grass\\BootstrapTest::testGetMethod with data set #11 (2048, 2048, 'STRICT', 'warn', 'Error handler test!', 'tests\/src\/BootstrapTests.php', 1, null)"
+}{
+    "event": "test",
+    "suite": "N8G\\Grass\\BootstrapTest::testGetMethod",
+    "test": "N8G\\Grass\\BootstrapTest::testGetMethod with data set #11 (2048, 2048, 'STRICT', 'warn', 'Error handler test!', 'tests\/src\/BootstrapTests.php', 1, null)",
+    "status": "pass",
+    "time": 0.012506008148193,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "N8G\\Grass\\BootstrapTest::testGetMethod",
+    "test": "N8G\\Grass\\BootstrapTest::testGetMethod with data set #12 (4096, 4096, 'RECOVERABLE', 'error', 'Error handler test!', 'tests\/src\/BootstrapTests.php', 1, null)"
+}{
+    "event": "test",
+    "suite": "N8G\\Grass\\BootstrapTest::testGetMethod",
+    "test": "N8G\\Grass\\BootstrapTest::testGetMethod with data set #12 (4096, 4096, 'RECOVERABLE', 'error', 'Error handler test!', 'tests\/src\/BootstrapTests.php', 1, null)",
+    "status": "pass",
+    "time": 0.012219905853271,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "N8G\\Grass\\BootstrapTest::testGetMethod",
+    "test": "N8G\\Grass\\BootstrapTest::testGetMethod with data set #13 (8192, 8192, 'DEPRECATED', 'error', 'Error handler test!', 'tests\/src\/BootstrapTests.php', 1, null)"
+}{
+    "event": "test",
+    "suite": "N8G\\Grass\\BootstrapTest::testGetMethod",
+    "test": "N8G\\Grass\\BootstrapTest::testGetMethod with data set #13 (8192, 8192, 'DEPRECATED', 'error', 'Error handler test!', 'tests\/src\/BootstrapTests.php', 1, null)",
+    "status": "pass",
+    "time": 0.012166023254395,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "N8G\\Grass\\BootstrapTest::testGetMethod",
+    "test": "N8G\\Grass\\BootstrapTest::testGetMethod with data set #14 (16384, 16384, 'USER DEPRECATED', 'error', 'Error handler test!', 'tests\/src\/BootstrapTests.php', 1, null)"
+}{
+    "event": "test",
+    "suite": "N8G\\Grass\\BootstrapTest::testGetMethod",
+    "test": "N8G\\Grass\\BootstrapTest::testGetMethod with data set #14 (16384, 16384, 'USER DEPRECATED', 'error', 'Error handler test!', 'tests\/src\/BootstrapTests.php', 1, null)",
+    "status": "pass",
+    "time": 0.012423038482666,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "N8G\\Grass\\BootstrapTest::testGetMethod",
+    "test": "N8G\\Grass\\BootstrapTest::testGetMethod with data set #15 (0, 'default', 'UNKNOWN (0)', 'error', 'Error handler test!', 'tests\/src\/BootstrapTests.php', 1, null)"
+}{
+    "event": "test",
+    "suite": "N8G\\Grass\\BootstrapTest::testGetMethod",
+    "test": "N8G\\Grass\\BootstrapTest::testGetMethod with data set #15 (0, 'default', 'UNKNOWN (0)', 'error', 'Error handler test!', 'tests\/src\/BootstrapTests.php', 1, null)",
+    "status": "pass",
+    "time": 0.011507034301758,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "suiteStart",
+    "suite": "N8G\\Grass\\BootstrapTest::testGetType",
+    "tests": 16
+}{
+    "event": "testStart",
+    "suite": "N8G\\Grass\\BootstrapTest::testGetType",
+    "test": "N8G\\Grass\\BootstrapTest::testGetType with data set #0 (1, 1, 'ERROR', 'error', 'Error handler test!', 'tests\/src\/BootstrapTests.php', 1, null)"
+}{
+    "event": "test",
+    "suite": "N8G\\Grass\\BootstrapTest::testGetType",
+    "test": "N8G\\Grass\\BootstrapTest::testGetType with data set #0 (1, 1, 'ERROR', 'error', 'Error handler test!', 'tests\/src\/BootstrapTests.php', 1, null)",
+    "status": "pass",
+    "time": 0.014818906784058,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "N8G\\Grass\\BootstrapTest::testGetType",
+    "test": "N8G\\Grass\\BootstrapTest::testGetType with data set #1 (2, 2, 'WARNING', 'warn', 'Error handler test!', 'tests\/src\/BootstrapTests.php', 1, null)"
+}{
+    "event": "test",
+    "suite": "N8G\\Grass\\BootstrapTest::testGetType",
+    "test": "N8G\\Grass\\BootstrapTest::testGetType with data set #1 (2, 2, 'WARNING', 'warn', 'Error handler test!', 'tests\/src\/BootstrapTests.php', 1, null)",
+    "status": "pass",
+    "time": 0.016758918762207,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "N8G\\Grass\\BootstrapTest::testGetType",
+    "test": "N8G\\Grass\\BootstrapTest::testGetType with data set #2 (4, 4, 'PARSE', 'fatal', 'Error handler test!', 'tests\/src\/BootstrapTests.php', 1, null)"
+}{
+    "event": "test",
+    "suite": "N8G\\Grass\\BootstrapTest::testGetType",
+    "test": "N8G\\Grass\\BootstrapTest::testGetType with data set #2 (4, 4, 'PARSE', 'fatal', 'Error handler test!', 'tests\/src\/BootstrapTests.php', 1, null)",
+    "status": "pass",
+    "time": 0.014848947525024,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "N8G\\Grass\\BootstrapTest::testGetType",
+    "test": "N8G\\Grass\\BootstrapTest::testGetType with data set #3 (8, 8, 'NOTICE', 'warn', 'Error handler test!', 'tests\/src\/BootstrapTests.php', 1, null)"
+}{
+    "event": "test",
+    "suite": "N8G\\Grass\\BootstrapTest::testGetType",
+    "test": "N8G\\Grass\\BootstrapTest::testGetType with data set #3 (8, 8, 'NOTICE', 'warn', 'Error handler test!', 'tests\/src\/BootstrapTests.php', 1, null)",
+    "status": "pass",
+    "time": 0.015227079391479,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "N8G\\Grass\\BootstrapTest::testGetType",
+    "test": "N8G\\Grass\\BootstrapTest::testGetType with data set #4 (16, 16, 'CORE ERROR', 'fatal', 'Error handler test!', 'tests\/src\/BootstrapTests.php', 1, null)"
+}{
+    "event": "test",
+    "suite": "N8G\\Grass\\BootstrapTest::testGetType",
+    "test": "N8G\\Grass\\BootstrapTest::testGetType with data set #4 (16, 16, 'CORE ERROR', 'fatal', 'Error handler test!', 'tests\/src\/BootstrapTests.php', 1, null)",
+    "status": "pass",
+    "time": 0.014504194259644,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "N8G\\Grass\\BootstrapTest::testGetType",
+    "test": "N8G\\Grass\\BootstrapTest::testGetType with data set #5 (32, 32, 'CORE WARNING', 'warn', 'Error handler test!', 'tests\/src\/BootstrapTests.php', 1, null)"
+}{
+    "event": "test",
+    "suite": "N8G\\Grass\\BootstrapTest::testGetType",
+    "test": "N8G\\Grass\\BootstrapTest::testGetType with data set #5 (32, 32, 'CORE WARNING', 'warn', 'Error handler test!', 'tests\/src\/BootstrapTests.php', 1, null)",
+    "status": "pass",
+    "time": 0.015151977539062,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "N8G\\Grass\\BootstrapTest::testGetType",
+    "test": "N8G\\Grass\\BootstrapTest::testGetType with data set #6 (64, 64, 'COMPILE ERROR', 'fatal', 'Error handler test!', 'tests\/src\/BootstrapTests.php', 1, null)"
+}{
+    "event": "test",
+    "suite": "N8G\\Grass\\BootstrapTest::testGetType",
+    "test": "N8G\\Grass\\BootstrapTest::testGetType with data set #6 (64, 64, 'COMPILE ERROR', 'fatal', 'Error handler test!', 'tests\/src\/BootstrapTests.php', 1, null)",
+    "status": "pass",
+    "time": 0.014736175537109,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "N8G\\Grass\\BootstrapTest::testGetType",
+    "test": "N8G\\Grass\\BootstrapTest::testGetType with data set #7 (128, 128, 'COMPILE WARNING', 'warn', 'Error handler test!', 'tests\/src\/BootstrapTests.php', 1, null)"
+}{
+    "event": "test",
+    "suite": "N8G\\Grass\\BootstrapTest::testGetType",
+    "test": "N8G\\Grass\\BootstrapTest::testGetType with data set #7 (128, 128, 'COMPILE WARNING', 'warn', 'Error handler test!', 'tests\/src\/BootstrapTests.php', 1, null)",
+    "status": "pass",
+    "time": 0.016392946243286,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "N8G\\Grass\\BootstrapTest::testGetType",
+    "test": "N8G\\Grass\\BootstrapTest::testGetType with data set #8 (256, 256, 'USER ERROR', 'error', 'Error handler test!', 'tests\/src\/BootstrapTests.php', 1, null)"
+}{
+    "event": "test",
+    "suite": "N8G\\Grass\\BootstrapTest::testGetType",
+    "test": "N8G\\Grass\\BootstrapTest::testGetType with data set #8 (256, 256, 'USER ERROR', 'error', 'Error handler test!', 'tests\/src\/BootstrapTests.php', 1, null)",
+    "status": "pass",
+    "time": 0.014034032821655,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "N8G\\Grass\\BootstrapTest::testGetType",
+    "test": "N8G\\Grass\\BootstrapTest::testGetType with data set #9 (512, 512, 'USER WARNING', 'warn', 'Error handler test!', 'tests\/src\/BootstrapTests.php', 1, null)"
+}{
+    "event": "test",
+    "suite": "N8G\\Grass\\BootstrapTest::testGetType",
+    "test": "N8G\\Grass\\BootstrapTest::testGetType with data set #9 (512, 512, 'USER WARNING', 'warn', 'Error handler test!', 'tests\/src\/BootstrapTests.php', 1, null)",
+    "status": "pass",
+    "time": 0.014437913894653,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "N8G\\Grass\\BootstrapTest::testGetType",
+    "test": "N8G\\Grass\\BootstrapTest::testGetType with data set #10 (1024, 1024, 'USER NOTICE', 'warn', 'Error handler test!', 'tests\/src\/BootstrapTests.php', 1, null)"
+}{
+    "event": "test",
+    "suite": "N8G\\Grass\\BootstrapTest::testGetType",
+    "test": "N8G\\Grass\\BootstrapTest::testGetType with data set #10 (1024, 1024, 'USER NOTICE', 'warn', 'Error handler test!', 'tests\/src\/BootstrapTests.php', 1, null)",
+    "status": "pass",
+    "time": 0.014471054077148,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "N8G\\Grass\\BootstrapTest::testGetType",
+    "test": "N8G\\Grass\\BootstrapTest::testGetType with data set #11 (2048, 2048, 'STRICT', 'warn', 'Error handler test!', 'tests\/src\/BootstrapTests.php', 1, null)"
+}{
+    "event": "test",
+    "suite": "N8G\\Grass\\BootstrapTest::testGetType",
+    "test": "N8G\\Grass\\BootstrapTest::testGetType with data set #11 (2048, 2048, 'STRICT', 'warn', 'Error handler test!', 'tests\/src\/BootstrapTests.php', 1, null)",
+    "status": "pass",
+    "time": 0.015223026275635,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "N8G\\Grass\\BootstrapTest::testGetType",
+    "test": "N8G\\Grass\\BootstrapTest::testGetType with data set #12 (4096, 4096, 'RECOVERABLE', 'error', 'Error handler test!', 'tests\/src\/BootstrapTests.php', 1, null)"
+}{
+    "event": "test",
+    "suite": "N8G\\Grass\\BootstrapTest::testGetType",
+    "test": "N8G\\Grass\\BootstrapTest::testGetType with data set #12 (4096, 4096, 'RECOVERABLE', 'error', 'Error handler test!', 'tests\/src\/BootstrapTests.php', 1, null)",
+    "status": "pass",
+    "time": 0.015661001205444,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "N8G\\Grass\\BootstrapTest::testGetType",
+    "test": "N8G\\Grass\\BootstrapTest::testGetType with data set #13 (8192, 8192, 'DEPRECATED', 'error', 'Error handler test!', 'tests\/src\/BootstrapTests.php', 1, null)"
+}{
+    "event": "test",
+    "suite": "N8G\\Grass\\BootstrapTest::testGetType",
+    "test": "N8G\\Grass\\BootstrapTest::testGetType with data set #13 (8192, 8192, 'DEPRECATED', 'error', 'Error handler test!', 'tests\/src\/BootstrapTests.php', 1, null)",
+    "status": "pass",
+    "time": 0.020076990127563,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "N8G\\Grass\\BootstrapTest::testGetType",
+    "test": "N8G\\Grass\\BootstrapTest::testGetType with data set #14 (16384, 16384, 'USER DEPRECATED', 'error', 'Error handler test!', 'tests\/src\/BootstrapTests.php', 1, null)"
+}{
+    "event": "test",
+    "suite": "N8G\\Grass\\BootstrapTest::testGetType",
+    "test": "N8G\\Grass\\BootstrapTest::testGetType with data set #14 (16384, 16384, 'USER DEPRECATED', 'error', 'Error handler test!', 'tests\/src\/BootstrapTests.php', 1, null)",
+    "status": "pass",
+    "time": 0.023490190505981,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "N8G\\Grass\\BootstrapTest::testGetType",
+    "test": "N8G\\Grass\\BootstrapTest::testGetType with data set #15 (0, 'default', 'UNKNOWN (0)', 'error', 'Error handler test!', 'tests\/src\/BootstrapTests.php', 1, null)"
+}{
+    "event": "test",
+    "suite": "N8G\\Grass\\BootstrapTest::testGetType",
+    "test": "N8G\\Grass\\BootstrapTest::testGetType with data set #15 (0, 'default', 'UNKNOWN (0)', 'error', 'Error handler test!', 'tests\/src\/BootstrapTests.php', 1, null)",
+    "status": "pass",
+    "time": 0.019434928894043,
     "trace": [],
     "message": "",
     "output": ""
