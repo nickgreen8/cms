@@ -41,24 +41,24 @@ class ParagraphTest extends \PHPUnit_Framework_TestCase
 	public function testInstantiation($content, $id, $elements, $attributes)
 	{
 		//No arguments
-		$p = new Paragraph();
-		$this->assertInstanceOf('N8G\Grass\Components\Html\Paragraph', $p);
+		$element = new Paragraph();
+		$this->assertInstanceOf('N8G\Grass\Components\Html\Paragraph', $element);
 
 		//Just content
-		$p = new Paragraph($content);
-		$this->assertInstanceOf('N8G\Grass\Components\Html\Paragraph', $p);
+		$element = new Paragraph($content);
+		$this->assertInstanceOf('N8G\Grass\Components\Html\Paragraph', $element);
 
 		//Content and ID
-		$p = new Paragraph($content, $id);
-		$this->assertInstanceOf('N8G\Grass\Components\Html\Paragraph', $p);
+		$element = new Paragraph($content, $id);
+		$this->assertInstanceOf('N8G\Grass\Components\Html\Paragraph', $element);
 
 		//Content, ID and elements
-		$p = new Paragraph($content, $id, $elements);
-		$this->assertInstanceOf('N8G\Grass\Components\Html\Paragraph', $p);
+		$element = new Paragraph($content, $id, $elements);
+		$this->assertInstanceOf('N8G\Grass\Components\Html\Paragraph', $element);
 
 		//Content, ID, Elements and attributes
-		$p = new Paragraph($content, $id, $elements, $attributes);
-		$this->assertInstanceOf('N8G\Grass\Components\Html\Paragraph', $p);
+		$element = new Paragraph($content, $id, $elements, $attributes);
+		$this->assertInstanceOf('N8G\Grass\Components\Html\Paragraph', $element);
 	}
 
 	/**
@@ -76,7 +76,7 @@ class ParagraphTest extends \PHPUnit_Framework_TestCase
 	 */
 	public function testInvalidInstantiation($content, $id, $elements, $attributes)
 	{
-		$p = new Paragraph($content, $id, $elements, $attributes);
+		$element = new Paragraph($content, $id, $elements, $attributes);
 	}
 
 	/**
@@ -88,10 +88,10 @@ class ParagraphTest extends \PHPUnit_Framework_TestCase
 	 */
 	public function testSetContent()
 	{
-		$p = new Paragraph();
+		$element = new Paragraph();
 
-		$p->setContent('This is a test');
-		$this->assertEquals('This is a test', $p->getContent());
+		$element->setContent('This is a test');
+		$this->assertEquals('This is a test', $element->getContent());
 	}
 
 	/**
@@ -103,37 +103,88 @@ class ParagraphTest extends \PHPUnit_Framework_TestCase
 	 */
 	public function testSetId()
 	{
-		$p = new Paragraph();
-		$p->setId('test');
+		$element = new Paragraph();
+		$element->setId('test');
 
-		$this->assertEquals('test', $p->getId());
+		$this->assertEquals('test', $element->getId());
 	}
 
 	/**
 	 * Checks that you can set the elements within the class.
 	 *
 	 * @test
+	 * @dataProvider elementProvider
+	 *
+	 * @param mixed $elements The element to be added to the component
+	 * @param array $expected The array that is expected to have been set
 	 *
 	 * @return void
 	 */
-	public function testSetElements()
+	public function testSetElements($elements, $expected)
 	{
-		throw new \Exception('No tests implemented.');
+		//Format the elements array
+		foreach ($elements as $key => $value) {
+			if (is_array($value) && $value[0] === 'object') {
+				$obj = sprintf('N8G\Grass\Components\Html\%s', $value[1]);
+				if (class_exists($obj)) {
+					if (isset($value[2])) {
+						$class = new $obj(...$value[2]);
+					} else {
+						$class = new $obj();
+					}
+				}
+
+				//Swap in the new value
+				$elements[$key] = $class;
+			}
+		}
+
+		$element = new Paragraph();
+		$element->setElements($elements);
+
+		$this->assertEquals($expected, $this->getPrivateProperty($element, 'elements'));
 	}
 
 	/**
 	 * Checks that you can get the elements within the class.
 	 *
 	 * @test
+	 * @dataProvider elementProvider
+	 *
+	 * @param mixed $elements The element to be added to the component
+	 * @param array $expected The array that is expected to have been set
 	 *
 	 * @return void
 	 */
-	public function testGetElements()
+	public function testGetElements($elements, $expected)
 	{
-		throw new \Exception('No tests implemented.');
+		//Format the elements array
+		foreach ($elements as $key => $value) {
+			if (is_array($value) && $value[0] === 'object') {
+				$obj = sprintf('N8G\Grass\Components\Html\%s', $value[1]);
+				if (class_exists($obj)) {
+					if (isset($value[2])) {
+						$class = new $obj(...$value[2]);
+					} else {
+						$class = new $obj();
+					}
+				}
+
+				//Swap in the new value
+				$elements[$key] = $class;
+			}
+		}
+
+		$element = new Paragraph();
+		$element->setElements($elements);
+
+		$this->assertEquals($expected, $element->getElements());
 	}
 
 	/**
+	 * This is the test for adding elements. Some of the elements will be added but some will be invalid and they will
+	 * not be added.
+	 *
 	 * @test
 	 * @dataProvider addElementProvider
 	 *
@@ -178,7 +229,9 @@ class ParagraphTest extends \PHPUnit_Framework_TestCase
 	 */
 	public function testSetAttributes()
 	{
-		throw new \Exception('No tests implemented.');
+		$element = new Paragraph();
+		$element->setAttributes(array('style', 'text-align: center;'));
+		$this->assertEquals(array('style', 'text-align: center;'), $this->getPrivateProperty($element, 'attributes'));
 	}
 
 	/**
@@ -190,7 +243,11 @@ class ParagraphTest extends \PHPUnit_Framework_TestCase
 	 */
 	public function testGetAttributes()
 	{
-		throw new \Exception('No tests implemented.');
+		$element = new Paragraph('This is a test.', 'test', array(), array('class', 'test'));
+		$this->assertEquals(array('class', 'test'), $element->getAttributes());
+
+		$element->setAttributes(array('style', 'text-align: center;'));
+		$this->assertEquals(array('style', 'text-align: center;'), $element->getAttributes());
 	}
 
 	/**
@@ -209,8 +266,8 @@ class ParagraphTest extends \PHPUnit_Framework_TestCase
 	public function testToString($content, $id, $elements, $attributes, $fixture)
 	{
 		//Default element
-		$p = new Paragraph($content, $id, $elements, $attributes);
-		$this->assertEquals($fixture, $p->toString());
+		$element = new Paragraph($content, $id, $elements, $attributes);
+		$this->assertEquals($fixture, $element->toString());
 	}
 
 	/**
@@ -228,8 +285,25 @@ class ParagraphTest extends \PHPUnit_Framework_TestCase
 	 */
 	public function testToHtml($content, $id, $elements, $attributes, $fixture)
 	{
-		$p = new Paragraph($content, $id, $elements, $attributes);
-		$this->assertEquals($fixture, $p->toHtml());
+		$element = new Paragraph($content, $id, $elements, $attributes);
+		$this->assertEquals($fixture, $element->toHtml());
+	}
+
+	public function testAddAttribute()
+	{
+		$element = new Paragraph();
+
+		//Add valid attribute
+		$element->addAttribute(array('class' => 'test'));
+		$this->assertEquals(array('class' => 'test'), $this->getPrivateProperty($element, 'attributes'));
+
+		//Add second valid attribute
+		$element->addAttribute(array('style' => 'text-align: center;'));
+		$this->assertEquals(array('class' => 'test', 'style' => 'text-align: center;'), $this->getPrivateProperty($element, 'attributes'));
+
+		//Add invalid attribute
+		$this->setExpectedException('N8G\Grass\Exceptions\Components\AttributeInvalidException');
+		$element->addAttribute(array('title'));
 	}
 
 	// Data providers
@@ -547,5 +621,61 @@ class ParagraphTest extends \PHPUnit_Framework_TestCase
 				'valid'   => false
 			)
 		);
+	}
+
+	/**
+	 * Data provider for the set/get element tests.
+	 *
+	 * @return array Data to run the tests with
+	 */
+	public function elementProvider() {
+		return array(
+			array(
+				'elements' => array('Test'),
+				'expected' => array('Test')
+			),
+			array(
+				'elements' => array(['object', 'Head']),
+				'expected' => array()
+			),
+			array(
+				'elements' => array('Test', ['object', 'Head']),
+				'expected' => array('Test')
+			)
+		);
+	}
+
+	// Private Helpers
+
+	/**
+	 * Call protected/private method of a class.
+	 *
+	 * @param  object &$object Instantiated object that we will run method on.
+	 * @param  string $method  Method name to call
+	 * @param  array  $params  Array of parameters to pass into method.
+	 * @return mixed           Method return.
+	 */
+	private function invokeMethod(&$object, $method, array $params = array())
+	{
+		$reflection = new \ReflectionClass(get_class($object));
+		$method = $reflection->getMethod($method);
+		$method->setAccessible(true);
+
+		return $method->invokeArgs($object, $params);
+	}
+
+	/**
+	 * Get a protected/private property of a class.
+	 *
+	 * @param  object &$object  Instantiated object that we will run method on.
+	 * @param  string $property The property to get
+	 * @return mixed            Property value
+	 */
+	private function getPrivateProperty(&$object, $property) {
+		$reflection = new \ReflectionClass(get_class($object));
+		$property = $reflection->getProperty($property);
+		$property->setAccessible(true);
+ 
+		return $property->getValue($object);
 	}
 }

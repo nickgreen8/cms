@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Dashboard for /Users/NickGreen/workspace/code/cms/code/src/Display/Pages</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="../../css/bootstrap.min.css" rel="stylesheet">
+  <link href="../../css/nv.d3.min.css" rel="stylesheet">
+  <link href="../../css/style.css" rel="stylesheet">
+  <!--[if lt IE 9]>
+  <script src="../../js/html5shiv.min.js"></script>
+  <script src="../../js/respond.min.js"></script>
+  <![endif]-->
+ </head>
+ <body>
+  <header>
+   <div class="container">
+    <div class="row">
+     <div class="col-md-12">
+      <ol class="breadcrumb">
+        <li><a href="../../index.html">/Users/NickGreen/workspace/code/cms/code/src</a></li>
+        <li><a href="../index.html">Display</a></li>
+        <li><a href="index.html">Pages</a></li>
+        <li class="active">(Dashboard)</li>
+
+      </ol>
+     </div>
+    </div>
+   </div>
+  </header>
+  <div class="container">
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Classes</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="classCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="classComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Post.php.html#19">Post</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Standard.php.html#15">Standard</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="PageAbstract.php.html#20">PageAbstract</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Page.php.html#15">Page</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Index.php.html#15">Index</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Blog.php.html#15">Blog</a></td><td class="text-right">0%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="PageAbstract.php.html#20">PageAbstract</a></td><td class="text-right">420</td></tr>
+       <tr><td><a href="Post.php.html#19">Post</a></td><td class="text-right">380</td></tr>
+       <tr><td><a href="Blog.php.html#15">Blog</a></td><td class="text-right">132</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Methods</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="methodCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="methodComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Post.php.html#27"><abbr title="Post::__construct">__construct</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Post.php.html#48"><abbr title="Post::build">build</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="PageAbstract.php.html#270"><abbr title="PageAbstract::getPageData">getPageData</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="PageAbstract.php.html#258"><abbr title="PageAbstract::calcPageLink">calcPageLink</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="PageAbstract.php.html#230"><abbr title="PageAbstract::getPageComponents">getPageComponents</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Post.php.html#84"><abbr title="Post::getMonthFilter">getMonthFilter</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Post.php.html#94"><abbr title="Post::getComments">getComments</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Post.php.html#202"><abbr title="Post::getSelectedOption">getSelectedOption</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Standard.php.html#22"><abbr title="Standard::__construct">__construct</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Post.php.html#160"><abbr title="Post::formatStars">formatStars</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Post.php.html#136"><abbr title="Post::formatRating">formatRating</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Post.php.html#114"><abbr title="Post::getPostData">getPostData</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="PageAbstract.php.html#191"><abbr title="PageAbstract::buildTitle">buildTitle</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="PageAbstract.php.html#164"><abbr title="PageAbstract::build">build</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Blog.php.html#119"><abbr title="Blog::createPreview">createPreview</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Index.php.html#23"><abbr title="Index::__construct">__construct</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Blog.php.html#107"><abbr title="Blog::getMonthFilter">getMonthFilter</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Blog.php.html#66"><abbr title="Blog::getPosts">getPosts</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Blog.php.html#50"><abbr title="Blog::build">build</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Page.php.html#23"><abbr title="Page::__construct">__construct</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="PageAbstract.php.html#55"><abbr title="PageAbstract::__construct">__construct</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="PageAbstract.php.html#117"><abbr title="PageAbstract::parseContent">parseContent</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="PageAbstract.php.html#139"><abbr title="PageAbstract::addPageComponent">addPageComponent</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="PageAbstract.php.html#101"><abbr title="PageAbstract::getArgs">getArgs</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="PageAbstract.php.html#90"><abbr title="PageAbstract::getData">getData</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="PageAbstract.php.html#77"><abbr title="PageAbstract::getTemplateName">getTemplateName</a></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Blog.php.html#29"><abbr title="Blog::__construct">__construct</a></a></td><td class="text-right">0%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Post.php.html#160"><abbr title="Post::formatStars">formatStars</abbr></a></td><td class="text-right">56</td></tr>
+       <tr><td><a href="PageAbstract.php.html#191"><abbr title="PageAbstract::buildTitle">buildTitle</abbr></a></td><td class="text-right">42</td></tr>
+       <tr><td><a href="PageAbstract.php.html#139"><abbr title="PageAbstract::addPageComponent">addPageComponent</abbr></a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="Blog.php.html#119"><abbr title="Blog::createPreview">createPreview</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Blog.php.html#66"><abbr title="Blog::getPosts">getPosts</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Post.php.html#202"><abbr title="Post::getSelectedOption">getSelectedOption</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Post.php.html#94"><abbr title="Post::getComments">getComments</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Post.php.html#114"><abbr title="Post::getPostData">getPostData</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Post.php.html#136"><abbr title="Post::formatRating">formatRating</abbr></a></td><td class="text-right">6</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <footer>
+    <hr/>
+    <p>
+     <small>Generated by <a href="http://github.com/sebastianbergmann/php-code-coverage" target="_top">PHP_CodeCoverage 3.0-gdf88fdf</a> using <a href="http://php.net/" target="_top">PHP 5.6.6</a> and <a href="http://phpunit.de/">PHPUnit 4.4.5-9-g5fbd35c</a> at Sat Jan 9 21:52:01 GMT 2016.</small>
+    </p>
+   </footer>
+  </div>
+  <script src="../../js/jquery.min.js" type="text/javascript"></script>
+  <script src="../../js/bootstrap.min.js" type="text/javascript"></script>
+  <script src="../../js/holder.min.js" type="text/javascript"></script>
+  <script src="../../js/d3.min.js" type="text/javascript"></script>
+  <script src="../../js/nv.d3.min.js" type="text/javascript"></script>
+  <script type="text/javascript">
+$(document).ready(function() {
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#classCoverageDistribution svg')
+      .datum(getCoverageDistributionData([6,0,0,0,0,0,0,0,0,0,0,0], "Class Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#methodCoverageDistribution svg')
+      .datum(getCoverageDistributionData([27,0,0,0,0,0,0,0,0,0,0,0], "Method Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getCoverageDistributionData(data, label) {
+    var labels = [
+      '0%',
+      '0-10%',
+      '10-20%',
+      '20-30%',
+      '30-40%',
+      '40-50%',
+      '50-60%',
+      '60-70%',
+      '70-80%',
+      '80-90%',
+      '90-100%',
+      '100%'
+    ];
+    var values = [];
+    $.each(labels, function(key) {
+      values.push({x: labels[key], y: data[key]});
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.scatter.onlyCircles(false);
+    chart.tooltipContent(function(key, y, e, graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Cyclomatic Complexity');
+
+    d3.select('#classComplexity svg')
+      .datum(getComplexityData([[0,11,"<a href=\"Blog.php.html#15\">Blog<\/a>"],[0,1,"<a href=\"Index.php.html#15\">Index<\/a>"],[0,1,"<a href=\"Page.php.html#15\">Page<\/a>"],[0,20,"<a href=\"PageAbstract.php.html#20\">PageAbstract<\/a>"],[0,19,"<a href=\"Post.php.html#19\">Post<\/a>"],[0,1,"<a href=\"Standard.php.html#15\">Standard<\/a>"]], 'Class Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.scatter.onlyCircles(false);
+    chart.tooltipContent(function(key, y, e, graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Method Complexity');
+
+    d3.select('#methodComplexity svg')
+      .datum(getComplexityData([[0,1,"<a href=\"Blog.php.html#29\">Blog::__construct<\/a>"],[0,1,"<a href=\"Blog.php.html#50\">Blog::build<\/a>"],[0,4,"<a href=\"Blog.php.html#66\">Blog::getPosts<\/a>"],[0,1,"<a href=\"Blog.php.html#107\">Blog::getMonthFilter<\/a>"],[0,4,"<a href=\"Blog.php.html#119\">Blog::createPreview<\/a>"],[0,1,"<a href=\"Index.php.html#23\">Index::__construct<\/a>"],[0,1,"<a href=\"Page.php.html#23\">Page::__construct<\/a>"],[0,1,"<a href=\"PageAbstract.php.html#55\">PageAbstract::__construct<\/a>"],[0,1,"<a href=\"PageAbstract.php.html#77\">PageAbstract::getTemplateName<\/a>"],[0,1,"<a href=\"PageAbstract.php.html#90\">PageAbstract::getData<\/a>"],[0,1,"<a href=\"PageAbstract.php.html#101\">PageAbstract::getArgs<\/a>"],[0,1,"<a href=\"PageAbstract.php.html#117\">PageAbstract::parseContent<\/a>"],[0,5,"<a href=\"PageAbstract.php.html#139\">PageAbstract::addPageComponent<\/a>"],[0,1,"<a href=\"PageAbstract.php.html#164\">PageAbstract::build<\/a>"],[0,6,"<a href=\"PageAbstract.php.html#191\">PageAbstract::buildTitle<\/a>"],[0,1,"<a href=\"PageAbstract.php.html#230\">PageAbstract::getPageComponents<\/a>"],[0,1,"<a href=\"PageAbstract.php.html#258\">PageAbstract::calcPageLink<\/a>"],[0,1,"<a href=\"PageAbstract.php.html#270\">PageAbstract::getPageData<\/a>"],[0,1,"<a href=\"Post.php.html#27\">Post::__construct<\/a>"],[0,1,"<a href=\"Post.php.html#48\">Post::build<\/a>"],[0,1,"<a href=\"Post.php.html#84\">Post::getMonthFilter<\/a>"],[0,2,"<a href=\"Post.php.html#94\">Post::getComments<\/a>"],[0,2,"<a href=\"Post.php.html#114\">Post::getPostData<\/a>"],[0,2,"<a href=\"Post.php.html#136\">Post::formatRating<\/a>"],[0,7,"<a href=\"Post.php.html#160\">Post::formatStars<\/a>"],[0,3,"<a href=\"Post.php.html#202\">Post::getSelectedOption<\/a>"],[0,1,"<a href=\"Standard.php.html#22\">Standard::__construct<\/a>"]], 'Method Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getComplexityData(data, label) {
+    var values = [];
+    $.each(data, function(key) {
+      var value = Math.round(data[key][0]*100) / 100;
+      values.push({
+        x: value,
+        y: data[key][1],
+        class: data[key][2],
+        size: 0.05,
+        shape: 'diamond'
+      });
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+});
+  </script>
+ </body>
+</html>

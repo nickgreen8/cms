@@ -109,8 +109,6 @@ abstract class HtmlAbstract implements Component
 			'Title',
 			'UnorderedList'
 		);
-
-		$this->checkForElements();
 	}
 
 	/**
@@ -263,17 +261,6 @@ abstract class HtmlAbstract implements Component
 		} catch (ComponentMissingRequiredAttributesException $e) {
 			return false;
 		}
-	}
-
-	/**
-	 * This function uses the content set in the class to check for embedded elements.
-	 * Nothing is returned and nothing is passed to the function.
-	 *
-	 * @return void
-	 */
-	public function checkForElements()
-	{
-		Log::info('Checking content for embeded elements');
 	}
 
 	/**
@@ -431,14 +418,12 @@ abstract class HtmlAbstract implements Component
 	{
 		Log::info(sprintf('Adding attribute: %s = %s', key($attribute), implode(', ', $attribute)));
 
-		try {
-			//Check for a key as well as a value
-			if (is_numeric(key($attribute))) {
-				throw new AttributeInvalidException(sprintf('Attribute has no key%s', isset($attribute) ? ' (' . implode(', ', $attribute) . ')' : ''));
-			}
+		//Check for a key as well as a value
+		if (is_numeric(key($attribute))) {
+			throw new AttributeInvalidException(sprintf('Attribute has no key%s', isset($attribute) ? ' (' . implode(', ', $attribute) . ')' : ''));
+		}
 
-			$this->attributes = array_merge($this->attributes, $attribute);
-		} catch (AttributeInvalidException $e) {}
+		$this->attributes = array_merge($this->attributes, $attribute);
 
 		return $this->attributes;
 	}
