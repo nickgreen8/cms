@@ -1,86 +1,561 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-  <testsuite name="Tests\Unit\Components\Html\ButtonTest" file="/Users/NickGreen/workspace/code/cms/code/tests/src/Components/Html/ButtonTest.php" tests="67" assertions="76" failures="0" errors="0" time="1.131153">
-    <testsuite name="Tests\Unit\Components\Html\ButtonTest::testInstantiation" tests="1" assertions="5" failures="0" errors="0" time="0.034902">
-      <testcase name="testInstantiation with data set #0" assertions="5" time="0.034902"/>
+  <testsuite name="" tests="448" assertions="548" failures="0" errors="0" time="7.119466">
+    <testsuite name="components" tests="397" assertions="500" failures="0" errors="0" time="6.500963">
+      <testsuite name="Tests\Unit\Components\Html\AnchorTest" file="/Users/NickGreen/workspace/code/cms/code/tests/src/Components/Html/AnchorTest.php" tests="66" assertions="78" failures="0" errors="0" time="1.124132">
+        <testsuite name="Tests\Unit\Components\Html\AnchorTest::testInstantiation" tests="1" assertions="5" failures="0" errors="0" time="0.028978">
+          <testcase name="testInstantiation with data set #0" assertions="5" time="0.028978"/>
+        </testsuite>
+        <testsuite name="Tests\Unit\Components\Html\AnchorTest::testInvalidInstantiation" tests="6" assertions="6" failures="0" errors="0" time="0.060404">
+          <testcase name="testInvalidInstantiation with data set #0" assertions="1" time="0.010341"/>
+          <testcase name="testInvalidInstantiation with data set #1" assertions="1" time="0.011059"/>
+          <testcase name="testInvalidInstantiation with data set #2" assertions="1" time="0.009483"/>
+          <testcase name="testInvalidInstantiation with data set #3" assertions="1" time="0.009000"/>
+          <testcase name="testInvalidInstantiation with data set #4" assertions="1" time="0.010197"/>
+          <testcase name="testInvalidInstantiation with data set #5" assertions="1" time="0.010324"/>
+        </testsuite>
+        <testcase name="testSetContent" class="Tests\Unit\Components\Html\AnchorTest" file="/Users/NickGreen/workspace/code/cms/code/tests/src/Components/Html/AnchorTest.php" line="89" assertions="1" time="0.018380"/>
+        <testcase name="testSetId" class="Tests\Unit\Components\Html\AnchorTest" file="/Users/NickGreen/workspace/code/cms/code/tests/src/Components/Html/AnchorTest.php" line="104" assertions="1" time="0.013833"/>
+        <testsuite name="Tests\Unit\Components\Html\AnchorTest::testSetElements" tests="3" assertions="3" failures="0" errors="0" time="0.053819">
+          <testcase name="testSetElements with data set #0" assertions="1" time="0.015708"/>
+          <testcase name="testSetElements with data set #1" assertions="1" time="0.019099"/>
+          <testcase name="testSetElements with data set #2" assertions="1" time="0.019012"/>
+        </testsuite>
+        <testsuite name="Tests\Unit\Components\Html\AnchorTest::testGetElements" tests="3" assertions="3" failures="0" errors="0" time="0.053389">
+          <testcase name="testGetElements with data set #0" assertions="1" time="0.017000"/>
+          <testcase name="testGetElements with data set #1" assertions="1" time="0.016293"/>
+          <testcase name="testGetElements with data set #2" assertions="1" time="0.020096"/>
+        </testsuite>
+        <testsuite name="Tests\Unit\Components\Html\AnchorTest::testAddElements" tests="34" assertions="39" failures="0" errors="0" time="0.608537">
+          <testcase name="testAddElements with data set #0" assertions="1" time="0.015429"/>
+          <testcase name="testAddElements with data set #1" assertions="1" time="0.016603"/>
+          <testcase name="testAddElements with data set #2" assertions="1" time="0.016100"/>
+          <testcase name="testAddElements with data set #3" assertions="2" time="0.015866"/>
+          <testcase name="testAddElements with data set #4" assertions="1" time="0.016352"/>
+          <testcase name="testAddElements with data set #5" assertions="1" time="0.017178"/>
+          <testcase name="testAddElements with data set #6" assertions="1" time="0.015540"/>
+          <testcase name="testAddElements with data set #7" assertions="1" time="0.015669"/>
+          <testcase name="testAddElements with data set #8" assertions="1" time="0.015204"/>
+          <testcase name="testAddElements with data set #9" assertions="1" time="0.016346"/>
+          <testcase name="testAddElements with data set #10" assertions="2" time="0.015281"/>
+          <testcase name="testAddElements with data set #11" assertions="1" time="0.016189"/>
+          <testcase name="testAddElements with data set #12" assertions="2" time="0.015388"/>
+          <testcase name="testAddElements with data set #13" assertions="1" time="0.021577"/>
+          <testcase name="testAddElements with data set #14" assertions="1" time="0.035067"/>
+          <testcase name="testAddElements with data set #15" assertions="1" time="0.019729"/>
+          <testcase name="testAddElements with data set #16" assertions="1" time="0.020507"/>
+          <testcase name="testAddElements with data set #17" assertions="1" time="0.019460"/>
+          <testcase name="testAddElements with data set #18" assertions="1" time="0.024016"/>
+          <testcase name="testAddElements with data set #19" assertions="2" time="0.016151"/>
+          <testcase name="testAddElements with data set #20" assertions="1" time="0.016904"/>
+          <testcase name="testAddElements with data set #21" assertions="1" time="0.017341"/>
+          <testcase name="testAddElements with data set #22" assertions="1" time="0.017028"/>
+          <testcase name="testAddElements with data set #23" assertions="1" time="0.017169"/>
+          <testcase name="testAddElements with data set #24" assertions="2" time="0.018704"/>
+          <testcase name="testAddElements with data set #25" assertions="1" time="0.020750"/>
+          <testcase name="testAddElements with data set #26" assertions="1" time="0.019631"/>
+          <testcase name="testAddElements with data set #27" assertions="1" time="0.016190"/>
+          <testcase name="testAddElements with data set #28" assertions="1" time="0.016796"/>
+          <testcase name="testAddElements with data set #29" assertions="1" time="0.016962"/>
+          <testcase name="testAddElements with data set #30" assertions="1" time="0.017263"/>
+          <testcase name="testAddElements with data set #31" assertions="1" time="0.017170"/>
+          <testcase name="testAddElements with data set #32" assertions="1" time="0.016970"/>
+          <testcase name="testAddElements with data set #33" assertions="1" time="0.016006"/>
+        </testsuite>
+        <testcase name="testSetAttributes" class="Tests\Unit\Components\Html\AnchorTest" file="/Users/NickGreen/workspace/code/cms/code/tests/src/Components/Html/AnchorTest.php" line="230" assertions="1" time="0.018280"/>
+        <testcase name="testGetAttributes" class="Tests\Unit\Components\Html\AnchorTest" file="/Users/NickGreen/workspace/code/cms/code/tests/src/Components/Html/AnchorTest.php" line="244" assertions="2" time="0.026015"/>
+        <testsuite name="Tests\Unit\Components\Html\AnchorTest::testToString" tests="7" assertions="7" failures="0" errors="0" time="0.103446">
+          <testcase name="testToString with data set #0" assertions="1" time="0.014664"/>
+          <testcase name="testToString with data set #1" assertions="1" time="0.014352"/>
+          <testcase name="testToString with data set #2" assertions="1" time="0.015121"/>
+          <testcase name="testToString with data set #3" assertions="1" time="0.017130"/>
+          <testcase name="testToString with data set #4" assertions="1" time="0.013242"/>
+          <testcase name="testToString with data set #5" assertions="1" time="0.014342"/>
+          <testcase name="testToString with data set #6" assertions="1" time="0.014595"/>
+        </testsuite>
+        <testsuite name="Tests\Unit\Components\Html\AnchorTest::testToHtml" tests="7" assertions="7" failures="0" errors="0" time="0.111095">
+          <testcase name="testToHtml with data set #0" assertions="1" time="0.015519"/>
+          <testcase name="testToHtml with data set #1" assertions="1" time="0.014847"/>
+          <testcase name="testToHtml with data set #2" assertions="1" time="0.014830"/>
+          <testcase name="testToHtml with data set #3" assertions="1" time="0.015794"/>
+          <testcase name="testToHtml with data set #4" assertions="1" time="0.015662"/>
+          <testcase name="testToHtml with data set #5" assertions="1" time="0.015117"/>
+          <testcase name="testToHtml with data set #6" assertions="1" time="0.019326"/>
+        </testsuite>
+        <testcase name="testAddAttribute" class="Tests\Unit\Components\Html\AnchorTest" file="/Users/NickGreen/workspace/code/cms/code/tests/src/Components/Html/AnchorTest.php" line="299" assertions="3" time="0.027956"/>
+      </testsuite>
+      <testsuite name="Tests\Unit\Components\Html\ArticleTest" file="/Users/NickGreen/workspace/code/cms/code/tests/src/Components/Html/ArticleTest.php" tests="66" assertions="88" failures="0" errors="0" time="1.104722">
+        <testsuite name="Tests\Unit\Components\Html\ArticleTest::testInstantiation" tests="1" assertions="5" failures="0" errors="0" time="0.023488">
+          <testcase name="testInstantiation with data set #0" assertions="5" time="0.023488"/>
+        </testsuite>
+        <testsuite name="Tests\Unit\Components\Html\ArticleTest::testInvalidInstantiation" tests="6" assertions="6" failures="0" errors="0" time="0.064342">
+          <testcase name="testInvalidInstantiation with data set #0" assertions="1" time="0.011364"/>
+          <testcase name="testInvalidInstantiation with data set #1" assertions="1" time="0.010285"/>
+          <testcase name="testInvalidInstantiation with data set #2" assertions="1" time="0.010319"/>
+          <testcase name="testInvalidInstantiation with data set #3" assertions="1" time="0.010643"/>
+          <testcase name="testInvalidInstantiation with data set #4" assertions="1" time="0.010881"/>
+          <testcase name="testInvalidInstantiation with data set #5" assertions="1" time="0.010850"/>
+        </testsuite>
+        <testcase name="testSetContent" class="Tests\Unit\Components\Html\ArticleTest" file="/Users/NickGreen/workspace/code/cms/code/tests/src/Components/Html/ArticleTest.php" line="89" assertions="1" time="0.014559"/>
+        <testcase name="testSetId" class="Tests\Unit\Components\Html\ArticleTest" file="/Users/NickGreen/workspace/code/cms/code/tests/src/Components/Html/ArticleTest.php" line="104" assertions="1" time="0.015612"/>
+        <testsuite name="Tests\Unit\Components\Html\ArticleTest::testSetElements" tests="3" assertions="3" failures="0" errors="0" time="0.053689">
+          <testcase name="testSetElements with data set #0" assertions="1" time="0.015554"/>
+          <testcase name="testSetElements with data set #1" assertions="1" time="0.017106"/>
+          <testcase name="testSetElements with data set #2" assertions="1" time="0.021029"/>
+        </testsuite>
+        <testsuite name="Tests\Unit\Components\Html\ArticleTest::testGetElements" tests="3" assertions="3" failures="0" errors="0" time="0.053680">
+          <testcase name="testGetElements with data set #0" assertions="1" time="0.016252"/>
+          <testcase name="testGetElements with data set #1" assertions="1" time="0.016613"/>
+          <testcase name="testGetElements with data set #2" assertions="1" time="0.020815"/>
+        </testsuite>
+        <testsuite name="Tests\Unit\Components\Html\ArticleTest::testAddElements" tests="34" assertions="49" failures="0" errors="0" time="0.567228">
+          <testcase name="testAddElements with data set #0" assertions="2" time="0.014956"/>
+          <testcase name="testAddElements with data set #1" assertions="2" time="0.014939"/>
+          <testcase name="testAddElements with data set #2" assertions="1" time="0.015829"/>
+          <testcase name="testAddElements with data set #3" assertions="2" time="0.014147"/>
+          <testcase name="testAddElements with data set #4" assertions="1" time="0.014818"/>
+          <testcase name="testAddElements with data set #5" assertions="2" time="0.017057"/>
+          <testcase name="testAddElements with data set #6" assertions="2" time="0.013864"/>
+          <testcase name="testAddElements with data set #7" assertions="2" time="0.014566"/>
+          <testcase name="testAddElements with data set #8" assertions="1" time="0.016071"/>
+          <testcase name="testAddElements with data set #9" assertions="2" time="0.014469"/>
+          <testcase name="testAddElements with data set #10" assertions="2" time="0.014976"/>
+          <testcase name="testAddElements with data set #11" assertions="2" time="0.017690"/>
+          <testcase name="testAddElements with data set #12" assertions="2" time="0.013852"/>
+          <testcase name="testAddElements with data set #13" assertions="1" time="0.016968"/>
+          <testcase name="testAddElements with data set #14" assertions="1" time="0.017190"/>
+          <testcase name="testAddElements with data set #15" assertions="1" time="0.015385"/>
+          <testcase name="testAddElements with data set #16" assertions="1" time="0.015025"/>
+          <testcase name="testAddElements with data set #17" assertions="1" time="0.017497"/>
+          <testcase name="testAddElements with data set #18" assertions="2" time="0.014560"/>
+          <testcase name="testAddElements with data set #19" assertions="1" time="0.015484"/>
+          <testcase name="testAddElements with data set #20" assertions="2" time="0.014432"/>
+          <testcase name="testAddElements with data set #21" assertions="1" time="0.017557"/>
+          <testcase name="testAddElements with data set #22" assertions="1" time="0.015101"/>
+          <testcase name="testAddElements with data set #23" assertions="1" time="0.015437"/>
+          <testcase name="testAddElements with data set #24" assertions="2" time="0.014408"/>
+          <testcase name="testAddElements with data set #25" assertions="1" time="0.019352"/>
+          <testcase name="testAddElements with data set #26" assertions="2" time="0.024075"/>
+          <testcase name="testAddElements with data set #27" assertions="1" time="0.025795"/>
+          <testcase name="testAddElements with data set #28" assertions="1" time="0.023960"/>
+          <testcase name="testAddElements with data set #29" assertions="1" time="0.018332"/>
+          <testcase name="testAddElements with data set #30" assertions="1" time="0.018768"/>
+          <testcase name="testAddElements with data set #31" assertions="1" time="0.018572"/>
+          <testcase name="testAddElements with data set #32" assertions="1" time="0.017500"/>
+          <testcase name="testAddElements with data set #33" assertions="2" time="0.014596"/>
+        </testsuite>
+        <testcase name="testSetAttributes" class="Tests\Unit\Components\Html\ArticleTest" file="/Users/NickGreen/workspace/code/cms/code/tests/src/Components/Html/ArticleTest.php" line="230" assertions="1" time="0.018761"/>
+        <testcase name="testGetAttributes" class="Tests\Unit\Components\Html\ArticleTest" file="/Users/NickGreen/workspace/code/cms/code/tests/src/Components/Html/ArticleTest.php" line="244" assertions="2" time="0.024870"/>
+        <testsuite name="Tests\Unit\Components\Html\ArticleTest::testToString" tests="7" assertions="7" failures="0" errors="0" time="0.127408">
+          <testcase name="testToString with data set #0" assertions="1" time="0.014509"/>
+          <testcase name="testToString with data set #1" assertions="1" time="0.013432"/>
+          <testcase name="testToString with data set #2" assertions="1" time="0.014003"/>
+          <testcase name="testToString with data set #3" assertions="1" time="0.017459"/>
+          <testcase name="testToString with data set #4" assertions="1" time="0.020704"/>
+          <testcase name="testToString with data set #5" assertions="1" time="0.024748"/>
+          <testcase name="testToString with data set #6" assertions="1" time="0.022553"/>
+        </testsuite>
+        <testsuite name="Tests\Unit\Components\Html\ArticleTest::testToHtml" tests="7" assertions="7" failures="0" errors="0" time="0.118334">
+          <testcase name="testToHtml with data set #0" assertions="1" time="0.020754"/>
+          <testcase name="testToHtml with data set #1" assertions="1" time="0.017118"/>
+          <testcase name="testToHtml with data set #2" assertions="1" time="0.021112"/>
+          <testcase name="testToHtml with data set #3" assertions="1" time="0.016670"/>
+          <testcase name="testToHtml with data set #4" assertions="1" time="0.013627"/>
+          <testcase name="testToHtml with data set #5" assertions="1" time="0.014136"/>
+          <testcase name="testToHtml with data set #6" assertions="1" time="0.014917"/>
+        </testsuite>
+        <testcase name="testAddAttribute" class="Tests\Unit\Components\Html\ArticleTest" file="/Users/NickGreen/workspace/code/cms/code/tests/src/Components/Html/ArticleTest.php" line="299" assertions="3" time="0.022752"/>
+      </testsuite>
+      <testsuite name="Tests\Unit\Components\Html\BodyTest" file="/Users/NickGreen/workspace/code/cms/code/tests/src/Components/Html/BodyTest.php" tests="66" assertions="92" failures="0" errors="0" time="1.074744">
+        <testsuite name="Tests\Unit\Components\Html\BodyTest::testInstantiation" tests="1" assertions="5" failures="0" errors="0" time="0.024538">
+          <testcase name="testInstantiation with data set #0" assertions="5" time="0.024538"/>
+        </testsuite>
+        <testsuite name="Tests\Unit\Components\Html\BodyTest::testInvalidInstantiation" tests="6" assertions="6" failures="0" errors="0" time="0.062104">
+          <testcase name="testInvalidInstantiation with data set #0" assertions="1" time="0.008849"/>
+          <testcase name="testInvalidInstantiation with data set #1" assertions="1" time="0.010870"/>
+          <testcase name="testInvalidInstantiation with data set #2" assertions="1" time="0.011536"/>
+          <testcase name="testInvalidInstantiation with data set #3" assertions="1" time="0.008941"/>
+          <testcase name="testInvalidInstantiation with data set #4" assertions="1" time="0.010647"/>
+          <testcase name="testInvalidInstantiation with data set #5" assertions="1" time="0.011261"/>
+        </testsuite>
+        <testcase name="testSetContent" class="Tests\Unit\Components\Html\BodyTest" file="/Users/NickGreen/workspace/code/cms/code/tests/src/Components/Html/BodyTest.php" line="89" assertions="1" time="0.012840"/>
+        <testcase name="testSetId" class="Tests\Unit\Components\Html\BodyTest" file="/Users/NickGreen/workspace/code/cms/code/tests/src/Components/Html/BodyTest.php" line="104" assertions="1" time="0.014142"/>
+        <testsuite name="Tests\Unit\Components\Html\BodyTest::testSetElements" tests="3" assertions="3" failures="0" errors="0" time="0.053517">
+          <testcase name="testSetElements with data set #0" assertions="1" time="0.016398"/>
+          <testcase name="testSetElements with data set #1" assertions="1" time="0.017361"/>
+          <testcase name="testSetElements with data set #2" assertions="1" time="0.019758"/>
+        </testsuite>
+        <testsuite name="Tests\Unit\Components\Html\BodyTest::testGetElements" tests="3" assertions="3" failures="0" errors="0" time="0.053604">
+          <testcase name="testGetElements with data set #0" assertions="1" time="0.016501"/>
+          <testcase name="testGetElements with data set #1" assertions="1" time="0.017277"/>
+          <testcase name="testGetElements with data set #2" assertions="1" time="0.019826"/>
+        </testsuite>
+        <testsuite name="Tests\Unit\Components\Html\BodyTest::testAddElements" tests="34" assertions="53" failures="0" errors="0" time="0.569193">
+          <testcase name="testAddElements with data set #0" assertions="2" time="0.013974"/>
+          <testcase name="testAddElements with data set #1" assertions="2" time="0.016046"/>
+          <testcase name="testAddElements with data set #2" assertions="1" time="0.015342"/>
+          <testcase name="testAddElements with data set #3" assertions="2" time="0.014476"/>
+          <testcase name="testAddElements with data set #4" assertions="1" time="0.015159"/>
+          <testcase name="testAddElements with data set #5" assertions="2" time="0.015322"/>
+          <testcase name="testAddElements with data set #6" assertions="2" time="0.014550"/>
+          <testcase name="testAddElements with data set #7" assertions="2" time="0.013736"/>
+          <testcase name="testAddElements with data set #8" assertions="1" time="0.016148"/>
+          <testcase name="testAddElements with data set #9" assertions="2" time="0.015265"/>
+          <testcase name="testAddElements with data set #10" assertions="2" time="0.013539"/>
+          <testcase name="testAddElements with data set #11" assertions="2" time="0.014488"/>
+          <testcase name="testAddElements with data set #12" assertions="2" time="0.014618"/>
+          <testcase name="testAddElements with data set #13" assertions="1" time="0.016468"/>
+          <testcase name="testAddElements with data set #14" assertions="2" time="0.013646"/>
+          <testcase name="testAddElements with data set #15" assertions="1" time="0.016225"/>
+          <testcase name="testAddElements with data set #16" assertions="1" time="0.015834"/>
+          <testcase name="testAddElements with data set #17" assertions="1" time="0.016583"/>
+          <testcase name="testAddElements with data set #18" assertions="2" time="0.013468"/>
+          <testcase name="testAddElements with data set #19" assertions="1" time="0.016191"/>
+          <testcase name="testAddElements with data set #20" assertions="2" time="0.015264"/>
+          <testcase name="testAddElements with data set #21" assertions="2" time="0.014961"/>
+          <testcase name="testAddElements with data set #22" assertions="2" time="0.013946"/>
+          <testcase name="testAddElements with data set #23" assertions="2" time="0.015715"/>
+          <testcase name="testAddElements with data set #24" assertions="2" time="0.014781"/>
+          <testcase name="testAddElements with data set #25" assertions="1" time="0.017946"/>
+          <testcase name="testAddElements with data set #26" assertions="2" time="0.015213"/>
+          <testcase name="testAddElements with data set #27" assertions="1" time="0.021067"/>
+          <testcase name="testAddElements with data set #28" assertions="1" time="0.046833"/>
+          <testcase name="testAddElements with data set #29" assertions="1" time="0.020624"/>
+          <testcase name="testAddElements with data set #30" assertions="1" time="0.021981"/>
+          <testcase name="testAddElements with data set #31" assertions="1" time="0.018696"/>
+          <testcase name="testAddElements with data set #32" assertions="1" time="0.015665"/>
+          <testcase name="testAddElements with data set #33" assertions="2" time="0.015424"/>
+        </testsuite>
+        <testcase name="testSetAttributes" class="Tests\Unit\Components\Html\BodyTest" file="/Users/NickGreen/workspace/code/cms/code/tests/src/Components/Html/BodyTest.php" line="230" assertions="1" time="0.018030"/>
+        <testcase name="testGetAttributes" class="Tests\Unit\Components\Html\BodyTest" file="/Users/NickGreen/workspace/code/cms/code/tests/src/Components/Html/BodyTest.php" line="244" assertions="2" time="0.026352"/>
+        <testsuite name="Tests\Unit\Components\Html\BodyTest::testToString" tests="7" assertions="7" failures="0" errors="0" time="0.105256">
+          <testcase name="testToString with data set #0" assertions="1" time="0.013209"/>
+          <testcase name="testToString with data set #1" assertions="1" time="0.016822"/>
+          <testcase name="testToString with data set #2" assertions="1" time="0.014424"/>
+          <testcase name="testToString with data set #3" assertions="1" time="0.015586"/>
+          <testcase name="testToString with data set #4" assertions="1" time="0.014615"/>
+          <testcase name="testToString with data set #5" assertions="1" time="0.014807"/>
+          <testcase name="testToString with data set #6" assertions="1" time="0.015793"/>
+        </testsuite>
+        <testsuite name="Tests\Unit\Components\Html\BodyTest::testToHtml" tests="7" assertions="7" failures="0" errors="0" time="0.110784">
+          <testcase name="testToHtml with data set #0" assertions="1" time="0.019821"/>
+          <testcase name="testToHtml with data set #1" assertions="1" time="0.016728"/>
+          <testcase name="testToHtml with data set #2" assertions="1" time="0.014778"/>
+          <testcase name="testToHtml with data set #3" assertions="1" time="0.016159"/>
+          <testcase name="testToHtml with data set #4" assertions="1" time="0.014212"/>
+          <testcase name="testToHtml with data set #5" assertions="1" time="0.014005"/>
+          <testcase name="testToHtml with data set #6" assertions="1" time="0.015081"/>
+        </testsuite>
+        <testcase name="testAddAttribute" class="Tests\Unit\Components\Html\BodyTest" file="/Users/NickGreen/workspace/code/cms/code/tests/src/Components/Html/BodyTest.php" line="299" assertions="3" time="0.024384"/>
+      </testsuite>
+      <testsuite name="Tests\Unit\Components\Html\ButtonTest" file="/Users/NickGreen/workspace/code/cms/code/tests/src/Components/Html/ButtonTest.php" tests="67" assertions="76" failures="0" errors="0" time="1.084912">
+        <testsuite name="Tests\Unit\Components\Html\ButtonTest::testInstantiation" tests="1" assertions="5" failures="0" errors="0" time="0.022564">
+          <testcase name="testInstantiation with data set #0" assertions="5" time="0.022564"/>
+        </testsuite>
+        <testsuite name="Tests\Unit\Components\Html\ButtonTest::testInvalidInstantiation" tests="6" assertions="6" failures="0" errors="0" time="0.063605">
+          <testcase name="testInvalidInstantiation with data set #0" assertions="1" time="0.011330"/>
+          <testcase name="testInvalidInstantiation with data set #1" assertions="1" time="0.010531"/>
+          <testcase name="testInvalidInstantiation with data set #2" assertions="1" time="0.009317"/>
+          <testcase name="testInvalidInstantiation with data set #3" assertions="1" time="0.009748"/>
+          <testcase name="testInvalidInstantiation with data set #4" assertions="1" time="0.012388"/>
+          <testcase name="testInvalidInstantiation with data set #5" assertions="1" time="0.010291"/>
+        </testsuite>
+        <testcase name="testSetContent" class="Tests\Unit\Components\Html\ButtonTest" file="/Users/NickGreen/workspace/code/cms/code/tests/src/Components/Html/ButtonTest.php" line="89" assertions="1" time="0.015793"/>
+        <testcase name="testSetId" class="Tests\Unit\Components\Html\ButtonTest" file="/Users/NickGreen/workspace/code/cms/code/tests/src/Components/Html/ButtonTest.php" line="104" assertions="1" time="0.013974"/>
+        <testsuite name="Tests\Unit\Components\Html\ButtonTest::testSetElements" tests="3" assertions="3" failures="0" errors="0" time="0.053726">
+          <testcase name="testSetElements with data set #0" assertions="1" time="0.016083"/>
+          <testcase name="testSetElements with data set #1" assertions="1" time="0.018086"/>
+          <testcase name="testSetElements with data set #2" assertions="1" time="0.019557"/>
+        </testsuite>
+        <testsuite name="Tests\Unit\Components\Html\ButtonTest::testGetElements" tests="3" assertions="3" failures="0" errors="0" time="0.053616">
+          <testcase name="testGetElements with data set #0" assertions="1" time="0.016990"/>
+          <testcase name="testGetElements with data set #1" assertions="1" time="0.017242"/>
+          <testcase name="testGetElements with data set #2" assertions="1" time="0.019384"/>
+        </testsuite>
+        <testsuite name="Tests\Unit\Components\Html\ButtonTest::testAddElements" tests="34" assertions="36" failures="0" errors="0" time="0.569449">
+          <testcase name="testAddElements with data set #0" assertions="1" time="0.016091"/>
+          <testcase name="testAddElements with data set #1" assertions="1" time="0.016398"/>
+          <testcase name="testAddElements with data set #2" assertions="1" time="0.014435"/>
+          <testcase name="testAddElements with data set #3" assertions="1" time="0.015694"/>
+          <testcase name="testAddElements with data set #4" assertions="1" time="0.015669"/>
+          <testcase name="testAddElements with data set #5" assertions="1" time="0.016385"/>
+          <testcase name="testAddElements with data set #6" assertions="1" time="0.015127"/>
+          <testcase name="testAddElements with data set #7" assertions="1" time="0.017346"/>
+          <testcase name="testAddElements with data set #8" assertions="1" time="0.015476"/>
+          <testcase name="testAddElements with data set #9" assertions="1" time="0.015862"/>
+          <testcase name="testAddElements with data set #10" assertions="1" time="0.016416"/>
+          <testcase name="testAddElements with data set #11" assertions="1" time="0.015118"/>
+          <testcase name="testAddElements with data set #12" assertions="2" time="0.014529"/>
+          <testcase name="testAddElements with data set #13" assertions="1" time="0.015888"/>
+          <testcase name="testAddElements with data set #14" assertions="1" time="0.014861"/>
+          <testcase name="testAddElements with data set #15" assertions="1" time="0.015794"/>
+          <testcase name="testAddElements with data set #16" assertions="1" time="0.015089"/>
+          <testcase name="testAddElements with data set #17" assertions="1" time="0.015053"/>
+          <testcase name="testAddElements with data set #18" assertions="1" time="0.014931"/>
+          <testcase name="testAddElements with data set #19" assertions="1" time="0.016039"/>
+          <testcase name="testAddElements with data set #20" assertions="1" time="0.015095"/>
+          <testcase name="testAddElements with data set #21" assertions="1" time="0.017435"/>
+          <testcase name="testAddElements with data set #22" assertions="1" time="0.014564"/>
+          <testcase name="testAddElements with data set #23" assertions="1" time="0.015003"/>
+          <testcase name="testAddElements with data set #24" assertions="2" time="0.013915"/>
+          <testcase name="testAddElements with data set #25" assertions="1" time="0.022607"/>
+          <testcase name="testAddElements with data set #26" assertions="1" time="0.018715"/>
+          <testcase name="testAddElements with data set #27" assertions="1" time="0.025471"/>
+          <testcase name="testAddElements with data set #28" assertions="1" time="0.023336"/>
+          <testcase name="testAddElements with data set #29" assertions="1" time="0.019562"/>
+          <testcase name="testAddElements with data set #30" assertions="1" time="0.019820"/>
+          <testcase name="testAddElements with data set #31" assertions="1" time="0.019568"/>
+          <testcase name="testAddElements with data set #32" assertions="1" time="0.015890"/>
+          <testcase name="testAddElements with data set #33" assertions="1" time="0.016266"/>
+        </testsuite>
+        <testcase name="testSetAttributes" class="Tests\Unit\Components\Html\ButtonTest" file="/Users/NickGreen/workspace/code/cms/code/tests/src/Components/Html/ButtonTest.php" line="230" assertions="1" time="0.016318"/>
+        <testcase name="testGetAttributes" class="Tests\Unit\Components\Html\ButtonTest" file="/Users/NickGreen/workspace/code/cms/code/tests/src/Components/Html/ButtonTest.php" line="244" assertions="2" time="0.025318"/>
+        <testsuite name="Tests\Unit\Components\Html\ButtonTest::testToString" tests="7" assertions="7" failures="0" errors="0" time="0.110337">
+          <testcase name="testToString with data set #0" assertions="1" time="0.013490"/>
+          <testcase name="testToString with data set #1" assertions="1" time="0.014028"/>
+          <testcase name="testToString with data set #2" assertions="1" time="0.014367"/>
+          <testcase name="testToString with data set #3" assertions="1" time="0.019737"/>
+          <testcase name="testToString with data set #4" assertions="1" time="0.014730"/>
+          <testcase name="testToString with data set #5" assertions="1" time="0.019040"/>
+          <testcase name="testToString with data set #6" assertions="1" time="0.014945"/>
+        </testsuite>
+        <testsuite name="Tests\Unit\Components\Html\ButtonTest::testToHtml" tests="7" assertions="7" failures="0" errors="0" time="0.101084">
+          <testcase name="testToHtml with data set #0" assertions="1" time="0.016046"/>
+          <testcase name="testToHtml with data set #1" assertions="1" time="0.013623"/>
+          <testcase name="testToHtml with data set #2" assertions="1" time="0.014800"/>
+          <testcase name="testToHtml with data set #3" assertions="1" time="0.015080"/>
+          <testcase name="testToHtml with data set #4" assertions="1" time="0.013852"/>
+          <testcase name="testToHtml with data set #5" assertions="1" time="0.013359"/>
+          <testcase name="testToHtml with data set #6" assertions="1" time="0.014324"/>
+        </testsuite>
+        <testcase name="testAddAttribute" class="Tests\Unit\Components\Html\ButtonTest" file="/Users/NickGreen/workspace/code/cms/code/tests/src/Components/Html/ButtonTest.php" line="299" assertions="3" time="0.022717"/>
+        <testcase name="testValidateAttributes" class="Tests\Unit\Components\Html\ButtonTest" file="/Users/NickGreen/workspace/code/cms/code/tests/src/Components/Html/ButtonTest.php" line="323" assertions="1" time="0.016411"/>
+      </testsuite>
+      <testsuite name="Tests\Unit\Components\Html\DivTest" file="/Users/NickGreen/workspace/code/cms/code/tests/src/Components/Html/DivTest.php" tests="66" assertions="89" failures="0" errors="0" time="1.045062">
+        <testsuite name="Tests\Unit\Components\Html\DivTest::testInstantiation" tests="1" assertions="5" failures="0" errors="0" time="0.023760">
+          <testcase name="testInstantiation with data set #0" assertions="5" time="0.023760"/>
+        </testsuite>
+        <testsuite name="Tests\Unit\Components\Html\DivTest::testInvalidInstantiation" tests="6" assertions="6" failures="0" errors="0" time="0.060623">
+          <testcase name="testInvalidInstantiation with data set #0" assertions="1" time="0.009216"/>
+          <testcase name="testInvalidInstantiation with data set #1" assertions="1" time="0.010373"/>
+          <testcase name="testInvalidInstantiation with data set #2" assertions="1" time="0.009728"/>
+          <testcase name="testInvalidInstantiation with data set #3" assertions="1" time="0.010114"/>
+          <testcase name="testInvalidInstantiation with data set #4" assertions="1" time="0.011049"/>
+          <testcase name="testInvalidInstantiation with data set #5" assertions="1" time="0.010143"/>
+        </testsuite>
+        <testcase name="testSetContent" class="Tests\Unit\Components\Html\DivTest" file="/Users/NickGreen/workspace/code/cms/code/tests/src/Components/Html/DivTest.php" line="89" assertions="1" time="0.014484"/>
+        <testcase name="testSetId" class="Tests\Unit\Components\Html\DivTest" file="/Users/NickGreen/workspace/code/cms/code/tests/src/Components/Html/DivTest.php" line="104" assertions="1" time="0.013590"/>
+        <testsuite name="Tests\Unit\Components\Html\DivTest::testSetElements" tests="3" assertions="3" failures="0" errors="0" time="0.050760">
+          <testcase name="testSetElements with data set #0" assertions="1" time="0.015538"/>
+          <testcase name="testSetElements with data set #1" assertions="1" time="0.016448"/>
+          <testcase name="testSetElements with data set #2" assertions="1" time="0.018774"/>
+        </testsuite>
+        <testsuite name="Tests\Unit\Components\Html\DivTest::testGetElements" tests="3" assertions="3" failures="0" errors="0" time="0.052331">
+          <testcase name="testGetElements with data set #0" assertions="1" time="0.016305"/>
+          <testcase name="testGetElements with data set #1" assertions="1" time="0.017182"/>
+          <testcase name="testGetElements with data set #2" assertions="1" time="0.018844"/>
+        </testsuite>
+        <testsuite name="Tests\Unit\Components\Html\DivTest::testAddElements" tests="34" assertions="50" failures="0" errors="0" time="0.547094">
+          <testcase name="testAddElements with data set #0" assertions="2" time="0.014858"/>
+          <testcase name="testAddElements with data set #1" assertions="2" time="0.014956"/>
+          <testcase name="testAddElements with data set #2" assertions="1" time="0.014847"/>
+          <testcase name="testAddElements with data set #3" assertions="2" time="0.014832"/>
+          <testcase name="testAddElements with data set #4" assertions="1" time="0.014901"/>
+          <testcase name="testAddElements with data set #5" assertions="2" time="0.014104"/>
+          <testcase name="testAddElements with data set #6" assertions="2" time="0.013281"/>
+          <testcase name="testAddElements with data set #7" assertions="2" time="0.014967"/>
+          <testcase name="testAddElements with data set #8" assertions="1" time="0.014948"/>
+          <testcase name="testAddElements with data set #9" assertions="2" time="0.014243"/>
+          <testcase name="testAddElements with data set #10" assertions="2" time="0.013285"/>
+          <testcase name="testAddElements with data set #11" assertions="2" time="0.015528"/>
+          <testcase name="testAddElements with data set #12" assertions="2" time="0.014296"/>
+          <testcase name="testAddElements with data set #13" assertions="1" time="0.015595"/>
+          <testcase name="testAddElements with data set #14" assertions="1" time="0.016447"/>
+          <testcase name="testAddElements with data set #15" assertions="1" time="0.015168"/>
+          <testcase name="testAddElements with data set #16" assertions="1" time="0.014868"/>
+          <testcase name="testAddElements with data set #17" assertions="1" time="0.015924"/>
+          <testcase name="testAddElements with data set #18" assertions="2" time="0.014383"/>
+          <testcase name="testAddElements with data set #19" assertions="1" time="0.015195"/>
+          <testcase name="testAddElements with data set #20" assertions="2" time="0.013855"/>
+          <testcase name="testAddElements with data set #21" assertions="1" time="0.015975"/>
+          <testcase name="testAddElements with data set #22" assertions="2" time="0.013411"/>
+          <testcase name="testAddElements with data set #23" assertions="1" time="0.017140"/>
+          <testcase name="testAddElements with data set #24" assertions="2" time="0.013758"/>
+          <testcase name="testAddElements with data set #25" assertions="1" time="0.019054"/>
+          <testcase name="testAddElements with data set #26" assertions="2" time="0.017038"/>
+          <testcase name="testAddElements with data set #27" assertions="1" time="0.025065"/>
+          <testcase name="testAddElements with data set #28" assertions="1" time="0.023334"/>
+          <testcase name="testAddElements with data set #29" assertions="1" time="0.022022"/>
+          <testcase name="testAddElements with data set #30" assertions="1" time="0.019028"/>
+          <testcase name="testAddElements with data set #31" assertions="1" time="0.018837"/>
+          <testcase name="testAddElements with data set #32" assertions="1" time="0.016849"/>
+          <testcase name="testAddElements with data set #33" assertions="2" time="0.015102"/>
+        </testsuite>
+        <testcase name="testSetAttributes" class="Tests\Unit\Components\Html\DivTest" file="/Users/NickGreen/workspace/code/cms/code/tests/src/Components/Html/DivTest.php" line="230" assertions="1" time="0.016516"/>
+        <testcase name="testGetAttributes" class="Tests\Unit\Components\Html\DivTest" file="/Users/NickGreen/workspace/code/cms/code/tests/src/Components/Html/DivTest.php" line="244" assertions="2" time="0.032322"/>
+        <testsuite name="Tests\Unit\Components\Html\DivTest::testToString" tests="7" assertions="7" failures="0" errors="0" time="0.104056">
+          <testcase name="testToString with data set #0" assertions="1" time="0.015019"/>
+          <testcase name="testToString with data set #1" assertions="1" time="0.013540"/>
+          <testcase name="testToString with data set #2" assertions="1" time="0.013304"/>
+          <testcase name="testToString with data set #3" assertions="1" time="0.015705"/>
+          <testcase name="testToString with data set #4" assertions="1" time="0.012972"/>
+          <testcase name="testToString with data set #5" assertions="1" time="0.017479"/>
+          <testcase name="testToString with data set #6" assertions="1" time="0.016037"/>
+        </testsuite>
+        <testsuite name="Tests\Unit\Components\Html\DivTest::testToHtml" tests="7" assertions="7" failures="0" errors="0" time="0.103026">
+          <testcase name="testToHtml with data set #0" assertions="1" time="0.014126"/>
+          <testcase name="testToHtml with data set #1" assertions="1" time="0.016034"/>
+          <testcase name="testToHtml with data set #2" assertions="1" time="0.013994"/>
+          <testcase name="testToHtml with data set #3" assertions="1" time="0.016029"/>
+          <testcase name="testToHtml with data set #4" assertions="1" time="0.013723"/>
+          <testcase name="testToHtml with data set #5" assertions="1" time="0.013655"/>
+          <testcase name="testToHtml with data set #6" assertions="1" time="0.015465"/>
+        </testsuite>
+        <testcase name="testAddAttribute" class="Tests\Unit\Components\Html\DivTest" file="/Users/NickGreen/workspace/code/cms/code/tests/src/Components/Html/DivTest.php" line="299" assertions="3" time="0.026501"/>
+      </testsuite>
+      <testsuite name="Tests\Unit\Components\Html\ParagraphTest" file="/Users/NickGreen/workspace/code/cms/code/tests/src/Components/Html/ParagraphTest.php" tests="66" assertions="77" failures="0" errors="0" time="1.067392">
+        <testsuite name="Tests\Unit\Components\Html\ParagraphTest::testInstantiation" tests="1" assertions="5" failures="0" errors="0" time="0.024266">
+          <testcase name="testInstantiation with data set #0" assertions="5" time="0.024266"/>
+        </testsuite>
+        <testsuite name="Tests\Unit\Components\Html\ParagraphTest::testInvalidInstantiation" tests="6" assertions="6" failures="0" errors="0" time="0.061012">
+          <testcase name="testInvalidInstantiation with data set #0" assertions="1" time="0.010386"/>
+          <testcase name="testInvalidInstantiation with data set #1" assertions="1" time="0.010494"/>
+          <testcase name="testInvalidInstantiation with data set #2" assertions="1" time="0.010484"/>
+          <testcase name="testInvalidInstantiation with data set #3" assertions="1" time="0.009194"/>
+          <testcase name="testInvalidInstantiation with data set #4" assertions="1" time="0.009899"/>
+          <testcase name="testInvalidInstantiation with data set #5" assertions="1" time="0.010555"/>
+        </testsuite>
+        <testcase name="testSetContent" class="Tests\Unit\Components\Html\ParagraphTest" file="/Users/NickGreen/workspace/code/cms/code/tests/src/Components/Html/ParagraphTest.php" line="89" assertions="1" time="0.013656"/>
+        <testcase name="testSetId" class="Tests\Unit\Components\Html\ParagraphTest" file="/Users/NickGreen/workspace/code/cms/code/tests/src/Components/Html/ParagraphTest.php" line="104" assertions="1" time="0.014894"/>
+        <testsuite name="Tests\Unit\Components\Html\ParagraphTest::testSetElements" tests="3" assertions="3" failures="0" errors="0" time="0.055085">
+          <testcase name="testSetElements with data set #0" assertions="1" time="0.015738"/>
+          <testcase name="testSetElements with data set #1" assertions="1" time="0.019144"/>
+          <testcase name="testSetElements with data set #2" assertions="1" time="0.020203"/>
+        </testsuite>
+        <testsuite name="Tests\Unit\Components\Html\ParagraphTest::testGetElements" tests="3" assertions="3" failures="0" errors="0" time="0.053408">
+          <testcase name="testGetElements with data set #0" assertions="1" time="0.016378"/>
+          <testcase name="testGetElements with data set #1" assertions="1" time="0.017502"/>
+          <testcase name="testGetElements with data set #2" assertions="1" time="0.019528"/>
+        </testsuite>
+        <testsuite name="Tests\Unit\Components\Html\ParagraphTest::testAddElements" tests="34" assertions="38" failures="0" errors="0" time="0.566160">
+          <testcase name="testAddElements with data set #0" assertions="2" time="0.014812"/>
+          <testcase name="testAddElements with data set #1" assertions="1" time="0.016232"/>
+          <testcase name="testAddElements with data set #2" assertions="1" time="0.015386"/>
+          <testcase name="testAddElements with data set #3" assertions="1" time="0.015849"/>
+          <testcase name="testAddElements with data set #4" assertions="1" time="0.014980"/>
+          <testcase name="testAddElements with data set #5" assertions="1" time="0.014850"/>
+          <testcase name="testAddElements with data set #6" assertions="1" time="0.013999"/>
+          <testcase name="testAddElements with data set #7" assertions="1" time="0.015118"/>
+          <testcase name="testAddElements with data set #8" assertions="1" time="0.014745"/>
+          <testcase name="testAddElements with data set #9" assertions="1" time="0.017803"/>
+          <testcase name="testAddElements with data set #10" assertions="1" time="0.014921"/>
+          <testcase name="testAddElements with data set #11" assertions="1" time="0.017321"/>
+          <testcase name="testAddElements with data set #12" assertions="2" time="0.015061"/>
+          <testcase name="testAddElements with data set #13" assertions="1" time="0.016881"/>
+          <testcase name="testAddElements with data set #14" assertions="1" time="0.015496"/>
+          <testcase name="testAddElements with data set #15" assertions="1" time="0.015555"/>
+          <testcase name="testAddElements with data set #16" assertions="1" time="0.015364"/>
+          <testcase name="testAddElements with data set #17" assertions="1" time="0.015601"/>
+          <testcase name="testAddElements with data set #18" assertions="1" time="0.015282"/>
+          <testcase name="testAddElements with data set #19" assertions="2" time="0.014642"/>
+          <testcase name="testAddElements with data set #20" assertions="1" time="0.014679"/>
+          <testcase name="testAddElements with data set #21" assertions="1" time="0.017567"/>
+          <testcase name="testAddElements with data set #22" assertions="1" time="0.014958"/>
+          <testcase name="testAddElements with data set #23" assertions="1" time="0.018834"/>
+          <testcase name="testAddElements with data set #24" assertions="2" time="0.017630"/>
+          <testcase name="testAddElements with data set #25" assertions="1" time="0.027138"/>
+          <testcase name="testAddElements with data set #26" assertions="1" time="0.023209"/>
+          <testcase name="testAddElements with data set #27" assertions="1" time="0.019451"/>
+          <testcase name="testAddElements with data set #28" assertions="1" time="0.018855"/>
+          <testcase name="testAddElements with data set #29" assertions="1" time="0.017514"/>
+          <testcase name="testAddElements with data set #30" assertions="1" time="0.016134"/>
+          <testcase name="testAddElements with data set #31" assertions="1" time="0.016469"/>
+          <testcase name="testAddElements with data set #32" assertions="1" time="0.015635"/>
+          <testcase name="testAddElements with data set #33" assertions="1" time="0.018189"/>
+        </testsuite>
+        <testcase name="testSetAttributes" class="Tests\Unit\Components\Html\ParagraphTest" file="/Users/NickGreen/workspace/code/cms/code/tests/src/Components/Html/ParagraphTest.php" line="230" assertions="1" time="0.017453"/>
+        <testcase name="testGetAttributes" class="Tests\Unit\Components\Html\ParagraphTest" file="/Users/NickGreen/workspace/code/cms/code/tests/src/Components/Html/ParagraphTest.php" line="244" assertions="2" time="0.026157"/>
+        <testsuite name="Tests\Unit\Components\Html\ParagraphTest::testToString" tests="7" assertions="7" failures="0" errors="0" time="0.108012">
+          <testcase name="testToString with data set #0" assertions="1" time="0.013396"/>
+          <testcase name="testToString with data set #1" assertions="1" time="0.014619"/>
+          <testcase name="testToString with data set #2" assertions="1" time="0.017826"/>
+          <testcase name="testToString with data set #3" assertions="1" time="0.017527"/>
+          <testcase name="testToString with data set #4" assertions="1" time="0.015468"/>
+          <testcase name="testToString with data set #5" assertions="1" time="0.015509"/>
+          <testcase name="testToString with data set #6" assertions="1" time="0.013667"/>
+        </testsuite>
+        <testsuite name="Tests\Unit\Components\Html\ParagraphTest::testToHtml" tests="7" assertions="7" failures="0" errors="0" time="0.102884">
+          <testcase name="testToHtml with data set #0" assertions="1" time="0.015129"/>
+          <testcase name="testToHtml with data set #1" assertions="1" time="0.014022"/>
+          <testcase name="testToHtml with data set #2" assertions="1" time="0.015209"/>
+          <testcase name="testToHtml with data set #3" assertions="1" time="0.015182"/>
+          <testcase name="testToHtml with data set #4" assertions="1" time="0.014698"/>
+          <testcase name="testToHtml with data set #5" assertions="1" time="0.013582"/>
+          <testcase name="testToHtml with data set #6" assertions="1" time="0.015062"/>
+        </testsuite>
+        <testcase name="testAddAttribute" class="Tests\Unit\Components\Html\ParagraphTest" file="/Users/NickGreen/workspace/code/cms/code/tests/src/Components/Html/ParagraphTest.php" line="299" assertions="3" time="0.024405"/>
+      </testsuite>
     </testsuite>
-    <testsuite name="Tests\Unit\Components\Html\ButtonTest::testInvalidInstantiation" tests="6" assertions="6" failures="0" errors="0" time="0.063401">
-      <testcase name="testInvalidInstantiation with data set #0" assertions="1" time="0.010648"/>
-      <testcase name="testInvalidInstantiation with data set #1" assertions="1" time="0.010345"/>
-      <testcase name="testInvalidInstantiation with data set #2" assertions="1" time="0.010125"/>
-      <testcase name="testInvalidInstantiation with data set #3" assertions="1" time="0.011430"/>
-      <testcase name="testInvalidInstantiation with data set #4" assertions="1" time="0.010532"/>
-      <testcase name="testInvalidInstantiation with data set #5" assertions="1" time="0.010321"/>
+    <testsuite name="bootstrap" tests="51" assertions="48" failures="0" errors="0" time="0.618502">
+      <testsuite name="N8G\Grass\BootstrapTest" file="/Users/NickGreen/workspace/code/cms/code/tests/src/BootstrapTest.php" tests="51" assertions="48" failures="0" errors="0" time="0.618502">
+        <testcase name="testRun" class="N8G\Grass\BootstrapTest" file="/Users/NickGreen/workspace/code/cms/code/tests/src/BootstrapTest.php" line="27" assertions="1" time="0.033700"/>
+        <testcase name="testTearDown" class="N8G\Grass\BootstrapTest" file="/Users/NickGreen/workspace/code/cms/code/tests/src/BootstrapTest.php" line="43" assertions="0" time="0.007686"/>
+        <testcase name="testCheckSiteSetup" class="N8G\Grass\BootstrapTest" file="/Users/NickGreen/workspace/code/cms/code/tests/src/BootstrapTest.php" line="54" assertions="0" time="0.007011"/>
+        <testsuite name="N8G\Grass\BootstrapTest::testErrorHandler" tests="16" assertions="0" failures="0" errors="0" time="0.134221">
+          <testcase name="testErrorHandler with data set #0" assertions="0" time="0.007175"/>
+          <testcase name="testErrorHandler with data set #1" assertions="0" time="0.007568"/>
+          <testcase name="testErrorHandler with data set #2" assertions="0" time="0.009377"/>
+          <testcase name="testErrorHandler with data set #3" assertions="0" time="0.007299"/>
+          <testcase name="testErrorHandler with data set #4" assertions="0" time="0.008494"/>
+          <testcase name="testErrorHandler with data set #5" assertions="0" time="0.008644"/>
+          <testcase name="testErrorHandler with data set #6" assertions="0" time="0.008204"/>
+          <testcase name="testErrorHandler with data set #7" assertions="0" time="0.007396"/>
+          <testcase name="testErrorHandler with data set #8" assertions="0" time="0.010216"/>
+          <testcase name="testErrorHandler with data set #9" assertions="0" time="0.008303"/>
+          <testcase name="testErrorHandler with data set #10" assertions="0" time="0.008088"/>
+          <testcase name="testErrorHandler with data set #11" assertions="0" time="0.009345"/>
+          <testcase name="testErrorHandler with data set #12" assertions="0" time="0.008106"/>
+          <testcase name="testErrorHandler with data set #13" assertions="0" time="0.007773"/>
+          <testcase name="testErrorHandler with data set #14" assertions="0" time="0.009764"/>
+          <testcase name="testErrorHandler with data set #15" assertions="0" time="0.008469"/>
+        </testsuite>
+        <testsuite name="N8G\Grass\BootstrapTest::testGetMethod" tests="16" assertions="16" failures="0" errors="0" time="0.185546">
+          <testcase name="testGetMethod with data set #0" assertions="1" time="0.011272"/>
+          <testcase name="testGetMethod with data set #1" assertions="1" time="0.012220"/>
+          <testcase name="testGetMethod with data set #2" assertions="1" time="0.014286"/>
+          <testcase name="testGetMethod with data set #3" assertions="1" time="0.011033"/>
+          <testcase name="testGetMethod with data set #4" assertions="1" time="0.011872"/>
+          <testcase name="testGetMethod with data set #5" assertions="1" time="0.011304"/>
+          <testcase name="testGetMethod with data set #6" assertions="1" time="0.010454"/>
+          <testcase name="testGetMethod with data set #7" assertions="1" time="0.012177"/>
+          <testcase name="testGetMethod with data set #8" assertions="1" time="0.010343"/>
+          <testcase name="testGetMethod with data set #9" assertions="1" time="0.011910"/>
+          <testcase name="testGetMethod with data set #10" assertions="1" time="0.010772"/>
+          <testcase name="testGetMethod with data set #11" assertions="1" time="0.012205"/>
+          <testcase name="testGetMethod with data set #12" assertions="1" time="0.010863"/>
+          <testcase name="testGetMethod with data set #13" assertions="1" time="0.011355"/>
+          <testcase name="testGetMethod with data set #14" assertions="1" time="0.011294"/>
+          <testcase name="testGetMethod with data set #15" assertions="1" time="0.012186"/>
+        </testsuite>
+        <testsuite name="N8G\Grass\BootstrapTest::testGetType" tests="16" assertions="31" failures="0" errors="0" time="0.250338">
+          <testcase name="testGetType with data set #0" assertions="2" time="0.014422"/>
+          <testcase name="testGetType with data set #1" assertions="2" time="0.014695"/>
+          <testcase name="testGetType with data set #2" assertions="2" time="0.014002"/>
+          <testcase name="testGetType with data set #3" assertions="2" time="0.014274"/>
+          <testcase name="testGetType with data set #4" assertions="2" time="0.013698"/>
+          <testcase name="testGetType with data set #5" assertions="2" time="0.014089"/>
+          <testcase name="testGetType with data set #6" assertions="2" time="0.013663"/>
+          <testcase name="testGetType with data set #7" assertions="2" time="0.014653"/>
+          <testcase name="testGetType with data set #8" assertions="2" time="0.014080"/>
+          <testcase name="testGetType with data set #9" assertions="2" time="0.016027"/>
+          <testcase name="testGetType with data set #10" assertions="2" time="0.015720"/>
+          <testcase name="testGetType with data set #11" assertions="2" time="0.018695"/>
+          <testcase name="testGetType with data set #12" assertions="2" time="0.014765"/>
+          <testcase name="testGetType with data set #13" assertions="2" time="0.023068"/>
+          <testcase name="testGetType with data set #14" assertions="2" time="0.021845"/>
+          <testcase name="testGetType with data set #15" assertions="1" time="0.012642"/>
+        </testsuite>
+      </testsuite>
     </testsuite>
-    <testcase name="testSetContent" class="Tests\Unit\Components\Html\ButtonTest" file="/Users/NickGreen/workspace/code/cms/code/tests/src/Components/Html/ButtonTest.php" line="89" assertions="1" time="0.020350"/>
-    <testcase name="testSetId" class="Tests\Unit\Components\Html\ButtonTest" file="/Users/NickGreen/workspace/code/cms/code/tests/src/Components/Html/ButtonTest.php" line="104" assertions="1" time="0.014938"/>
-    <testsuite name="Tests\Unit\Components\Html\ButtonTest::testSetElements" tests="3" assertions="3" failures="0" errors="0" time="0.054439">
-      <testcase name="testSetElements with data set #0" assertions="1" time="0.016575"/>
-      <testcase name="testSetElements with data set #1" assertions="1" time="0.017912"/>
-      <testcase name="testSetElements with data set #2" assertions="1" time="0.019952"/>
-    </testsuite>
-    <testsuite name="Tests\Unit\Components\Html\ButtonTest::testGetElements" tests="3" assertions="3" failures="0" errors="0" time="0.053947">
-      <testcase name="testGetElements with data set #0" assertions="1" time="0.015848"/>
-      <testcase name="testGetElements with data set #1" assertions="1" time="0.016872"/>
-      <testcase name="testGetElements with data set #2" assertions="1" time="0.021227"/>
-    </testsuite>
-    <testsuite name="Tests\Unit\Components\Html\ButtonTest::testAddElements" tests="34" assertions="36" failures="0" errors="0" time="0.598499">
-      <testcase name="testAddElements with data set #0" assertions="1" time="0.017134"/>
-      <testcase name="testAddElements with data set #1" assertions="1" time="0.016728"/>
-      <testcase name="testAddElements with data set #2" assertions="1" time="0.015427"/>
-      <testcase name="testAddElements with data set #3" assertions="1" time="0.016187"/>
-      <testcase name="testAddElements with data set #4" assertions="1" time="0.016506"/>
-      <testcase name="testAddElements with data set #5" assertions="1" time="0.016297"/>
-      <testcase name="testAddElements with data set #6" assertions="1" time="0.015974"/>
-      <testcase name="testAddElements with data set #7" assertions="1" time="0.014929"/>
-      <testcase name="testAddElements with data set #8" assertions="1" time="0.016551"/>
-      <testcase name="testAddElements with data set #9" assertions="1" time="0.016015"/>
-      <testcase name="testAddElements with data set #10" assertions="1" time="0.016246"/>
-      <testcase name="testAddElements with data set #11" assertions="1" time="0.017526"/>
-      <testcase name="testAddElements with data set #12" assertions="2" time="0.016382"/>
-      <testcase name="testAddElements with data set #13" assertions="1" time="0.017541"/>
-      <testcase name="testAddElements with data set #14" assertions="1" time="0.027314"/>
-      <testcase name="testAddElements with data set #15" assertions="1" time="0.022275"/>
-      <testcase name="testAddElements with data set #16" assertions="1" time="0.023675"/>
-      <testcase name="testAddElements with data set #17" assertions="1" time="0.020678"/>
-      <testcase name="testAddElements with data set #18" assertions="1" time="0.016184"/>
-      <testcase name="testAddElements with data set #19" assertions="1" time="0.017926"/>
-      <testcase name="testAddElements with data set #20" assertions="1" time="0.016758"/>
-      <testcase name="testAddElements with data set #21" assertions="1" time="0.018798"/>
-      <testcase name="testAddElements with data set #22" assertions="1" time="0.017355"/>
-      <testcase name="testAddElements with data set #23" assertions="1" time="0.016981"/>
-      <testcase name="testAddElements with data set #24" assertions="2" time="0.015021"/>
-      <testcase name="testAddElements with data set #25" assertions="1" time="0.019759"/>
-      <testcase name="testAddElements with data set #26" assertions="1" time="0.019225"/>
-      <testcase name="testAddElements with data set #27" assertions="1" time="0.016131"/>
-      <testcase name="testAddElements with data set #28" assertions="1" time="0.016535"/>
-      <testcase name="testAddElements with data set #29" assertions="1" time="0.016486"/>
-      <testcase name="testAddElements with data set #30" assertions="1" time="0.017119"/>
-      <testcase name="testAddElements with data set #31" assertions="1" time="0.016896"/>
-      <testcase name="testAddElements with data set #32" assertions="1" time="0.016942"/>
-      <testcase name="testAddElements with data set #33" assertions="1" time="0.016997"/>
-    </testsuite>
-    <testcase name="testSetAttributes" class="Tests\Unit\Components\Html\ButtonTest" file="/Users/NickGreen/workspace/code/cms/code/tests/src/Components/Html/ButtonTest.php" line="230" assertions="1" time="0.016947"/>
-    <testcase name="testGetAttributes" class="Tests\Unit\Components\Html\ButtonTest" file="/Users/NickGreen/workspace/code/cms/code/tests/src/Components/Html/ButtonTest.php" line="244" assertions="2" time="0.024662"/>
-    <testsuite name="Tests\Unit\Components\Html\ButtonTest::testToString" tests="7" assertions="7" failures="0" errors="0" time="0.100037">
-      <testcase name="testToString with data set #0" assertions="1" time="0.013926"/>
-      <testcase name="testToString with data set #1" assertions="1" time="0.015362"/>
-      <testcase name="testToString with data set #2" assertions="1" time="0.014078"/>
-      <testcase name="testToString with data set #3" assertions="1" time="0.015754"/>
-      <testcase name="testToString with data set #4" assertions="1" time="0.013593"/>
-      <testcase name="testToString with data set #5" assertions="1" time="0.014377"/>
-      <testcase name="testToString with data set #6" assertions="1" time="0.012947"/>
-    </testsuite>
-    <testsuite name="Tests\Unit\Components\Html\ButtonTest::testToHtml" tests="7" assertions="7" failures="0" errors="0" time="0.099939">
-      <testcase name="testToHtml with data set #0" assertions="1" time="0.014499"/>
-      <testcase name="testToHtml with data set #1" assertions="1" time="0.014144"/>
-      <testcase name="testToHtml with data set #2" assertions="1" time="0.013994"/>
-      <testcase name="testToHtml with data set #3" assertions="1" time="0.014758"/>
-      <testcase name="testToHtml with data set #4" assertions="1" time="0.015042"/>
-      <testcase name="testToHtml with data set #5" assertions="1" time="0.013515"/>
-      <testcase name="testToHtml with data set #6" assertions="1" time="0.013987"/>
-    </testsuite>
-    <testcase name="testAddAttribute" class="Tests\Unit\Components\Html\ButtonTest" file="/Users/NickGreen/workspace/code/cms/code/tests/src/Components/Html/ButtonTest.php" line="299" assertions="3" time="0.026777"/>
-    <testcase name="testValidateAttributes" class="Tests\Unit\Components\Html\ButtonTest" file="/Users/NickGreen/workspace/code/cms/code/tests/src/Components/Html/ButtonTest.php" line="323" assertions="1" time="0.022315"/>
   </testsuite>
 </testsuites>
