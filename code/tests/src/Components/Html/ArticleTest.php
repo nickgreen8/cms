@@ -1,10 +1,10 @@
 <?php
 namespace Tests\Unit\Components\Html;
 
-use N8G\Grass\Components\Html\Anchor;
+use N8G\Grass\Components\Html\Article;
 use N8G\Utils\Log;
 
-class AnchorTest extends \PHPUnit_Framework_TestCase
+class ArticleTest extends \PHPUnit_Framework_TestCase
 {
 	/**
 	 * Sets up the test class.
@@ -41,24 +41,24 @@ class AnchorTest extends \PHPUnit_Framework_TestCase
 	public function testInstantiation($content, $id, $elements, $attributes)
 	{
 		//No arguments
-		$element = new Anchor();
-		$this->assertInstanceOf('N8G\Grass\Components\Html\Anchor', $element);
+		$element = new Article();
+		$this->assertInstanceOf('N8G\Grass\Components\Html\Article', $element);
 
 		//Just content
-		$element = new Anchor($content);
-		$this->assertInstanceOf('N8G\Grass\Components\Html\Anchor', $element);
+		$element = new Article($content);
+		$this->assertInstanceOf('N8G\Grass\Components\Html\Article', $element);
 
 		//Content and ID
-		$element = new Anchor($content, $id);
-		$this->assertInstanceOf('N8G\Grass\Components\Html\Anchor', $element);
+		$element = new Article($content, $id);
+		$this->assertInstanceOf('N8G\Grass\Components\Html\Article', $element);
 
 		//Content, ID and elements
-		$element = new Anchor($content, $id, $elements);
-		$this->assertInstanceOf('N8G\Grass\Components\Html\Anchor', $element);
+		$element = new Article($content, $id, $elements);
+		$this->assertInstanceOf('N8G\Grass\Components\Html\Article', $element);
 
 		//Content, ID, Elements and attributes
-		$element = new Anchor($content, $id, $elements, $attributes);
-		$this->assertInstanceOf('N8G\Grass\Components\Html\Anchor', $element);
+		$element = new Article($content, $id, $elements, $attributes);
+		$this->assertInstanceOf('N8G\Grass\Components\Html\Article', $element);
 	}
 
 	/**
@@ -76,7 +76,7 @@ class AnchorTest extends \PHPUnit_Framework_TestCase
 	 */
 	public function testInvalidInstantiation($content, $id, $elements, $attributes)
 	{
-		$element = new Anchor($content, $id, $elements, $attributes);
+		$element = new Article($content, $id, $elements, $attributes);
 	}
 
 	/**
@@ -88,7 +88,7 @@ class AnchorTest extends \PHPUnit_Framework_TestCase
 	 */
 	public function testSetContent()
 	{
-		$element = new Anchor();
+		$element = new Article();
 
 		$element->setContent('This is a test');
 		$this->assertEquals('This is a test', $element->getContent());
@@ -103,7 +103,7 @@ class AnchorTest extends \PHPUnit_Framework_TestCase
 	 */
 	public function testSetId()
 	{
-		$element = new Anchor();
+		$element = new Article();
 		$element->setId('test');
 
 		$this->assertEquals('test', $element->getId());
@@ -139,7 +139,7 @@ class AnchorTest extends \PHPUnit_Framework_TestCase
 			}
 		}
 
-		$element = new Anchor();
+		$element = new Article();
 		$element->setElements($elements);
 
 		$this->assertEquals($expected, $this->getPrivateProperty($element, 'elements'));
@@ -175,7 +175,7 @@ class AnchorTest extends \PHPUnit_Framework_TestCase
 			}
 		}
 
-		$element = new Anchor();
+		$element = new Article();
 		$element->setElements($elements);
 
 		$this->assertEquals($expected, $element->getElements());
@@ -195,7 +195,7 @@ class AnchorTest extends \PHPUnit_Framework_TestCase
 	 */
 	public function testAddElements($element, $valid, $params = null)
 	{
-		$parent = new Anchor();
+		$parent = new Article();
 		$obj    = sprintf('N8G\Grass\Components\Html\%s', $element);
 		if (class_exists($obj)) {
 			if (isset($params)) {
@@ -229,7 +229,7 @@ class AnchorTest extends \PHPUnit_Framework_TestCase
 	 */
 	public function testSetAttributes()
 	{
-		$element = new Anchor();
+		$element = new Article();
 		$element->setAttributes(array('style', 'text-align: center;'));
 		$this->assertEquals(array('style', 'text-align: center;'), $this->getPrivateProperty($element, 'attributes'));
 	}
@@ -243,7 +243,7 @@ class AnchorTest extends \PHPUnit_Framework_TestCase
 	 */
 	public function testGetAttributes()
 	{
-		$element = new Anchor('This is a test.', 'test', array(), array('class', 'test'));
+		$element = new Article('This is a test.', 'test', array(), array('class', 'test'));
 		$this->assertEquals(array('class', 'test'), $element->getAttributes());
 
 		$element->setAttributes(array('style', 'text-align: center;'));
@@ -266,7 +266,7 @@ class AnchorTest extends \PHPUnit_Framework_TestCase
 	public function testToString($content, $id, $elements, $attributes, $fixture)
 	{
 		//Default element
-		$element = new Anchor($content, $id, $elements, $attributes);
+		$element = new Article($content, $id, $elements, $attributes);
 		$this->assertEquals($fixture, $element->toString());
 	}
 
@@ -285,7 +285,7 @@ class AnchorTest extends \PHPUnit_Framework_TestCase
 	 */
 	public function testToHtml($content, $id, $elements, $attributes, $fixture)
 	{
-		$element = new Anchor($content, $id, $elements, $attributes);
+		$element = new Article($content, $id, $elements, $attributes);
 		$this->assertEquals($fixture, $element->toHtml());
 	}
 
@@ -298,7 +298,7 @@ class AnchorTest extends \PHPUnit_Framework_TestCase
 	 */
 	public function testAddAttribute()
 	{
-		$element = new Anchor();
+		$element = new Article();
 
 		//Add valid attribute
 		$element->addAttribute(array('class' => 'test'));
@@ -342,13 +342,13 @@ class AnchorTest extends \PHPUnit_Framework_TestCase
 		$data = $this->genericDataProvider();
 
 		//Add fixtures
-		$data[0]['fixture'] = 'Anchor element\n\r    Attributes: href=#';
-		$data[1]['fixture'] = 'Anchor element\n\r    Content: Test\n\r    Attributes: href=#';
-		$data[2]['fixture'] = 'Anchor element\n\r    ID: test\n\r    Attributes: href=#';
-		$data[3]['fixture'] = 'Anchor element\n\r    Elements:\n\rPHPUnit is...fun!\n\r    Attributes: href=#';
-		$data[4]['fixture'] = 'Anchor element\n\r    Attributes: class=test, href=#';
-		$data[5]['fixture'] = 'Anchor element\n\r    Content: 1\n\r    Attributes: href=#';
-		$data[6]['fixture'] = 'Anchor element\n\r    ID: 1\n\r    Attributes: href=#';
+		$data[0]['fixture'] = 'Article element';
+		$data[1]['fixture'] = 'Article element\n\r    Content: Test';
+		$data[2]['fixture'] = 'Article element\n\r    ID: test';
+		$data[3]['fixture'] = 'Article element\n\r    Elements:\n\rPHPUnit is...fun!';
+		$data[4]['fixture'] = 'Article element\n\r    Attributes: class=test';
+		$data[5]['fixture'] = 'Article element\n\r    Content: 1';
+		$data[6]['fixture'] = 'Article element\n\r    ID: 1';
 
 		return $data;
 	}
@@ -363,13 +363,13 @@ class AnchorTest extends \PHPUnit_Framework_TestCase
 		$data = $this->genericDataProvider();
 
 		//Add fixtures
-		$data[0]['fixture'] = '<a href="#"></a>';
-		$data[1]['fixture'] = '<a href="#">Test</a>';
-		$data[2]['fixture'] = '<a id="test" href="#"></a>';
-		$data[3]['fixture'] = '<a href="#">PHPUnit is...fun!</a>';
-		$data[4]['fixture'] = '<a class="test" href="#"></a>';
-		$data[5]['fixture'] = '<a href="#">1</a>';
-		$data[6]['fixture'] = '<a id="1" href="#"></a>';
+		$data[0]['fixture'] = '<article></article>';
+		$data[1]['fixture'] = '<article>Test</article>';
+		$data[2]['fixture'] = '<article id="test"></article>';
+		$data[3]['fixture'] = '<article>PHPUnit is...fun!</article>';
+		$data[4]['fixture'] = '<article class="test"></article>';
+		$data[5]['fixture'] = '<article>1</article>';
+		$data[6]['fixture'] = '<article id="1"></article>';
 
 		return $data;
 	}
@@ -386,43 +386,43 @@ class AnchorTest extends \PHPUnit_Framework_TestCase
 				'content'		=>	null,
 				'id'			=>	null,
 				'elements'		=>	array(),
-				'attributes'	=>	array('href' => '#')
+				'attributes'	=>	array()
 			),
 			array(
 				'content'		=>	'Test',
 				'id'			=>	null,
 				'elements'		=>	array(),
-				'attributes'	=>	array('href' => '#')
+				'attributes'	=>	array()
 			),
 			array(
 				'content'		=>	null,
 				'id'			=>	'test',
 				'elements'		=>	array(),
-				'attributes'	=>	array('href' => '#')
+				'attributes'	=>	array()
 			),
 			array(
 				'content'		=>	null,
 				'id'			=>	null,
 				'elements'		=>	array('PHPUnit is...', 'fun!'),
-				'attributes'	=>	array('href' => '#')
+				'attributes'	=>	array()
 			),
 			array(
 				'content'		=>	null,
 				'id'			=>	null,
 				'elements'		=>	array(),
-				'attributes'	=>	array('class' => 'test', 'href' => '#')
+				'attributes'	=>	array('class' => 'test')
 			),
 			array(
 				'content'		=>	1,
 				'id'			=>	null,
 				'elements'		=>	array(),
-				'attributes'	=>	array('href' => '#')
+				'attributes'	=>	array()
 			),
 			array(
 				'content'		=>	null,
 				'id'			=>	1,
 				'elements'		=>	array(),
-				'attributes'	=>	array('href' => '#')
+				'attributes'	=>	array()
 			)
 		);
 	}
@@ -484,11 +484,11 @@ class AnchorTest extends \PHPUnit_Framework_TestCase
 		return array(
 			array(
 				'element' => 'Anchor',
-				'valid'   => false
+				'valid'   => true
 			),
 			array(
 				'element' => 'Article',
-				'valid'   => false
+				'valid'   => true
 			),
 			array(
 				'element' => 'Body',
@@ -504,15 +504,15 @@ class AnchorTest extends \PHPUnit_Framework_TestCase
 			),
 			array(
 				'element' => 'Footer',
-				'valid'   => false
+				'valid'   => true
 			),
 			array(
 				'element' => 'Form',
-				'valid'   => false
+				'valid'   => true
 			),
 			array(
 				'element' => 'Button',
-				'valid'   => false
+				'valid'   => true
 			),
 			array(
 				'element' => 'Head',
@@ -520,7 +520,7 @@ class AnchorTest extends \PHPUnit_Framework_TestCase
 			),
 			array(
 				'element' => 'Header',
-				'valid'   => false
+				'valid'   => true
 			),
 			array(
 				'element' => 'Heading',
@@ -529,7 +529,7 @@ class AnchorTest extends \PHPUnit_Framework_TestCase
 			),
 			array(
 				'element' => 'HorizontalRule',
-				'valid'   => false
+				'valid'   => true
 			),
 			array(
 				'element' => 'Image',
@@ -557,15 +557,15 @@ class AnchorTest extends \PHPUnit_Framework_TestCase
 			),
 			array(
 				'element' => 'OrderedList',
-				'valid'   => false
-			),
-			array(
-				'element' => 'PageBreak',
 				'valid'   => true
 			),
 			array(
-				'element' => 'Paragraph',
+				'element' => 'PageBreak',
 				'valid'   => false
+			),
+			array(
+				'element' => 'Paragraph',
+				'valid'   => true
 			),
 			array(
 				'element' => 'Script',
@@ -589,7 +589,7 @@ class AnchorTest extends \PHPUnit_Framework_TestCase
 			),
 			array(
 				'element' => 'Table',
-				'valid'   => false
+				'valid'   => true
 			),
 			array(
 				'element' => 'TableBody',
@@ -617,7 +617,7 @@ class AnchorTest extends \PHPUnit_Framework_TestCase
 			),
 			array(
 				'element' => 'UnorderedList',
-				'valid'   => false
+				'valid'   => true
 			)
 		);
 	}

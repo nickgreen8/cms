@@ -483,14 +483,6 @@ class ParagraphTest extends \PHPUnit_Framework_TestCase
 	{
 		return array(
 			array(
-				'element' => 1,
-				'valid'   => true
-			),
-			array(
-				'element' => 'Test',
-				'valid'   => true
-			),
-			array(
 				'element' => 'Anchor',
 				'valid'   => true
 			),

@@ -29,7 +29,7 @@ class Article extends HtmlAbstract
 	{
 		Log::info('Initilising article element');
 		$this->data = array(
-			'name'	=>	'article',
+			'name'	=>	'Article',
 			'tag'	=>	'article'
 		);
 		parent::__construct($content, $id, $elements, $attributes);
