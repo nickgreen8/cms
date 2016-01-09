@@ -60,12 +60,10 @@ class Button extends HtmlAbstract
 	 */
 	protected function validateAttributes()
 	{
-		//Check for encryption type
+		//Check for button type
 		if (!isset($this->attributes['type']) || !in_array($this->attributes['type'], $this->types)) {
 			//Check for error
-			try {
-				throw new ComponentMissingRequiredAttributesException(sprintf('Button type is not in the following: %s', implode(', ', $this->types)));
-			} catch (ComponentMissingRequiredAttributesException $e) {}
+			throw new ComponentMissingRequiredAttributesException(sprintf('Button type is not in the following: %s', implode(', ', $this->types)));
 		}
 		parent::validateAttributes();
 	}
