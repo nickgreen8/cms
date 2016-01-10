@@ -29,7 +29,7 @@ class Label extends HtmlAbstract
 	{
 		Log::info('Initilising label element');
 		$this->data = array(
-			'name'	=>	'label',
+			'name'	=>	'Label',
 			'tag'	=>	'label'
 		);
 		parent::__construct($content, $id, $elements, $attributes);

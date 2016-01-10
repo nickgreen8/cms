@@ -154,7 +154,234 @@ s\Unit\Components\Html\Heading
  [x] To html
  [x] Add attribute
 
+s\Unit\Components\Html\HorizontalRule
+ [x] Instantiation
+ [x] Invalid instantiation
+ [x] Set content
+ [x] Set id
+ [x] Set elements
+ [x] Get elements
+ [x] Add elements
+ [x] Set attributes
+ [x] Get attributes
+ [x] To string
+ [x] To html
+ [x] Add attribute
+
+s\Unit\Components\Html\Image
+ [x] Instantiation
+ [x] Invalid instantiation
+ [x] Set content
+ [x] Set id
+ [x] Set elements
+ [x] Get elements
+ [x] Add elements
+ [x] Set attributes
+ [x] Get attributes
+ [x] To string
+ [x] To html
+ [x] Add attribute
+ [x] Validate attributes
+
+s\Unit\Components\Html\Input
+ [x] Instantiation
+ [x] Invalid instantiation
+ [x] Set content
+ [x] Set id
+ [x] Set elements
+ [x] Get elements
+ [x] Add elements
+ [x] Set attributes
+ [x] Get attributes
+ [x] To string
+ [x] To html
+ [x] Add attribute
+ [x] Validate attributes
+
+s\Unit\Components\Html\Label
+ [x] Instantiation
+ [x] Invalid instantiation
+ [x] Set content
+ [x] Set id
+ [x] Set elements
+ [x] Get elements
+ [x] Add elements
+ [x] Set attributes
+ [x] Get attributes
+ [x] To string
+ [x] To html
+ [x] Add attribute
+ [x] Validate attributes
+
+s\Unit\Components\Html\ListItem
+ [x] Instantiation
+ [x] Invalid instantiation
+ [x] Set content
+ [x] Set id
+ [x] Set elements
+ [x] Get elements
+ [x] Add elements
+ [x] Set attributes
+ [x] Get attributes
+ [x] To string
+ [x] To html
+ [x] Add attribute
+
+s\Unit\Components\Html\OrderedList
+ [x] Instantiation
+ [x] Invalid instantiation
+ [x] Set content
+ [x] Set id
+ [x] Set elements
+ [x] Get elements
+ [x] Add elements
+ [x] Set attributes
+ [x] Get attributes
+ [x] To string
+ [x] To html
+ [x] Add attribute
+
+s\Unit\Components\Html\PageBreak
+ [x] Instantiation
+ [x] Invalid instantiation
+ [x] Set content
+ [x] Set id
+ [x] Set elements
+ [x] Get elements
+ [x] Add elements
+ [x] Set attributes
+ [x] Get attributes
+ [x] To string
+ [x] To html
+ [x] Add attribute
+
 s\Unit\Components\Html\Paragraph
+ [x] Instantiation
+ [x] Invalid instantiation
+ [x] Set content
+ [x] Set id
+ [x] Set elements
+ [x] Get elements
+ [x] Add elements
+ [x] Set attributes
+ [x] Get attributes
+ [x] To string
+ [x] To html
+ [x] Add attribute
+
+s\Unit\Components\Html\Section
+ [x] Instantiation
+ [x] Invalid instantiation
+ [x] Set content
+ [x] Set id
+ [x] Set elements
+ [x] Get elements
+ [x] Add elements
+ [x] Set attributes
+ [x] Get attributes
+ [x] To string
+ [x] To html
+ [x] Add attribute
+
+s\Unit\Components\Html\TableBody
+ [x] Instantiation
+ [x] Invalid instantiation
+ [x] Set content
+ [x] Set id
+ [x] Set elements
+ [x] Get elements
+ [x] Add elements
+ [x] Set attributes
+ [x] Get attributes
+ [x] To string
+ [x] To html
+ [x] Add attribute
+
+s\Unit\Components\Html\TableCell
+ [x] Instantiation
+ [x] Invalid instantiation
+ [x] Set content
+ [x] Set id
+ [x] Set elements
+ [x] Get elements
+ [x] Add elements
+ [x] Set attributes
+ [x] Get attributes
+ [x] To string
+ [x] To html
+ [x] Add attribute
+
+s\Unit\Components\Html\TableHeader
+ [x] Instantiation
+ [x] Invalid instantiation
+ [x] Set content
+ [x] Set id
+ [x] Set elements
+ [x] Get elements
+ [x] Add elements
+ [x] Set attributes
+ [x] Get attributes
+ [x] To string
+ [x] To html
+ [x] Add attribute
+
+s\Unit\Components\Html\TableHeading
+ [x] Instantiation
+ [x] Invalid instantiation
+ [x] Set content
+ [x] Set id
+ [x] Set elements
+ [x] Get elements
+ [x] Add elements
+ [x] Set attributes
+ [x] Get attributes
+ [x] To string
+ [x] To html
+ [x] Add attribute
+
+s\Unit\Components\Html\TableRow
+ [x] Instantiation
+ [x] Invalid instantiation
+ [x] Set content
+ [x] Set id
+ [x] Set elements
+ [x] Get elements
+ [x] Add elements
+ [x] Set attributes
+ [x] Get attributes
+ [x] To string
+ [x] To html
+ [x] Add attribute
+
+s\Unit\Components\Html\Table
+ [x] Instantiation
+ [x] Invalid instantiation
+ [x] Set content
+ [x] Set id
+ [x] Set elements
+ [x] Get elements
+ [x] Add elements
+ [x] Set attributes
+ [x] Get attributes
+ [x] To string
+ [x] To html
+ [x] Add attribute
+
+s\Unit\Components\Html\Title
+ [x] Instantiation
+ [x] Invalid instantiation
+ [x] Set content
+ [x] Set id
+ [x] Set elements
+ [x] Get elements
+ [x] Add elements
+ [x] Set attributes
+ [x] Get attributes
+ [x] To string
+ [x] To html
+ [x] Add attribute
+
+s\Unit\Components\Html\UnorderedList
  [x] Instantiation
  [x] Invalid instantiation
  [x] Set content

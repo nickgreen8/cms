@@ -27,7 +27,7 @@ class Image extends HtmlAbstract
 	{
 		Log::info('Initilising image element');
 		$this->data = array(
-			'name'	=>	'image',
+			'name'	=>	'Image',
 			'tag'	=>	'img'
 		);
 		parent::__construct(NULL, $id, array(), $attributes);

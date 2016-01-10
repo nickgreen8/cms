@@ -592,6 +592,10 @@ class FormTest extends \PHPUnit_Framework_TestCase
 				'valid'   => true
 			),
 			array(
+				'element' => 'Label',
+				'valid'   => false
+			),
+			array(
 				'element' => 'Link',
 				'valid'   => false
 			),

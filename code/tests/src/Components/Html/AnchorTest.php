@@ -540,6 +540,10 @@ class AnchorTest extends \PHPUnit_Framework_TestCase
 				'valid'   => false
 			),
 			array(
+				'element' => 'Label',
+				'valid'   => false
+			),
+			array(
 				'element' => 'Link',
 				'valid'   => false
 			),

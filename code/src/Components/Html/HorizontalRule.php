@@ -27,7 +27,7 @@ class HorizontalRule extends HtmlAbstract
 	{
 		Log::info('Initilising horizontal rule element');
 		$this->data = array(
-			'name'	=>	'horizontal rule',
+			'name'	=>	'Horizontal Rule',
 			'tag'	=>	'hr'
 		);
 		parent::__construct(NULL, $id, array(), $attributes);

@@ -58,7 +58,7 @@ class Input extends HtmlAbstract
 	{
 		Log::info('Initilising input element');
 		$this->data = array(
-			'name'	=>	'input',
+			'name'	=>	'Input',
 			'tag'	=>	'input'
 		);
 		parent::__construct(null, $id, array(), $attributes);
