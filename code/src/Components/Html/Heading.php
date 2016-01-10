@@ -30,7 +30,7 @@ class Heading extends HtmlAbstract
 	{
 		Log::info(sprintf('Initilising heading (h%n) element', $level));
 		$this->data = array(
-			'name'	=>	'heading',
+			'name'	=>	'Heading',
 			'tag'	=>	'h' . $level
 		);
 		parent::__construct($content, $id, $elements, $attributes);

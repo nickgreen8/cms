@@ -77,9 +77,7 @@ class Form extends HtmlAbstract
 		//Check for encryption type
 		if (!isset($this->attributes['enctype']) || !in_array($this->attributes['enctype'], $this->types)) {
 			//Check for error
-			try {
-				throw new ComponentMissingRequiredAttributesException(sprintf('Form encryption type is not in: %s', implode(', ', $this->types)));
-			} catch (ComponentMissingRequiredAttributesException $e) {}
+			throw new ComponentMissingRequiredAttributesException(sprintf('Form encryption type is not in: %s', implode(', ', $this->types)));
 		}
 		parent::validateAttributes();
 	}
