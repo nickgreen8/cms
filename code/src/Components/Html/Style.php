@@ -37,5 +37,8 @@ class Style extends HtmlAbstract
 		//Populate default accepted elements array
 		$this->acceptedElements['types'] = array('string');
 		$this->acceptedElements['elements'] = array();
+
+		//Add default attribute
+		$this->addAttribute(array('type' => 'text/css'));
 	}
 }
