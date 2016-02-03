@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1452720081">
-  <project timestamp="1452720081">
+<coverage generated="1454276985">
+  <project timestamp="1454276985">
     <package name="N8G\Grass">
       <file name="/Users/NickGreen/workspace/code/cms/code/src/Bootstrap.php">
         <class name="Bootstrap" namespace="N8G\Grass">
-          <metrics methods="7" coveredmethods="5" conditionals="0" coveredconditionals="0" statements="69" coveredstatements="64" elements="76" coveredelements="69"/>
+          <metrics methods="7" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="69" coveredstatements="0" elements="76" coveredelements="0"/>
         </class>
-        <line num="25" type="method" name="run" crap="4" count="1"/>
-        <line num="28" type="stmt" count="1"/>
-        <line num="29" type="stmt" count="1"/>
-        <line num="32" type="stmt" count="1"/>
-        <line num="35" type="stmt" count="1"/>
-        <line num="36" type="method" name="anonymous function" crap="1" count="1"/>
-        <line num="38" type="stmt" count="1"/>
-        <line num="39" type="stmt" count="1"/>
-        <line num="40" type="stmt" count="1"/>
-        <line num="43" type="stmt" count="1"/>
-        <line num="44" type="stmt" count="1"/>
-        <line num="45" type="stmt" count="1"/>
-        <line num="46" type="stmt" count="1"/>
-        <line num="49" type="stmt" count="1"/>
-        <line num="50" type="stmt" count="1"/>
-        <line num="51" type="stmt" count="1"/>
-        <line num="52" type="stmt" count="1"/>
-        <line num="53" type="stmt" count="1"/>
-        <line num="54" type="stmt" count="1"/>
-        <line num="55" type="stmt" count="1"/>
-        <line num="56" type="stmt" count="1"/>
+        <line num="25" type="method" name="run" crap="20" count="0"/>
+        <line num="28" type="stmt" count="0"/>
+        <line num="29" type="stmt" count="0"/>
+        <line num="32" type="stmt" count="0"/>
+        <line num="35" type="stmt" count="0"/>
+        <line num="36" type="method" name="anonymous function" crap="2" count="0"/>
+        <line num="38" type="stmt" count="0"/>
+        <line num="39" type="stmt" count="0"/>
+        <line num="40" type="stmt" count="0"/>
+        <line num="43" type="stmt" count="0"/>
+        <line num="44" type="stmt" count="0"/>
+        <line num="45" type="stmt" count="0"/>
+        <line num="46" type="stmt" count="0"/>
+        <line num="49" type="stmt" count="0"/>
+        <line num="50" type="stmt" count="0"/>
+        <line num="51" type="stmt" count="0"/>
+        <line num="52" type="stmt" count="0"/>
+        <line num="53" type="stmt" count="0"/>
+        <line num="54" type="stmt" count="0"/>
+        <line num="55" type="stmt" count="0"/>
+        <line num="56" type="stmt" count="0"/>
         <line num="57" type="stmt" count="0"/>
         <line num="60" type="stmt" count="0"/>
         <line num="63" type="stmt" count="0"/>
@@ -44,68 +44,68 @@
         <line num="92" type="stmt" count="0"/>
         <line num="100" type="method" name="checkSiteSetup" crap="2" count="0"/>
         <line num="101" type="stmt" count="0"/>
-        <line num="114" type="method" name="errorHandler" crap="1" count="1"/>
-        <line num="117" type="stmt" count="1"/>
-        <line num="120" type="stmt" count="1"/>
-        <line num="121" type="stmt" count="1"/>
-        <line num="122" type="stmt" count="1"/>
-        <line num="123" type="stmt" count="1"/>
-        <line num="124" type="stmt" count="1"/>
-        <line num="125" type="stmt" count="1"/>
-        <line num="127" type="stmt" count="1"/>
-        <line num="130" type="stmt" count="1"/>
-        <line num="133" type="stmt" count="1"/>
-        <line num="144" type="method" name="getMethod" crap="11" count="17"/>
-        <line num="147" type="stmt" count="17"/>
-        <line num="148" type="stmt" count="17"/>
-        <line num="149" type="stmt" count="17"/>
-        <line num="150" type="stmt" count="3"/>
-        <line num="152" type="stmt" count="14"/>
-        <line num="153" type="stmt" count="14"/>
-        <line num="154" type="stmt" count="14"/>
-        <line num="155" type="stmt" count="14"/>
-        <line num="156" type="stmt" count="14"/>
-        <line num="157" type="stmt" count="14"/>
-        <line num="158" type="stmt" count="14"/>
-        <line num="159" type="stmt" count="8"/>
-        <line num="161" type="stmt" count="6"/>
-        <line num="162" type="stmt" count="6"/>
-        <line num="164" type="stmt" count="6"/>
-        <line num="174" type="method" name="getType" crap="16" count="17"/>
-        <line num="178" type="stmt" count="17"/>
-        <line num="179" type="stmt" count="1"/>
-        <line num="181" type="stmt" count="16"/>
-        <line num="182" type="stmt" count="2"/>
-        <line num="184" type="stmt" count="14"/>
-        <line num="185" type="stmt" count="1"/>
-        <line num="187" type="stmt" count="13"/>
-        <line num="188" type="stmt" count="1"/>
-        <line num="190" type="stmt" count="12"/>
-        <line num="191" type="stmt" count="1"/>
-        <line num="193" type="stmt" count="11"/>
-        <line num="194" type="stmt" count="1"/>
-        <line num="196" type="stmt" count="10"/>
-        <line num="197" type="stmt" count="1"/>
-        <line num="199" type="stmt" count="9"/>
-        <line num="200" type="stmt" count="1"/>
-        <line num="202" type="stmt" count="8"/>
-        <line num="203" type="stmt" count="1"/>
-        <line num="205" type="stmt" count="7"/>
-        <line num="206" type="stmt" count="1"/>
-        <line num="208" type="stmt" count="6"/>
-        <line num="209" type="stmt" count="1"/>
-        <line num="211" type="stmt" count="5"/>
-        <line num="212" type="stmt" count="1"/>
-        <line num="214" type="stmt" count="4"/>
-        <line num="215" type="stmt" count="1"/>
-        <line num="217" type="stmt" count="3"/>
-        <line num="218" type="stmt" count="1"/>
-        <line num="220" type="stmt" count="2"/>
-        <line num="221" type="stmt" count="1"/>
-        <line num="223" type="stmt" count="1"/>
-        <line num="224" type="stmt" count="1"/>
-        <line num="226" type="stmt" count="1"/>
-        <metrics loc="227" ncloc="109" classes="1" methods="7" coveredmethods="5" conditionals="0" coveredconditionals="0" statements="92" coveredstatements="77" elements="99" coveredelements="82"/>
+        <line num="114" type="method" name="errorHandler" crap="2" count="0"/>
+        <line num="117" type="stmt" count="0"/>
+        <line num="120" type="stmt" count="0"/>
+        <line num="121" type="stmt" count="0"/>
+        <line num="122" type="stmt" count="0"/>
+        <line num="123" type="stmt" count="0"/>
+        <line num="124" type="stmt" count="0"/>
+        <line num="125" type="stmt" count="0"/>
+        <line num="127" type="stmt" count="0"/>
+        <line num="130" type="stmt" count="0"/>
+        <line num="133" type="stmt" count="0"/>
+        <line num="144" type="method" name="getMethod" crap="132" count="0"/>
+        <line num="147" type="stmt" count="0"/>
+        <line num="148" type="stmt" count="0"/>
+        <line num="149" type="stmt" count="0"/>
+        <line num="150" type="stmt" count="0"/>
+        <line num="152" type="stmt" count="0"/>
+        <line num="153" type="stmt" count="0"/>
+        <line num="154" type="stmt" count="0"/>
+        <line num="155" type="stmt" count="0"/>
+        <line num="156" type="stmt" count="0"/>
+        <line num="157" type="stmt" count="0"/>
+        <line num="158" type="stmt" count="0"/>
+        <line num="159" type="stmt" count="0"/>
+        <line num="161" type="stmt" count="0"/>
+        <line num="162" type="stmt" count="0"/>
+        <line num="164" type="stmt" count="0"/>
+        <line num="174" type="method" name="getType" crap="272" count="0"/>
+        <line num="178" type="stmt" count="0"/>
+        <line num="179" type="stmt" count="0"/>
+        <line num="181" type="stmt" count="0"/>
+        <line num="182" type="stmt" count="0"/>
+        <line num="184" type="stmt" count="0"/>
+        <line num="185" type="stmt" count="0"/>
+        <line num="187" type="stmt" count="0"/>
+        <line num="188" type="stmt" count="0"/>
+        <line num="190" type="stmt" count="0"/>
+        <line num="191" type="stmt" count="0"/>
+        <line num="193" type="stmt" count="0"/>
+        <line num="194" type="stmt" count="0"/>
+        <line num="196" type="stmt" count="0"/>
+        <line num="197" type="stmt" count="0"/>
+        <line num="199" type="stmt" count="0"/>
+        <line num="200" type="stmt" count="0"/>
+        <line num="202" type="stmt" count="0"/>
+        <line num="203" type="stmt" count="0"/>
+        <line num="205" type="stmt" count="0"/>
+        <line num="206" type="stmt" count="0"/>
+        <line num="208" type="stmt" count="0"/>
+        <line num="209" type="stmt" count="0"/>
+        <line num="211" type="stmt" count="0"/>
+        <line num="212" type="stmt" count="0"/>
+        <line num="214" type="stmt" count="0"/>
+        <line num="215" type="stmt" count="0"/>
+        <line num="217" type="stmt" count="0"/>
+        <line num="218" type="stmt" count="0"/>
+        <line num="220" type="stmt" count="0"/>
+        <line num="221" type="stmt" count="0"/>
+        <line num="223" type="stmt" count="0"/>
+        <line num="224" type="stmt" count="0"/>
+        <line num="226" type="stmt" count="0"/>
+        <metrics loc="227" ncloc="109" classes="1" methods="7" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="92" coveredstatements="0" elements="99" coveredelements="0"/>
       </file>
     </package>
     <file name="/Users/NickGreen/workspace/code/cms/code/src/Components/Component.php">
@@ -1721,6 +1721,6 @@
         <metrics loc="68" ncloc="45" classes="1" methods="2" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="33" coveredstatements="19" elements="35" coveredelements="20"/>
       </file>
     </package>
-    <metrics files="59" loc="4540" ncloc="2354" classes="57" methods="139" coveredmethods="61" conditionals="0" coveredconditionals="0" statements="1219" coveredstatements="777" elements="1358" coveredelements="838"/>
+    <metrics files="59" loc="4540" ncloc="2354" classes="57" methods="139" coveredmethods="56" conditionals="0" coveredconditionals="0" statements="1219" coveredstatements="700" elements="1358" coveredelements="756"/>
   </project>
 </coverage>
