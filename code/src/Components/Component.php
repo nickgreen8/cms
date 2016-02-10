@@ -27,14 +27,6 @@ interface Component
 	public function toHtml();
 
 	/**
-	 * This function uses the content set in the class to check for embedded elements.
-	 * Nothing is returned and nothing is passed to the function.
-	 *
-	 * @return void
-	 */
-	public function checkForElements();
-
-	/**
 	 * This function is used to return the ID of the element in case it is required.
 	 * Nothing is passed and the ID of the component is returned.
 	 *

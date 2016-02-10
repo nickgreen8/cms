@@ -109,8 +109,6 @@ abstract class HtmlAbstract implements Component
 			'Title',
 			'UnorderedList'
 		);
-
-		$this->checkForElements();
 	}
 
 	/**
@@ -263,17 +261,6 @@ abstract class HtmlAbstract implements Component
 		} catch (ComponentMissingRequiredAttributesException $e) {
 			return false;
 		}
-	}
-
-	/**
-	 * This function uses the content set in the class to check for embedded elements.
-	 * Nothing is returned and nothing is passed to the function.
-	 *
-	 * @return void
-	 */
-	public function checkForElements()
-	{
-		Log::info('Checking content for embeded elements');
 	}
 
 	/**
