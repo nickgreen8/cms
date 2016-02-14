@@ -56,8 +56,6 @@ class Navigation
 
 		//Get all pages and child pages
 		$navigation = $this->buildNavHierachy(new UnorderedList());
-		//Add login link
-		$navigation->addElement($this->getLoginOption());
 
 		//Convert and return
 		return $navigation->toHtml();
@@ -74,7 +72,7 @@ class Navigation
 		$this->resetNavigation();
 
 		//Get all pages and child pages
-		$navigation = $this->buildNavHierachy(new UnorderedList($this->getLoginOption()), -1);
+		$navigation = $this->buildNavHierachy(new UnorderedList(), -1);
 
 		//Convert and return
 		return $navigation->toHtml();
@@ -89,13 +87,13 @@ class Navigation
 	 * @param  mixed  $parent The ID of the parent page
 	 * @return object         The HTML object to be converted
 	 */
-	private function buildNavHierachy($obj, $parent = null)
+	private function buildNavHierachy($obj, $parent = 0)
 	{
 		//Get all the pages
 		$pages = $this->getPages($parent);
 
 		//Itterate through pages
-		while ($page = Database::getArray($pages)) {
+		foreach ($pages as $page) {
 			//Check if current page
 			$class = array();
 			if (in_array(Config::getItem('page-id'), array($page['id'], $page['identifier']))) {
@@ -103,7 +101,11 @@ class Navigation
 			}
 
 			//Create page link
-			$li = $this->linkToObject($page['name'], sprintf('%s%s', Config::getItem('url'), $page['identifier']), $class);
+			if ($page['type'] === 'login') {
+				$li = $this->getLoginOption();
+			} else {
+				$li = $this->linkToObject($page['name'], sprintf('%s%s', Config::getItem('url'), $page['identifier']), $class);
+			}
 
 			//Check for child pages
 			if ($page['children'] > 0) {
@@ -161,10 +163,10 @@ class Navigation
 
 		if (isset($_SESSION['ng_login'])) {
 			//Create the logout link
-			$link = new ListItem(new Anchor('Logout', null, array(), array('href' => sprintf('%slogout', Config::getItem('url')), 'title' => 'Logout')));
+			$link = $this->linkToObject('Logout', sprintf('%slogout', Config::getItem('url')));
 		} else {
 			//Create the login link
-			$link = new ListItem(new Anchor('Login', null, array(), array('href' => sprintf('%slogin', Config::getItem('url')), 'title' => 'Login')));
+			$link = $this->linkToObject('Login', sprintf('%slogin', Config::getItem('url')));
 		}
 
 		//Return the link
@@ -177,21 +179,10 @@ class Navigation
 	 * @param  mixed  $parent The ID of the parent page
 	 * @return object         The query object
 	 */
-	private function getPages($parent = null)
+	private function getPages($parent = 0)
 	{
 		//Get the pages
-		$query = 'SELECT
-						p.id,
-						p.name,
-						IFNULL((SELECT COUNT(*) FROM %sPage p2 WHERE p2.parent = p.id GROUP BY p2.parent), 0) as children,
-						LCASE(REPLACE(p.name, \' \', \'-\')) as identifier
-					FROM
-						%sPage p
-					WHERE
-						p.parent %s
-					ORDER BY
-						p.order ASC,
-						p.id ASC';
-		return Database::query(sprintf($query, Database::getPrefix(), Database::getPrefix(), $parent === null ? 'IS NULL' : ' = ' . $parent));
+		$data = Database::execProcedure('GetNavigation', array('page' => $parent));
+		return $data;
 	}
 }
