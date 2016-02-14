@@ -1,0 +1,11 @@
+			<div id="big_img">
+				<img src="./assets/themes/n8g/images/banner.jpg">
+			</div>
+
+			<article id="main">
+				<div class="row">
+					{{ content | raw }}
+				</div>
+
+				{% include 'themes/n8g/loginForm.tmpl' with {'subtitle': ' '} %}
+			</article>
