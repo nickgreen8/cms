@@ -17,9 +17,8 @@ CREATE TABLE IF NOT EXISTS `cms`.`Page` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NOT NULL,
   `content` LONGTEXT NULL,
-  `parent` VARCHAR(45) NULL DEFAULT NULL,
-  `order` INT NULL,
   `removable` TINYINT(1) NOT NULL DEFAULT TRUE,
+  `parent` INT NULL DEFAULT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
@@ -444,6 +443,26 @@ SHOW WARNINGS;
 CREATE INDEX `commentPostCommentKey_idx` ON `cms`.`PostComment` (`comment` ASC);
 
 SHOW WARNINGS;
+
+-- -----------------------------------------------------
+-- Table `cms`.`Navigation`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `cms`.`Navigation` ;
+
+SHOW WARNINGS;
+CREATE TABLE IF NOT EXISTS `cms`.`Navigation` (
+  `page` INT NOT NULL,
+  `parent` INT NULL,
+  `priority` INT NULL,
+  PRIMARY KEY (`page`, `parent`),
+  CONSTRAINT `PageNaviationKey`
+    FOREIGN KEY (`page`)
+    REFERENCES `cms`.`Page` (`id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
+ENGINE = InnoDB;
+
+SHOW WARNINGS;
 USE `cms` ;
 
 -- -----------------------------------------------------
@@ -828,6 +847,73 @@ DELIMITER ;
 SHOW WARNINGS;
 
 -- -----------------------------------------------------
+-- function calcChildPageCount
+-- -----------------------------------------------------
+
+USE `cms`;
+DROP function IF EXISTS `cms`.`calcChildPageCount`;
+SHOW WARNINGS;
+
+DELIMITER $$
+USE `cms`$$
+CREATE FUNCTION calcChildPageCount(page INT) RETURNS INT
+BEGIN
+	#Create count variable
+	DECLARE count INT(11);
+
+	#Get the page ID
+	SELECT
+		COUNT(*) INTO count
+	FROM
+		Navigation n
+	WHERE
+		n.parent = page
+	GROUP BY
+		n.parent;
+
+	RETURN count;
+END$$
+
+DELIMITER ;
+SHOW WARNINGS;
+
+-- -----------------------------------------------------
+-- procedure GetNavigation
+-- -----------------------------------------------------
+
+USE `cms`;
+DROP procedure IF EXISTS `cms`.`GetNavigation`;
+SHOW WARNINGS;
+
+DELIMITER $$
+USE `cms`$$
+CREATE PROCEDURE GetNavigation
+	(IN page INT(45))
+BEGIN
+	SELECT
+		p.id,
+		p.name,
+		t.name as type,
+		calcChildPageCount(p.id) as children,
+		LCASE(REPLACE(p.name, ' ', '-')) as identifier
+	FROM
+		Page p JOIN Navigation n
+	    	ON p.id = n.page
+	    JOIN PageType pt
+			ON p.id = pt.page
+		JOIN Type t
+			ON pt.type = t.id
+	WHERE
+		n.parent = page
+	ORDER BY
+		n.priority ASC,
+		p.id ASC;
+END$$
+
+DELIMITER ;
+SHOW WARNINGS;
+
+-- -----------------------------------------------------
 -- View `cms`.`BlogPosts`
 -- -----------------------------------------------------
 DROP VIEW IF EXISTS `cms`.`BlogPosts` ;
@@ -901,9 +987,10 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `cms`;
-INSERT INTO `cms`.`Page` (`id`, `name`, `content`, `parent`, `order`, `removable`) VALUES (1, 'Home', '# The Grass Framework\\r\\n\\r\\nWelcome to Grass, your bed of internet platform grown.\\r\\n\\r\\nThis has been developed by Nick Green as a learning exercise. As time progresses, there will be increased tools and functionality.\\r\\n\\r\\nIf you would like to see more on my and my work, [please click here](http://nickgreenweb.co.uk/) or to contact me, [click here](http://nickgreenweb.co.uk/pages/contact.php).', NULL, NULL, false);
-INSERT INTO `cms`.`Page` (`id`, `name`, `content`, `parent`, `order`, `removable`) VALUES (NULL, 'Cookies', '# Cookie Policy', '-1', NULL, false);
-INSERT INTO `cms`.`Page` (`id`, `name`, `content`, `parent`, `order`, `removable`) VALUES (NULL, 'Site Details', '# Site Details', '-1', 100, false);
+INSERT INTO `cms`.`Page` (`id`, `name`, `content`, `removable`, `parent`) VALUES (1, 'Home', '# The Grass Framework\\r\\n\\r\\nWelcome to Grass, your bed of internet platform grown.\\r\\n\\r\\nThis has been developed by Nick Green as a learning exercise. As time progresses, there will be increased tools and functionality.\\r\\n\\r\\nIf you would like to see more on my and my work, [please click here](http://nickgreenweb.co.uk/) or to contact me, [click here](http://nickgreenweb.co.uk/pages/contact.php).', false, NULL);
+INSERT INTO `cms`.`Page` (`id`, `name`, `content`, `removable`, `parent`) VALUES (2, 'Cookies', '# Cookie Policy', false, NULL);
+INSERT INTO `cms`.`Page` (`id`, `name`, `content`, `removable`, `parent`) VALUES (3, 'Site Details', '# Site Details', false, NULL);
+INSERT INTO `cms`.`Page` (`id`, `name`, `content`, `removable`, `parent`) VALUES (4, 'Login', '# Login', false, NULL);
 
 COMMIT;
 
@@ -961,8 +1048,9 @@ COMMIT;
 START TRANSACTION;
 USE `cms`;
 INSERT INTO `cms`.`Type` (`id`, `name`) VALUES (1, 'index');
-INSERT INTO `cms`.`Type` (`id`, `name`) VALUES (NULL, 'page');
-INSERT INTO `cms`.`Type` (`id`, `name`) VALUES (NULL, 'blog');
+INSERT INTO `cms`.`Type` (`id`, `name`) VALUES (2, 'page');
+INSERT INTO `cms`.`Type` (`id`, `name`) VALUES (3, 'blog');
+INSERT INTO `cms`.`Type` (`id`, `name`) VALUES (4, 'login');
 
 COMMIT;
 
@@ -973,6 +1061,9 @@ COMMIT;
 START TRANSACTION;
 USE `cms`;
 INSERT INTO `cms`.`PageType` (`page`, `type`) VALUES (1, 1);
+INSERT INTO `cms`.`PageType` (`page`, `type`) VALUES (2, 2);
+INSERT INTO `cms`.`PageType` (`page`, `type`) VALUES (3, 2);
+INSERT INTO `cms`.`PageType` (`page`, `type`) VALUES (4, NULL);
 
 COMMIT;
 
@@ -984,6 +1075,20 @@ START TRANSACTION;
 USE `cms`;
 INSERT INTO `cms`.`Option` (`id`, `name`, `description`, `count`) VALUES (NULL, 'Useful', NULL, 0);
 INSERT INTO `cms`.`Option` (`id`, `name`, `description`, `count`) VALUES (NULL, 'Not Useful', NULL, 0);
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `cms`.`Navigation`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `cms`;
+INSERT INTO `cms`.`Navigation` (`page`, `parent`, `priority`) VALUES (1, NULL, 0);
+INSERT INTO `cms`.`Navigation` (`page`, `parent`, `priority`) VALUES (2, -1, 1);
+INSERT INTO `cms`.`Navigation` (`page`, `parent`, `priority`) VALUES (3, -1, 2);
+INSERT INTO `cms`.`Navigation` (`page`, `parent`, `priority`) VALUES (4, -1, 0);
+INSERT INTO `cms`.`Navigation` (`page`, `parent`, `priority`) VALUES (4, NULL, 10);
 
 COMMIT;
 
