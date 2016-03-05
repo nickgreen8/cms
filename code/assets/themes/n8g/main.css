@@ -21,6 +21,9 @@ body {
 
 header, section#body, footer { display: table-row; height: 1px; }
 
+a, a:visited { text-decoration: none; }
+a:focus, a:hover, a:active { text-decoration: underline; }
+
 /** Header styling */
 header { background: #5b5b5b; }
 
@@ -87,7 +90,23 @@ header { background: #5b5b5b; }
 #main_nav > ul > li > a { margin-bottom: 5px; }
 #main_nav > ul > li > a.current-page { border-bottom: #8c8c8c solid 5px; margin-bottom: -5px; }
 
-/** Content section styleing */
+/** Cookie policy styling */
+#cookie_notice { background: #000; color: #fff; padding: 0.5em; }
+#cookie_notice .close {
+	float: right;
+	background: #5b5b5b;
+	font-size: 12px;
+	padding: 1px 6px 2px;
+	margin: 0px 3px;
+	-webkit-border-radius: 5px;
+	border-radius: 15px;
+	cursor: pointer;
+}
+#cookie_notice h4 { margin: 0; font-size: 0.75em; }
+#cookie_notice p { margin: 0; font-size: 0.7em; }
+#cookie_notice a { color: #8c8c8c; }
+
+/** Content section styling */
 section#body { height: 100%; }
 
 div.row { display: block; min-width: 100%; margin-bottom: 20px; }
@@ -97,7 +116,7 @@ div.row > div.column { vertical-align: top; display: inline-block; }
 
 article#main { display: block; margin-right: 10%; margin-left: 10%; }
 
-/** Footer styleing */
+/** Footer styling */
 footer {
 	background: #5b5b5b;
 	background: -moz-linear-gradient(top, #5b5b5b 0%, #2D2C2D 100%);
@@ -196,6 +215,10 @@ input, textarea, button { border: 1px solid #8c8c8c; }
 /** Page specific styling */
 /** Home page */
 
+/** Page specific styling */
+/** Cookies page */
+#cookies table th { text-align: left; }
+
 /** Custom components for the theme */
 /** Search */
 #search-box { float: right; }
@@ -223,3 +246,17 @@ input, textarea, button { border: 1px solid #8c8c8c; }
 .row { display: table-row; }
 .column { display: table-cell; vertical-align: top; }
 .bold { font-weight: bold; }
+
+/** View size styling */
+/** Smart Phone overriding styles */
+@media all and (max-width: 800px) {
+	.hideOnMobile { display: none;  } 
+}
+/** Tablet overriding styles */
+@media all and (max-width: 1275px) and (min-width: 801px) {
+	.hideOnTablet { display: none;  }
+}
+/** Desktop overriding styles */
+@media all and (min-width: 1276px) {
+	.hideOnDesktop { display: none;  }
+}

@@ -169,6 +169,7 @@ abstract class PageAbstract implements PageInterface
 		$navigation = new Navigation();
 
 		//Add page data
+		$this->addPageComponent('domain', Config::getItem('url'));
 		$this->addPageComponent('settings', $this->theme->getPageSettings($this->template));
 		$this->addPageComponent('loggedIn', isset($_SESSION['ng_login']));
 		$this->addPageComponent('themeDirectory', $this->theme->getDirectory());
