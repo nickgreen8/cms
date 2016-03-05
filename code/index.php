@@ -15,7 +15,7 @@ $bootstrap->run();
 define('ROOT_DIR', __DIR__ . '/');
 
 //Key directories within the application
-define('ASSETS_DIR', ROOT_DIR . 'assets/');
+define('ASSETS_DIR', ROOT_DIR . 'public/');
 define('CACHE_DIR', ROOT_DIR . 'cache/');
 
 define('VIEWS_DIR', 'views/');

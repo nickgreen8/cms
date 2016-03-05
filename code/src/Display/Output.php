@@ -148,7 +148,7 @@ class Output
 	 */
 	private function getPageType($id, $args)
 	{
-		Log::debug(sprintf('Getting page type for page type: %s', $id));
+		Log::debug(sprintf('Getting page type for page: %s', $id));
 
 		//Get the page type
 		$type = $this->getPageTypeData($id);
