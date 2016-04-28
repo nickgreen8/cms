@@ -1,10 +1,14 @@
 <?php
 namespace N8G\Grass;
 
-use N8G\Database\Database,
-	N8G\Utils\Log,
-	N8G\Utils\Json,
-	N8G\Utils\Config;
+use N8G\Database\Database;
+use N8G\Utils\Log;
+use N8G\Utils\Json;
+use N8G\Utils\Config;
+use N8G\Grass\Display\Output;
+use N8G\Grass\Display\Twig;
+use N8G\Grass\Display\Theme;
+use N8G\Grass\Display\Navigation;
 
 /**
  * This class is use to initilise the processes and connections that will be needed on
@@ -13,8 +17,14 @@ use N8G\Database\Database,
  *
  * @author Nick Green <nick-green@live.co.uk>
  */
-class Bootstrap
+class Container
 {
+	/**
+	 * 
+	 * @var array
+	 */
+	private $elements = array();
+
 	/**
 	 * This function is the initial call that is will begin any processes and will
 	 * create connections that will be required for a page to be created. Nothing
@@ -29,45 +39,66 @@ class Bootstrap
 		date_default_timezone_set('Europe/London');
 
 		//Initilise Logging
-		Log::init(__DIR__ . '/../logs/');
+		$this->elements['log'] = new Log;
+		$this->elements['log']->init(sprintf('%s/../logs/', __DIR__));
+
+		//Initilise the DB connection
+		$this->elements['json']     = new Json($this);
+		$this->elements['config']   = $this->elements['json']->readFile('./config/config.json', true);
+		$this->elements['database'] = Database::init(
+			$this->elements['config']['database']['username'],
+			$this->elements['config']['database']['password'],
+			$this->elements['config']['database']['name'],
+			$this->elements['config']['database']['type'],
+			$this->elements['config']['database']['host']
+		);
+
+		//Populate the config container
+		$query = $this->elements['database']->query('Config', array('*'), 'select');
+		while ($row = $this->elements['database']->getArray($query)) {
+			$this->elements['config'][$row['name']] = $row['value'];
+		}
+
+		//Add current page to config
+		$this->elements['config']['page-id'] = isset($_REQUEST['id']) ? $_REQUEST['id'] : 1;
+
+		//Define blog filter types
+		$this->elements['config']['blogFilters'] = array('month');
+
+		//Create funtional classes
+		$this->elements['output']     = new Output($this);
+		$this->elements['twig']       = new Twig($this);
+		$this->elements['theme']      = new Theme($this);
+		$this->elements['navigation'] = new Navigation($this);
 
 		//Initilise error handler
 		set_error_handler(function($errno, $errstr, $errfile, $errline, $errcontext) { $this->errorHandler($errno, $errstr, $errfile, $errline, $errcontext); });
 
-		//Specify new page is opening
-		Log::custom(sprintf(
-					'%s%s===========================%sNew Page Loaded%s===========================%s%s%s%s%s',
-					PHP_EOL, PHP_EOL, PHP_EOL, PHP_EOL, PHP_EOL,
-					date('l jS F Y'), PHP_EOL, date('H:ia'), PHP_EOL));
-
-		//Initilise the DB connection
-		$config = Json::readFile('./config/config.json');
-		Database::init(
-			$config->database->username,
-			$config->database->password,
-			$config->database->name,
-			$config->database->type,
-			$config->database->host
-		);
-		Database::setPrefix($config->database->prefix);
-
 		//Check for site setup
 		$this->checkSiteSetup();
+	}
 
-		//Initilise the config container
-		Config::init();
+	/**
+	 * Adds a new element to the container.
+	 *
+	 * @param  string $key     The key of the new element.
+	 * @param  mixed  $element The element to be added to the container.
+	 * @return void
+	 */
+	public function add($key, $element)
+	{
+		$this->elements[$key] = $element;
+	}
 
-		//Populate the config container
-		$query = Database::perform('Config', array('*'), 'select');
-		while ($row = Database::getArray($query)) {
-			Config::setItem($row['name'], $row['value']);
-		}
-
-		//Add current page to config
-		Config::setItem('page-id', isset($_REQUEST['id']) ? $_REQUEST['id'] : 1);
-
-		//Define blog filter types
-		Config::setBlogFilters(array('month'));
+	/**
+	 * Gets an element from the container.
+	 *
+	 * @param  string $key The key of the element to be returned.
+	 * @return mixed       The element.
+	 */
+	public function get($key)
+	{
+		return $this->elements[$key];
 	}
 
 	/**
@@ -79,21 +110,12 @@ class Bootstrap
 	public function tearDown()
 	{
 		//Close the connection to the DB
-		Database::close();
+		$this->elements['database']->close();
 
 		//Calculate and output the load time
 		$time = round(microtime(true) - $_SERVER['REQUEST_TIME_FLOAT'], 5);
-		Log::success(sprintf('Page load took %f seconds', $time));
+		$this->get('log')->success(sprintf('Page load took %f seconds', $time));
 	}
-
-	/**
-	 * This function is used to check that the site has been set up. If the setup is
-	 * correct then the application will function as expected. If not, the
-	 * application will behave differently.
-	 * @return void
-	 */
-	private function checkSiteSetup()
-	{}
 
 	/**
 	 * This function takes any errors, processes them and will cause the application
@@ -122,11 +144,34 @@ class Bootstrap
 		);
 
 		//Log the error
-		Log::$method($log);
+		$this->get('log')->$method($log);
 
 	    //Don't execute PHP's own error handler
 	    return true;
 	}
+
+	/**
+	 * Checks that a key exists within the container.
+	 *
+	 * @param  string $key The key to check for
+	 * @return boolean     Indicates whether the key exists or not
+	 */
+	private function keyExists($key)
+	{
+		if (in_array($key, $this->elements)) {
+			return true;
+		}
+		return false;
+	}
+
+	/**
+	 * This function is used to check that the site has been set up. If the setup is
+	 * correct then the application will function as expected. If not, the
+	 * application will behave differently.
+	 * @return void
+	 */
+	private function checkSiteSetup()
+	{}
 
 	/**
 	 * This function is used to get the relevent function to log the error with. The

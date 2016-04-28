@@ -3,10 +3,7 @@ namespace N8G\Grass\Display;
 
 use N8G\Grass\Components\Html\Anchor,
 	N8G\Grass\Components\Html\ListItem,
-	N8G\Grass\Components\Html\UnorderedList,
-	N8G\Database\Database,
-	N8G\Utils\Log,
-	N8G\Utils\Config;
+	N8G\Grass\Components\Html\UnorderedList;
 
 /**
  * This class is used to build and manipulate and build site navigation.
@@ -25,6 +22,11 @@ class Navigation
 	 * @var Object
 	 */
 	private $navigation;
+	/**
+	 * Element container
+	 * @var object
+	 */
+	private $container;
 
 	/**
 	 * Default constructor
@@ -34,14 +36,15 @@ class Navigation
 	 *
 	 * @param int $type The type of navigation to be built.
 	 */
-	public function __construct($options = array())
+	public function __construct($container, $options = array())
 	{
-		Log::info('Creating navigation object');
+		$container->get('log')->info('Creating navigation object');
 
+		$this->container = $container;
 		//Set the options
 		$this->options = $options;
 		//Create navigation HTML list object
-		$this->navigation = new UnorderedList();
+		$this->navigation = new UnorderedList($this->container);
 	}
 
 	/**
@@ -55,7 +58,7 @@ class Navigation
 		$this->resetNavigation();
 
 		//Get all pages and child pages
-		$navigation = $this->buildNavHierachy(new UnorderedList());
+		$navigation = $this->buildNavHierachy(new UnorderedList($this->container));
 
 		//Convert and return
 		return $navigation->toHtml();
@@ -72,7 +75,7 @@ class Navigation
 		$this->resetNavigation();
 
 		//Get all pages and child pages
-		$navigation = $this->buildNavHierachy(new UnorderedList(), -1);
+		$navigation = $this->buildNavHierachy(new UnorderedList($this->container), -1);
 
 		//Convert and return
 		return $navigation->toHtml();
@@ -96,7 +99,7 @@ class Navigation
 		foreach ($pages as $page) {
 			//Check if current page
 			$class = array();
-			if (in_array(Config::getItem('page-id'), array($page['id'], $page['identifier']))) {
+			if (in_array($this->container->get('config')['page-id'], array($page['id'], $page['identifier']))) {
 				$class['class'] = 'current-page';
 			}
 
@@ -104,13 +107,13 @@ class Navigation
 			if ($page['type'] === 'login') {
 				$li = $this->getLoginOption();
 			} else {
-				$li = $this->linkToObject($page['name'], sprintf('%s%s', Config::getItem('url'), $page['identifier']), $class);
+				$li = $this->linkToObject($page['name'], sprintf('%s%s', $this->container->get('config')['url'], $page['identifier']), $class);
 			}
 
 			//Check for child pages
 			if ($page['children'] > 0) {
 				//Add child pages
-				$li->addElement($this->buildNavHierachy(new UnorderedList(), $page['id']));
+				$li->addElement($this->buildNavHierachy(new UnorderedList($this->container), $page['id']));
 			}
 
 			//Add option to object
@@ -132,7 +135,7 @@ class Navigation
 	 */
 	private function linkToObject($name = 'Click Here', $link = '#', array $atts = array())
 	{
-		Log::debug(sprintf('Creating navigation link to %s (%s)', $name, $link));
+		$this->container->get('log')->debug(sprintf('Creating navigation link to %s (%s)', $name, $link));
 
 		return new ListItem(new Anchor(trim(ucwords($name)), null, array(), array_merge(array('href' => $link, 'title' => trim(ucwords($name))), $atts)));
 	}
@@ -143,7 +146,7 @@ class Navigation
 	 */
 	private function resetNavigation()
 	{
-		Log::notice('Resetting navigation object');
+		$this->container->get('log')->notice('Resetting navigation object');
 
 		//Empty the elements
 		$this->navigation->setElements(array());
@@ -159,14 +162,14 @@ class Navigation
 	 */
 	private function getLoginOption()
 	{
-		log::info('Checking if the user is logged in');
+		$this->container->get('log')->info('Checking if the user is logged in');
 
 		if (isset($_SESSION['ng_login'])) {
 			//Create the logout link
-			$link = $this->linkToObject('Logout', sprintf('%slogout', Config::getItem('url')));
+			$link = $this->linkToObject('Logout', sprintf('%slogout', $this->container->get('config')['url']));
 		} else {
 			//Create the login link
-			$link = $this->linkToObject('Login', sprintf('%slogin', Config::getItem('url')));
+			$link = $this->linkToObject('Login', sprintf('%slogin', $this->container->get('config')['url']));
 		}
 
 		//Return the link
@@ -182,7 +185,7 @@ class Navigation
 	private function getPages($parent = 0)
 	{
 		//Get the pages
-		$data = Database::execProcedure('GetNavigation', array('page' => $parent));
+		$data = $this->container->get('database')->execProcedure('GetNavigation', array('page' => $parent));
 		return $data;
 	}
 }

@@ -5,7 +5,6 @@ use N8G\Grass\Components\Component,
 	N8G\Grass\Exceptions\Components\ComponentMissingRequiredAttributesException,
 	N8G\Grass\Exceptions\Components\AttributeInvalidException,
 	N8G\Grass\Exceptions\Components\ElementInvalidException,
-	N8G\Utils\Config,
 	N8G\Utils\Log;
 
 /**
@@ -56,6 +55,12 @@ abstract class HtmlAbstract implements Component
 	protected $acceptedElements = array('types' => array('string', 'int'), 'elements' => array());
 
 	/**
+	 * Element container
+	 * @var object
+	 */
+	protected $container;
+
+	/**
 	 * Default constructor for the class.
 	 *
 	 * @param mixed $content    The content of the class. Can be string or an array.
@@ -63,9 +68,11 @@ abstract class HtmlAbstract implements Component
 	 * @param array $elements   Array of other elements making up the overall element
 	 * @param array $attributes Array of element attributes
 	 */
-	public function __construct($content, $id, $elements, $attributes)
+	public function __construct($container, $content, $id, $elements, $attributes)
 	{
-		Log::info(ucwords($this->data['name']) . ' element created');
+		$this->container = $container;
+
+		$container->get('log')->info(ucwords($this->data['name']) . ' element created');
 
 		$this->setId($id);
 		$this->setElements($elements);
@@ -119,7 +126,7 @@ abstract class HtmlAbstract implements Component
 	 */
 	public function toString()
 	{
-		Log::info(sprintf('Converting %s object to string', $this->data['name']));
+		$this->container->get('log')->info(sprintf('Converting %s object to string', $this->data['name']));
 
 		$str = ucwords($this->data['name']) . ' element\n\r';
 
@@ -179,7 +186,7 @@ abstract class HtmlAbstract implements Component
 	 */
 	public function toHtml()
 	{
-		Log::info(sprintf('Converting %s object to HTML', $this->data['name']));
+		$this->container->get('log')->info(sprintf('Converting %s object to HTML', $this->data['name']));
 
 		$html = '<' . $this->data['tag'];
 
@@ -316,7 +323,7 @@ abstract class HtmlAbstract implements Component
 	public function setId($id)
 	{
 		if ($this->id !== $id && !in_array(trim($id), array('', null))) {
-			Log::info(sprintf('Setting ID to %s', $id));
+			$this->container->get('log')->info(sprintf('Setting ID to %s', $id));
 			$this->id = $id;
 		}
 		return $this->id;
@@ -331,7 +338,7 @@ abstract class HtmlAbstract implements Component
 	public function setElements(array $elements)
 	{
 		if ($this->elements = $elements) {
-			Log::info(sprintf('Setting the elements list for %s%s', $this->data['name'], $this->id !== '' && $this->id !== null ? ' (' . $this->id . ')' : ''));
+			$this->container->get('log')->info(sprintf('Setting the elements list for %s%s', $this->data['name'], $this->id !== '' && $this->id !== null ? ' (' . $this->id . ')' : ''));
 
 			//Check each element
 			foreach ($elements as $key => $e) {
@@ -355,7 +362,7 @@ abstract class HtmlAbstract implements Component
 	public function setContent($content)
 	{
 		if ($this->content !== $content) {
-			Log::info(sprintf('Setting the content of %s%s', $this->data['name'], $this->id !== '' && $this->id !== null ? ' (' . $this->id . ')' : ''));
+			$this->container->get('log')->info(sprintf('Setting the content of %s%s', $this->data['name'], $this->id !== '' && $this->id !== null ? ' (' . $this->id . ')' : ''));
 			$this->content = $content;
 		}
 		return $this->content;
@@ -370,7 +377,13 @@ abstract class HtmlAbstract implements Component
 	public function setAttributes($attributes)
 	{
 		if ($this->attributes !== $attributes) {
-			Log::info(sprintf('Setting the attributes of %s%s', $this->data['name'], $this->id !== '' && $this->id !== null ? ' (' . $this->id . ')' : ''));
+			$this->container->get('log')->info(
+				sprintf(
+					'Setting the attributes of %s%s',
+					$this->data['name'],
+					$this->id !== '' && $this->id !== null ? ' (' . $this->id . ')' : ''
+				)
+			);
 			$this->attributes = $attributes;
 		}
 		return $this->attributes;
@@ -384,10 +397,10 @@ abstract class HtmlAbstract implements Component
 	 */
 	public function addElement($element)
 	{
-		Log::info(sprintf('Adding element: %s', is_object($element) ? $element->toString() : $element));
+		$this->container->get('log')->info(sprintf('Adding element: %s', is_object($element) ? $element->toString() : $element));
 
 		if (!$this->checkElement($element)) {
-			Log::notice('The element cannot be added');
+			$this->container->get('log')->notice('The element cannot be added');
 			return;
 		}
 
@@ -413,7 +426,7 @@ abstract class HtmlAbstract implements Component
 	 */
 	public function addAttribute(array $attribute)
 	{
-		Log::info(sprintf('Adding attribute: %s = %s', key($attribute), implode(', ', $attribute)));
+		$this->container->get('log')->info(sprintf('Adding attribute: %s = %s', key($attribute), implode(', ', $attribute)));
 
 		try {
 			//Check for a key as well as a value
@@ -437,7 +450,7 @@ abstract class HtmlAbstract implements Component
 	 */
 	protected function checkElement($element)
 	{
-		Log::info('Checking element');
+		$this->container->get('log')->info('Checking element');
 
 		//Check the class type
 		if (get_parent_class($element) === 'N8G\Grass\Components\Html\HtmlAbstract') {

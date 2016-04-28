@@ -24,21 +24,18 @@ class Twig
 	 * @var object
 	 */
 	private $twig;
+	/**
+	 * Element container
+	 * @var object
+	 */
+	private $container;
 
 	/**
 	 * Default constructor. Initilises a new instance of this class.
 	 */
-	private function __construct()
+	public function __construct($container)
 	{
-		Log::info('New Twig instance created');
-
-		//Build twig system
-		$loader = new \Twig_Loader_Filesystem(ASSETS_DIR);
-		Log::debug('Twig file system specified');
-
-		//Initialize Twig environment
-		$this->twig = DEBUG === true ? new \Twig_Environment($loader) : new \Twig_Environment($loader, array('cache' => CACHE_DIR));
-		Log::debug('Twig enviroment loaded');
+		$this->container = $container;
 	}
 
 	/**
@@ -47,16 +44,17 @@ class Twig
 	 *
 	 * @return An instance of this class
 	 */
-	public static function init()
+	public function init()
 	{
-		//Check for instance of this class
-		if (self::$instance === null) {
-			//Create instance
-			self::$instance = new self();
-		}
+		$this->container->get('log')->info('New Twig instance created');
 
-		//Return instance of the class
-		return self::$instance;
+		//Build twig system
+		$loader = new \Twig_Loader_Filesystem(ASSETS_DIR);
+		$this->container->get('log')->debug('Twig file system specified');
+
+		//Initialize Twig environment
+		$this->twig = DEBUG === true ? new \Twig_Environment($loader) : new \Twig_Environment($loader, array('cache' => CACHE_DIR));
+		$this->container->get('log')->debug('Twig enviroment loaded');
 	}
 
 	/**
@@ -68,7 +66,7 @@ class Twig
 	 */
 	public function loadTemplate($file)
 	{
-		Log::info(sprintf('Loading new template: %s', $file));
+		$this->container->get('log')->info(sprintf('Loading new template: %s', $file));
 
 		//Check the template exists
 		if (!file_exists(ASSETS_DIR . $file)) {
@@ -89,8 +87,8 @@ class Twig
 	 */
 	public function render($template, $data = array())
 	{
-		Log::notice('Rendering template');
-		Log::info(sprintf('Render Data: %s', json_encode($data)));
+		$this->container->get('log')->notice('Rendering template');
+		$this->container->get('log')->info(sprintf('Render Data: %s', json_encode($data)));
 
 		//Convert data to HTML
 		foreach ($data as $key => $value) {

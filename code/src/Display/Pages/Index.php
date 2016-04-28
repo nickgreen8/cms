@@ -20,15 +20,15 @@ class Index extends PageAbstract
 	 * @param string     $id   Page ID
 	 * @param array|null $args Page arguments
 	 */
-	public function __construct($id, $args)
+	public function __construct($container, $id, $args)
 	{
-		Log::notice('Index page created');
+		$container->get('log')->notice('Index page created');
 
 		//Set the template name
 		$this->template = 'index';
 
 		//Call the parent constructor
-		parent::__construct($id, $args);
+		parent::__construct($container, $id, $args);
 	}
 
 // Public functions

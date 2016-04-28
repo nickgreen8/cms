@@ -49,6 +49,11 @@ class Theme
 	 * @var array
 	 */
 	private $settings = array();
+	/**
+	 * Element container
+	 * @var object
+	 */
+	private $container;
 
 	/**
 	 * This is the default constructor. One optional parameter is passed. This
@@ -57,9 +62,17 @@ class Theme
 	 *
 	 * @param string $name The name of the theme
 	 */
-	private function __construct($name)
+	public function __construct($container)
 	{
-		$this->path = ($name === null) ? Config::getItem('theme') : $name;
+		$this->container = $container;
+	}
+
+//Public functions
+
+	public function init($name = null)
+	{
+		$this->path = ($name === null) ? $this->container->get('config')->getItem('theme') : $name;
+		var_dump($this->path);
 
 		//Check the theme is valid
 		try {
@@ -70,19 +83,6 @@ class Theme
 
 		$this->data['style'] = $this->getStyles();
 		$this->data['script'] = $this->getScript();
-	}
-
-//Public functions
-
-	public static function init($name = null)
-	{
-		//Check current state of the instance
-		if (self::$instance === null) {
-			//Create new instance
-			self::$instance = new self($name);
-		}
-		//Return single instance
-		return self::$instance;
 	}
 
 //Private functions

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="{{ language }}">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta http-equiv="content-style-type" content="text/css" />
+		<meta http-equiv="content-script-type" content="text/javascript" />
+
+		<title>{{ title }}</title>
+
+		<base href="{{ base_url }}">
+
+		{% if favicon != null and favicon != '' %}
+		<link rel="shortcut icon" href="{{ favicon }}"/>
+		{% else %}
+		<link rel="shortcut icon" href="./public/images/favicon.ico"/>
+		{% endif %}
+
+		{% for data in meta %}
+			{{ data | raw }}
+		{% endfor %}
+
+		{% for sheet in style %}
+			{{ sheet | raw }}
+		{% endfor %}
+
+		{% for class in script %}
+			{{ class | raw }}
+		{% endfor %}
+
+	</head>
+	<body id="{{ name|lower|replace({' ' : '-'}) }}" class="admin-page">
+
+		<header>
+			{{ header | raw }}
+		</header>
+
+		<section id="body">
+			{{ page | raw }}
+		</section>
+
+		<footer>
+			{{ footer | raw }}
+		</footer>
+	</body>
+</html>

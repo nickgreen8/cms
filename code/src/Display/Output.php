@@ -9,7 +9,6 @@ use N8G\Grass\Components\Html\Body,
 	N8G\Grass\Components\Html\Style,
 	N8G\Grass\Components\Html\Title,
 	N8G\Grass\Components\Html\Paragraph,
-	N8G\Database\Database,
 	N8G\Utils\Log,
 	N8G\Utils\Config;
 
@@ -46,6 +45,16 @@ class Output
 	 * @var string
 	 */
 	private $page;
+	/**
+	 * Indicates whether this is an admin page or not
+	 * @var boolean
+	 */
+	private $admin = false;
+	/**
+	 * Element container
+	 * @var object
+	 */
+	private $container;
 
 	/**
 	 * This is the default constructor. Only the page ID is passed. Within, new template,
@@ -53,27 +62,9 @@ class Output
 	 *
 	 * @param string|integer $id The ID of the page. Either the name value or numberic ID.
 	 */
-	private function __construct($id)
+	public function __construct($container)
 	{
-		//Parse args
-		$args = explode('/', $id);
-		$id   = $args[0];
-		unset($args[0]);
-
-		//Get twig instance
-		$this->twig = Twig::init();
-		//Get the theme
-		$this->theme = Theme::init();
-		//Get the page type
-		$this->page = $this->getPageType(is_numeric($id) ? intval($id) : strtolower(str_replace(' ', '-', $id)), $args);
-
-		//Get the page data from the DB
-		$this->data = array(
-			'meta'		=>	array()
-		);
-
-		//Build page sections
-		$this->buildHead();
+		$this->container = $container;
 	}
 
 // Public Functions
@@ -85,16 +76,30 @@ class Output
 	 * @param  string|integer $id The ID of the page. Either the name value or numberic ID.
 	 * @return object             An instance of this class.
 	 */
-	public static function init($id = 1)
+	public function init($container, $id = 1)
 	{
-		Log::debug('Initilising Page object');
+		die(var_dump('tez'));
+		$this->container->get('log')->debug('Initilising Page object');
 
-		//Check for instance of class
-		if (!isset(self::$output)) {
-			self::$output = new self($id);
-		}
-		//Return this class
-		return self::$output;
+		//Parse args
+		$args = explode('/', $id);
+		$id   = $args[0];
+		unset($args[0]);
+
+		//Get twig instance
+		$this->twig = $this->container->get('twig');
+		//Get the theme
+		$this->theme = $this->container->get('theme');
+		//Get the page type
+		$this->page = $this->getPageType(is_numeric($id) ? intval($id) : strtolower(str_replace(' ', '-', $id)), $args);
+
+		//Get the page data from the DB
+		$this->data = array(
+			'meta'		=>	array()
+		);
+
+		//Build page sections
+		$this->buildHead();
 	}
 
 	/**
@@ -110,9 +115,13 @@ class Output
 		$this->data['footer']	= $this->renderFooter();
 
 		//Load the page template
-		$template = $this->twig->loadTemplate(VIEWS_DIR . 'page.tmpl');
+		if (self::$admin) {
+			$template = $this->twig->loadTemplate(VIEWS_DIR . 'admin.tmpl');
+		} else {
+			$template = $this->twig->loadTemplate(VIEWS_DIR . 'page.tmpl');
+		}
 
-		return $this->twig->render($template, array_merge(array('base_url' => Config::getUrl()), $this->data, $this->page->getData()));
+		return $this->twig->render($template, array_merge(array('base_url' => $this->container->get('config')['url']), $this->data, $this->page->getData()));
 	}
 
 	/**
@@ -137,6 +146,17 @@ class Output
 		array_push($this->data['script'], new Script(array('async' => '', 'type' => 'text/javascript', 'href' => $file)));
 	}
 
+	/**
+	 * Sets the admin flag to dictate the view to use.
+	 *
+	 * @param  boolean $admin Indicates whether the page is an admin page or not.
+	 * @return void
+	 */
+	public function setAdmin($admin = false)
+	{
+		$this->admin = $admin;
+	}
+
 // Private Functions
 
 	/**
@@ -148,7 +168,7 @@ class Output
 	 */
 	private function getPageType($id, $args)
 	{
-		Log::debug(sprintf('Getting page type for page: %s', $id));
+		$this->container->get('log')->debug(sprintf('Getting page type for page: %s', $id));
 
 		//Get the page type
 		$type = $this->getPageTypeData($id);
@@ -156,11 +176,11 @@ class Output
 		//Check for child pages
 		$type = $this->checkChildPage($type, $id, $args);
 
-		Log::notice(sprintf('The page type is: %s', $type['type']));
+		$this->container->get('log')->notice(sprintf('The page type is: %s', $type['type']));
 
 		//Create the page object
 		$class = sprintf('N8G\Grass\Display\Pages\%s', str_replace(' ', '', ucwords($type['type'])));
-		return new $class($type['id'], $type['args']);
+		return new $class($this->container, $type['id'], $type['args']);
 	}
 
 	/**
@@ -184,7 +204,7 @@ class Output
 		);
 
 		//Check for blog post
-		if ($type === 'blog' && isset($args[1]) && !in_array($args[1], Config::getBlogFilters())) {
+		if ($type === 'blog' && isset($args[1]) && !in_array($args[1], $this->container->get('config')['blogFilters'])) {
 			//Check if a post has been specified
 			if ($this->checkForPost($id, $args[1])) {
 				//Change page return array
@@ -207,8 +227,8 @@ class Output
 	private function buildHead()
 	{
 		//Add mandatory data
-		$this->data['favicon'] = Config::inConfig('favicon') ? Config::getItem('favicon') : null;
-		$this->data['language'] = Config::inConfig('language') ? Config::getItem('language') : 'en';
+		$this->data['favicon'] = isset($this->container->get('config')['favicon']) ? $this->container->get('config')['favicon'] : null;
+		$this->data['language'] = isset($this->container->get('config')['language']) ? $this->container->get('config')['language'] : 'en';
 
 		//Get the theme head data
 		$this->data = array_merge($this->data, $this->theme->getHeadData());
@@ -217,8 +237,8 @@ class Output
 		$meta = array('keywords', 'description', 'subject', 'revised', 'summary', 'copyright', 'url', 'author', 'designer');
 		//Build meta data
 		foreach ($meta as $data) {
-			if (Config::inConfig('meta-' . $data)) {
-				array_push($this->data['meta'], new Meta(array('name' => $data, 'content' => Config::getItem('meta-' . $data))));
+			if (isset($this->container->get('config')['meta-' . $data])) {
+				array_push($this->data['meta'], new Meta($this->container, array('name' => $data, 'content' => $this->container->get('config')['meta-' . $data])));
 			}
 		}
 	}
@@ -268,14 +288,14 @@ class Output
 	private function getPageTypeData($id)
 	{
 		//Get the data from the DB
-		$data = Database::execProcedure('GetPageType', array('page' => $id));
+		$data = $this->container->get('database')->execProcedure('GetPageType', array('page' => $id));
 		return $data[0]['type'];
 	}
 
 	private function checkForPost($blog, $post)
 	{
 		//Check for post in the DB
-		$data = Database::execProcedure('CheckPagePost', array('blog' => $blog, 'post' => $post));
+		$data = $this->container->get('database')->execProcedure('CheckPagePost', array('blog' => $blog, 'post' => $post));
 		return count($data) === 1;
 	}
 }

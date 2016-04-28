@@ -1,14 +1,27 @@
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
 
-use Twig_\Twig\Loader\Filesystem,
-	Twig_\Twig\Environment,
-	N8G\Grass\Display\Output,
-	N8G\Grass\Bootstrap;
+use N8G\Grass\Container;
+use N8G\Utils\Log;
 
 //Initilise processes
-$bootstrap = new Bootstrap();
-$bootstrap->run();
+$container = new Container();
+$container->run();
+
+//Specify new page is opening
+$container->get('log')->custom(sprintf(
+	'%s%s===========================%sNew Page Loaded%s===========================%s%s%s%s%s',
+	PHP_EOL,
+	PHP_EOL,
+	PHP_EOL,
+	PHP_EOL,
+	PHP_EOL,
+	date('l jS F Y'),
+	PHP_EOL,
+	date('H:ia'),
+	PHP_EOL)
+);
+
 
 //Define constants
 //Root of the application
@@ -26,11 +39,11 @@ define('DEBUG', true);
 
 try {
 	//Inilise Page
-	$page = Output::init(isset($_REQUEST['id']) ? $_REQUEST['id'] : 1);
+	$page = $container->get('output')->init(isset($_REQUEST['id']) && $_REQUEST['id'] !== '' ? $_REQUEST['id'] : 1);
 	echo $page->render();
 } catch (\Exception $e) {
 	echo sprintf('<p><strong>Message:</strong> %s</p><p><strong>File:</strong> %s</p><p><strong>Line No:</strong> #%s</p><p><strong>Trace String:</strong> %s</p>', htmlspecialchars($e->getMessage()), htmlspecialchars($e->getFile()), htmlspecialchars($e->getLine()), htmlspecialchars($e->getTraceAsString()));
 }
 
 //Close down processes
-$bootstrap->tearDown();
+$container->tearDown();

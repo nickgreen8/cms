@@ -1,12 +1,8 @@
 <?php
 namespace N8G\Grass\Display\Pages;
 
-use N8G\Grass\Display\Theme,
-	N8G\Grass\Display\Navigation,
-	N8G\Grass\Exceptions\Display\PageException,
+use N8G\Grass\Exceptions\Display\PageException,
 	N8G\Database\Database,
-	N8G\Utils\Log,
-	N8G\Utils\Config,
 	Parsedown;
 
 /**
@@ -45,6 +41,11 @@ abstract class PageAbstract implements PageInterface
 	 * @var object
 	 */
 	protected $theme;
+	/**
+	 * Element container
+	 * @var object
+	 */
+	private $container;
 
 	/**
 	 * Default constructor
@@ -52,16 +53,14 @@ abstract class PageAbstract implements PageInterface
 	 * @param string     $id   Page ID
 	 * @param array|null $args Page arguments
 	 */
-	public function __construct($id, $args)
+	public function __construct($container, $id, $args)
 	{
-		Log::notice('Creating a page (%s) with the arguments: %s', $id, implode(', ', $args));
+		$container->get('log')->notice('Creating a page (%s) with the arguments: %s', $id, implode(', ', $args));
+		$this->container = $container;
 
 		//Set the variables of the page
 		$this->id = $id;
 		$this->args = $args;
-
-		//Get theme settings and data
-		$this->theme = Theme::init();
 
 		//Build the page data
 		$this->build();
@@ -76,7 +75,7 @@ abstract class PageAbstract implements PageInterface
 	 */
 	public function getTemplateName()
 	{
-		Log::info('Getting the page template name');
+		$this->container->get('log')->info('Getting the page template name');
 		//Return the name of the template file
 		return $this->template;
 	}
@@ -89,7 +88,7 @@ abstract class PageAbstract implements PageInterface
 	 */
 	public function getData()
 	{
-		Log::info('Getting page content');
+		$this->container->get('log')->info('Getting page content');
 		//Return the page data
 		return $this->data;
 	}
@@ -100,7 +99,7 @@ abstract class PageAbstract implements PageInterface
 	 */
 	public function getArgs()
 	{
-		Log::info('Getting the page arguments');
+		$this->container->get('log')->info('Getting the page arguments');
 		//Return the page arguments
 		return $this->args;
 	}
@@ -116,8 +115,8 @@ abstract class PageAbstract implements PageInterface
 	 */
 	protected function parseContent($content)
 	{
-		Log::debug('Converting content to HTML.');
-		Log::info(sprintf('Converting string: %s', $content));
+		$this->container->get('log')->debug('Converting content to HTML.');
+		$this->container->get('log')->info(sprintf('Converting string: %s', $content));
 
 		//Create converter
 		$markdown = new Parsedown();
@@ -147,7 +146,7 @@ abstract class PageAbstract implements PageInterface
 		//Check the key is not protected
 		if (in_array($key, array())) {
 			//Throw error
-			throw new PageException('The key that you have tried to use is protected. This cannot be used!', Log::WARN);
+			throw new PageException('The key that you have tried to use is protected. This cannot be used!', LOG::WARN);
 		}
 
 		//Add to the page data
@@ -163,19 +162,19 @@ abstract class PageAbstract implements PageInterface
 	 */
 	protected function build()
 	{
-		Log::info('Building page data');
+		$this->container->get('log')->info('Building page data');
 
 		//Create navigation object
-		$navigation = new Navigation();
+		$navigation = $this->container->get('navigation');
 
 		//Add page data
-		$this->addPageComponent('domain', Config::getItem('url'));
-		$this->addPageComponent('settings', $this->theme->getPageSettings($this->template));
+		$this->addPageComponent('domain', $this->container->get('config')['url']);
+		$this->addPageComponent('settings', $this->container->get('theme')->getPageSettings($this->template));
 		$this->addPageComponent('loggedIn', isset($_SESSION['ng_login']));
-		$this->addPageComponent('themeDirectory', $this->theme->getDirectory());
+		$this->addPageComponent('themeDirectory', $this->container->get('theme')->getDirectory());
 		$this->addPageComponent('headerNavigation', $navigation->buildHeaderNavigation());
 		$this->addPageComponent('footerNavigation', $navigation->buildFooterNavigation());
-		$this->addPageComponent('copyright', Config::getItem('copyright'));
+		$this->addPageComponent('copyright', $this->container->get('config')['copyright']);
 
 		//Get all page content
 		$this->getPageComponents();
@@ -191,7 +190,7 @@ abstract class PageAbstract implements PageInterface
 	 */
 	protected function buildTitle($data)
 	{
-		Log::debug('Building title');
+		$this->container->get('log')->debug('Building title');
 
 		//Create title array
 		$title = array();
@@ -219,8 +218,6 @@ abstract class PageAbstract implements PageInterface
 		return implode(sprintf(' %s ', Config::getNavSeparator()), $title);
 	}
 
-//Private functions
-
 	/**
 	 * This function gets the data related to the page. This is then used to build up the data
 	 * array for everything that is to be input into the page. On render, all the data that has
@@ -228,13 +225,13 @@ abstract class PageAbstract implements PageInterface
 	 *
 	 * @return void
 	 */
-	private function getPageComponents()
+	protected function getPageComponents()
 	{
 		//Get the data from the database
 		$data = $this->getPageData($this->id);
 
-		Log::debug(sprintf('Page name: %s', $data['name']));
-		Log::debug(sprintf('Page type: %s', $data['type']));
+		$this->container->get('log')->debug(sprintf('Page name: %s', $data['name']));
+		$this->container->get('log')->debug(sprintf('Page type: %s', $data['type']));
 
 		//Set page identifiers in Config
 		Config::setPageId($data['id']);
@@ -249,6 +246,8 @@ abstract class PageAbstract implements PageInterface
 		//Add page utility vars
 		$this->addPageComponent('pageLink', $this->calcPageLink($data['name']));
 	}
+
+//Private functions
 
 	/**
 	 * This function works out the page link for the page.

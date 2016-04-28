@@ -1,9 +1,6 @@
 <?php
 namespace N8G\Grass\Components\Html;
 
-use N8G\Grass\Components\Html\HtmlAbstract,
-	N8G\Utils\Log;
-
 /**
  * This class is has been created for the simple HTMl ordered list (ol) tag.
  *
@@ -25,14 +22,14 @@ class OrderedList extends HtmlAbstract
 	 * @param array  $elements   Array of other elements making up the overall element
 	 * @param array  $attributes Array of element attributes
 	 */
-	public function __construct($content = NULL, $id = NULL, $elements = array(), $attributes = array())
+	public function __construct($container, $content = NULL, $id = NULL, $elements = array(), $attributes = array())
 	{
-		Log::info('Initilising ol element');
+		$container->get('log')->info('Initilising ol element');
 		$this->data = array(
 			'name'	=>	'ordered list',
 			'tag'	=>	'ol'
 		);
-		parent::__construct($content, $id, $elements, $attributes);
+		parent::__construct($container, $content, $id, $elements, $attributes);
 
 		//Populate default accepted elements array
 		$this->acceptedElements['types'] = array();

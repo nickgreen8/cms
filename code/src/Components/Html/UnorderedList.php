@@ -25,14 +25,14 @@ class UnorderedList extends HtmlAbstract
 	 * @param array  $elements   Array of other elements making up the overall element
 	 * @param array  $attributes Array of element attributes
 	 */
-	public function __construct($content = NULL, $id = NULL, $elements = array(), $attributes = array())
+	public function __construct($container, $content = NULL, $id = NULL, $elements = array(), $attributes = array())
 	{
-		Log::info('Initilising ul element');
+		$container->get('log')->info('Initilising ul element');
 		$this->data = array(
 			'name'	=>	'unordered list',
 			'tag'	=>	'ul'
 		);
-		parent::__construct($content, $id, $elements, $attributes);
+		parent::__construct($container, $content, $id, $elements, $attributes);
 
 		//Populate default accepted elements array
 		$this->acceptedElements['types'] = array();

@@ -25,14 +25,14 @@ class Meta extends HtmlAbstract
 	 * @param array  $elements   Array of other elements making up the overall element
 	 * @param array  $attributes Array of element attributes
 	 */
-	public function __construct($attributes = array())
+	public function __construct($container, $attributes = array())
 	{
-		Log::info('Initilising meta element');
+		$container->get('log')->info('Initilising meta element');
 		$this->data = array(
 			'name'	=>	'meta',
 			'tag'	=>	'meta'
 		);
-		parent::__construct(NUll, NULL, array(), $attributes);
+		parent::__construct($container, NUll, NULL, array(), $attributes);
 
 		//Populate default accepted elements array
 		$this->acceptedElements['types'] = array();
