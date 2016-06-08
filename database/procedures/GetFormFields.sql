@@ -4,27 +4,21 @@
 -- --------------------------------------------------------------------------------
 DELIMITER $$
 
-CREATE PROCEDURE GetPageForm
-	(IN page CHAR(45))
+CREATE PROCEDURE GetFormFields
+	(IN id INT(11))
 BEGIN
-	#Create ID variable
-	DECLARE id INT(11);
-
-	#Get the ID of the page
-	SET id = IF(page REGEXP '^-?[0-9]+$', page, calcPageId(page));
-
 	#Get the page data
 	SELECT
-		f.id,
-		f.name,
-		f.title,
-		f.action,
-		f.method,
-		f.enctype,
-		f.buttons
+		ff.label,
+		ff.identifier,
+		ff.type,
+		ff.additional,
+		ff.required
 	FROM
-		Form f LEFT JOIN PageForm pf
-		ON f.id = pf.form
+		FormField ff LEFT JOIN FormFormField fff
+			ON ff.id = fff.field
+		LEFT JOIN Form f
+			ON f.id = fff.form
 	WHERE
-		pf.page = id;
+		f.id = id;
 END

@@ -9,7 +9,7 @@
         <li>
             <a href="{{ link.address }}" title="{{ link.label }}"{% if link.current %} class="current-page"{% endif %}>{{ link.label }}</a>
             {% if link.children %}
-            {{ _self.navigationIterator(link.children) }}
+            {{ _self.treeIterator(link.children) }}
             {% endif %}
         </li>
         {% endfor %}

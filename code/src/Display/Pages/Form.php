@@ -27,7 +27,6 @@ class Form extends PageAbstract
      */
     public function build()
     {
-        $this->container->get('logger')->info('Building page data');
         parent::build();
 
         //Get post data
@@ -39,6 +38,7 @@ class Form extends PageAbstract
         $this->addPageComponent('enctype', $form['enctype']);
         $this->addPageComponent('name', $form['name']);
         $this->addPageComponent('title', $form['title']);
+        $this->addPageComponent('buttons', json_decode($form['buttons'], true));
 
         $this->addPageComponent('fields', $this->getFormFields($form['id']));
     }
@@ -54,8 +54,34 @@ class Form extends PageAbstract
      */
     private function getFormFields($id)
     {
+        $this->container->get('logger')->info('Getting form field data');
+
         //Get all the fields
         $fields = $this->getFormFieldData($id);
+
+        //Create return array
+        $data = array();
+
+        //Format the data
+        foreach ($fields as $f) {
+            $field = array(
+                'label' => $f['label'],
+                'identifier' => $f['identifier'] !== null
+                    ? $f['identifier']
+                    : lcfirst(str_replace(array(' ', '\'', '-'), '', ucwords($f['label']))),
+                'type' => $f['type'],
+                'required' => $f['required']
+            );
+
+            //Check for required additional information
+            $field = array_merge($field, json_decode($f['additional'], true));
+
+            //Add field
+            array_push($data, $field);
+        }
+
+        //Return the data
+        return $data;
     }
 
     /**

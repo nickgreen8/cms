@@ -1,6 +1,8 @@
 <?php
 namespace N8G\Grass;
 
+use N8G\Grass\Exceptions\Display\PageException;
+
 /**
  * This class is used to build a page. The functionality to output the page is also held within this class.
  *
@@ -294,7 +296,14 @@ class Application
     {
         //Get the data from the DB
         $data = $this->container->get('db')->execProcedure('GetPageType', array('page' => $id));
-        return $data[0]['type'];
+
+        //Check for data
+        if ($data[0]['type'] !== null) {
+            return $data[0]['type'];
+        }
+
+        //If there is no data, throw an exception
+        throw new PageException('The page type could not be found.', 500);
     }
 
     private function checkForPost($blog, $post)

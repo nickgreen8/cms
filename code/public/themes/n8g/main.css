@@ -138,12 +138,17 @@ footer nav a, footer nav a:visited { color: #fff; text-decoration: none; }
 footer nav a:hover, footer nav a:focus, footer nav a:active { text-decoration: underline; }
 
 /** Form styling */
-form { background: #E3E4D9; }
+section form { background: #E3E4D9; margin: 5px -12.5% -20px; padding: 5px 12.5% 10px; }
 fieldset { border: none; }
 legend { font-size: 1.2em; font-weight: bold; }
 label { width: 30%; text-align: right; float: left; font-weight: bold; margin-right: 3px; }
+section form label { float: none; text-align: left; }
 label:after { content: ':'; }
-input, textarea { -webkit-border-radius: 5px; border-radius: 5px; padding: 2px 5px; width: 40%; font-size: 14px; resize: none; }
+input, textarea { width: 95%; -webkit-border-radius: 5px; border-radius: 5px; padding: 2px 5px; font-size: 14px; resize: none; }
+textarea { min-height: 100px; }
+input[type="checkbox"], input[type="radio"] { width: inherit; margin-top: -3px; }
+p.radio-group { margin-top: 0; }
+p.radio-group span { margin-right: 1em; }
 button {
 	font-size: 13.5px;
 	margin-top: 4px;
@@ -234,13 +239,6 @@ input, textarea, button { border: 1px solid #8c8c8c; }
 #search-box fieldset > div { display: inline-block; vertical-align: top; }
 #search-box input { border: #5b5b5b 2px solid; width: auto; }
 #search-box button { padding: 2px 6px 3px; }
-
-/** Index Contact Form */
-#contact-form { background: #E3E4D9; margin: 5px -12.5% -10px; padding: 5px 12.5% 10px; }
-#contact-form fieldset { border: none; }
-#contact-form label { float: none; text-align: left; }
-#contact-form input, #contact-form textarea { width: 95%; }
-#contact-form textarea { height: 100px; }
 
 /** Login Form */
 #login-form { background: #E3E4D9; margin: 5px -12.5% -20px; padding: 20px 12.5% 10px; }

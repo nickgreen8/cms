@@ -7,10 +7,33 @@
 							{% if title %}<legend>{{ title }}</legend>{% endif %}
 							{% for field in fields %}
 							<div{% if field.required %} class="required"{% endif %}>
-								<label for="{{ field.name }}">{{ field.label }}</label>
+								<label for="{{ field.identifier }}">{{ field.label }}</label>
+								{% if field.type == "textarea" %}
+								<textarea id="{{ field.identifier }}" name="{{ field.identifier }}" title="{{ field.label }}"></textarea>
+								{% elseif field.type == "combobox" %}
+								<select id="{{ field.identifier }}" name="{{ field.identifier }}" title="{{ field.label }}">
+									<option value="null">&lt;Please select&gt;</option>
+									{% for option in field.options %}
+									<option value="option.value">{{ option.label }}</option>
+									{% endfor %}
+								</select>
+								{% elseif field.type == "radiogroup" %}
+								<p class="radio-group">
+									{% for button in field.options %}
+									<span><input type="radio" id="{{ field.identifier }}" name="{{ field.identifier }}" title="{{ field.label }} - {{ button.value }}" /> {{ button.label }}</span>
+									{% endfor %}
+								</p>
+								{% elseif field.type == "number" %}
+								<input type="{{ field.type }}" id="{{ field.identifier }}" name="{{ field.identifier }}" title="{{ field.label }}" min="{{ field.min }}" max="{{ field.max }}" value="{{ field.value }}" />
+								{% else %}
+								<input type="{{ field.type }}" id="{{ field.identifier }}" name="{{ field.identifier }}" title="{{ field.label }}" placeholder="{{ field.placeholder }}" />
+								{% endif %}
 							</div>
 							{% endfor %}
 						</fieldset>
+						{% for button in buttons %}
+						<button type="{{ button.type }}" id="{{ button.identifier }}" name="{{ button.identifier }}" title="{{ button.label }}">{{ button.label }}</button>
+						{% endfor %}
 					</form>
 				</div>
 			</article>
