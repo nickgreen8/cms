@@ -17,17 +17,18 @@ $config = json_decode(file_get_contents('./config/config.json'));
 $id = isset($_REQUEST['id']) ? $_REQUEST['id'] : 1;
 
 try {
-	//Initilise application
-	$bootstrap->run();
+    //Initilise application
+    $bootstrap->run();
 
-	//Populate the container
-	$container->populate($config);
+    //Populate the container
+    $container->populate($config);
 
-	//Build the page
-	$application->build($id);
-	echo $application->render();
+    //Build the page
+    $application->build($id);
+
+    echo $application->render();
 } catch (\Exception $e) {
-	echo $application->renderError($e);
+    echo $application->renderError($e);
 }
 
 //Close down processes

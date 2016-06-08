@@ -1,0 +1,16 @@
+			<article id="main">
+				<div class="row">
+					{{ content | raw }}
+
+					<form action="{{ action }}" method="{{ method }}" enctype="{{ enctype }}" id="{{ name|lower|replace({' ' : '-'}) }}">
+						<fieldset>
+							{% if title %}<legend>{{ title }}</legend>{% endif %}
+							{% for field in fields %}
+							<div{% if field.required %} class="required"{% endif %}>
+								<label for="{{ field.name }}">{{ field.label }}</label>
+							</div>
+							{% endfor %}
+						</fieldset>
+					</form>
+				</div>
+			</article>
