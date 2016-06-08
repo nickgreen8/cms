@@ -1,0 +1,18 @@
+			<article id="main">
+				<h1>{{ error.code }}</h1>
+				<h3>Oops, something seems to have gone wrong. This has been logged, please try again soon. If the issues persissts, please get in contact.</h3>
+				<p>{{ error.message }}</p>
+
+				{% if debug %}
+				<div id="debug">
+					<h5>Debug Info</h5>
+					<p>Error in {{ error.file }} on line {{ error.line }}</p>
+					<h4>Stacktrace</h4>
+					<ol>
+						{% for call in error.stacktrace %}
+						<li>{{ call }}</li>
+						{% endfor %}
+					</ol>
+					{% endif %}
+				</div>
+			</article>

@@ -1,14 +1,6 @@
 <?php
 namespace N8G\Grass\Display\Pages;
 
-use N8G\Database\Database,
-	N8G\Utils\Log,
-	N8G\Utils\Config,
-	N8G\Grass\Components\Html\Div,
-	N8G\Grass\Components\Html\Span,
-	N8G\Grass\Components\Html\Image,
-	N8G\Grass\Components\Html\Paragraph;
-
 /**
  * This class is used to build a post page. All relevant data will be parsed ready to
  * be inserted into the page template. This will then be requested from the page and
@@ -19,25 +11,12 @@ use N8G\Database\Database,
 class Post extends PageAbstract
 {
 	/**
-	 * Default constructor
-	 *
-	 * @param string     $id   Page ID
-	 * @param array|null $args Page arguments
+	 * The name of the template to import
+	 * @var string
 	 */
-	public function __construct($id, $args)
-	{
-		Log::notice('Post page created');
-
-		//Set the template name
-		$this->template = 'post';
-
-		//Call the parent constructor
-		parent::__construct($id, $args);
-	}
+	protected $template = 'post';
 
 // Public functions
-
-// Protected functions
 
 	/**
 	 * This function builds up the content for the page. Data is built into the page
@@ -45,10 +24,9 @@ class Post extends PageAbstract
 	 *
 	 * @return void
 	 */
-	protected function build()
+	public function build()
 	{
-		parent::build();
-
+		$this->container->get('logger')->info('Building page data');
 		//Get post data
 		$post = $this->getPostData($this->id);
 
@@ -59,7 +37,8 @@ class Post extends PageAbstract
 		$this->addPageComponent('heading', $post['title']);
 		$this->addPageComponent('author', $post['author']);
 		$this->addPageComponent('date', $post['date']);
-		$this->addPageComponent('rating', $this->formatRating($post['rating'], $post['ratingCount']));
+		$this->addPageComponent('rating', array('value' => $post['rating'], 'count' => $post['ratingCount']));
+		$this->addPageComponent('rating', array('value' => 3.25, 'count' => 16));
 		$this->addPageComponent('edited', $post['edited']);
 		$this->addPageComponent('editor', $post['editor']);
 		$this->addPageComponent('editTime', $post['editTime']);
@@ -68,11 +47,54 @@ class Post extends PageAbstract
 		$this->addPageComponent('content', $this->parseContent($post['content']));
 		$this->addPageComponent('parent', $post['page']);
 
+		//Set page identifiers in Config
+		$this->container->add('page-name', $post['title']);
+		$this->container->add('page-type', 'post');
+		$this->addPageComponent('theme', $this->container->get('config')->theme->active);
+
 		//Get page elements
 		$this->addPageComponent('monthFilter', $this->getMonthFilter($post['page']));
 		$this->addPageComponent('comments', $this->getComments($post['id']));
-		$this->addPageComponent('title', $this->buildTitle(array('type' => 'post', 'parent' => $post['page'], 'name' => $post['title'])));
+		$this->addPageComponent('settings', $this->container->get('theme')->getPageSettings('post'));
 	}
+
+	/**
+	 * This function builds the page title. This includes all parent pages as well as the site tag
+	 * line if it is the home page. The page data array is passed and the title as a string is
+	 * returned.
+	 *
+	 * @param  array  $data The page data pulled from the database
+	 * @return string       The fully formed page title
+	 */
+	public function buildTitle()
+	{
+		$this->container->get('logger')->info('Building post header');
+
+		//Get post data
+		$post = $this->getPostData($this->id);
+		//Get parent data
+		$data = $this->getPageData($post['page']);
+		//Create title array
+		$title = array($post['title']);
+
+		//Get parent
+		while ($data['parent'] !== null && (is_numeric($data['parent']) && $data['parent'] > 0)) {
+			//Add page name
+			array_unshift($title, $data['name']);
+			//Get parent data
+			$data = $this->getPageData($data['parent']);
+		}
+		//Add final parent
+		array_unshift($title, $data['name']);
+
+		//Prepend the site title
+		array_unshift($title, $this->container->get('config')->options->title);
+
+		//Return built title
+		return implode(sprintf(' %s ', $this->container->get('config')->options->titleSeperator), $title);
+	}
+
+// Protected functions
 
 // Private functions
 
@@ -83,7 +105,7 @@ class Post extends PageAbstract
 	 */
 	private function getMonthFilter($id)
 	{
-		return Database::execProcedure('GetMonthFilter', array('page' => $id));
+		return $this->container->get('db')->execProcedure('GetMonthFilter', array('page' => $id));
 	}
 
 	/**
@@ -94,7 +116,7 @@ class Post extends PageAbstract
 	private function getComments($id)
 	{
 		//Get the data
-		$data = Database::execProcedure('GetPostComments', array('post' => $id));
+		$data = $this->container->get('db')->execProcedure('GetPostComments', array('post' => $id));
 
 		//Format the data
 		foreach ($data as $key => $value) {
@@ -114,7 +136,7 @@ class Post extends PageAbstract
 	private function getPostData($id)
 	{
 		//Get the data
-		$data = Database::execProcedure('GetPostData', array('post' => $id));
+		$data = $this->container->get('db')->execProcedure('GetPostData', array('post' => $id));
 
 		//Format the data
 		$data[0]['content'] = $this->parseContent($data[0]['content']);
@@ -123,73 +145,6 @@ class Post extends PageAbstract
 		$data[0]['rating'] = $data[0]['rating'] === null ? '' : $data[0]['rating'];
 
 		return $data[0];
-	}
-
-	/**
-	 * This function is used to convert the rating of the post to HTML. This is checked against
-	 * the theme configuration and displayed as selected.
-	 *
-	 * @param  float   $rating The rating of the post
-	 * @param  integer $count  The count of ratings that have been made against the post
-	 * @return string          The HTML for the rating to be output as
-	 */
-	private function formatRating($rating, $count)
-	{
-		//Get the rating details
-		$setting = $this->theme->getPageSetting('post', 'rating');
-		//Look for the selected format
-		$format = $this->getSelectedOption($setting['options']);
-
-		//Check on format
-		if ($format === 'stars') {
-			//Format to stars
-			return $this->formatStars($rating, $count);
-		} else {
-			$p = new Paragraph(array(new Span('Rating: ', null, array(), array('class' => 'bold')), round($rating, 2), new Span(sprintf('(%d)', $count), 'ratingCount', array(), array('class' => 'half'))), null, array(), array('class' => 'rating'));
-			return $p->toHtml();
-		}
-	}
-
-	/**
-	 * This function converts the rating into stars. The rating is passed and the star rating is
-	 * returned as a div populated with images ready to be output.
-	 *
-	 * @param  float  $rating The post rating
-	 * @return string         The rating converted into HTML.
-	 */
-	private function formatStars($rating, $count)
-	{
-		//Get stars variables
-		$full = (int) floor($rating);
-		$half = round($rating - $full, 1) >= 0.5 ? true : false;
-
-		//Create HTML element
-		$div = new Div();
-		$div->addAttribute(array('class' => 'rating'));
-
-		//Build rating
-		for ($i = 0; $i < 5; $i++) {
-			//Checking for full
-			if ($i < $full) {
-				//Add full star
-				$div->addElement(new Image(null, array('src' => sprintf('%simages/fullStar.png', $this->theme->getDirectory()), 'alt' => 'fullStar')));
-			//Checking for half
-			} elseif ($half && $i === $full) {
-				//Add full half star
-				$div->addElement(new Image(null, array('src' => sprintf('%simages/halfStar.png', $this->theme->getDirectory()), 'alt' => 'halfStar')));
-				//Add empty half star
-				$div->addElement(new Image(null, array('src' => sprintf('%simages/emptyHalfStar.png', $this->theme->getDirectory()), 'alt' => 'halfEmptyStar')));
-			//Checking for empty
-			} elseif ($i >= $full) {
-				//Add empty star
-				$div->addElement(new Image(null, array('src' => sprintf('%simages/emptyFullStar.png', $this->theme->getDirectory()), 'alt' => 'emptyStar')));
-			}
-		}
-
-		//Add the count
-		$div->addElement(new Paragraph(sprintf('(%d)', $count), 'ratingCount', array(), array('class' => 'half')));
-		//Return HTML
-		return $div->toHtml();
 	}
 
 	/**

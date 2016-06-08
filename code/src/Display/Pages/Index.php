@@ -1,10 +1,6 @@
 <?php
 namespace N8G\Grass\Display\Pages;
 
-use N8G\Database\Database,
-	N8G\Utils\Log,
-	N8G\Utils\Config;
-
 /**
  * This class is used to build an index page. All relevant data will be parsed ready to
  * be inserted into the page template. This will then be requested from the page and
@@ -15,21 +11,10 @@ use N8G\Database\Database,
 class Index extends PageAbstract
 {
 	/**
-	 * Default constructor
-	 *
-	 * @param string     $id   Page ID
-	 * @param array|null $args Page arguments
+	 * The name of the template to import
+	 * @var string
 	 */
-	public function __construct($id, $args)
-	{
-		Log::notice('Index page created');
-
-		//Set the template name
-		$this->template = 'index';
-
-		//Call the parent constructor
-		parent::__construct($id, $args);
-	}
+	protected $template = 'index';
 
 // Public functions
 

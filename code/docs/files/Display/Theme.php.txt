@@ -7,7 +7,8 @@ use N8G\Grass\Components\Html\Script,
 	N8G\Grass\Exceptions\Display\ThemeException,
 	N8G\Database\Database,
 	N8G\Utils\Log,
-	N8G\Utils\Config;
+	N8G\Utils\Config,
+	N8G\Utils\Json;
 
 /**
  * This class is used to contain theme data. This will include the retreval
@@ -18,6 +19,11 @@ use N8G\Grass\Components\Html\Script,
  */
 class Theme
 {
+	/**
+	 * The instance of this class.
+	 * @var object
+	 */
+	private static $instance;
 	/**
 	 * The data retrieved from the theme.
 	 * @var array
@@ -38,6 +44,11 @@ class Theme
 	 * @var array
 	 */
 	private $script = array();
+	/**
+	 * Array of theme specific savings
+	 * @var array
+	 */
+	private $settings = array();
 
 	/**
 	 * This is the default constructor. One optional parameter is passed. This
@@ -46,7 +57,7 @@ class Theme
 	 *
 	 * @param string $name The name of the theme
 	 */
-	public function __construct($name = null)
+	private function __construct($name)
 	{
 		$this->path = ($name === null) ? Config::getItem('theme') : $name;
 
@@ -60,6 +71,21 @@ class Theme
 		$this->data['style'] = $this->getStyles();
 		$this->data['script'] = $this->getScript();
 	}
+
+//Public functions
+
+	public static function init($name = null)
+	{
+		//Check current state of the instance
+		if (self::$instance === null) {
+			//Create new instance
+			self::$instance = new self($name);
+		}
+		//Return single instance
+		return self::$instance;
+	}
+
+//Private functions
 
 	/**
 	 * This function is used to check that the theme set is valid. If not, the
@@ -81,6 +107,16 @@ class Theme
 // Getters
 
 	/**
+	 * This function is used to return the directory to the relevant theme.
+	 *
+	 * @return string The path to the theme
+	 */
+	public function getDirectory()
+	{
+		return str_replace(ROOT_DIR, './', ASSETS_DIR . $this->path);
+	}
+
+	/**
 	 * This function is used to return the path to the relevant theme.
 	 *
 	 * @return string The path to the theme
@@ -88,6 +124,90 @@ class Theme
 	public function getPath()
 	{
 		return $this->path;
+	}
+
+	/**
+	 * This function is used to return the data collected on instantiation.
+	 *
+	 * @return The theme data
+	 */
+	public function getHeadData()
+	{
+		return array(
+			'style'		=> $this->getStyles(),
+			'script'	=> $this->getScript()
+		);
+	}
+
+	/**
+	 * This function gets the settings for the pagetype related to the theme.
+	 *
+	 * @param  string|null $type null to just get the global theme settings of the page type for the page type settings
+	 * @return array             The array of settings from the config file
+	 */
+	public function getPageSettings($type)
+	{
+		//Get the settings for the page type
+		$settings = $this->getSettings($type);
+
+		//Format settings
+		foreach ($settings as $key => $value) {
+			//Check for embeded options/settings
+			if (is_array($value)) {
+				//Look for the option to be turned on
+				if (isset($value['on'])) {
+					$settings[$key] = $value['on'];
+				}
+			}
+		}
+
+		return $settings;
+	}
+
+	/**
+	 * This function gets a single setting for a specific page type. The type of page
+	 * is passed and the setting required. The setting will then be passed as either a
+	 * boolean value or an array.
+	 *
+	 * @param  string $type    The page type
+	 * @param  string $setting The single setting required
+	 * @return boolean|array   The single value for the setting or the array
+	 */
+	public function getPageSetting($type, $setting)
+	{
+		//Get the settings for the page type
+		$settings = $this->getSettings($type);
+		//Return the specific setting
+		return $settings[$setting];
+	}
+
+// Private functions
+
+	/**
+	 * This function gets the settings for the page or the overall theme.
+	 *
+	 * @param  string|null $type null to just get the global theme settings of the page type for the page type settings
+	 * @return array             The array of settings from the config file
+	 */
+	private function getSettings($type = null)
+	{
+		if (count($this->settings) > 0) {
+			return array_merge($this->getGlobalSettings(), ($type === null) ? array() : (isset($this->settings[$type]) && $this->settings[$type] !== null) ? $this->settings[$type] : array());
+		}
+
+		$path = ASSETS_DIR . $this->path . 'config.json';
+
+		//Check that the theme config exists
+		if (Json::fileExists($path)) {
+			//Get the data
+			$config = Json::readFile($path, true);
+			$this->settings = $config['settings'];
+
+			return array_merge($this->getGlobalSettings(), ($type === null) ? array() : (isset($this->settings[$type]) && $this->settings[$type] !== null) ? $this->settings[$type] : array());
+		}
+
+		//Return an empty settings array by default
+		return array();
 	}
 
 	/**
@@ -145,15 +265,25 @@ class Theme
 	}
 
 	/**
-	 * This function is used to return the data collected on instantiation.
+	 * This function just gets the global settings for the theme.
 	 *
-	 * @return The theme data
+	 * @return array The global settings for the theme
 	 */
-	public function getHeadData()
+	private function getGlobalSettings()
 	{
-		return array(
-			'style'		=> $this->getStyles(),
-			'script'	=> $this->getScript()
-		);
+		//Create return array
+		$settings = array();
+
+		//Loop though settings
+		foreach ($this->settings as $key => $value) {
+			//Check for page type
+			if (!is_array($value)) {
+				//Add to array
+				$settings[$key] = $value;
+			}
+		}
+
+		//Return global settings
+		return $settings;
 	}
 }

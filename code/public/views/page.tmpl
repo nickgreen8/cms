@@ -7,7 +7,7 @@
 
 		<title>{{ title }}</title>
 
-		<base href="{{ base_url }}">
+		<base href="{{ domain }}">
 
 		{% if favicon != null and favicon != '' %}
 		<link rel="shortcut icon" href="{{ favicon }}"/>
@@ -16,31 +16,24 @@
 		{% endif %}
 
 		{% for data in meta %}
-			{{ data | raw }}
+		{% if data.content != '' %}<meta name="{{ data.name }}" content="{{ data.content }}">{% endif %}
 		{% endfor %}
 
 		{% for sheet in style %}
-			{{ sheet | raw }}
+		<link rel="stylesheet" type="text/css" href="{{ sheet }}">
 		{% endfor %}
 
 		{% for class in script %}
-			{{ class | raw }}
+		<script type="text/javascript" src="{{ class }}"></script>
 		{% endfor %}
-
 		<script type="text/javascript"  src="public/js/cookies.js"></script>
 		<script type="text/javascript"  src="public/js/animate.js"></script>
 	</head>
-	<body id="{{ name|lower|replace({' ' : '-'}) }}" class="{{ type|lower|replace({' ' : '-'}) }}-page">
-		<section id="cookie_notice" class="hidden">
-			<p class="close"><span class="hideOnMobile hideOnTablet">x</span><span class="hideOnDesktop">close</span></p>
-			<h4>Cookie Policy</h4>
-			<p>To provide the best possible experiance, cookies are used by this website. Without the use of these cookies, the ability of this website to provide any services may be severly compromised. They are used only to manage your login session and for site analytic purposes.</p>
-			<p>By continuing to use this website you are agreeing to allow cookies to be used.</p>
-			<p><a href="/cookies-and-privacy">Click Here</a> to read more about cookies.</p>
-		</section>
 
+	<body id="{{ name|lower|replace({' ' : '-'}) }}" class="{{ type|lower|replace({' ' : '-'}) }}-page">
+		{% include "views/cookie-policy.tmpl" %}
 		<header>
-			{{ header | raw }}
+			{% include "themes/#{theme}/header.tmpl" with { 'navigation': headerNavigation, 'settings': settings } %}
 		</header>
 
 		<section id="body">
@@ -48,7 +41,7 @@
 		</section>
 
 		<footer>
-			{{ footer | raw }}
+			{% include "themes/#{theme}/footer.tmpl" with { 'navigation': footerNavigation, 'settings': settings } %}
 		</footer>
 	</body>
 </html>

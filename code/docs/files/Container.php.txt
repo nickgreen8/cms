@@ -1,0 +1,46 @@
+<?php
+namespace N8G\Grass;
+
+use N8G\Utils\Log;
+use N8G\Utils\Json;
+use N8G\Utils\Config;
+use N8G\Utils\ContainerAbstract;
+use N8G\DatabaseConnector\Database;
+
+/**
+ * Application container.
+ * This class will be the container that will hold all the utilities that are required throughout the application.
+ *
+ * @author Nick Green <nick-green@live.co.uk>
+ */
+final class Container extends ContainerAbstract
+{
+	/**
+	 * Populates the application container with all the utilities that are required.
+	 *
+	 * @param  array $config Array of configuration data
+	 * @return void
+	 */
+	public function populate($config = null)
+	{
+		if (isset($config['logging'])) {
+			//Create logger
+			$logger = new Log;
+			$logger->init(
+				$config['logging']['directory'],
+				$config['logging']['file'],
+				$config['logging']['level']
+			);
+			$this->add('logger', $logger);
+			$this->get('logger')->notice('Logger Initilised');
+		}
+
+		if (isset($config['database'])) {
+			//Create database connection
+			$database = new Database($this, 'mysql');
+			$database->connect($config['database']);
+			$this->get('logger')->notice('Database Connection Initilised');
+		}
+	}
+}
+

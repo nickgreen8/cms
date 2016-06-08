@@ -37,7 +37,7 @@ class Twig
 		Log::debug('Twig file system specified');
 
 		//Initialize Twig environment
-		$this->twig = new \Twig_Environment($loader/*, array('cache' => CACHE_DIR)*/);
+		$this->twig = DEBUG === true ? new \Twig_Environment($loader) : new \Twig_Environment($loader, array('cache' => CACHE_DIR));
 		Log::debug('Twig enviroment loaded');
 	}
 
@@ -90,6 +90,7 @@ class Twig
 	public function render($template, $data = array())
 	{
 		Log::notice('Rendering template');
+		Log::info(sprintf('Render Data: %s', json_encode($data)));
 
 		//Convert data to HTML
 		foreach ($data as $key => $value) {

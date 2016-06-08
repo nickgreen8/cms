@@ -1,0 +1,17 @@
+<!-- macros/navigation.html -->
+<!-- Holds all the macros related to navigation. This will include builds DOM elements as well as ensuring the -->
+<!-- output of data in the correct HTML format. -->
+
+<!-- Takes an array of links and iterates through them to produce a navigation tree that can be utilised in html. -->
+{% macro treeIterator(links) %}
+    <ul>
+        {% for link in links %}
+        <li>
+            <a href="{{ link.address }}" title="{{ link.label }}"{% if link.current %} class="current-page"{% endif %}>{{ link.label }}</a>
+            {% if link.children %}
+            {{ _self.navigationIterator(link.children) }}
+            {% endif %}
+        </li>
+        {% endfor %}
+    </ul>
+{% endmacro %}

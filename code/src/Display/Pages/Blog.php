@@ -1,10 +1,6 @@
 <?php
 namespace N8G\Grass\Display\Pages;
 
-use N8G\Database\Database,
-	N8G\Utils\Log,
-	N8G\Utils\Config;
-
 /**
  * This class is used to build a normal page. All relevant data will be parsed ready to
  * be inserted into the page template. This will then be requested from the page and
@@ -19,27 +15,13 @@ class Blog extends PageAbstract
 	 * @var array
 	 */
 	private $filters = array('month');
-
 	/**
-	 * Default constructor
-	 *
-	 * @param string     $id   Page ID
-	 * @param array|null $args Page arguments
+	 * The name of the template to import
+	 * @var string
 	 */
-	public function __construct($id, $args)
-	{
-		Log::notice('Blog page created');
-
-		//Set the template name
-		$this->template = 'blog';
-
-		//Call the parent constructor
-		parent::__construct($id, $args);
-	}
+	protected $template = 'blog';
 
 // Public functions
-
-// Protected functions
 
 	/**
 	 * This function builds up the content for the page. Data is built into the page
@@ -47,13 +29,14 @@ class Blog extends PageAbstract
 	 *
 	 * @return void
 	 */
-	protected function build()
+	public function build()
 	{
 		parent::build();
-
 		$this->addPageComponent('posts', $this->getPosts());
 		$this->addPageComponent('monthFilter', $this->getMonthFilter());
 	}
+
+// Protected functions
 
 // Private functions
 
@@ -65,14 +48,14 @@ class Blog extends PageAbstract
 	 */
 	private function getPosts()
 	{
-		Log::notice('Getting page posts');
+		$this->container->get('logger')->notice('Getting page posts');
 
 		//Get the page arguments
 		$args = $this->getArgs();
 
 		//Set procedure params
 		$params = array(
-			'page'		=> Config::getPageId(),
+			'page'		=> $this->container->get('page-id'),
 			'filter'	=> 'NULL'
 		);
 
@@ -81,10 +64,10 @@ class Blog extends PageAbstract
 			$params['filter'] = sprintf('%s', implode('-', $args));
 		}
 
-		Log::debug(sprintf('Arguments being passed to get posts: %s', json_encode($params)));
+		$this->container->get('logger')->debug(sprintf('Arguments being passed to get posts: %s', json_encode($params)));
 
 		//Get the data
-		$data = Database::execProcedure('GetPosts', $params);
+		$data = $this->container->get('db')->execProcedure('GetPosts', $params);
 
 		//Format the data
 		foreach ($data as $key => $value) {
@@ -106,7 +89,7 @@ class Blog extends PageAbstract
 	 */
 	private function getMonthFilter()
 	{
-		return Database::execProcedure('GetMonthFilter', array('page' => Config::getPageId()));
+		return $this->container->get('db')->execProcedure('GetMonthFilter', array('page' => $this->container->get('page-id')));
 	}
 
 	/**

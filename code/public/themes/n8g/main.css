@@ -187,7 +187,7 @@ input, textarea, button { border: 1px solid #8c8c8c; }
 
 /** Page specific styling */
 /** Post page */
-.post-page .row #post, .post-page .row #blog_sidebar { vertical-align: top; display: inline-block; }
+.post-page .col { vertical-align: top; display: inline-block; }
 .post-page .row #post { width: 73%; }
 .post-page .row #blog_sidebar { width: 25%; }
 .post-page #details h2 { margin-bottom: 0; padding-bottom: 0; }
@@ -202,6 +202,8 @@ input, textarea, button { border: 1px solid #8c8c8c; }
 	display: inline-block;
 	vertical-align: top;
 }
+.post-page #details .rating .halfFullStar { margin-right: -3px; }
+.post-page #details .rating .halfEmptyStar { margin-left: -3px; }
 .post-page #details .rating p { font-size: 0.85em; margin-top: 1.15em; }
 .post-page #comments .comment { margin-bottom: 15px; display: block; margin-left: auto; margin-right: auto; width: 80%; }
 .post-page #comments .comment p { margin: 0; padding: 0; }
@@ -215,9 +217,14 @@ input, textarea, button { border: 1px solid #8c8c8c; }
 /** Page specific styling */
 /** Home page */
 
-/** Page specific styling */
 /** Cookies page */
 #cookies table th { text-align: left; }
+
+/** Error page */
+.error-page article#main { text-align: center; }
+.error-page article#main h1 { font-size: 12.5em; margin: 3px; padding: 2px; }
+.error-page article#main h3 { font-weight: normal; }
+.error-page div#debug { text-align: left; font-size: 0.5em; }
 
 /** Custom components for the theme */
 /** Search */

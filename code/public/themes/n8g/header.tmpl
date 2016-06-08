@@ -1,8 +1,9 @@
+{% import "themes/macros/navigation.html" as nav %}
 			<img src="" alt="" class="header_img" />
 
 			<div id="navigation">
 				<nav id="main_nav">
-					{{ headerNavigation | raw }}
+					{{ nav.treeIterator(navigation) }}
 				</nav>
 
 				{% if settings.search == true %}
@@ -15,4 +16,8 @@
 					</form>
 				</div>
 				{% endif %}
+			</div>
+
+			<div id="big_img">
+				<img src="./public/themes/n8g/images/banner.jpg">
 			</div>

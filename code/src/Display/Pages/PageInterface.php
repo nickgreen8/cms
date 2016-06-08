@@ -23,4 +23,11 @@ interface PageInterface
 	 * @return array The data array
 	 */
 	public function getData();
+
+	/**
+	 * This function renders the page content. This will be the partial template that is specific for the page type.
+	 *
+	 * @return string The rendered page section to be injected.
+	 */
+	public function render();
 }

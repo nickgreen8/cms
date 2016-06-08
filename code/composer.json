@@ -21,8 +21,8 @@
 	],
 	"require": {
 		"php": ">=5.4.0",
-		"n8g/utils": ">=0.0.1",
-		"n8g/database-connector": ">=0.0.1",
+		"n8g/utils": ">=2.0.3",
+		"n8g/database-connector": ">=2.0.1",
 		"twig/twig": "~1.0",
 		"erusev/parsedown": "~1.5.0"
 	},
@@ -33,8 +33,7 @@
 	"autoload": {
 		"psr-4": {
 			"N8G\\Grass\\": "src/",
-			"Tests\\Unit\\": "tests/unit/",
-			"Tests\\Integration\\": "tests/integration/"
+			"Tests\\Unit\\": "tests/src/"
 		}
 	}
 }

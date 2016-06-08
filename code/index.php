@@ -1,35 +1,33 @@
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
 
-use Twig_\Twig\Loader\Filesystem,
-	Twig_\Twig\Environment,
-	N8G\Grass\Display\Output,
-	N8G\Grass\Bootstrap;
+use N8G\Grass\Bootstrap;
+use N8G\Grass\Container;
+use N8G\Grass\Application;
 
 //Initilise processes
-$bootstrap = new Bootstrap();
-$bootstrap->run();
+$container   = new Container;
+$bootstrap   = new Bootstrap($container);
+$application = new Application($container);
 
-//Define constants
-//Root of the application
-define('ROOT_DIR', __DIR__ . '/');
+//Get the config
+$config = json_decode(file_get_contents('./config/config.json'));
 
-//Key directories within the application
-define('ASSETS_DIR', ROOT_DIR . 'public/');
-define('CACHE_DIR', ROOT_DIR . 'cache/');
-
-define('VIEWS_DIR', 'views/');
-define('THEMES_DIR', 'themes/');
-
-//Define any application options
-define('DEBUG', true);
+//Get the id of the page requested
+$id = isset($_REQUEST['id']) ? $_REQUEST['id'] : 1;
 
 try {
-	//Inilise Page
-	$page = Output::init(isset($_REQUEST['id']) ? $_REQUEST['id'] : 1);
-	echo $page->render();
+	//Initilise application
+	$bootstrap->run();
+
+	//Populate the container
+	$container->populate($config);
+
+	//Build the page
+	$application->build($id);
+	echo $application->render();
 } catch (\Exception $e) {
-	echo sprintf('<p><strong>Message:</strong> %s</p><p><strong>File:</strong> %s</p><p><strong>Line No:</strong> #%s</p><p><strong>Trace String:</strong> %s</p>', htmlspecialchars($e->getMessage()), htmlspecialchars($e->getFile()), htmlspecialchars($e->getLine()), htmlspecialchars($e->getTraceAsString()));
+	echo $application->renderError($e);
 }
 
 //Close down processes
