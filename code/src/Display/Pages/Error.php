@@ -34,35 +34,45 @@ class Error extends PageAbstract
     {
         $this->container->get('logger')->debug('Building error page');
 
-        //Get the exception
-        $exception = $this->args['exception'];
+        //Check for exception
+        if (isset($this->args['exception'])) {
+            //Get the exception
+            $exception = $this->args['exception'];
 
-        //Create page data
-        $data['code']    = $exception->getCode();
-        $data['message'] = $exception->getMessage();
+            //Create page data
+            $data['code']    = $exception->getCode();
+            $data['message'] = $exception->getMessage();
 
-        //Check if the application is in debug mode
-        if (isset($this->container->get('config')->debug) && $this->container->get('config')->debug === true) {
-            $this->addPageComponent('debug', true);
-            $data['file']       = $exception->getFile();
-            $data['line']       = $exception->getLine();
-            $data['stacktrace'] = array();
+            //Set the code argument
+            $this->args['code'] = $exception->getCode();
 
-            //Build the stacktrace
-            foreach ($exception->getTrace() as $call) {
-                array_push(
-                    $data['stacktrace'],
-                    sprintf(
-                        '%s (%d) %s%s%s(%s)',
-                        str_replace('/Users/NickGreen/workspace/code/cms/code/src/', '', $call['file']),
-                        $call['line'],
-                        str_replace('N8G\Grass\\', '', $call['class']),
-                        $call['type'],
-                        $call['function'],
-                        implode(', ', $call['args'])
-                    )
-                );
+            //Check if the application is in debug mode
+            if (isset($this->container->get('config')->debug) && $this->container->get('config')->debug === true) {
+                $this->addPageComponent('debug', true);
+                $data['file']       = $exception->getFile();
+                $data['line']       = $exception->getLine();
+                $data['stacktrace'] = array();
+
+                //Build the stacktrace
+                foreach ($exception->getTrace() as $call) {
+                    array_push(
+                        $data['stacktrace'],
+                        sprintf(
+                            '%s (%d) %s%s%s(%s)',
+                            str_replace('/Users/NickGreen/workspace/code/cms/code/src/', '', $call['file']),
+                            $call['line'],
+                            str_replace('N8G\Grass\\', '', $call['class']),
+                            $call['type'],
+                            $call['function'],
+                            implode(', ', $call['args'])
+                        )
+                    );
+                }
             }
+        //Check for error code
+        } elseif (isset($this->args['code'])) {
+            //Create page data
+            $data['code'] = $this->args['code'];
         }
 
         //Add error to the data
@@ -86,7 +96,7 @@ class Error extends PageAbstract
             array(
                 $this->container->get('config')->options->title,
                 'Error',
-                $this->args['exception']->getCode()
+                $this->args['code']
             )
         );
     }

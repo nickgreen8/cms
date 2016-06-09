@@ -1,6 +1,7 @@
 {
 	"name": "N8G Grass CMS",
 	"description": "This is the default and first theme created for the framework.",
+	"screenshot": "",
 	"settings": {
 		"search": true,
 		"index": {

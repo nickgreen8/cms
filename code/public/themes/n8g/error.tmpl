@@ -1,6 +1,7 @@
+{% import "themes/macros/errors.html" as errors %}
 			<article id="main">
 				<h1>{{ error.code }}</h1>
-				<h3>Oops, something seems to have gone wrong. This has been logged, please try again soon. If the issues persissts, please get in contact.</h3>
+				{{ errors.getMessage(error.code) }}
 				<p>{{ error.message }}</p>
 
 				{% if debug %}

@@ -229,12 +229,26 @@ class Application
     {
         $this->container->get('logger')->debug(sprintf('Getting page type for page: %s', $id));
 
-        //Get the page type
-        $type = $this->getPageTypeData($id);
+        //Check concreate pages or get the type
+        switch ($id) {
+            case 'error':
+            case 'Error':
+                $type = array(
+                    'type'  =>  'error',
+                    'id'    =>  'Error',
+                    'args'  =>  array('code' => $args[1])
+                );
+                $this->container->add('page-name', 'Error');
+                $this->container->add('page-type', 'Error');
+                break;
 
-        //Check for child pages
-        $type = $this->checkChildPage($type, $id, $args);
+            default:
+                //Get the page type
+                $type = $this->getPageTypeData($id);
 
+                //Check for child pages
+                $type = $this->checkChildPage($type, $id, $args);
+        }
         $this->container->get('logger')->notice(sprintf('The page type is: %s', $type['type']));
 
         //Return page object

@@ -1,0 +1,14 @@
+<!-- macros/errors.html -->
+<!-- Holds the macros related to errors. The initial aim of this file is to map error codes to messages that will be -->
+<!-- output to the user -->
+
+<!-- Takes an error code and outputs the relevant message to the user in html. -->
+{% macro getMessage(code) %}
+    <h3>
+    {% if code == 404 %}
+    Hmm, the page you have requested could not be found. Please check the URL and try again.
+    {% else %}
+    Oops, something seems to have gone wrong. This has been logged, please try again soon. If the issues persists, please get in contact.
+    {% endif %}
+    </h3>
+{% endmacro %}
