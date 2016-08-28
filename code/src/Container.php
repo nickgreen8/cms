@@ -38,6 +38,9 @@ final class Container extends ContainerAbstract
      */
     public function populate($config = null)
     {
+        //Flags
+        $this->add('debug', isset($config->debug) ? $config->debug : false);
+
         //Utilities
         $this->add('json', new Json);
 
@@ -80,6 +83,7 @@ final class Container extends ContainerAbstract
         $this->add('page.index', new Index($this));
         $this->add('page.login', new Login($this));
 
+        //Setup the database
         if (isset($config->database)) {
             //Create database connection
             $database = new Database($this, 'mysql');
@@ -89,6 +93,13 @@ final class Container extends ContainerAbstract
 
             //Remove from config as no longer required
             unset($config->database);
+        }
+
+        //Debug mode
+        if ($this->get('debug')) {
+            error_reporting(E_ALL);
+        } else {
+            error_reporting(0);
         }
     }
 }

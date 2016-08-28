@@ -88,6 +88,9 @@ class Bootstrap
         //Check whether the error requires a specific exception to be thrown
         $this->errorMap($code, $message);
 
+        //Set the HTTP header
+        http_response_code($code);
+
         //Don't execute PHP's own error handler
         return true;
     }
@@ -196,29 +199,34 @@ class Bootstrap
      */
     private function errorMap($code, $message)
     {
-        //Check the message
-        switch ($message) {
+        $this->container->get('logger')->info('Checking for error map');
+
+        //Check the code
+        switch ($code) {
             case E_ERROR:
             case E_CORE_ERROR:
             case E_USER_ERROR:
             case E_STRICT:
             case E_DEPRECATED:
             case E_USER_DEPRECATED:
-                throw new \Exception($message, 500);
+                $this->container->get('logger')->success('Error map found. Processing...');
+                throw new \Exception($code, 500);
                 break;
 
             default:
-                $this->container->get('logger')->info('No error message map to be thrown.');
+                $this->container->get('logger')->debug('No error code map to be thrown.');
         }
 
-        //Check the code
-        switch ($code) {
+        //Check the message
+        switch ($message) {
             case 'mysqli::mysqli(): (HY000/2002): No such file or directory':
+                $this->container->get('logger')->success('Error map found. Processing...');
+                $this->container->get('logger')->debug('Database has not been started.');
                 throw new \Exception('No database could be found', 500);
                 break;
 
             default:
-                $this->container->get('logger')->info('No error code map to be thrown.');
+                $this->container->get('logger')->debug('No error message map to be thrown.');
         }
     }
 }

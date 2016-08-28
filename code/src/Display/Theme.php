@@ -44,6 +44,8 @@ class Theme
 	 */
 	public function checkForTheme()
 	{
+		$this->container->get('logger')->debug('Checking for theme.');
+
 		//Check that there is a directory
 		if (!is_dir($this->getDirectory())) {
 			throw new ThemeException('The directory could not be found.');
@@ -60,7 +62,7 @@ class Theme
 	public function getDirectory()
 	{
 		return sprintf(
-			'%s%s/',
+			'%s%s',
 			$this->container->get('config')->theme->directory,
 			$this->theme
 		);
@@ -109,6 +111,12 @@ class Theme
 	 */
 	public function getFiles($extentions, $path = '')
 	{
+		$this->container->get('logger')->debug(sprintf(
+			'Getting all %s files from %s',
+			is_array($extentions) ? implode(', ', $extentions) : $extentions,
+			sprintf('%s%s', $this->getDirectory(), $path)
+		));
+
 		//Create return array
 		$files = array();
 
@@ -116,7 +124,9 @@ class Theme
 		foreach (array_diff(scandir(sprintf('%s%s', $this->getDirectory(), $path)), array('.', '..')) as $file) {
 			//Check for file
 			if (preg_match(sprintf("/.(?:%s)$/", implode('|', $extentions)), $file)) {
-				array_push($files, sprintf('%s%s%s', $this->getDirectory(), $path, $file));
+				$file = sprintf('%s%s/%s', $this->getDirectory(), $path, $file);
+				$this->container->get('logger')->debug(sprintf('File found: %s', $file));
+				array_push($files, $file);
 			//Check for directory
 			} elseif (is_dir(sprintf('%s%s%s', $this->getDirectory(), $path, $file))) {
 				$files = array_merge(

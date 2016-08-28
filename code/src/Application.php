@@ -69,6 +69,15 @@ class Application
 
     public function renderError($exception)
     {
+        //Set the page theme just incase
+        $this->container->get('theme')->setTheme(
+            !isset($_GET['admin'])
+                ? is_null($this->container->get('config')->theme->active)
+                    ? $this->container->get('config')->theme->default
+                    : $this->container->get('config')->theme->active
+                : $this->container->get('config')->theme->admin
+        );
+
         //Reset the page
         $this->page = $this->container->get('page.error');
         $this->page->setArgs(array('exception' => $exception));
@@ -118,8 +127,6 @@ class Application
         );
         $this->data['language']         = $this->container->get('config')->options->language;
         $this->data['favicon']          = $this->container->get('config')->options->favicon;
-        $this->data['headerNavigation'] = $this->container->get('navigation')->buildNavHierachy();
-        $this->data['footerNavigation'] = $this->container->get('navigation')->buildNavHierachy(-1);
         $this->data['title']            = $this->page->buildTitle();
 
         if ($error) {
@@ -131,6 +138,12 @@ class Application
         } else {
             $this->data['name'] = $this->container->get('page-name');
             $this->data['type'] = $this->container->get('page-type');
+        }
+
+        //Only build the navigation if it is not an error
+        if (!$error) {
+            $this->data['headerNavigation'] = $this->container->get('navigation')->buildNavHierachy();
+            $this->data['footerNavigation'] = $this->container->get('navigation')->buildNavHierachy(-1);
         }
     }
 

@@ -32,7 +32,7 @@ class Error extends PageAbstract
      */
     public function build()
     {
-        $this->container->get('logger')->debug('Building error page');
+        $this->container->get('logger')->info('Building error page');
 
         //Check for exception
         if (isset($this->args['exception'])) {
@@ -59,12 +59,12 @@ class Error extends PageAbstract
                         $data['stacktrace'],
                         sprintf(
                             '%s (%d) %s%s%s(%s)',
-                            str_replace('/Users/NickGreen/workspace/code/cms/code/src/', '', $call['file']),
-                            $call['line'],
-                            str_replace('N8G\Grass\\', '', $call['class']),
-                            $call['type'],
+                            isset($call['file']) ? str_replace('/Users/NickGreen/workspace/code/cms/code/src/', '', $call['file']) : 'unknown',
+                            isset($call['line']) ? $call['line'] : 'unknown',
+                            isset($call['class']) ? str_replace('N8G\Grass\\', '', $call['class']) : 'unknown',
+                            isset($call['type']) ? $call['type'] : 'unknown',
                             $call['function'],
-                            implode(', ', $call['args'])
+                            $this->processArgsOutput($call['args'])
                         )
                     );
                 }
@@ -102,4 +102,27 @@ class Error extends PageAbstract
     }
 
 // Private functions
+
+    private function processArgsOutput($args)
+    {
+        //Check for args
+        if (!isset($args)) {
+            return '';
+        }
+
+        //Check that the args are an array
+        if (!is_array($args)) {
+            return $args;
+        }
+
+        //Format args array output
+        foreach ($args as $key => $value) {
+            if (is_array($value)) {
+                $args[$key] = 'array';
+            } elseif (is_object($value)) {
+                $args[$key] = 'object';
+            }
+        }
+        return implode(', ', $args);
+    }
 }
