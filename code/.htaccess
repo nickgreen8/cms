@@ -1,11 +1,14 @@
 Options +FollowSymLinks
 RewriteEngine On
 
+RewriteBase /
+
+# Check for admin access
 RewriteCond %{SCRIPT_FILENAME} !-d
 RewriteCond %{SCRIPT_FILENAME} !-f
-
-# Different actions for each page type
-
+RewriteRule ^admin(.*)$		index.php?admin=true&args=$1	[L]
 
 # Catch all rule for anything that is not caught
-RewriteRule ^(.*)$			./index.php?id=$1
+RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteCond %{SCRIPT_FILENAME} !-f
+RewriteRule ^(.*)$			index.php?id=$1					[L]

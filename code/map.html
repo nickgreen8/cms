@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Tourism in Stockholm</title>
+    <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
+
+      function initMap() {
+        var myMarkers = [
+          {lat: 59.325317, lng: 18.070883},
+          {lat: 59.323348, lng: 18.096321},
+          {lat: 59.323482, lng: 18.097543},
+          {lat: 59.329535, lng: 18.089558},
+          {lat: 59.326857, lng: 18.072098},
+          {lat: 59.293482, lng: 18.082885},
+          {lat: 59.317814, lng: 18.085916},
+          {lat: 59.313790, lng: 18.073280},
+          {lat: 59.326154, lng: 18.073747},
+          {lat: 59.328029, lng: 18.091622}
+        ];
+
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 13,
+          center: {lat: 59.316610, lng: 18.072377}
+        });
+
+        for (var i = 0; i < myMarkers.length; i++) {
+          var marker = new google.maps.Marker({
+            position: myMarkers[i],
+            map: map
+          });
+        }
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAZcLunxzEIY3p8HsnGB8xRHXEGjhryGCk&callback=initMap">
+    </script>
+  </body>
+</html>

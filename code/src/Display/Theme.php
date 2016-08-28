@@ -17,6 +17,11 @@ class Theme
 	 * @var object
 	 */
 	private $container;
+	/**
+	 * The theme to be utilised.
+	 * @var string
+	 */
+	private $theme;
 
 	/**
 	 * Default constructor.
@@ -57,7 +62,7 @@ class Theme
 		return sprintf(
 			'%s%s/',
 			$this->container->get('config')->theme->directory,
-			$this->container->get('config')->theme->active
+			$this->theme
 		);
 	}
 
@@ -109,21 +114,48 @@ class Theme
 
 		//Go through all files in the theme directory
 		foreach (array_diff(scandir(sprintf('%s%s', $this->getDirectory(), $path)), array('.', '..')) as $file) {
+			//Check for file
+			if (preg_match(sprintf("/.(?:%s)$/", implode('|', $extentions)), $file)) {
+				array_push($files, sprintf('%s%s%s', $this->getDirectory(), $path, $file));
 			//Check for directory
-			if (is_dir(sprintf('%s%s%s', $this->getDirectory(), $path, $file))) {
+			} elseif (is_dir(sprintf('%s%s%s', $this->getDirectory(), $path, $file))) {
 				$files = array_merge(
 					$this->getFiles($extentions, sprintf('%s%s/', $path, $file)),
 					$files
 				);
-			//Check for stylesheet
-			} elseif (preg_match(sprintf("/.(?:%s)$/", implode('|', $extentions)), $file)) {
-				array_push($files, sprintf('%s%s%s', $this->getDirectory(), $path, $file));
 			}
 		}
 
 		//Return the list of files
 		return $files;
 	}
+
+    /**
+     * Sets the the theme to be utilised.
+     *
+     * @param  string $theme the theme
+     * @return self
+     */
+    public function setTheme($theme)
+    {
+    	$this->container->get('logger')->notice(sprintf('Setting theme to: %s', $theme));
+        $this->theme = $theme;
+        return $this;
+    }
+
+    /**
+     * Gets the the theme to be utilised.
+     *
+     * @return string The theme to be utilised
+     */
+    public function getTheme()
+    {
+        return !isset($this->theme)
+			? is_null($this->container->get('config')->theme->active)
+				? $this->container->get('config')->theme->default
+				: $this->container->get('config')->theme->active
+			: $this->theme;
+    }
 
 // Private functions
 

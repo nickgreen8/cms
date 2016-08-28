@@ -112,7 +112,7 @@ section#body { height: 100%; }
 div.row { display: block; min-width: 100%; margin-bottom: 20px; }
 div.row > div.column { vertical-align: top; display: inline-block; }
 
-#big_img > img { width: 100%; height: auto; }
+#big-img > img { width: 100%; height: auto; }
 
 article#main { display: block; margin-right: 10%; margin-left: 10%; }
 

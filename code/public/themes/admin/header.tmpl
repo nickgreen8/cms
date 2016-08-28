@@ -2,17 +2,13 @@
 				<ul id="site-links">
 					<li><a href="/">Back to Site</a></li>
 					<li><a href="/admin">Admin Home</a></li>
-				</ul>
-
-				<ul id="user-menu">
 					<li>
-						{{ user.name }}
-						<ul>
-							<li><a href="/admin/user/">Profile</a></li>
-							<li><a href="/admin/user/">Settings</a></li>
+						<a href="/admin/user/profile">{{ user.name }}</a>
+						<ul id="user-menu">
+							<li><a href="/admin/user/profile">Profile</a></li>
+							<li><a href="/admin/user/settings">Settings</a></li>
 							<li><a href="/logout">Logout</a></li>
 						</ul>
-						}
 					</li>
 				</ul>
 			</nav>

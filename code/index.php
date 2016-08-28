@@ -23,10 +23,25 @@ try {
     //Populate the container
     $container->populate($config);
 
-    //Build the page
-    $application->build($id);
+	//Set up the page
+	//Set the theme
+	$container->get('theme')->setTheme(
+		!isset($_GET['admin'])
+			? is_null($container->get('config')->theme->active)
+				? $container->get('config')->theme->default
+				: $container->get('config')->theme->active
+			: $container->get('config')->theme->admin
+	);
 
-    echo $application->render();
+	//Check for admin page
+	if (isset($_GET['admin'])) {
+		echo $application->renderAdmin($_GET['args']);
+    } else {
+	    //Build the page
+    	$application->build($id);
+
+    	echo $application->render();
+    }
 } catch (\Exception $e) {
     echo $application->renderError($e);
 }

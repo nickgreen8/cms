@@ -82,14 +82,31 @@ class Application
         return $this->render();
     }
 
+    public function renderAdmin($args)
+    {
+        $this->container->get('logger')->notice('Rendering admin page');
+
+        //Set up the page
+        $this->page = $this->container->get('page.page');
+        $this->page->setId('Admin');
+        $this->page->setArgs(array_filter(explode('/', $args)));
+        $this->page->build();
+
+        //Add page data
+        $this->buildPageData(false, true);
+
+        //Render the page
+        return $this->render();
+    }
+
 // Private methods
 
-    private function buildPageData($error = false)
+    private function buildPageData($error = false, $admin = false)
     {
         $this->data['domain']           = $this->container->get('config')->options->url;
         $this->data['settings']         = $this->container->get('theme')->getPageSettings();
         $this->data['loggedIn']         = isset($_SESSION['ng_login']);
-        $this->data['theme']            = $this->container->get('config')->theme->active;
+        $this->data['theme']            = $this->container->get('theme')->getTheme();
         $this->data['themeDirectory']   = $this->container->get('theme')->getDirectory();
         $this->data['copyright']        = $this->container->get('config')->options->copyright;
         $this->data['meta']             = $this->getMetaData();
@@ -103,11 +120,14 @@ class Application
         $this->data['favicon']          = $this->container->get('config')->options->favicon;
         $this->data['headerNavigation'] = $this->container->get('navigation')->buildNavHierachy();
         $this->data['footerNavigation'] = $this->container->get('navigation')->buildNavHierachy(-1);
-        $this->data['title'] = $this->page->buildTitle();
+        $this->data['title']            = $this->page->buildTitle();
 
         if ($error) {
             $this->data['name'] = 'error';
             $this->data['type'] = 'error';
+        } elseif ($admin) {
+            $this->data['name'] = 'admin';
+            $this->data['type'] = 'admin';
         } else {
             $this->data['name'] = $this->container->get('page-name');
             $this->data['type'] = $this->container->get('page-type');

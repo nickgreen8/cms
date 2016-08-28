@@ -1,23 +1,75 @@
-			<article id="main">
-				<div id="sidebar" class="col">
-					<ul>
-						<li>
-							<a href="/admin/pages">Pages</a>
-							<ul>
-								<li><a href="/admin/pages/add-page">Add Page</a></li>
-							</ul>
-						</li>
-						<li>
-							<a href="/admin/users">Users</a>
-							<ul>
-								<li><a href="/admin/users/user-groups">User Groups</a></li>
-								<li><a href="/admin/users/access-rights">Access Rights</a></li>
-							</ul>
-						</li>
-						<li><a href="/admin/"></a></li>
-					</ul>
-				</div>
+            <article id="main">
+                <div class="row">
+                    <div id="sidebar" class="column">
+                        <ul>
+                            <li>
+                                <a href="/admin/site">The Site</a>
+                                <ul class="expanded">
+                                    <li><a href="/admin/site/accessibility">Accessibility</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="/admin/pages">Pages</a>
+                                <ul class="expanded">
+                                    <li><a href="/admin/pages/manage-pages">Manage Pages</a></li>
+                                    <li><a href="/admin/pages/add-page">Add Page</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="/admin/users">Users</a>
+                                <ul class="expanded">
+                                    <li><a href="/admin/users/user-groups">User Groups</a></li>
+                                    <li><a href="/admin/users/access-rights">Access Rights</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="/admin/display">Display</a>
+                                <ul class="expanded">
+                                    <li><a href="/admin/display/manage-themes">Manage Themes</a></li>
+                                    <li><a href="/admin/display/new-theme">New Theme</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="/admin/social-media">Social Media</a>
+                                <ul class="expanded">
+                                    <li><a href="/admin/social-media/manage">Manage</a></li>
+                                    <li><a href="/admin/social-media/post">Post</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="/admin/settings">Settings</a></li>
+                        </ul>
+                    </div>
 
-				<div id="panel" class="col">
-				</div>
-			</article>
+                    <div id="panel" class="column"></div>
+                        <!-- Proposed default view -->
+                        <!-- <div class="row" id="metrics">
+                            <h2>Site Metrics</h2>
+                        </div>
+
+                        <div class="row" id="activity">
+                            <h2>Activity Log</h2>
+
+                            <div class="column admin-info" id="personal-activity">
+                                <h3>Your Recent Activity</h3>
+                            </div>
+
+                            <div class="column admin-info" id="site-activity">
+                                <h3>Site Activity</h3>
+                            </div>
+
+                            <div class="column admin-info" id="social-activity">
+                                <h3>Social Media Activity</h3>
+                            </div>
+                        </div> -->
+
+                    <script type="text/javascript">
+                        // Call React.createFactory instead of directly call ExampleApplication({...}) in React.render
+                        var ApplicationFactory = React.createFactory(application);
+
+                        ReactDOM.render(
+                            ApplicationFactory(),
+                            document.getElementById('panel')
+                        );
+                    </script>
+                </div>
+            </article>

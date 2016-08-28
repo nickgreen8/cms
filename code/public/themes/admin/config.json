@@ -1,5 +1,6 @@
 {
 	"name": "N8G Grass CMS Admin",
 	"description": "This is the admin theme for the framework.",
-	"screenshot": ""
+	"screenshot": "",
+	"admin": true
 }

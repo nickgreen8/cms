@@ -1,0 +1,169 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'install', '-g', 'babel-cli' ]
+2 info using npm@1.4.3
+3 info using node@v0.10.26
+4 verbose cache add [ 'babel-cli', null ]
+5 verbose cache add name=undefined spec="babel-cli" args=["babel-cli",null]
+6 verbose parsed url { protocol: null,
+6 verbose parsed url   slashes: null,
+6 verbose parsed url   auth: null,
+6 verbose parsed url   host: null,
+6 verbose parsed url   port: null,
+6 verbose parsed url   hostname: null,
+6 verbose parsed url   hash: null,
+6 verbose parsed url   search: null,
+6 verbose parsed url   query: null,
+6 verbose parsed url   pathname: 'babel-cli',
+6 verbose parsed url   path: 'babel-cli',
+6 verbose parsed url   href: 'babel-cli' }
+7 silly lockFile a7787cd8-babel-cli babel-cli
+8 verbose lock babel-cli /Users/NickGreen/.npm/a7787cd8-babel-cli.lock
+9 silly lockFile a7787cd8-babel-cli babel-cli
+10 silly lockFile a7787cd8-babel-cli babel-cli
+11 verbose addNamed [ 'babel-cli', '' ]
+12 verbose addNamed [ null, '*' ]
+13 silly lockFile eb0cb740-babel-cli babel-cli@
+14 verbose lock babel-cli@ /Users/NickGreen/.npm/eb0cb740-babel-cli.lock
+15 silly addNameRange { name: 'babel-cli', range: '*', hasData: false }
+16 verbose url raw babel-cli
+17 verbose url resolving [ 'https://registry.npmjs.org/', './babel-cli' ]
+18 verbose url resolved https://registry.npmjs.org/babel-cli
+19 info trying registry request attempt 1 at 20:16:23
+20 verbose etag "47ZK2P75NNKL96YNZAGZBUIH9"
+21 http GET https://registry.npmjs.org/babel-cli
+22 http 304 https://registry.npmjs.org/babel-cli
+23 silly registry.get cb [ 304,
+23 silly registry.get   { date: 'Sun, 03 Jul 2016 19:15:53 GMT',
+23 silly registry.get     via: '1.1 varnish',
+23 silly registry.get     'cache-control': 'max-age=300',
+23 silly registry.get     etag: '"47ZK2P75NNKL96YNZAGZBUIH9"',
+23 silly registry.get     age: '101',
+23 silly registry.get     connection: 'keep-alive',
+23 silly registry.get     'x-served-by': 'cache-lhr6351-LHR',
+23 silly registry.get     'x-cache': 'HIT',
+23 silly registry.get     'x-cache-hits': '1',
+23 silly registry.get     'x-timer': 'S1467573353.540738,VS0,VE0',
+23 silly registry.get     vary: 'Accept-Encoding' } ]
+24 verbose etag babel-cli from cache
+25 silly addNameRange number 2 { name: 'babel-cli', range: '*', hasData: true }
+26 silly addNameRange versions [ 'babel-cli',
+26 silly addNameRange   [ '6.0.0',
+26 silly addNameRange     '6.0.2',
+26 silly addNameRange     '6.0.12',
+26 silly addNameRange     '6.0.14',
+26 silly addNameRange     '6.0.15',
+26 silly addNameRange     '6.1.0',
+26 silly addNameRange     '6.1.1',
+26 silly addNameRange     '6.1.2',
+26 silly addNameRange     '6.1.4',
+26 silly addNameRange     '6.1.5',
+26 silly addNameRange     '6.1.6',
+26 silly addNameRange     '6.1.7',
+26 silly addNameRange     '6.1.8',
+26 silly addNameRange     '6.1.9',
+26 silly addNameRange     '6.1.10',
+26 silly addNameRange     '6.1.11',
+26 silly addNameRange     '6.1.12',
+26 silly addNameRange     '6.1.13',
+26 silly addNameRange     '6.1.14',
+26 silly addNameRange     '6.1.15',
+26 silly addNameRange     '6.1.16',
+26 silly addNameRange     '6.1.17',
+26 silly addNameRange     '6.1.18',
+26 silly addNameRange     '6.2.0',
+26 silly addNameRange     '6.2.4',
+26 silly addNameRange     '6.3.13',
+26 silly addNameRange     '6.3.15',
+26 silly addNameRange     '6.3.17',
+26 silly addNameRange     '6.4.0',
+26 silly addNameRange     '6.4.5',
+26 silly addNameRange     '6.5.0',
+26 silly addNameRange     '6.5.0-1',
+26 silly addNameRange     '6.5.1',
+26 silly addNameRange     '6.6.0',
+26 silly addNameRange     '6.6.4',
+26 silly addNameRange     '6.6.5',
+26 silly addNameRange     '6.7.5',
+26 silly addNameRange     '6.7.7',
+26 silly addNameRange     '6.8.0',
+26 silly addNameRange     '6.9.0',
+26 silly addNameRange     '6.10.0',
+26 silly addNameRange     '6.10.1' ] ]
+27 verbose addNamed [ 'babel-cli', '6.10.1' ]
+28 verbose addNamed [ '6.10.1', '6.10.1' ]
+29 silly lockFile 0d71cfb5-babel-cli-6-10-1 babel-cli@6.10.1
+30 verbose lock babel-cli@6.10.1 /Users/NickGreen/.npm/0d71cfb5-babel-cli-6-10-1.lock
+31 silly lockFile 0d71cfb5-babel-cli-6-10-1 babel-cli@6.10.1
+32 silly lockFile 0d71cfb5-babel-cli-6-10-1 babel-cli@6.10.1
+33 silly lockFile eb0cb740-babel-cli babel-cli@
+34 silly lockFile eb0cb740-babel-cli babel-cli@
+35 silly resolved [ { name: 'babel-cli',
+35 silly resolved     version: '6.10.1',
+35 silly resolved     description: 'Babel command line.',
+35 silly resolved     author: { name: 'Sebastian McKenzie', email: 'sebmck@gmail.com' },
+35 silly resolved     homepage: 'https://babeljs.io/',
+35 silly resolved     license: 'MIT',
+35 silly resolved     repository:
+35 silly resolved      { type: 'git',
+35 silly resolved        url: 'https://github.com/babel/babel/tree/master/packages/babel-cli' },
+35 silly resolved     dependencies:
+35 silly resolved      { 'babel-core': '^6.9.0',
+35 silly resolved        'babel-register': '^6.9.0',
+35 silly resolved        'babel-polyfill': '^6.9.0',
+35 silly resolved        'babel-runtime': '^6.9.0',
+35 silly resolved        'bin-version-check': '^2.1.0',
+35 silly resolved        chalk: '1.1.1',
+35 silly resolved        commander: '^2.8.1',
+35 silly resolved        'convert-source-map': '^1.1.0',
+35 silly resolved        'fs-readdir-recursive': '^0.1.0',
+35 silly resolved        glob: '^5.0.5',
+35 silly resolved        lodash: '^4.2.0',
+35 silly resolved        'log-symbols': '^1.0.2',
+35 silly resolved        'output-file-sync': '^1.1.0',
+35 silly resolved        'path-exists': '^1.0.0',
+35 silly resolved        'path-is-absolute': '^1.0.0',
+35 silly resolved        request: '^2.65.0',
+35 silly resolved        slash: '^1.0.0',
+35 silly resolved        'source-map': '^0.5.0',
+35 silly resolved        v8flags: '^2.0.10',
+35 silly resolved        chokidar: '^1.0.0' },
+35 silly resolved     optionalDependencies: { chokidar: '^1.0.0' },
+35 silly resolved     devDependencies: { 'babel-helper-fixtures': '^6.9.0' },
+35 silly resolved     bin:
+35 silly resolved      { 'babel-doctor': './bin/babel-doctor.js',
+35 silly resolved        babel: './bin/babel.js',
+35 silly resolved        'babel-node': './bin/babel-node.js',
+35 silly resolved        'babel-external-helpers': './bin/babel-external-helpers.js' },
+35 silly resolved     readme: '# babel-cli\n\n> Babel command line.\n\n## Install\n\n```sh\n$ npm install babel-cli\n```\n\n## Usage \n\n```sh\n$ babel script.js\n```\n\nFor more in depth documentation see: http://babeljs.io/docs/usage/cli/\n',
+35 silly resolved     readmeFilename: 'README.md',
+35 silly resolved     _id: 'babel-cli@6.10.1',
+35 silly resolved     _from: 'babel-cli@' } ]
+36 info install babel-cli@6.10.1 into /usr/local/lib
+37 info installOne babel-cli@6.10.1
+38 info /usr/local/lib/node_modules/babel-cli unbuild
+39 info preuninstall babel-cli@6.10.1
+40 info uninstall babel-cli@6.10.1
+41 verbose true,/usr/local/lib/node_modules,/usr/local/lib/node_modules unbuild babel-cli@6.10.1
+42 verbose /usr/local/bin,[object Object] binRoot
+43 info /usr/local/lib/node_modules/babel-cli unbuild
+44 info preuninstall babel-cli@6.10.1
+45 info uninstall babel-cli@6.10.1
+46 verbose true,/usr/local/lib/node_modules,/usr/local/lib/node_modules unbuild babel-cli@6.10.1
+47 verbose /usr/local/bin,[object Object] binRoot
+48 error error rolling back Error: Refusing to delete: /usr/local/bin/babel not in /usr/local/lib/node_modules/babel-cli
+48 error error rolling back     at clobberFail (/usr/local/lib/node_modules/npm/lib/utils/gently-rm.js:57:12)
+48 error error rolling back     at next (/usr/local/lib/node_modules/npm/lib/utils/gently-rm.js:43:14)
+48 error error rolling back     at /usr/local/lib/node_modules/npm/lib/utils/gently-rm.js:52:12
+48 error error rolling back     at Object.oncomplete (fs.js:107:15)
+48 error error rolling back  babel-cli@6.10.1 { [Error: Refusing to delete: /usr/local/bin/babel not in /usr/local/lib/node_modules/babel-cli] code: 'EEXIST', path: '/usr/local/bin/babel' }
+49 error Refusing to delete: /usr/local/bin/babel not in /usr/local/lib/node_modules/babel-cli
+File exists: /usr/local/bin/babel
+Move it away, and try again.
+50 error System Darwin 15.5.0
+51 error command "node" "/usr/local/bin/npm" "install" "-g" "babel-cli"
+52 error cwd /Users/NickGreen/workspace/code/cms/code
+53 error node -v v0.10.26
+54 error npm -v 1.4.3
+55 error path /usr/local/bin/babel
+56 error code EEXIST
+57 verbose exit [ 1, true ]

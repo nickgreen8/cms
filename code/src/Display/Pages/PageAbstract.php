@@ -178,7 +178,7 @@ abstract class PageAbstract implements PageInterface
 		//Load the template
 		$template = $this->container->get('twig')->loadTemplate(sprintf(
 			'themes/%s/%s.tmpl',
-			$this->container->get('config')->theme->active,
+			$this->container->get('theme')->getTheme(),
 			$this->getTemplateName()
 		));
 
@@ -282,6 +282,6 @@ abstract class PageAbstract implements PageInterface
 	{
 		//Get the data from the DB
 		$data = $this->container->get('db')->execProcedure('GetPageData', array('page' => $id));
-		return $data[0];
+		return isset($data[0]) ? $data[0] : null;
 	}
 }
